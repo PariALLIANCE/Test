@@ -102,15 +102,10 @@
             --history-date-text: var(--primary-color);
             --card-bg: var(--secondary-color);
             --card-accent: var(--primary-color);
-            --card-transition: all 0.3s ease;
-            --face-transition: transform 0.6s ease;
-            
-            /* High-tech mode variables */
-            --circuit-color: #00ffff;
-            --neon-glow: #00ffff;
-            --tech-bg: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-            --tech-secondary: #16213e;
-            --tech-border: #00d4ff;
+            --card-transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+            --card-glow: rgba(93, 92, 222, 0.3);
+            --circuit-color: var(--primary-color);
+            --tech-glow: var(--primary-color);
         }
         
         /* Thème vert */
@@ -130,6 +125,9 @@
             --history-date-bg: rgba(76, 175, 80, 0.1);
             --history-date-text: #4CAF50;
             --card-accent: #4CAF50;
+            --card-glow: rgba(76, 175, 80, 0.3);
+            --circuit-color: #4CAF50;
+            --tech-glow: #4CAF50;
         }
         
         /* Thème rouge */
@@ -149,6 +147,9 @@
             --history-date-bg: rgba(244, 67, 54, 0.1);
             --history-date-text: #F44336;
             --card-accent: #F44336;
+            --card-glow: rgba(244, 67, 54, 0.3);
+            --circuit-color: #F44336;
+            --tech-glow: #F44336;
         }
         
         /* Thème orange */
@@ -168,156 +169,34 @@
             --history-date-bg: rgba(255, 152, 0, 0.1);
             --history-date-text: #FF9800;
             --card-accent: #FF9800;
-        }
-
-        /* Nouveau thème rouge-rose */
-        .theme-red-pink {
-            --primary-color: #E91E63;
-            --chat-sent-bg: linear-gradient(135deg, #F44336, #E91E63);
-            --selection-color: rgba(233, 30, 99, 0.3);
-            --admin-badge-bg: linear-gradient(135deg, #F44336, #E91E63);
-            --reply-preview-bg: rgba(233, 30, 99, 0.1);
-            --reply-preview-border: #E91E63;
-            --reply-quote-bg: rgba(233, 30, 99, 0.15);
-            --reply-quote-border: #E91E63;
-            --download-btn-bg: linear-gradient(135deg, #F44336, #E91E63);
-            --new-badge-bg: linear-gradient(135deg, #F44336, #E91E63);
-            --image-message-bg: rgba(233, 30, 99, 0.1);
-            --selected-message-border: rgba(233, 30, 99, 0.7);
-            --history-date-bg: rgba(233, 30, 99, 0.1);
-            --history-date-text: #E91E63;
-            --card-accent: #E91E63;
-        }
-
-        /* Nouveau thème vert-jaune */
-        .theme-green-yellow {
-            --primary-color: #8BC34A;
-            --chat-sent-bg: linear-gradient(135deg, #4CAF50, #CDDC39);
-            --selection-color: rgba(139, 195, 74, 0.3);
-            --admin-badge-bg: linear-gradient(135deg, #4CAF50, #CDDC39);
-            --reply-preview-bg: rgba(139, 195, 74, 0.1);
-            --reply-preview-border: #8BC34A;
-            --reply-quote-bg: rgba(139, 195, 74, 0.15);
-            --reply-quote-border: #8BC34A;
-            --download-btn-bg: linear-gradient(135deg, #4CAF50, #CDDC39);
-            --new-badge-bg: linear-gradient(135deg, #4CAF50, #CDDC39);
-            --image-message-bg: rgba(139, 195, 74, 0.1);
-            --selected-message-border: rgba(139, 195, 74, 0.7);
-            --history-date-bg: rgba(139, 195, 74, 0.1);
-            --history-date-text: #8BC34A;
-            --card-accent: #8BC34A;
-        }
-
-        /* Nouveau thème bleu-violet */
-        .theme-blue-purple {
-            --primary-color: #673AB7;
-            --chat-sent-bg: linear-gradient(135deg, #2196F3, #9C27B0);
-            --selection-color: rgba(103, 58, 183, 0.3);
-            --admin-badge-bg: linear-gradient(135deg, #2196F3, #9C27B0);
-            --reply-preview-bg: rgba(103, 58, 183, 0.1);
-            --reply-preview-border: #673AB7;
-            --reply-quote-bg: rgba(103, 58, 183, 0.15);
-            --reply-quote-border: #673AB7;
-            --download-btn-bg: linear-gradient(135deg, #2196F3, #9C27B0);
-            --new-badge-bg: linear-gradient(135deg, #2196F3, #9C27B0);
-            --image-message-bg: rgba(103, 58, 183, 0.1);
-            --selected-message-border: rgba(103, 58, 183, 0.7);
-            --history-date-bg: rgba(103, 58, 183, 0.1);
-            --history-date-text: #673AB7;
-            --card-accent: #673AB7;
-        }
-
-        /* Nouveau thème orange-doré */
-        .theme-orange-gold {
-            --primary-color: #FF8F00;
-            --chat-sent-bg: linear-gradient(135deg, #FF9800, #FFC107);
-            --selection-color: rgba(255, 143, 0, 0.3);
-            --admin-badge-bg: linear-gradient(135deg, #FF9800, #FFC107);
-            --reply-preview-bg: rgba(255, 143, 0, 0.1);
-            --reply-preview-border: #FF8F00;
-            --reply-quote-bg: rgba(255, 143, 0, 0.15);
-            --reply-quote-border: #FF8F00;
-            --download-btn-bg: linear-gradient(135deg, #FF9800, #FFC107);
-            --new-badge-bg: linear-gradient(135deg, #FF9800, #FFC107);
-            --image-message-bg: rgba(255, 143, 0, 0.1);
-            --selected-message-border: rgba(255, 143, 0, 0.7);
-            --history-date-bg: rgba(255, 143, 0, 0.1);
-            --history-date-text: #FF8F00;
-            --card-accent: #FF8F00;
-        }
-
-        /* Nouveaux thèmes */
-        .theme-purple {
-            --primary-color: #9C27B0;
-            --card-accent: #9C27B0;
-        }
-
-        .theme-teal {
-            --primary-color: #009688;
-            --card-accent: #009688;
-        }
-
-        .theme-indigo {
-            --primary-color: #3F51B5;
-            --card-accent: #3F51B5;
-        }
-
-        .theme-pink {
-            --primary-color: #E91E63;
-            --card-accent: #E91E63;
-        }
-
-        .theme-cyan {
-            --primary-color: #00BCD4;
-            --card-accent: #00BCD4;
-        }
-
-        .theme-lime {
-            --primary-color: #CDDC39;
-            --card-accent: #CDDC39;
-        }
-
-        .theme-amber {
-            --primary-color: #FFC107;
-            --card-accent: #FFC107;
-        }
-
-        .theme-deep-orange {
-            --primary-color: #FF5722;
-            --card-accent: #FF5722;
+            --card-glow: rgba(255, 152, 0, 0.3);
+            --circuit-color: #FF9800;
+            --tech-glow: #FF9800;
         }
 
         /* Mode High-Tech */
-        .mode-hightech {
+        .mode-high-tech {
             --bg-color: #0a0a0a;
-            --text-color: #00ffff;
-            --secondary-color: #1a1a2e;
-            --border-color: #00d4ff;
-            --card-bg: var(--tech-bg);
-            --primary-color: #00ffff;
-            --card-accent: var(--circuit-color);
-            --input-bg: #16213e;
-            --input-placeholder: #4da3d9;
-            --success-color: #00ff88;
-            --danger-color: #ff3366;
-            --warning-text: #ffcc00;
-            --inactive-text: #4da3d9;
-            --side-menu-bg: #0a0a0a;
-            --side-menu-active: #1a1a2e;
-            --event-bg: #16213e;
-            --event-border: #00d4ff;
+            --text-color: #00ff88;
+            --secondary-color: #1a1a1a;
+            --border-color: #333333;
+            --card-bg: #111111;
+            --circuit-color: #00ff88;
+            --tech-glow: #00ff88;
+            --card-glow: rgba(0, 255, 136, 0.3);
+            --input-bg: #1a1a1a;
+            --primary-color: #00ff88;
         }
 
-        /* Mode High-Tech avec circuits */
-        .mode-hightech .forecast-item {
+        .mode-high-tech .forecast-item {
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid var(--circuit-color);
+            box-shadow: 0 0 20px var(--card-glow);
             position: relative;
-            background: var(--tech-bg);
-            border: 2px solid var(--tech-border);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
             overflow: hidden;
         }
 
-        .mode-hightech .forecast-item::before {
+        .mode-high-tech .forecast-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -325,76 +204,40 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 2px, transparent 2px),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 2px, transparent 2px),
-                linear-gradient(90deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%),
-                linear-gradient(0deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%);
-            background-size: 30px 30px, 30px 30px, 100% 30px, 30px 100%;
-            animation: circuitPulse 3s ease-in-out infinite;
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(0, 255, 136, 0.05) 50%, transparent 60%);
             pointer-events: none;
             z-index: 1;
         }
 
-        .mode-hightech .forecast-face {
-            background: rgba(16, 33, 62, 0.9);
-            backdrop-filter: blur(10px);
+        .mode-high-tech .forecast-item::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 98px,
+                    rgba(0, 255, 136, 0.1) 100px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 98px,
+                    rgba(0, 255, 136, 0.1) 100px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mode-high-tech .forecast-face {
             position: relative;
             z-index: 2;
-        }
-
-        .mode-hightech .forecast-item:hover {
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        @keyframes circuitPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Styles de transition pour les cartes */
-        .face-transition-smooth {
-            --face-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .face-transition-bounce {
-            --face-transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .face-transition-elastic {
-            --face-transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .face-transition-fast {
-            --face-transition: transform 0.2s ease-out;
-        }
-
-        .face-transition-slow {
-            --face-transition: transform 1s ease-in-out;
-        }
-
-        /* Styles de couleur pour les cartes */
-        .card-style-gradient .forecast-item {
-            background: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.1));
-        }
-
-        .card-style-glass .forecast-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .card-style-shadow .forecast-item {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        .card-style-neon .forecast-item {
-            border: 2px solid var(--card-accent);
-            box-shadow: 0 0 20px rgba(93, 92, 222, 0.3);
-        }
-
-        .mode-hightech.card-style-neon .forecast-item {
-            box-shadow: 0 0 30px var(--neon-glow);
         }
         
         .dark {
@@ -487,7 +330,7 @@
             overflow: hidden;
             font-weight: 500;
             letter-spacing: -0.2px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .side-menu {
@@ -498,7 +341,7 @@
             width: 250px;
             background-color: var(--side-menu-bg);
             z-index: 1000;
-            transition: left 0.3s ease, background-color 0.3s ease;
+            transition: left 0.3s ease;
             box-shadow: 2px 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
@@ -540,15 +383,10 @@
             display: flex;
             align-items: center;
             cursor: pointer;
-            transition: background-color 0.2s ease;
         }
         
         .side-menu-item.active {
             background-color: var(--side-menu-active);
-        }
-        
-        .side-menu-item:hover {
-            background-color: var(--side-menu-hover);
         }
         
         .side-menu-item i {
@@ -853,7 +691,6 @@
             right: 0;
             overflow: hidden;
             background-color: var(--bg-color);
-            transition: background-color 0.3s ease;
         }
         
         .content.no-bottom-nav {
@@ -871,7 +708,6 @@
             display: flex;
             z-index: 10;
             box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
         }
         
         .nav-item {
@@ -886,7 +722,6 @@
             height: 100%;
             padding: 8px 0;
             position: relative;
-            transition: color 0.2s ease;
         }
         
         .nav-item.active {
@@ -2047,7 +1882,7 @@
             min-height: 100%;
         }
         
-        /* Système de cartes avec 4 faces amélioré */
+        /* Amélioration du système de cartes avec 4 faces */
         .forecast-item {
             background-color: var(--card-bg);
             border-radius: 15px;
@@ -2066,13 +1901,42 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
+        /* Card Style: Standard */
+        .card-style-standard .forecast-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Card Style: Gradient */
+        .card-style-gradient .forecast-item {
+            background: linear-gradient(135deg, var(--card-bg), rgba(var(--card-accent), 0.1));
+        }
+
+        /* Card Style: Glass */
+        .card-style-glass .forecast-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Style: Shadow */
+        .card-style-shadow .forecast-item {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Card Style: Neon */
+        .card-style-neon .forecast-item {
+            border: 2px solid var(--card-accent);
+            box-shadow: 0 0 20px var(--card-glow);
+        }
+
         .forecast-card-container {
             position: relative;
             width: 100%;
             height: 100%;
             min-height: 350px;
             transform-style: preserve-3d;
-            transition: var(--face-transition);
+            transition: var(--card-transition);
         }
 
         .forecast-card-container.show-details {
@@ -2191,8 +2055,8 @@
             line-height: 1.2;
         }
         
-        .forecast-score {
-            font-size: 24px;
+        .forecast-vs {
+            font-size: 18px;
             font-weight: bold;
             padding: 0 20px;
             display: flex;
@@ -2951,58 +2815,6 @@
         .theme-option.theme-orange {
             background: linear-gradient(135deg, #FF9800, #f57c00);
         }
-
-        .theme-option.theme-red-pink {
-            background: linear-gradient(135deg, #F44336, #E91E63);
-        }
-
-        .theme-option.theme-green-yellow {
-            background: linear-gradient(135deg, #4CAF50, #CDDC39);
-        }
-
-        .theme-option.theme-blue-purple {
-            background: linear-gradient(135deg, #2196F3, #9C27B0);
-        }
-
-        .theme-option.theme-orange-gold {
-            background: linear-gradient(135deg, #FF9800, #FFC107);
-        }
-
-        .theme-option.theme-purple {
-            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-        }
-
-        .theme-option.theme-teal {
-            background: linear-gradient(135deg, #009688, #00695C);
-        }
-
-        .theme-option.theme-indigo {
-            background: linear-gradient(135deg, #3F51B5, #303F9F);
-        }
-
-        .theme-option.theme-pink {
-            background: linear-gradient(135deg, #E91E63, #C2185B);
-        }
-
-        .theme-option.theme-cyan {
-            background: linear-gradient(135deg, #00BCD4, #0097A7);
-        }
-
-        .theme-option.theme-lime {
-            background: linear-gradient(135deg, #CDDC39, #AFB42B);
-        }
-
-        .theme-option.theme-amber {
-            background: linear-gradient(135deg, #FFC107, #FF8F00);
-        }
-
-        .theme-option.theme-deep-orange {
-            background: linear-gradient(135deg, #FF5722, #D84315);
-        }
-
-        .theme-option.theme-hightech {
-            background: linear-gradient(135deg, #0a0a0a, #00ffff);
-        }
         
         .theme-label {
             margin-top: 8px;
@@ -3014,14 +2826,71 @@
             opacity: 0.8;
         }
 
-        .face-transition-selector {
+        .mode-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .mode-option {
+            height: 80px;
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid var(--theme-selector-border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .mode-option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .mode-option.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
+            transform: scale(1.1);
+        }
+
+        .mode-option.mode-normal {
+            background: linear-gradient(135deg, #ffffff, #f0f2f5);
+            color: #333333;
+        }
+
+        .mode-option.mode-dark {
+            background: linear-gradient(135deg, #181818, #2c2c2c);
+            color: #ffffff;
+        }
+
+        .mode-option.mode-high-tech {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #00ff88;
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .mode-label {
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .transition-selector {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin: 15px 0;
         }
 
-        .face-transition-option {
+        .transition-option {
             padding: 12px;
             border-radius: 8px;
             border: 2px solid var(--theme-selector-border);
@@ -3033,12 +2902,12 @@
             background-color: var(--bg-color);
         }
 
-        .face-transition-option:hover {
+        .transition-option:hover {
             border-color: var(--primary-color);
             background-color: rgba(var(--primary-color), 0.05);
         }
 
-        .face-transition-option.active {
+        .transition-option.active {
             border-color: var(--primary-color);
             background-color: rgba(var(--primary-color), 0.1);
             color: var(--primary-color);
@@ -3072,49 +2941,6 @@
             border-color: var(--primary-color);
             background-color: rgba(var(--primary-color), 0.1);
             color: var(--primary-color);
-        }
-
-        /* Mode selector */
-        .mode-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .mode-option {
-            padding: 15px 10px;
-            border-radius: 12px;
-            border: 2px solid var(--theme-selector-border);
-            cursor: pointer;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            background-color: var(--bg-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mode-option:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        .mode-option.active {
-            border-color: var(--primary-color);
-            background-color: rgba(var(--primary-color), 0.1);
-            color: var(--primary-color);
-        }
-
-        .mode-option.mode-hightech {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-            color: #00ffff;
-            border-color: #00d4ff;
-        }
-
-        .mode-option.mode-hightech.active {
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
         }
 
         /* Subscription Section Styles */
@@ -3949,7 +3775,6 @@
     <div id="loading" class="loading" style="display: none;">
         <i class="fas fa-futbol loading-spinner"></i>
         <div style="font-weight: bold; font-size: 24px; color: var(--primary-color);">Chargement...</div>
-        <div style="margin-top: 10px; color: #6b7280;">Initialisation de l'application</div>
     </div>
 
     <div class="header">
@@ -4158,24 +3983,24 @@
                 <div class="interface-sections">
                     <div class="interface-section">
                         <div class="interface-title">
-                            <i class="fas fa-eye"></i>
+                            <i class="fas fa-desktop"></i>
                             Mode d'affichage
                         </div>
                         <div class="interface-subtitle">
-                            Choisissez entre le mode classique, sombre ou high-tech futuriste
+                            Choisissez entre le mode normal, sombre ou high-tech pour personnaliser votre expérience
                         </div>
                         <div class="mode-selector">
-                            <div class="mode-option active" data-mode="default">
+                            <div class="mode-option mode-normal active" data-mode="normal">
                                 <i class="fas fa-sun" style="font-size: 20px; margin-bottom: 5px;"></i>
-                                <div>Classique</div>
+                                <div class="mode-label">Normal</div>
                             </div>
-                            <div class="mode-option" data-mode="dark">
+                            <div class="mode-option mode-dark" data-mode="dark">
                                 <i class="fas fa-moon" style="font-size: 20px; margin-bottom: 5px;"></i>
-                                <div>Sombre</div>
+                                <div class="mode-label">Sombre</div>
                             </div>
-                            <div class="mode-option mode-hightech" data-mode="hightech">
+                            <div class="mode-option mode-high-tech" data-mode="high-tech">
                                 <i class="fas fa-microchip" style="font-size: 20px; margin-bottom: 5px;"></i>
-                                <div>High-Tech</div>
+                                <div class="mode-label">High-Tech</div>
                             </div>
                         </div>
                     </div>
@@ -4201,70 +4026,28 @@
                             <div class="theme-option theme-orange" data-theme="orange">
                                 <div class="theme-label">Orange</div>
                             </div>
-                            <div class="theme-option theme-red-pink" data-theme="red-pink">
-                                <div class="theme-label">Rouge-Rose</div>
-                            </div>
-                            <div class="theme-option theme-green-yellow" data-theme="green-yellow">
-                                <div class="theme-label">Vert-Jaune</div>
-                            </div>
-                            <div class="theme-option theme-blue-purple" data-theme="blue-purple">
-                                <div class="theme-label">Bleu-Violet</div>
-                            </div>
-                            <div class="theme-option theme-orange-gold" data-theme="orange-gold">
-                                <div class="theme-label">Orange-Doré</div>
-                            </div>
-                            <div class="theme-option theme-purple" data-theme="purple">
-                                <div class="theme-label">Violet</div>
-                            </div>
-                            <div class="theme-option theme-teal" data-theme="teal">
-                                <div class="theme-label">Turquoise</div>
-                            </div>
-                            <div class="theme-option theme-indigo" data-theme="indigo">
-                                <div class="theme-label">Indigo</div>
-                            </div>
-                            <div class="theme-option theme-pink" data-theme="pink">
-                                <div class="theme-label">Rose</div>
-                            </div>
-                            <div class="theme-option theme-cyan" data-theme="cyan">
-                                <div class="theme-label">Cyan</div>
-                            </div>
-                            <div class="theme-option theme-lime" data-theme="lime">
-                                <div class="theme-label">Lime</div>
-                            </div>
-                            <div class="theme-option theme-amber" data-theme="amber">
-                                <div class="theme-label">Ambre</div>
-                            </div>
-                            <div class="theme-option theme-deep-orange" data-theme="deep-orange">
-                                <div class="theme-label">Orange Foncé</div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="interface-section">
                         <div class="interface-title">
-                            <i class="fas fa-sync-alt"></i>
+                            <i class="fas fa-exchange-alt"></i>
                             Transition entre faces
                         </div>
                         <div class="interface-subtitle">
-                            Choisissez le style de transition lors du changement de face des cartes
+                            Configurez la vitesse et le style de transition entre les faces des cartes
                         </div>
-                        <div class="face-transition-selector">
-                            <div class="face-transition-option active" data-face-transition="default">
-                                Standard
-                            </div>
-                            <div class="face-transition-option" data-face-transition="smooth">
+                        <div class="transition-selector">
+                            <div class="transition-option active" data-transition="0.6s cubic-bezier(0.4, 0.0, 0.2, 1)">
                                 Fluide
                             </div>
-                            <div class="face-transition-option" data-face-transition="bounce">
+                            <div class="transition-option" data-transition="0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)">
                                 Rebond
                             </div>
-                            <div class="face-transition-option" data-face-transition="elastic">
-                                Élastique
-                            </div>
-                            <div class="face-transition-option" data-face-transition="fast">
+                            <div class="transition-option" data-transition="0.4s ease-out">
                                 Rapide
                             </div>
-                            <div class="face-transition-option" data-face-transition="slow">
+                            <div class="transition-option" data-transition="1.2s ease-in-out">
                                 Lent
                             </div>
                         </div>
@@ -4279,7 +4062,7 @@
                             Personnalisez l'apparence des cartes de pronostics
                         </div>
                         <div class="card-style-selector">
-                            <div class="card-style-option active" data-style="default">
+                            <div class="card-style-option active" data-style="standard">
                                 Standard
                             </div>
                             <div class="card-style-option" data-style="gradient">
@@ -5173,7 +4956,7 @@
         let currentUser = null;
         let currentUserData = null;
         let isAdmin = false;
-        let currentSection = 'forecasts'; // Section par défaut changée à 'forecasts'
+        let currentSection = 'forecasts';
         let isOnline = navigator.onLine;
         let eventsUnsubscribe = null;
         let profileImageFile = null;
@@ -5187,9 +4970,8 @@
         let isSearchActive = false;
         let currentSearchContext = '';
         let selectedTheme = localStorage.getItem('parisAllianceTheme') || 'default';
-        let selectedFaceTransition = localStorage.getItem('parisAllianceFaceTransition') || 'default';
-        let selectedCardStyle = localStorage.getItem('parisAllianceCardStyle') || 'default';
-        let selectedMode = localStorage.getItem('parisAllianceMode') || 'default';
+        let selectedCardStyle = localStorage.getItem('parisAllianceCardStyle') || 'standard';
+        let selectedMode = localStorage.getItem('parisAllianceMode') || 'normal';
         let forecastsCache = {};
         let usersCache = {};
         let userSatsBalance = 0;
@@ -5436,7 +5218,7 @@
         }
 
         function setupTheme() {
-            const themeClasses = ['theme-green', 'theme-red', 'theme-orange', 'theme-red-pink', 'theme-green-yellow', 'theme-blue-purple', 'theme-orange-gold', 'theme-purple', 'theme-teal', 'theme-indigo', 'theme-pink', 'theme-cyan', 'theme-lime', 'theme-amber', 'theme-deep-orange'];
+            const themeClasses = ['theme-green', 'theme-red', 'theme-orange'];
             
             document.documentElement.classList.remove(...themeClasses);
             
@@ -5455,14 +5237,14 @@
         }
 
         function setupMode() {
-            const modeClasses = ['mode-hightech'];
+            const modeClasses = ['mode-high-tech'];
             
             document.documentElement.classList.remove(...modeClasses, 'dark');
             
             if (selectedMode === 'dark') {
                 document.documentElement.classList.add('dark');
-            } else if (selectedMode === 'hightech') {
-                document.documentElement.classList.add('mode-hightech');
+            } else if (selectedMode === 'high-tech') {
+                document.documentElement.classList.add('mode-high-tech');
             }
             
             document.querySelectorAll('.mode-option').forEach(option => {
@@ -5475,31 +5257,12 @@
             }
         }
 
-        function setupFaceTransitions() {
-            const transitionClasses = ['face-transition-smooth', 'face-transition-bounce', 'face-transition-elastic', 'face-transition-fast', 'face-transition-slow'];
-            
-            document.documentElement.classList.remove(...transitionClasses);
-            
-            if (selectedFaceTransition !== 'default') {
-                document.documentElement.classList.add(`face-transition-${selectedFaceTransition}`);
-            }
-            
-            document.querySelectorAll('.face-transition-option').forEach(option => {
-                option.classList.remove('active');
-            });
-            
-            const activeFaceTransitionOption = document.querySelector(`.face-transition-option[data-face-transition="${selectedFaceTransition}"]`);
-            if (activeFaceTransitionOption) {
-                activeFaceTransitionOption.classList.add('active');
-            }
-        }
-
         function setupCardStyles() {
             const cardStyleClasses = ['card-style-gradient', 'card-style-glass', 'card-style-shadow', 'card-style-neon'];
             
             document.documentElement.classList.remove(...cardStyleClasses);
             
-            if (selectedCardStyle !== 'default') {
+            if (selectedCardStyle !== 'standard') {
                 document.documentElement.classList.add(`card-style-${selectedCardStyle}`);
             }
             
@@ -5882,16 +5645,29 @@
                     const mode = this.getAttribute('data-mode');
                     selectedMode = mode;
                     
-                    setupMode();
+                    const modeClasses = ['mode-high-tech'];
+                    document.documentElement.classList.remove(...modeClasses, 'dark');
+                    
+                    if (mode === 'dark') {
+                        document.documentElement.classList.add('dark');
+                    } else if (mode === 'high-tech') {
+                        document.documentElement.classList.add('mode-high-tech');
+                    }
+                    
+                    document.querySelectorAll('.mode-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
                     localStorage.setItem('parisAllianceMode', mode);
                     
                     const modeNames = {
-                        'default': 'Classique',
+                        'normal': 'Normal',
                         'dark': 'Sombre',
-                        'hightech': 'High-Tech'
+                        'high-tech': 'High-Tech'
                     };
                     
-                    showNotification(`Mode ${modeNames[mode]} appliqué`, 'success');
+                    showNotification(`Mode ${modeNames[mode]} activé`, 'success');
                 });
             });
             
@@ -5900,7 +5676,7 @@
                     const theme = this.getAttribute('data-theme');
                     selectedTheme = theme;
                     
-                    const themeClasses = ['theme-green', 'theme-red', 'theme-orange', 'theme-red-pink', 'theme-green-yellow', 'theme-blue-purple', 'theme-orange-gold', 'theme-purple', 'theme-teal', 'theme-indigo', 'theme-pink', 'theme-cyan', 'theme-lime', 'theme-amber', 'theme-deep-orange'];
+                    const themeClasses = ['theme-green', 'theme-red', 'theme-orange'];
                     document.documentElement.classList.remove(...themeClasses);
                     
                     if (theme !== 'default') {
@@ -5918,55 +5694,29 @@
                         'default': 'Bleu',
                         'green': 'Vert',
                         'red': 'Rouge',
-                        'orange': 'Orange',
-                        'red-pink': 'Rouge-Rose',
-                        'green-yellow': 'Vert-Jaune',
-                        'blue-purple': 'Bleu-Violet',
-                        'orange-gold': 'Orange-Doré',
-                        'purple': 'Violet',
-                        'teal': 'Turquoise',
-                        'indigo': 'Indigo',
-                        'pink': 'Rose',
-                        'cyan': 'Cyan',
-                        'lime': 'Lime',
-                        'amber': 'Ambre',
-                        'deep-orange': 'Orange Foncé'
+                        'orange': 'Orange'
                     };
                     
                     showNotification(`Thème ${themeNames[theme]} appliqué`, 'success');
                 });
             });
 
-            // Face transition selector events
-            document.querySelectorAll('.face-transition-option').forEach(option => {
+            // Transition selector events
+            document.querySelectorAll('.transition-option').forEach(option => {
                 option.addEventListener('click', function() {
-                    const transition = this.getAttribute('data-face-transition');
-                    selectedFaceTransition = transition;
+                    const transition = this.getAttribute('data-transition');
                     
-                    const transitionClasses = ['face-transition-smooth', 'face-transition-bounce', 'face-transition-elastic', 'face-transition-fast', 'face-transition-slow'];
-                    document.documentElement.classList.remove(...transitionClasses);
+                    // Apply the transition directly to CSS variable
+                    document.documentElement.style.setProperty('--card-transition', transition);
                     
-                    if (transition !== 'default') {
-                        document.documentElement.classList.add(`face-transition-${transition}`);
-                    }
-                    
-                    document.querySelectorAll('.face-transition-option').forEach(opt => {
+                    document.querySelectorAll('.transition-option').forEach(opt => {
                         opt.classList.remove('active');
                     });
                     this.classList.add('active');
                     
-                    localStorage.setItem('parisAllianceFaceTransition', transition);
+                    localStorage.setItem('parisAllianceTransition', transition);
                     
-                    const transitionNames = {
-                        'default': 'Standard',
-                        'smooth': 'Fluide',
-                        'bounce': 'Rebond',
-                        'elastic': 'Élastique',
-                        'fast': 'Rapide',
-                        'slow': 'Lent'
-                    };
-                    
-                    showNotification(`Transition ${transitionNames[transition]} appliquée`, 'success');
+                    showNotification('Transition mise à jour', 'success');
                 });
             });
 
@@ -5979,7 +5729,7 @@
                     const cardStyleClasses = ['card-style-gradient', 'card-style-glass', 'card-style-shadow', 'card-style-neon'];
                     document.documentElement.classList.remove(...cardStyleClasses);
                     
-                    if (style !== 'default') {
+                    if (style !== 'standard') {
                         document.documentElement.classList.add(`card-style-${style}`);
                     }
                     
@@ -5991,7 +5741,7 @@
                     localStorage.setItem('parisAllianceCardStyle', style);
                     
                     const styleNames = {
-                        'default': 'Standard',
+                        'standard': 'Standard',
                         'gradient': 'Dégradé',
                         'glass': 'Verre',
                         'shadow': 'Ombre',
@@ -6588,7 +6338,410 @@
             document.getElementById('bottom-nav').style.display = 'none';
             document.querySelector('.content').classList.add('no-bottom-nav');
             
+            setupTheme();
+            setupMode();
+            setupCardStyles();
+            
+            // Load saved transition
+            const savedTransition = localStorage.getItem('parisAllianceTransition');
+            if (savedTransition) {
+                document.documentElement.style.setProperty('--card-transition', savedTransition);
+                document.querySelectorAll('.transition-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-transition') === savedTransition) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+            
             history.pushState({ page: 'interface' }, '');
+        }
+        
+        async function loadForecastsData(tabType) {
+            if (forecastsCache[tabType]) {
+                displayForecastsFromCache(tabType);
+                return;
+            }
+            
+            let listElement;
+            if (currentSection === 'ai-forecasts') {
+                listElement = document.getElementById(`${tabType}-list`);
+            } else {
+                listElement = document.getElementById('simple-forecasts-list');
+            }
+            
+            if (!listElement) return;
+            
+            listElement.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--primary-color);"></i>
+                    <div style="margin-top: 10px; font-weight: bold;">Chargement des pronostics...</div>
+                </div>
+            `;
+            
+            try {
+                // Fetch forecasts from GitHub
+                const githubData = await fetchForecastsFromGitHub(getCurrentDateString());
+                
+                if (!githubData) {
+                    listElement.innerHTML = `
+                        <div class="no-forecasts">
+                            <i class="fas fa-calendar-day"></i>
+                            <div class="empty-state-title">Aucune prédiction fiable pour cette section</div>
+                            <div class="empty-state-text">Aucun pronostic disponible pour aujourd'hui (${getCurrentDateString()})</div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Process and categorize the data
+                const processedData = processForecastData(githubData);
+                
+                // Cache the processed data
+                Object.keys(processedData).forEach(type => {
+                    forecastsCache[type] = processedData[type];
+                });
+                
+                if (currentSection === 'ai-forecasts') {
+                    displayForecastsFromCache(tabType);
+                } else {
+                    displayForecastsFromCache('simple');
+                }
+                
+            } catch (error) {
+                addDebugLog(`Erreur chargement pronostics: ${error.message}`, 'error');
+                listElement.innerHTML = `
+                    <div class="no-forecasts">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div class="empty-state-title">Aucune prédiction fiable pour cette section</div>
+                        <div class="empty-state-text">Impossible de charger les pronostics depuis GitHub</div>
+                    </div>
+                `;
+            }
+        }
+        
+        function displayForecastsFromCache(tabType) {
+            let listElement;
+            if (currentSection === 'ai-forecasts') {
+                listElement = document.getElementById(`${tabType}-list`);
+            } else {
+                listElement = document.getElementById('simple-forecasts-list');
+            }
+            
+            if (!listElement || !forecastsCache[tabType]) return;
+            
+            listElement.innerHTML = '';
+            
+            const forecasts = forecastsCache[tabType];
+            
+            if (forecasts.length === 0) {
+                listElement.innerHTML = `
+                    <div class="no-forecasts">
+                        <i class="fas fa-futbol"></i>
+                        <div class="empty-state-title">Aucune prédiction fiable pour cette section</div>
+                        <div class="empty-state-text">Aucun pronostic disponible pour cette catégorie</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            const fragment = document.createDocumentFragment();
+            
+            forecasts.forEach((forecastData) => {
+                const forecastElement = createForecastElement(forecastData, tabType);
+                fragment.appendChild(forecastElement);
+            });
+            
+            listElement.appendChild(fragment);
+        }
+        
+        function createForecastElement(forecastData, type) {
+            const forecastElement = document.createElement('div');
+            forecastElement.className = 'forecast-item';
+            
+            let statusClass = 'pending';
+            let statusText = 'À venir';
+            
+            if (forecastData.status === 'win') {
+                statusClass = 'win';
+                statusText = 'Gagné';
+            } else if (forecastData.status === 'loss') {
+                statusClass = 'loss';
+                statusText = 'Perdu';
+            }
+            
+            let formattedDate = 'Aujourd\'hui';
+            try {
+                if (forecastData.date) {
+                    const matchDate = new Date(forecastData.date);
+                    const today = new Date();
+                    const diffTime = Math.abs(matchDate - today);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    
+                    if (diffDays === 0) {
+                        formattedDate = 'Aujourd\'hui';
+                    } else if (diffDays === 1) {
+                        formattedDate = 'Demain';
+                    } else {
+                        formattedDate = matchDate.toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'short'
+                        });
+                    }
+                }
+            } catch (e) {
+                formattedDate = 'Date inconnue';
+            }
+            
+            if (type === 'combines') {
+                // Combiné layout
+                forecastElement.innerHTML = `
+                    <div class="forecast-card-container">
+                        <!-- Face 1: Front -->
+                        <div class="forecast-face forecast-front">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold; font-size: 16px;">${forecastData.name || 'Combiné IA'}</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <div style="text-align: center; margin: 20px 0;">
+                                    <div style="font-size: 24px; font-weight: bold; color: var(--card-accent); margin-bottom: 10px;">
+                                        ${forecastData.matches ? forecastData.matches.length : 0} Matchs
+                                    </div>
+                                    <div style="font-size: 14px; opacity: 0.8;">
+                                        ${forecastData.description || 'Combiné intelligent basé sur l\'IA'}
+                                    </div>
+                                </div>
+                                
+                                ${forecastData.estimated_odds ? `
+                                    <div class="estimated-odds">
+                                        Cote estimée: ${forecastData.estimated_odds}
+                                    </div>
+                                ` : ''}
+                            </div>
+                            
+                            <div class="forecast-confidence">
+                                <span>Confiance</span>
+                                <div class="confidence-bar-container">
+                                    <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
+                                </div>
+                                <span>${forecastData.confidence || 0}%</span>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 2: Details -->
+                        <div class="forecast-face forecast-details">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Détails du combiné</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div class="combined-matches">
+                                <div class="combined-matches-title">Matchs inclus (${forecastData.matches ? forecastData.matches.length : 0})</div>
+                                ${forecastData.matches ? forecastData.matches.map(match => `
+                                    <div class="match-detail">
+                                        <div class="match-name">${match.HomeTeam || 'Équipe 1'} vs ${match.AwayTeam || 'Équipe 2'}</div>
+                                        <div class="match-prediction">${match.prediction || 'N/A'}</div>
+                                        <div class="match-confidence">Confiance: ${match.confidence || 'N/A'}%</div>
+                                    </div>
+                                `).join('') : '<div>Aucun détail disponible</div>'}
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 3: Empty for combined forecasts -->
+                        <div class="forecast-face forecast-probabilities">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Informations supplémentaires</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                <i class="fas fa-brain" style="font-size: 48px; color: var(--card-accent); margin-bottom: 20px;"></i>
+                                <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Combiné IA Avancé</div>
+                                <div style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
+                                    Ce combiné a été généré par notre intelligence artificielle en analysant des milliers de données pour optimiser les chances de réussite.
+                                </div>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 4: Empty for combined forecasts -->
+                        <div class="forecast-face forecast-scores">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Analyse technique</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                <div style="background-color: rgba(0,0,0,0.05); border-radius: 10px; padding: 20px; margin: 10px 0;">
+                                    <div style="font-weight: bold; margin-bottom: 15px; color: var(--card-accent);">Métadonnées du combiné</div>
+                                    <div style="font-size: 14px; margin-bottom: 8px;">Taille: ${forecastData.size || 'N/A'} matchs</div>
+                                    <div style="font-size: 14px; margin-bottom: 8px;">Type: Combiné intelligent</div>
+                                    <div style="font-size: 14px;">Algorithme: IA Premium</div>
+                                </div>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Navigation indicators -->
+                        <div class="face-indicator">
+                            <div class="face-dot active"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                        </div>
+                        
+                        <div class="swipe-instruction">Glissez ou tapez</div>
+                    </div>
+                `;
+            } else {
+                // Single match layout
+                forecastElement.innerHTML = `
+                    <div class="forecast-card-container">
+                        <!-- Face 1: Front -->
+                        <div class="forecast-face forecast-front">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">${forecastData.league || 'Compétition'}</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div class="forecast-match">
+                            <div class="forecast-team">
+                                    <div class="forecast-team-logo">
+                                        <i class="fas fa-futbol" style="color: var(--card-accent);"></i>
+                                    </div>
+                                    <div class="forecast-team-name">${forecastData.HomeTeam || 'Équipe 1'}</div>
+                                </div>
+                                
+                                <div class="forecast-vs">VS</div>
+                                
+                                <div class="forecast-team">
+                                    <div class="forecast-team-logo">
+                                        <i class="fas fa-futbol" style="color: var(--card-accent);"></i>
+                                    </div>
+                                    <div class="forecast-team-name">${forecastData.AwayTeam || 'Équipe 2'}</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; margin: 15px 0;">
+                                <div style="font-size: 18px; font-weight: bold; color: var(--card-accent);">
+                                    ${forecastData.prediction || 'Prédiction'}
+                                </div>
+                            </div>
+                            
+                            <div class="forecast-confidence">
+                                <span>Confiance</span>
+                                <div class="confidence-bar-container">
+                                    <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
+                                </div>
+                                <span>${forecastData.confidence || 0}%</span>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate} • ${forecastData.country || 'Pays'}</div>
+                        </div>
+                        
+                        <!-- Face 2: Details -->
+                        <div class="forecast-face forecast-details">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Analyse détaillée</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div class="forecast-description">
+                                <strong>Match:</strong> ${forecastData.HomeTeam || 'Équipe 1'} vs ${forecastData.AwayTeam || 'Équipe 2'}<br>
+                                <strong>Prédiction:</strong> ${forecastData.prediction || 'N/A'}<br>
+                                <strong>Compétition:</strong> ${forecastData.league || 'N/A'}<br>
+                                <strong>Pays:</strong> ${forecastData.country || 'N/A'}<br>
+                                <strong>Confiance:</strong> ${forecastData.confidence || 0}%
+                            </div>
+                            
+                            ${forecastData.score_prediction ? `
+                                <div style="background-color: rgba(0,0,0,0.05); border-radius: 8px; padding: 15px; margin: 15px 0;">
+                                    <div style="font-weight: bold; margin-bottom: 8px; color: var(--card-accent);">Score prédit</div>
+                                    <div style="font-size: 18px; font-weight: bold; text-align: center;">
+                                        ${forecastData.score_prediction}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 3: Probabilities -->
+                        <div class="forecast-face forecast-probabilities">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Probabilités Poisson</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            ${forecastData.poisson_probabilities ? `
+                                <div class="poisson-probabilities">
+                                    <div class="poisson-title">Analyse statistique</div>
+                                    ${Object.entries(forecastData.poisson_probabilities).map(([key, value]) => `
+                                        <div class="poisson-row">
+                                            <span>${key.replace('_', ' ')}</span>
+                                            <span>${(value * 100).toFixed(1)}%</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : `
+                                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                    <i class="fas fa-chart-line" style="font-size: 48px; color: var(--card-accent); margin-bottom: 15px;"></i>
+                                    <div style="font-size: 14px; opacity: 0.8;">Données statistiques non disponibles</div>
+                                </div>
+                            `}
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 4: Top Scores -->
+                        <div class="forecast-face forecast-scores">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Scores probables</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            ${forecastData.poisson_top_scores ? `
+                                <div class="exact-scores-section">
+                                    <div class="exact-scores-title">Top scores prédits</div>
+                                    ${Object.entries(forecastData.poisson_top_scores).map(([score, probability]) => `
+                                        <div class="exact-score-item">
+                                            <div class="exact-score-match">${score}</div>
+                                            <div class="exact-score-probability">${(probability * 100).toFixed(1)}%</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : `
+                                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                    <i class="fas fa-calculator" style="font-size: 48px; color: var(--card-accent); margin-bottom: 15px;"></i>
+                                    <div style="font-size: 14px; opacity: 0.8;">Scores exacts non disponibles</div>
+                                </div>
+                            `}
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Navigation indicators -->
+                        <div class="face-indicator">
+                            <div class="face-dot active"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                        </div>
+                        
+                        <div class="swipe-instruction">Glissez ou tapez</div>
+                    </div>
+                `;
+            }
+            
+            return forecastElement;
         }
         
         function showForecastsSection() {
@@ -6642,6 +6795,56 @@
             loadForecastsData('simple');
         }
         
+        function showProfileSection() {
+            hideSearchBar();
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.getAttribute('data-section') === 'profile') {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            document.getElementById('header-menu-button').style.display = 'block';
+            document.getElementById('header-back-button').style.display = 'none';
+            
+            currentSection = 'profile';
+            
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById('profile-section').classList.add('active');
+            
+            document.getElementById('header-title').textContent = 'Profil';
+            
+            document.getElementById('header-action').innerHTML = `
+                <div class="search-button" id="search-button" style="display: none;">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="events-button" id="events-button">
+                    <i class="fas fa-bell"></i>
+                    <div class="notification-dot" id="events-notification-dot"></div>
+                </div>
+            `;
+            
+            if (hasNewEvents) {
+                document.getElementById('events-notification-dot').classList.add('active');
+            }
+            
+            document.getElementById('events-button').addEventListener('click', function() {
+                showEventsSection();
+                updateLastViewedEventTimestamp();
+                hideEventNotificationDot();
+            });
+
+            document.getElementById('bottom-nav').style.display = 'flex';
+            document.querySelector('.content').classList.remove('no-bottom-nav');
+            
+            updateBadges();
+        }
+        
         function showEventsSection() {
             hideSearchBar();
             
@@ -6667,741 +6870,258 @@
             document.getElementById('search-button').addEventListener('click', toggleSearchBar);
             
             document.getElementById('header-back-button').addEventListener('click', function() {
-                showForecastsSection();
+                if (currentSection === 'events') {
+                    showForecastsSection();
+                }
             });
 
             document.getElementById('bottom-nav').style.display = 'none';
             document.querySelector('.content').classList.add('no-bottom-nav');
             
-            loadEvents();
-            
             history.pushState({ page: 'events' }, '');
         }
         
-        function showProfileSection() {
-            hideSearchBar();
-            
-            document.querySelectorAll('.nav-item').forEach(item => {
-                if (item.getAttribute('data-section') === 'profile') {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-            
-            document.getElementById('header-menu-button').style.display = 'block';
-            document.getElementById('header-back-button').style.display = 'none';
-            
-            currentSection = 'profile';
-            
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            document.getElementById('profile-section').classList.add('active');
-            
-            document.getElementById('header-title').textContent = 'Profil';
-            
-            let headerActionContent = '';
-            
-            if (isAdmin) {
-                headerActionContent = `
-                    <div class="events-button" id="admin-notif-button">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                `;
-            }
-            
-            headerActionContent += `
-                <div class="events-button" id="events-button">
-                    <i class="fas fa-bell"></i>
-                    <div class="notification-dot" id="events-notification-dot"></div>
-                </div>
-            `;
-            
-            document.getElementById('header-action').innerHTML = headerActionContent;
-            
-            if (hasNewEvents) {
-                document.getElementById('events-notification-dot').classList.add('active');
-            }
-            
-            if (isAdmin) {
-                document.getElementById('admin-notif-button').addEventListener('click', showAdminNotificationDialog);
-            }
-            
-            document.getElementById('events-button').addEventListener('click', function() {
-                showEventsSection();
-                updateLastViewedEventTimestamp();
-                hideEventNotificationDot();
-            });
-
-            document.getElementById('bottom-nav').style.display = 'flex';
-            document.querySelector('.content').classList.remove('no-bottom-nav');
-            
-            updateProfileDisplay();
-        }
-        
-        function updateProfileDisplay() {
-            if (!currentUser) return;
-            
-            const profileNameText = document.getElementById('profile-name-text');
-            const profileEmail = document.getElementById('profile-email');
-            
-            if (profileNameText) {
-                profileNameText.textContent = currentUserData?.displayName || currentUser.email.split('@')[0];
-            }
-            
-            if (profileEmail) {
-                profileEmail.textContent = currentUser.email;
-            }
-            
-            updateBadges();
-            
-            if (currentUserData?.profileImageUrl) {
-                const profilePic = document.querySelector('.profile-header .profile-pic');
-                if (profilePic) {
-                    profilePic.innerHTML = `<img src="${currentUserData.profileImageUrl}" alt="Profile">`;
-                }
-            }
-        }
-        
-        function updateAdminStatus() {
-            if (isAdmin) {
-                showNotification("Mode administrateur activé", "success");
-            }
-        }
-        
-        async function loadForecastsData(type) {
-            const targetListId = type === 'simple' ? 'simple-forecasts-list' : `${type}-list`;
-            const targetList = document.getElementById(targetListId);
-            
-            if (!targetList) return;
-            
-            targetList.innerHTML = `
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
-                    <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--primary-color);"></i>
-                    <div style="margin-top: 10px; font-weight: bold;">Chargement des pronostics...</div>
-                </div>
-            `;
-
-            try {
-                const currentDate = getCurrentDateString();
-                
-                // Check cache first
-                if (forecastsCache[currentDate] && Date.now() - forecastsCache[currentDate].timestamp < 300000) {
-                    addDebugLog(`Utilisation du cache pour ${currentDate}`, 'info');
-                    displayForecasts(forecastsCache[currentDate].data[type], targetList, type);
-                    return;
-                }
-
-                // Fetch fresh data
-                const data = await fetchForecastsFromGitHub(currentDate);
-                
-                if (data) {
-                    const processedData = processForecastData(data);
-                    
-                    // Cache the data
-                    forecastsCache[currentDate] = {
-                        data: processedData,
-                        timestamp: Date.now()
-                    };
-                    
-                    displayForecasts(processedData[type], targetList, type);
-                } else {
-                    targetList.innerHTML = `
-                        <div class="no-forecasts">
-                            <i class="fas fa-calendar-times"></i>
-                            <div style="font-weight: bold; margin-bottom: 10px;">Aucun pronostic disponible</div>
-                            <div>Les pronostics du jour ne sont pas encore disponibles</div>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                addDebugLog(`Erreur chargement pronostics ${type}: ${error.message}`, 'error');
-                targetList.innerHTML = `
-                    <div class="no-forecasts">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <div style="font-weight: bold; margin-bottom: 10px;">Erreur de chargement</div>
-                        <div>Impossible de charger les pronostics</div>
-                    </div>
-                `;
-            }
-        }
-
-        function displayForecasts(forecasts, targetList, type) {
-            if (!forecasts || forecasts.length === 0) {
-                targetList.innerHTML = `
-                    <div class="no-forecasts">
-                        <i class="fas fa-chart-line"></i>
-                        <div style="font-weight: bold; margin-bottom: 10px;">Aucun pronostic disponible</div>
-                        <div>Revenez plus tard pour voir les nouveaux pronostics</div>
-                    </div>
-                `;
-                return;
-            }
-
-            targetList.innerHTML = '';
-
-            forecasts.forEach(forecast => {
-                const forecastElement = createForecastElement(forecast, type);
-                targetList.appendChild(forecastElement);
-            });
-        }
-
-        function createForecastElement(forecastData, type) {
-            const element = document.createElement('div');
-            element.className = 'forecast-item';
-
-            let frontFaceContent = '';
-            let detailsFaceContent = '';
-            let probabilitiesFaceContent = '';
-            let scoresFaceContent = '';
-
-            if (type === 'combines') {
-                // Front face for combined forecasts
-                frontFaceContent = `
-                    <div class="forecast-header">
-                        <span>${forecastData.name || 'Combiné'}</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    <div class="forecast-match">
-                        <div style="flex: 1; text-align: center;">
-                            <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">${forecastData.matches ? forecastData.matches.length : 0} Matchs</div>
-                            <div style="font-size: 14px; opacity: 0.8;">Combiné intelligent</div>
-                        </div>
-                    </div>
-                    <div class="forecast-confidence">
-                        <span>Confiance:</span>
-                        <div class="confidence-bar-container">
-                            <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
-                        </div>
-                        <span>${forecastData.confidence || 0}%</span>
-                    </div>
-                `;
-
-                // Details face
-                detailsFaceContent = `
-                    <div class="forecast-header">
-                        <span>Détails du combiné</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    <div class="forecast-description">
-                        ${forecastData.description || 'Combiné de plusieurs matchs soigneusement sélectionnés pour optimiser les chances de gain.'}
-                    </div>
-                    ${forecastData.estimated_odds ? `
-                        <div class="estimated-odds">
-                            Cote estimée: ${forecastData.estimated_odds}
-                        </div>
-                    ` : ''}
-                    <div class="combined-matches">
-                        <div class="combined-matches-title">Matchs inclus:</div>
-                        ${forecastData.matches ? forecastData.matches.map(match => `
-                            <div class="match-detail">
-                                <div class="match-name">${match.HomeTeam || 'Équipe 1'} vs ${match.AwayTeam || 'Équipe 2'}</div>
-                                <div class="match-prediction">${match.prediction || 'N/A'}</div>
-                                <div class="match-confidence">Confiance: ${match.confidence || 'N/A'}%</div>
-                            </div>
-                        `).join('') : '<div>Aucun détail disponible</div>'}
-                    </div>
-                `;
-
-                // Probabilities and scores faces - simplified for combined
-                probabilitiesFaceContent = `
-                    <div class="forecast-header">
-                        <span>Analyse statistique</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    <div style="text-align: center; padding: 40px 20px;">
-                        <i class="fas fa-chart-bar" style="font-size: 50px; color: var(--card-accent); margin-bottom: 20px;"></i>
-                        <div style="font-weight: bold; margin-bottom: 10px;">Analyse combinée</div>
-                        <div style="opacity: 0.8; line-height: 1.5;">
-                            Les probabilités détaillées pour les combinés sont calculées en fonction des corrélations entre les matchs sélectionnés.
-                        </div>
-                    </div>
-                `;
-
-                scoresFaceContent = probabilitiesFaceContent;
-            } else {
-                // Front face for single forecasts
-                frontFaceContent = `
-                    <div class="forecast-header">
-                        <span>${forecastData.league || 'Compétition'}</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    <div class="forecast-match">
-                        <div class="forecast-team">
-                            <div class="forecast-team-logo">
-                                <i class="fas fa-shield-alt" style="color: var(--primary-color);"></i>
-                            </div>
-                            <div class="forecast-team-name">${forecastData.HomeTeam || 'Équipe 1'}</div>
-                        </div>
-                        <div class="forecast-vs" style="font-weight: bold; color: var(--card-accent);">VS</div>
-                        <div class="forecast-team">
-                            <div class="forecast-team-logo">
-                                <i class="fas fa-shield-alt" style="color: var(--primary-color);"></i>
-                            </div>
-                            <div class="forecast-team-name">${forecastData.AwayTeam || 'Équipe 2'}</div>
-                        </div>
-                    </div>
-                    <div class="forecast-confidence">
-                        <span>Confiance:</span>
-                        <div class="confidence-bar-container">
-                            <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
-                        </div>
-                        <span>${forecastData.confidence || 0}%</span>
-                    </div>
-                `;
-
-                // Details face
-                detailsFaceContent = `
-                    <div class="forecast-header">
-                        <span>Détails du match</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    <div class="forecast-description">
-                        <strong>Prédiction:</strong> ${forecastData.prediction || 'N/A'}<br><br>
-                        <strong>Compétition:</strong> ${forecastData.league || 'N/A'}<br>
-                        <strong>Pays:</strong> ${forecastData.country || 'N/A'}<br>
-                        <strong>Date:</strong> ${forecastData.date || 'N/A'}
-                    </div>
-                    ${forecastData.score_prediction ? `
-                        <div class="estimated-odds">
-                            Score prédit: ${forecastData.score_prediction}
-                        </div>
-                    ` : ''}
-                `;
-
-                // Probabilities face
-                probabilitiesFaceContent = `
-                    <div class="forecast-header">
-                        <span>Probabilités Poisson</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    ${forecastData.poisson_probabilities ? `
-                        <div class="poisson-probabilities">
-                            <div class="poisson-title">Distribution de Poisson</div>
-                            ${Object.entries(forecastData.poisson_probabilities).map(([key, value]) => `
-                                <div class="poisson-row">
-                                    <span>${key}:</span>
-                                    <span>${(value * 100).toFixed(1)}%</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    ` : `
-                        <div style="text-align: center; padding: 40px 20px;">
-                            <i class="fas fa-chart-pie" style="font-size: 50px; color: var(--card-accent); margin-bottom: 20px;"></i>
-                            <div style="font-weight: bold; margin-bottom: 10px;">Probabilities non disponibles</div>
-                            <div style="opacity: 0.8;">Les probabilités détaillées seront calculées prochainement</div>
-                        </div>
-                    `}
-                `;
-
-                // Scores face
-                scoresFaceContent = `
-                    <div class="forecast-header">
-                        <span>Scores probables</span>
-                        <span class="forecast-status pending">En attente</span>
-                    </div>
-                    ${forecastData.poisson_top_scores ? `
-                        <div class="exact-scores-section">
-                            <div class="exact-scores-title">Top scores probables</div>
-                            ${forecastData.poisson_top_scores.map(score => `
-                                <div class="exact-score-item">
-                                    <div class="exact-score-match">${score.score || 'N/A'}</div>
-                                    <div class="exact-score-probability">${(score.probability * 100).toFixed(1)}%</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    ` : `
-                        <div style="text-align: center; padding: 40px 20px;">
-                            <i class="fas fa-futbol" style="font-size: 50px; color: var(--card-accent); margin-bottom: 20px;"></i>
-                            <div style="font-weight: bold; margin-bottom: 10px;">Scores non disponibles</div>
-                            <div style="opacity: 0.8;">Les scores probables seront calculés prochainement</div>
-                        </div>
-                    `}
-                `;
-            }
-
-            element.innerHTML = `
-                <div class="forecast-card-container">
-                    <div class="forecast-face forecast-front">
-                        ${frontFaceContent}
-                    </div>
-                    <div class="forecast-face forecast-details">
-                        ${detailsFaceContent}
-                    </div>
-                    <div class="forecast-face forecast-probabilities">
-                        ${probabilitiesFaceContent}
-                    </div>
-                    <div class="forecast-face forecast-scores">
-                        ${scoresFaceContent}
-                    </div>
-                </div>
-                <div class="face-indicator">
-                    <div class="face-dot active"></div>
-                    <div class="face-dot"></div>
-                    <div class="face-dot"></div>
-                    <div class="face-dot"></div>
-                </div>
-                <div class="swipe-instruction">Glissez pour plus d'infos</div>
-            `;
-
-            return element;
-        }
-        
-        async function loadEvents() {
-            if (isLoadingEvents) return;
-            isLoadingEvents = true;
-            
-            const eventsList = document.getElementById('events-list');
-            
-            if (!eventsList) {
-                isLoadingEvents = false;
-                return;
-            }
-            
-            try {
-                eventsList.innerHTML = `
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--primary-color);"></i>
-                        <div style="margin-top: 10px; font-weight: bold;">Chargement des événements...</div>
-                    </div>
-                `;
-                
-                addDebugLog('Chargement des événements...', 'info');
-                
-                const eventsCollectionRef = collection(db, "Events");
-                const eventsQuery = query(eventsCollectionRef, orderBy("timestamp", "desc"), limit(20));
-                
-                if (eventsUnsubscribe) {
-                    eventsUnsubscribe();
-                }
-                
-                eventsUnsubscribe = onSnapshot(eventsQuery, (snapshot) => {
-                    addDebugLog(`${snapshot.size} événements récupérés`, 'success');
-                    
-                    if (snapshot.empty) {
-                        eventsList.innerHTML = `
-                            <div class="empty-state">
-                                <i class="fas fa-bell"></i>
-                                <div class="empty-state-title">Aucun événement</div>
-                                <div class="empty-state-text">Les événements apparaîtront ici</div>
-                            </div>
-                        `;
-                        isLoadingEvents = false;
-                        return;
-                    }
-                    
-                    eventsList.innerHTML = '';
-                    
-                    snapshot.docs.forEach(doc => {
-                        const eventData = doc.data();
-                        const eventElement = createEventElement(eventData, doc.id);
-                        eventsList.appendChild(eventElement);
-                    });
-                    
-                    checkForNewEvents(snapshot.docs);
-                    isLoadingEvents = false;
-                    
-                }, (error) => {
-                    const errorMsg = handleFirestoreError(error, 'chargement des événements');
-                    
-                    eventsList.innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div class="empty-state-title">Erreur de chargement</div>
-                            <div class="empty-state-text">Impossible de charger les événements</div>
-                        </div>
-                    `;
-                    
-                    isLoadingEvents = false;
-                });
-                
-            } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'chargement des événements');
-                
-                eventsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <div class="empty-state-title">Erreur de chargement</div>
-                        <div class="empty-state-text">Impossible de charger les événements</div>
-                    </div>
-                `;
-                
-                isLoadingEvents = false;
-            }
-        }
-        
-        function createEventElement(eventData, eventId) {
-            const element = document.createElement('div');
-            element.className = 'admin-notification';
-            
-            const timestamp = eventData.timestamp?.toDate() || new Date();
-            const timeString = timestamp.toLocaleString('fr-FR');
-            
-            let iconClass = 'fas fa-info-circle';
-            let eventClass = '';
-            
-            switch (eventData.type) {
-                case 'alert':
-                    iconClass = 'fas fa-exclamation-triangle';
-                    eventClass = 'permission-change';
-                    break;
-                case 'update':
-                    iconClass = 'fas fa-sync-alt';
-                    eventClass = 'group-create';
-                    break;
-                default:
-                    iconClass = 'fas fa-info-circle';
-                    eventClass = 'user-join';
-            }
-            
-            element.classList.add(eventClass);
-            
-            let actionsHtml = '';
-            if (isAdmin) {
-                actionsHtml = `
-                    <div class="event-actions">
-                        <button class="event-action-btn delete" onclick="deleteEvent('${eventId}')">
-                            <i class="fas fa-trash"></i> Supprimer
-                        </button>
-                    </div>
-                `;
-            }
-            
-            element.innerHTML = `
-                <div class="admin-notification-header">
-                    <div class="admin-notification-title">
-                        <i class="${iconClass}"></i>
-                        ${eventData.title || 'Notification'}
-                    </div>
-                </div>
-                <div class="admin-notification-content">
-                    ${eventData.content || 'Contenu non disponible'}
-                </div>
-                <div class="admin-notification-footer">
-                    ${timeString}
-                </div>
-                ${actionsHtml}
-            `;
-            
-            return element;
-        }
-        
-        window.deleteEvent = async function(eventId) {
-            if (!isAdmin) return;
-            
-            try {
-                addDebugLog(`Suppression de l'événement ${eventId}`, 'info');
-                await deleteDoc(doc(db, "Events", eventId));
-                addDebugLog('Événement supprimé avec succès', 'success');
-                showNotification("Événement supprimé", "success");
-            } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'suppression de l\'événement');
-                showNotification("Erreur lors de la suppression", "error");
-            }
-        };
-        
-        function checkForNewEvents(eventDocs) {
-            if (!lastViewedEventTimestamp) {
-                const saved = localStorage.getItem('lastViewedEventTimestamp');
-                if (saved) {
-                    lastViewedEventTimestamp = new Date(saved);
-                } else {
-                    lastViewedEventTimestamp = new Date();
-                    localStorage.setItem('lastViewedEventTimestamp', lastViewedEventTimestamp.toISOString());
-                }
-            }
-            
-            const hasNewEventsNow = eventDocs.some(doc => {
-                const eventTimestamp = doc.data().timestamp?.toDate() || new Date();
-                return eventTimestamp > lastViewedEventTimestamp;
-            });
-            
-            if (hasNewEventsNow !== hasNewEvents) {
-                hasNewEvents = hasNewEventsNow;
-                if (hasNewEvents) {
-                    showEventNotificationDot();
-                } else {
-                    hideEventNotificationDot();
-                }
-            }
-        }
-        
         function updateLastViewedEventTimestamp() {
-            lastViewedEventTimestamp = new Date();
-            localStorage.setItem('lastViewedEventTimestamp', lastViewedEventTimestamp.toISOString());
-            hasNewEvents = false;
-        }
-        
-        function showEventNotificationDot() {
-            document.querySelectorAll('#events-notification-dot').forEach(dot => {
-                dot.classList.add('active');
-            });
+            lastViewedEventTimestamp = Date.now();
+            localStorage.setItem('parisAllianceLastViewedEvent', lastViewedEventTimestamp.toString());
         }
         
         function hideEventNotificationDot() {
-            document.querySelectorAll('#events-notification-dot').forEach(dot => {
-                dot.classList.remove('active');
-            });
+            hasNewEvents = false;
+            document.getElementById('events-notification-dot').classList.remove('active');
+        }
+        
+        function showLogoutConfirmation() {
+            document.getElementById('logout-confirmation').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+        
+        function hideLogoutConfirmation() {
+            document.getElementById('logout-confirmation').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        function showDeleteAccountConfirmation() {
+            document.getElementById('delete-account-confirmation').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+        
+        function hideDeleteAccountConfirmation() {
+            document.getElementById('delete-account-confirmation').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        async function logoutUser() {
+            try {
+                hideLogoutConfirmation();
+                showLoading();
+                
+                await signOut(auth);
+                
+                addDebugLog('Déconnexion réussie', 'success');
+                showNotification('Déconnexion réussie', 'success');
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showAuth();
+                }, 1000);
+                
+            } catch (error) {
+                hideLoading();
+                const errorMsg = handleFirestoreError(error, 'déconnexion');
+                showNotification('Erreur de déconnexion', 'error');
+            }
+        }
+        
+        async function deleteAccount() {
+            try {
+                hideDeleteAccountConfirmation();
+                showLoading();
+                
+                if (currentUser) {
+                    await deleteUser(currentUser);
+                    addDebugLog('Compte supprimé avec succès', 'success');
+                    showNotification('Compte supprimé avec succès', 'success');
+                    
+                    setTimeout(() => {
+                        hideLoading();
+                        showAuth();
+                    }, 1000);
+                }
+                
+            } catch (error) {
+                hideLoading();
+                const errorMsg = handleFirestoreError(error, 'suppression de compte');
+                showNotification('Erreur de suppression', 'error');
+            }
         }
         
         function showProfileEditDialog() {
             document.getElementById('profile-edit-dialog').classList.add('active');
-            
-            if (currentUserData?.displayName) {
-                document.getElementById('edit-display-name').value = currentUserData.displayName;
-            }
-            
-            if (currentUserData?.profileImageUrl) {
-                const preview = document.getElementById('profile-image-preview');
-                preview.innerHTML = `<img src="${currentUserData.profileImageUrl}" alt="Profile">`;
-            }
-            
             history.pushState({ page: 'profile-edit' }, '');
+            
+            if (currentUserData) {
+                document.getElementById('edit-display-name').value = currentUserData.displayName || '';
+                profileNameChanged = false;
+                document.getElementById('save-display-name-btn').disabled = true;
+            }
         }
         
         function hideProfileEditDialog() {
             document.getElementById('profile-edit-dialog').classList.remove('active');
             profileImageFile = null;
             profileNameChanged = false;
+            document.getElementById('profile-image-preview').innerHTML = '<i class="fas fa-user"></i>';
+            document.getElementById('save-profile-image-btn').style.display = 'none';
         }
         
-        function handleProfileImageSelect(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            if (file.size > 5 * 1024 * 1024) {
-                showNotification("L'image doit faire moins de 5MB", "error");
-                return;
+        function handleProfileImageSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    showNotification('L\'image doit faire moins de 5 MB', 'error');
+                    return;
+                }
+                
+                if (!file.type.startsWith('image/')) {
+                    showNotification('Veuillez sélectionner une image valide', 'error');
+                    return;
+                }
+                
+                profileImageFile = file;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('profile-image-preview');
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Profile preview">`;
+                };
+                reader.readAsDataURL(file);
+                
+                document.getElementById('save-profile-image-btn').style.display = 'block';
             }
-            
-            if (!file.type.startsWith('image/')) {
-                showNotification("Veuillez sélectionner une image valide", "error");
-                return;
-            }
-            
-            profileImageFile = file;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const preview = document.getElementById('profile-image-preview');
-                preview.innerHTML = `<img src="${e.target.result}" alt="Profile">`;
-            };
-            reader.readAsDataURL(file);
-            
-            document.getElementById('save-profile-image-btn').disabled = false;
         }
         
         async function updateDisplayName() {
-            if (!currentUser || profileUpdating) return;
+            const newDisplayName = document.getElementById('edit-display-name').value.trim();
             
-            const nameInput = document.getElementById('edit-display-name');
-            const newName = nameInput.value.trim();
+            if (!newDisplayName) {
+                document.getElementById('edit-display-name-error').style.display = 'block';
+                return;
+            }
+            
+            if (profileUpdating) return;
+            profileUpdating = true;
+            
             const saveBtn = document.getElementById('save-display-name-btn');
-            
-            if (!newName) {
-                document.getElementById('edit-display-name-error').style.display = 'block';
-                return;
-            }
-            
-            if (newName.length > 30) {
-                document.getElementById('edit-display-name-error').textContent = 'Le nom ne peut pas dépasser 30 caractères';
-                document.getElementById('edit-display-name-error').style.display = 'block';
-                return;
-            }
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<span class="btn-loader"></span> Enregistrement...';
+            saveBtn.disabled = true;
             
             try {
-                profileUpdating = true;
-                saveBtn.disabled = true;
-                saveBtn.innerHTML = '<span class="btn-loader"></span><span class="btn-text">Sauvegarde...</span>';
-                
-                addDebugLog(`Mise à jour du nom d'affichage: ${newName}`, 'info');
+                document.getElementById('edit-display-name-error').style.display = 'none';
                 
                 const userRef = doc(db, "Users", currentUser.uid);
                 await updateDoc(userRef, {
-                    displayName: newName,
-                    updatedAt: serverTimestamp()
+                    displayName: newDisplayName
                 });
                 
-                currentUserData.displayName = newName;
-                
+                currentUserData.displayName = newDisplayName;
                 updateProfileDisplay();
                 
-                saveBtn.innerHTML = '<span class="btn-text">Enregistrer</span>';
-                saveBtn.disabled = false;
-                
-                document.getElementById('edit-display-name-error').style.display = 'none';
-                
-                showNotification("Nom mis à jour", "success");
-                addDebugLog('Nom d\'affichage mis à jour avec succès', 'success');
+                showNotification('Nom mis à jour avec succès', 'success');
                 
             } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'mise à jour du nom');
-                showNotification("Erreur lors de la mise à jour", "error");
-                
-                saveBtn.innerHTML = '<span class="btn-text">Enregistrer</span>';
-                saveBtn.disabled = false;
+                handleFirestoreError(error, 'mise à jour du nom');
+                showNotification('Erreur de mise à jour', 'error');
             } finally {
+                saveBtn.innerHTML = originalText;
+                saveBtn.disabled = false;
                 profileUpdating = false;
             }
         }
         
         async function updateProfileImage() {
-            if (!currentUser || !profileImageFile || profileUpdating) return;
+            if (!profileImageFile || profileUpdating) return;
+            
+            profileUpdating = true;
+            
+            const saveBtn = document.getElementById('save-profile-image-btn');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<span class="btn-loader"></span> Enregistrement...';
+            saveBtn.disabled = true;
             
             try {
-                profileUpdating = true;
-                const saveBtn = document.getElementById('save-profile-image-btn');
-                saveBtn.disabled = true;
-                saveBtn.innerHTML = '<span class="btn-loader"></span><span class="btn-text">Upload...</span>';
-                
-                addDebugLog('Début de l\'upload de l\'image de profil', 'info');
-                
-                // Convert image to base64
-                const base64 = await fileToBase64(profileImageFile);
-                
-                const userRef = doc(db, "Users", currentUser.uid);
-                await updateDoc(userRef, {
-                    profileImageUrl: base64,
-                    updatedAt: serverTimestamp()
-                });
-                
-                currentUserData.profileImageUrl = base64;
-                
-                updateProfileDisplay();
-                
-                saveBtn.innerHTML = '<span class="btn-text">Enregistrer la photo</span>';
-                saveBtn.disabled = true;
-                
-                showNotification("Photo mise à jour", "success");
-                addDebugLog('Image de profil mise à jour avec succès', 'success');
+                const reader = new FileReader();
+                reader.onload = async function(e) {
+                    try {
+                        const base64Image = e.target.result;
+                        
+                        const userRef = doc(db, "Users", currentUser.uid);
+                        await updateDoc(userRef, {
+                            profileImageUrl: base64Image
+                        });
+                        
+                        currentUserData.profileImageUrl = base64Image;
+                        updateProfileDisplay();
+                        
+                        showNotification('Photo mise à jour avec succès', 'success');
+                        
+                    } catch (error) {
+                        handleFirestoreError(error, 'mise à jour de la photo');
+                        showNotification('Erreur de mise à jour', 'error');
+                    } finally {
+                        saveBtn.innerHTML = originalText;
+                        saveBtn.disabled = false;
+                        profileUpdating = false;
+                        profileImageFile = null;
+                        saveBtn.style.display = 'none';
+                    }
+                };
+                reader.readAsDataURL(profileImageFile);
                 
             } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'mise à jour de la photo');
-                showNotification("Erreur lors de la mise à jour", "error");
-                
-                const saveBtn = document.getElementById('save-profile-image-btn');
-                saveBtn.innerHTML = '<span class="btn-text">Enregistrer la photo</span>';
+                handleFirestoreError(error, 'lecture de l\'image');
+                showNotification('Erreur de lecture de l\'image', 'error');
+                saveBtn.innerHTML = originalText;
                 saveBtn.disabled = false;
-            } finally {
                 profileUpdating = false;
             }
         }
         
-        function fileToBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = error => reject(error);
-            });
+        function updateProfileDisplay() {
+            if (currentUserData) {
+                document.getElementById('profile-name-text').textContent = currentUserData.displayName || 'Utilisateur';
+                document.getElementById('profile-email').textContent = currentUser.email;
+                
+                const profilePics = document.querySelectorAll('.profile-pic');
+                profilePics.forEach(pic => {
+                    if (currentUserData.profileImageUrl) {
+                        pic.innerHTML = `<img src="${currentUserData.profileImageUrl}" alt="Profile">`;
+                    } else {
+                        pic.innerHTML = '<i class="fas fa-user"></i>';
+                    }
+                    
+                    const editIcon = pic.querySelector('.profile-pic-edit');
+                    if (editIcon) {
+                        pic.appendChild(editIcon);
+                    }
+                });
+            }
+        }
+        
+        function updateAdminStatus() {
+            if (isAdmin) {
+                addDebugLog('Fonctionnalités administrateur activées', 'info');
+            }
         }
         
         function showAdminNotificationDialog() {
-            if (!isAdmin) return;
-            
             document.getElementById('admin-notif-dialog').classList.add('active');
+            history.pushState({ page: 'admin-notif' }, '');
+        }
+        
+        function hideAdminNotificationDialog() {
+            document.getElementById('admin-notif-dialog').classList.remove('active');
             
             document.getElementById('notif-title').value = '';
             document.getElementById('notif-content').value = '';
@@ -7409,25 +7129,12 @@
             
             document.getElementById('notif-title-error').style.display = 'none';
             document.getElementById('notif-content-error').style.display = 'none';
-            
-            history.pushState({ page: 'admin-notif' }, '');
-        }
-        
-        function hideAdminNotificationDialog() {
-            document.getElementById('admin-notif-dialog').classList.remove('active');
         }
         
         async function sendAdminNotification() {
-            if (!isAdmin) return;
-            
-            const titleInput = document.getElementById('notif-title');
-            const contentInput = document.getElementById('notif-content');
-            const typeInput = document.getElementById('notif-type');
-            const sendBtn = document.getElementById('send-notification-btn');
-            
-            const title = titleInput.value.trim();
-            const content = contentInput.value.trim();
-            const type = typeInput.value;
+            const title = document.getElementById('notif-title').value.trim();
+            const content = document.getElementById('notif-content').value.trim();
+            const type = document.getElementById('notif-type').value;
             
             let hasError = false;
             
@@ -7447,384 +7154,224 @@
             
             if (hasError) return;
             
+            const sendBtn = document.getElementById('send-notification-btn');
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = '<span class="btn-loader"></span> Envoi...';
+            sendBtn.disabled = true;
+            
             try {
-                sendBtn.disabled = true;
-                sendBtn.innerHTML = '<span class="btn-loader"></span><span class="btn-text">Envoi...</span>';
-                
-                addDebugLog(`Envoi de notification: ${title}`, 'info');
-                
-                const eventData = {
+                const eventsRef = collection(db, "Events");
+                await addDoc(eventsRef, {
                     title: title,
                     content: content,
                     type: type,
                     timestamp: serverTimestamp(),
                     createdBy: currentUser.uid,
                     createdByEmail: currentUser.email
-                };
+                });
                 
-                await addDoc(collection(db, "Events"), eventData);
-                
-                addDebugLog('Notification envoyée avec succès', 'success');
-                showNotification("Notification envoyée", "success");
-                
+                showNotification('Notification envoyée avec succès', 'success');
                 hideAdminNotificationDialog();
                 
             } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'envoi de notification');
-                showNotification("Erreur lors de l'envoi", "error");
-                
+                handleFirestoreError(error, 'envoi de notification');
+                showNotification('Erreur d\'envoi', 'error');
             } finally {
-                sendBtn.innerHTML = '<span class="btn-text">Envoyer la notification</span>';
+                sendBtn.innerHTML = originalText;
                 sendBtn.disabled = false;
             }
         }
         
-        function showLogoutConfirmation() {
-            document.getElementById('logout-confirmation').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-            history.pushState({ page: 'logout-confirm' }, '');
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
         }
         
-        function hideLogoutConfirmation() {
-            document.getElementById('logout-confirmation').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-        
-        function showDeleteAccountConfirmation() {
-            document.getElementById('delete-account-confirmation').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-            history.pushState({ page: 'delete-confirm' }, '');
-        }
-        
-        function hideDeleteAccountConfirmation() {
-            document.getElementById('delete-account-confirmation').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-        
-        async function logoutUser() {
-            try {
-                addDebugLog('Déconnexion de l\'utilisateur', 'info');
-                
-                hideLogoutConfirmation();
-                
-                if (eventsUnsubscribe) {
-                    eventsUnsubscribe();
-                    eventsUnsubscribe = null;
-                }
-                
-                await signOut(auth);
-                
-                isLoggedIn = false;
-                currentUser = null;
-                currentUserData = null;
-                isAdmin = false;
-                currentPlanType = 'free';
-                
-                addDebugLog('Déconnexion réussie', 'success');
-                showAuthScreen();
-                
-            } catch (error) {
-                addDebugLog(`Erreur déconnexion: ${error.message}`, 'error');
-                showNotification("Erreur lors de la déconnexion", "error");
-            }
-        }
-        
-        async function deleteAccount() {
-            if (!currentUser) return;
-            
-            try {
-                addDebugLog('Début de la suppression du compte', 'warning');
-                
-                hideDeleteAccountConfirmation();
-                
-                if (eventsUnsubscribe) {
-                    eventsUnsubscribe();
-                    eventsUnsubscribe = null;
-                }
-                
-                const userRef = doc(db, "Users", currentUser.uid);
-                await deleteDoc(userRef);
-                addDebugLog('Données utilisateur supprimées de Firestore', 'info');
-                
-                // Remove from Premium collections if applicable
-                if (currentPlanType && currentPlanType !== 'free') {
-                    const premiumCollectionName = currentPlanType === 'daily' ? 'PremiumQuotidien' : 'PremiumHebdomadaire';
-                    const premiumRef = doc(db, premiumCollectionName, currentUser.uid);
-                    
-                    try {
-                        await deleteDoc(premiumRef);
-                        addDebugLog(`Suppression de ${premiumCollectionName} réussie`, 'info');
-                    } catch (error) {
-                        addDebugLog(`Erreur suppression ${premiumCollectionName}: ${error.message}`, 'warning');
-                    }
-                }
-                
-                await deleteUser(currentUser);
-                addDebugLog('Compte utilisateur supprimé avec succès', 'success');
-                
-                isLoggedIn = false;
-                currentUser = null;
-                currentUserData = null;
-                isAdmin = false;
-                currentPlanType = 'free';
-                
-                showNotification("Compte supprimé définitivement", "success");
-                showAuthScreen();
-                
-            } catch (error) {
-                addDebugLog(`Erreur suppression compte: ${error.message}`, 'error');
-                
-                if (error.code === 'auth/requires-recent-login') {
-                    showNotification("Reconnectez-vous puis réessayez", "error");
-                } else {
-                    showNotification("Erreur lors de la suppression", "error");
-                }
-            }
-        }
-        
-        function showAuthScreen() {
-            document.getElementById('verify-animation').style.display = 'none';
+        function hideLoading() {
             document.getElementById('loading').style.display = 'none';
+        }
+        
+        function showAuth() {
             document.getElementById('auth-screen').style.display = 'flex';
-            
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-            const loginTab = document.getElementById('login-tab');
-            const registerTab = document.getElementById('register-tab');
-            
-            loginForm.classList.add('active');
-            registerForm.classList.remove('active');
-            loginTab.classList.add('active');
-            registerTab.classList.remove('active');
-            
-            hideAllSections();
+            document.querySelector('.header').style.display = 'none';
+            document.querySelector('.content').style.display = 'none';
+            document.querySelector('.bottom-nav').style.display = 'none';
+            isLoggedIn = false;
+            currentUser = null;
         }
         
-        function showMainApp() {
+        function hideAuth() {
             document.getElementById('auth-screen').style.display = 'none';
-            document.getElementById('verify-animation').style.display = 'none';
-            document.getElementById('loading').style.display = 'none';
-            
-            showForecastsSection();
-        }
-        
-        function hideAllSections() {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
+            document.querySelector('.header').style.display = 'flex';
+            document.querySelector('.content').style.display = 'block';
+            document.querySelector('.bottom-nav').style.display = 'flex';
+            isLoggedIn = true;
         }
         
         function setupAuthEvents() {
             document.getElementById('login-tab').addEventListener('click', function() {
-                document.getElementById('login-form').classList.add('active');
-                document.getElementById('register-form').classList.remove('active');
-                this.classList.add('active');
                 document.getElementById('register-tab').classList.remove('active');
+                this.classList.add('active');
+                document.getElementById('register-form').classList.remove('active');
+                document.getElementById('login-form').classList.add('active');
             });
             
             document.getElementById('register-tab').addEventListener('click', function() {
-                document.getElementById('register-form').classList.add('active');
-                document.getElementById('login-form').classList.remove('active');
-                this.classList.add('active');
                 document.getElementById('login-tab').classList.remove('active');
+                this.classList.add('active');
+                document.getElementById('login-form').classList.remove('active');
+                document.getElementById('register-form').classList.add('active');
             });
             
-            document.getElementById('goto-register').addEventListener('click', function() {
+            document.getElementById('goto-register').addEventListener('click', function(e) {
+                e.preventDefault();
                 document.getElementById('register-tab').click();
             });
             
-            document.getElementById('goto-login').addEventListener('click', function() {
+            document.getElementById('goto-login').addEventListener('click', function(e) {
+                e.preventDefault();
                 document.getElementById('login-tab').click();
             });
             
-            document.getElementById('loginBtn').addEventListener('click', handleLogin);
-            document.getElementById('registerBtn').addEventListener('click', handleRegister);
-            
-            ['login-email', 'login-password'].forEach(id => {
-                const input = document.getElementById(id);
-                if (input) {
-                    input.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter') {
-                            handleLogin();
-                        }
-                    });
-                }
-            });
-            
-            ['register-email', 'register-password', 'register-confirm-password'].forEach(id => {
-                const input = document.getElementById(id);
-                if (input) {
-                    input.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter') {
-                            handleRegister();
-                        }
-                    });
-                }
-            });
+            document.getElementById('loginBtn').addEventListener('click', loginUser);
+            document.getElementById('registerBtn').addEventListener('click', registerUser);
         }
         
-        async function handleLogin() {
-            const emailInput = document.getElementById('login-email');
-            const passwordInput = document.getElementById('login-password');
-            const loginBtn = document.getElementById('loginBtn');
-            const logDiv = document.getElementById('login-log');
-            
-            const email = emailInput.value.trim();
-            const password = passwordInput.value;
-            
-            document.querySelectorAll('#login-form .form-error').forEach(error => {
-                error.style.display = 'none';
-            });
+        async function loginUser() {
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
             
             let hasError = false;
             
             if (!email || !email.includes('@')) {
                 document.getElementById('login-email-error').style.display = 'block';
                 hasError = true;
+            } else {
+                document.getElementById('login-email-error').style.display = 'none';
             }
             
             if (!password) {
                 document.getElementById('login-password-error').style.display = 'block';
                 hasError = true;
+            } else {
+                document.getElementById('login-password-error').style.display = 'none';
             }
             
             if (hasError) return;
             
+            const loginBtn = document.getElementById('loginBtn');
+            const loginLoader = loginBtn.querySelector('.btn-loader');
+            const loginText = loginBtn.querySelector('.btn-text');
+            
+            loginBtn.classList.add('loading');
+            loginLoader.style.display = 'inline-block';
+            loginBtn.disabled = true;
+            
             try {
-                loginBtn.classList.add('loading');
-                loginBtn.disabled = true;
-                
-                addDebugLog(`Tentative de connexion pour ${email}`, 'info');
-                
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                
-                addDebugLog('Connexion réussie', 'success');
-                showLog(logDiv, "Connexion réussie !", "success");
-                
-                setTimeout(() => {
-                    document.getElementById('verify-animation').style.display = 'flex';
-                    document.getElementById('auth-screen').style.display = 'none';
-                }, 1000);
+                addDebugLog(`Connexion réussie: ${userCredential.user.email}`, 'success');
+                showLogMessage('login-log', 'Connexion réussie !', 'success');
                 
             } catch (error) {
-                addDebugLog(`Erreur connexion: ${error.code}`, 'error');
-                
-                let errorMessage = "Erreur de connexion";
+                let errorMessage = 'Erreur de connexion';
                 if (error.code === 'auth/user-not-found') {
-                    errorMessage = "Aucun compte trouvé avec cet email";
+                    errorMessage = 'Aucun compte trouvé avec cette adresse email';
                 } else if (error.code === 'auth/wrong-password') {
-                    errorMessage = "Mot de passe incorrect";
+                    errorMessage = 'Mot de passe incorrect';
                 } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "Email invalide";
+                    errorMessage = 'Adresse email invalide';
                 } else if (error.code === 'auth/too-many-requests') {
-                    errorMessage = "Trop de tentatives. Réessayez plus tard";
-                } else if (error.code === 'auth/invalid-credential') {
-                    errorMessage = "Email ou mot de passe incorrect";
+                    errorMessage = 'Trop de tentatives. Réessayez plus tard';
                 }
                 
-                showLog(logDiv, errorMessage, "error");
-                
+                addDebugLog(`Erreur connexion: ${error.code} - ${error.message}`, 'error');
+                showLogMessage('login-log', errorMessage, 'error');
+            } finally {
                 loginBtn.classList.remove('loading');
+                loginLoader.style.display = 'none';
                 loginBtn.disabled = false;
             }
         }
         
-        async function handleRegister() {
-            const emailInput = document.getElementById('register-email');
-            const passwordInput = document.getElementById('register-password');
-            const confirmPasswordInput = document.getElementById('register-confirm-password');
-            const registerBtn = document.getElementById('registerBtn');
-            const logDiv = document.getElementById('register-log');
-            
-            const email = emailInput.value.trim();
-            const password = passwordInput.value;
-            const confirmPassword = confirmPasswordInput.value;
-            
-            document.querySelectorAll('#register-form .form-error').forEach(error => {
-                error.style.display = 'none';
-            });
+        async function registerUser() {
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
             
             let hasError = false;
             
             if (!email || !email.includes('@')) {
                 document.getElementById('register-email-error').style.display = 'block';
                 hasError = true;
+            } else {
+                document.getElementById('register-email-error').style.display = 'none';
             }
             
             if (!password || password.length < 6) {
                 document.getElementById('register-password-error').style.display = 'block';
                 hasError = true;
+            } else {
+                document.getElementById('register-password-error').style.display = 'none';
             }
             
             if (password !== confirmPassword) {
                 document.getElementById('register-confirm-password-error').style.display = 'block';
                 hasError = true;
+            } else {
+                document.getElementById('register-confirm-password-error').style.display = 'none';
             }
             
             if (hasError) return;
             
+            const registerBtn = document.getElementById('registerBtn');
+            const registerLoader = registerBtn.querySelector('.btn-loader');
+            const registerText = registerBtn.querySelector('.btn-text');
+            
+            registerBtn.classList.add('loading');
+            registerLoader.style.display = 'inline-block';
+            registerBtn.disabled = true;
+            
             try {
-                registerBtn.classList.add('loading');
-                registerBtn.disabled = true;
-                
-                addDebugLog(`Tentative d'inscription pour ${email}`, 'info');
-                
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                
-                addDebugLog('Inscription réussie', 'success');
-                showLog(logDiv, "Compte créé avec succès !", "success");
-                
-                setTimeout(() => {
-                    document.getElementById('verify-animation').style.display = 'flex';
-                    document.getElementById('auth-screen').style.display = 'none';
-                }, 1000);
+                addDebugLog(`Inscription réussie: ${userCredential.user.email}`, 'success');
+                showLogMessage('register-log', 'Inscription réussie !', 'success');
                 
             } catch (error) {
-                addDebugLog(`Erreur inscription: ${error.code}`, 'error');
-                
-                let errorMessage = "Erreur lors de l'inscription";
+                let errorMessage = 'Erreur d\'inscription';
                 if (error.code === 'auth/email-already-in-use') {
-                    errorMessage = "Un compte existe déjà avec cet email";
+                    errorMessage = 'Cette adresse email est déjà utilisée';
                 } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "Email invalide";
+                    errorMessage = 'Adresse email invalide';
                 } else if (error.code === 'auth/weak-password') {
-                    errorMessage = "Mot de passe trop faible";
+                    errorMessage = 'Le mot de passe est trop faible';
                 }
                 
-                showLog(logDiv, errorMessage, "error");
-                
+                addDebugLog(`Erreur inscription: ${error.code} - ${error.message}`, 'error');
+                showLogMessage('register-log', errorMessage, 'error');
+            } finally {
                 registerBtn.classList.remove('loading');
+                registerLoader.style.display = 'none';
                 registerBtn.disabled = false;
             }
         }
         
-        function showLog(logDiv, message, type) {
-            logDiv.textContent = message;
-            logDiv.className = `log-message ${type}`;
-            logDiv.style.display = 'block';
+        function showLogMessage(containerId, message, type) {
+            const container = document.getElementById(containerId);
+            container.textContent = message;
+            container.className = `log-message ${type}`;
+            container.style.display = 'block';
             
             setTimeout(() => {
-                logDiv.style.display = 'none';
+                container.style.display = 'none';
             }, 5000);
         }
         
-        async function handleUserAuthentication(user) {
+        async function initializeUserData(user) {
             try {
-                addDebugLog(`Authentification pour ${user.email}`, 'info');
-                
-                currentUser = user;
-                isLoggedIn = true;
-                
-                await checkAdminStatus();
-                
                 const userRef = doc(db, "Users", user.uid);
                 const userDoc = await getDoc(userRef);
                 
                 if (!userDoc.exists()) {
-                    addDebugLog('Création du profil utilisateur', 'info');
-                    
                     const userData = {
-                        uid: user.uid,
                         email: user.email,
                         displayName: user.displayName || user.email.split('@')[0],
                         createdAt: serverTimestamp(),
@@ -7836,69 +7383,75 @@
                     
                     await setDoc(userRef, userData);
                     currentUserData = userData;
-                    currentPlanType = 'free';
+                    addDebugLog('Nouveau utilisateur créé dans Firestore', 'success');
                 } else {
-                    addDebugLog('Chargement du profil utilisateur existant', 'info');
-                    
                     currentUserData = userDoc.data();
                     
                     await updateDoc(userRef, {
                         lastLoginAt: serverTimestamp()
                     });
                     
-                    await loadUserSubscriptionData();
+                    addDebugLog('Données utilisateur chargées depuis Firestore', 'success');
                 }
                 
-                setTimeout(() => {
-                    document.getElementById('verify-animation').style.display = 'none';
-                    showMainApp();
-                }, 1500);
+                userSatsBalance = currentUserData.satsBalance || 0;
+                currentPlanType = currentUserData.currentPlan || 'free';
+                
+                updateProfileDisplay();
+                await loadUserSubscriptionData();
                 
             } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'authentification utilisateur');
-                
-                setTimeout(() => {
-                    document.getElementById('verify-animation').style.display = 'none';
-                    showAuthScreen();
-                    showNotification("Erreur de connexion", "error");
-                }, 1500);
+                handleFirestoreError(error, 'initialisation des données utilisateur');
             }
         }
         
-        // Initialize app
+        // Initialize the app
         async function initializeApp() {
+            addDebugLog('Initialisation de l\'application...', 'info');
+            
+            showLoading();
+            
+            // Hide verify animation immediately for faster load
+            setTimeout(() => {
+                document.getElementById('verify-animation').style.display = 'none';
+            }, 500);
+            
             try {
-                addDebugLog('Initialisation de l\'application v3.1.0', 'info');
-                
-                document.getElementById('loading').style.display = 'flex';
-                
-                setupTheme();
-                setupMode();
-                setupFaceTransitions();
-                setupCardStyles();
                 setupConnectionMonitoring();
                 setupUIEvents();
                 setupAuthEvents();
+                setupTheme();
+                setupMode();
+                setupCardStyles();
+                
+                // Load saved transition
+                const savedTransition = localStorage.getItem('parisAllianceTransition');
+                if (savedTransition) {
+                    document.documentElement.style.setProperty('--card-transition', savedTransition);
+                }
                 
                 await initializeAdminCollection();
                 
-                // Setup auth state listener
-                onAuthStateChanged(auth, (user) => {
+                onAuthStateChanged(auth, async (user) => {
                     if (user) {
+                        currentUser = user;
                         addDebugLog(`Utilisateur connecté: ${user.email}`, 'success');
-                        handleUserAuthentication(user);
-                    } else {
-                        addDebugLog('Aucun utilisateur connecté', 'info');
-                        currentUser = null;
-                        currentUserData = null;
-                        isLoggedIn = false;
-                        isAdmin = false;
-                        currentPlanType = 'free';
                         
-                        setTimeout(() => {
-                            document.getElementById('loading').style.display = 'none';
-                            showAuthScreen();
-                        }, 1000);
+                        await initializeUserData(user);
+                        await checkAdminStatus();
+                        
+                        hideAuth();
+                        hideLoading();
+                        showForecastsSection();
+                        
+                    } else {
+                        currentUser = null;
+                        isAdmin = false;
+                        currentUserData = null;
+                        addDebugLog('Aucun utilisateur connecté', 'info');
+                        
+                        hideLoading();
+                        showAuth();
                     }
                 });
                 
@@ -7906,16 +7459,17 @@
                 
             } catch (error) {
                 addDebugLog(`Erreur initialisation: ${error.message}`, 'error');
-                
-                setTimeout(() => {
-                    document.getElementById('loading').style.display = 'none';
-                    showAuthScreen();
-                }, 2000);
+                hideLoading();
+                showAuth();
             }
         }
         
         // Start the app
-        initializeApp();
+        document.addEventListener('DOMContentLoaded', function() {
+            addDebugLog('DOM chargé, démarrage de l\'application...', 'info');
+            initializeApp();
+        });
+        
     </script>
 </body>
 </html>
