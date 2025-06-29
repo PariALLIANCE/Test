@@ -102,6 +102,7 @@
             --history-date-text: var(--primary-color);
             --card-bg: var(--secondary-color);
             --card-accent: var(--primary-color);
+            --card-transition: all 0.3s ease;
         }
         
         /* Thème vert */
@@ -278,81 +279,164 @@
             --card-accent: #FF5722;
         }
 
-        /* Styles de couleur pour les cartes */
-        .card-style-gradient .forecast-item {
-            background: linear-gradient(135deg, var(--secondary-color), rgba(93, 92, 222, 0.1));
+        /* Nouveau thème High-Tech */
+        .theme-hightech {
+            --primary-color: #00E5FF;
+            --text-color: #E0E6ED;
+            --bg-color: #0A0E27;
+            --border-color: #1E2A4A;
+            --secondary-color: #0F1B3C;
+            --chat-sent-bg: linear-gradient(135deg, #00E5FF, #0066CC);
+            --chat-sent-text: #ffffff;
+            --chat-received-bg: #1A2332;
+            --selection-color: rgba(0, 229, 255, 0.4);
+            --action-menu-bg: rgba(10, 14, 39, 0.95);
+            --action-menu-text: #E0E6ED;
+            --highlight-color: #00E5FF;
+            --blocked-color: #FF3D71;
+            --reaction-bg: rgba(26, 35, 50, 0.9);
+            --reaction-shadow: rgba(0, 229, 255, 0.2);
+            --group-icon-bg: #4CAF50;
+            --danger-color: #FF3D71;
+            --success-color: #4ECDC4;
+            --input-bg: #1A2332;
+            --input-placeholder: #6C7B8A;
+            --button-text: #ffffff;
+            --inactive-text: #6C7B8A;
+            --link-color: #00E5FF;
+            --admin-badge-bg: linear-gradient(135deg, #00E5FF, #0066CC);
+            --admin-badge-text: white;
+            --log-bg: rgba(10, 14, 39, 0.9);
+            --log-text: #E0E6ED;
+            --log-info: #00E5FF;
+            --log-warning: #FFB74D;
+            --log-error: #FF3D71;
+            --log-success: #4ECDC4;
+            --overlay-bg: rgba(10, 14, 39, 0.8);
+            --event-bg: #1A2332;
+            --event-border: #2E3D5C;
+            --restricted-badge-bg: #FFB74D;
+            --restricted-badge-text: #000000;
+            --side-menu-bg: #0F1B3C;
+            --side-menu-active: #1A2332;
+            --side-menu-hover: #1E2A4A;
+            --log-panel-bg: #0F1B3C;
+            --log-panel-border: #2E3D5C;
+            --link-hover: #33F3FF;
+            --admin-notif-bg: #1A2332;
+            --admin-notif-border: #2E3D5C;
+            --forecast-win-bg: rgba(78, 205, 196, 0.2);
+            --forecast-loss-bg: rgba(255, 61, 113, 0.2);
+            --forecast-pending-bg: rgba(255, 183, 77, 0.2);
+            --comment-bg: #1A2332;
+            --comment-border: #2E3D5C;
+            --social-whatsapp: #25D366;
+            --social-telegram: #0088cc;
+            --social-youtube: #FF0000;
+            --partner-google: #4285F4;
+            --partner-firebase: #FFCA28;
+            --partner-github: #333333;
+            --partner-quora: #B92B27;
+            --notification-dot: #FF3D71;
+            --warning-bg: rgba(255, 183, 77, 0.15);
+            --warning-text: #FFB74D;
+            --image-message-bg: rgba(0, 229, 255, 0.15);
+            --image-viewer-bg: rgba(10, 14, 39, 0.95);
+            --selected-message-border: rgba(0, 229, 255, 0.8);
+            --date-separator-bg: rgba(224, 230, 237, 0.1);
+            --date-separator-text: #6C7B8A;
+            --reply-preview-bg: rgba(0, 229, 255, 0.15);
+            --reply-preview-border: #00E5FF;
+            --reply-preview-text: #E0E6ED;
+            --deleted-message-bg: rgba(224, 230, 237, 0.05);
+            --deleted-message-text: #6C7B8A;
+            --action-bar-bg: #0F1B3C;
+            --action-bar-text: #E0E6ED;
+            --action-bar-border: #2E3D5C;
+            --reply-quote-bg: rgba(0, 229, 255, 0.2);
+            --reply-quote-border: #00E5FF;
+            --group-info-bg: #0F1B3C;
+            --group-info-border: #2E3D5C;
+            --download-btn-bg: linear-gradient(135deg, #00E5FF, #0066CC);
+            --download-btn-text: white;
+            --new-badge-bg: linear-gradient(135deg, #00E5FF, #0066CC);
+            --new-badge-text: white;
+            --theme-selector-border: #2E3D5C;
+            --user-item-bg: #0F1B3C;
+            --unread-badge-bg: #FF3D71;
+            --unread-badge-text: white;
+            --sats-color: #FFB74D;
+            --plan-active-bg: rgba(0, 229, 255, 0.15);
+            --plan-active-border: #00E5FF;
+            --premium-badge-bg: linear-gradient(135deg, #FFD700, #FFA000);
+            --premium-badge-text: #000000;
+            --history-date-bg: rgba(0, 229, 255, 0.15);
+            --history-date-text: #00E5FF;
+            --card-bg: #1A2332;
+            --card-accent: #00E5FF;
+            --card-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card-style-glass .forecast-item {
-            background: rgba(255, 255, 255, 0.1);
+        /* Styles de transition pour les cartes */
+        .card-transition-smooth {
+            --card-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-transition-bounce {
+            --card-transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .card-transition-elastic {
+            --card-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-transition-fast {
+            --card-transition: all 0.2s ease-out;
+        }
+
+        .card-transition-slow {
+            --card-transition: all 0.8s ease-in-out;
+        }
+
+        /* Styles de couleur pour les cartes */
+        .card-style-gradient {
+            --card-bg: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.1));
+        }
+
+        .card-style-glass {
+            --card-bg: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .card-style-shadow .forecast-item {
+        .card-style-shadow {
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
-        .card-style-neon .forecast-item {
+        .card-style-neon {
             border: 2px solid var(--card-accent);
-            box-shadow: 0 0 20px rgba(93, 92, 222, 0.3);
+            box-shadow: 0 0 20px rgba(var(--primary-color), 0.3);
         }
 
-        /* Mode High-Tech */
-        .theme-hightech {
-            --bg-color: #0a0a0a;
-            --text-color: #00ff88;
-            --primary-color: #00ff88;
-            --secondary-color: #1a1a1a;
-            --border-color: #00ff88;
-            --card-bg: rgba(0, 255, 136, 0.1);
-            --card-accent: #00ff88;
-            --input-bg: #1a1a1a;
-            --inactive-text: #66ff99;
-            --side-menu-bg: #0a0a0a;
-            --side-menu-active: #1a1a1a;
-            --admin-badge-bg: #00ff88;
-            --admin-badge-text: #000000;
-            background-image: 
-                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px),
-                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            position: relative;
-        }
-
-        /* Animation des circuits pour le mode high-tech */
-        .theme-hightech::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 60% 10%, rgba(0, 255, 136, 0.05) 0%, transparent 40%);
-            animation: circuit-flow 8s ease-in-out infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @keyframes circuit-flow {
-            0%, 100% { opacity: 0.3; transform: translateX(0) translateY(0); }
-            25% { opacity: 0.6; transform: translateX(10px) translateY(-5px); }
-            50% { opacity: 0.8; transform: translateX(-5px) translateY(10px); }
-            75% { opacity: 0.4; transform: translateX(5px) translateY(-10px); }
-        }
-
-        /* Cartes high-tech avec lueur */
+        /* Effets spéciaux pour le thème High-Tech */
         .theme-hightech .forecast-item {
-            background: rgba(0, 255, 136, 0.05);
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            background: rgba(26, 35, 50, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 229, 255, 0.3);
             box-shadow: 
-                0 0 20px rgba(0, 255, 136, 0.2),
-                inset 0 1px 0 rgba(0, 255, 136, 0.1);
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(0, 229, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+        }
+
+        .theme-hightech .forecast-item:hover {
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(0, 229, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
         }
 
         .theme-hightech .forecast-item::before {
@@ -362,28 +446,108 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-            animation: scan-line 3s ease-in-out infinite;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
         }
 
-        @keyframes scan-line {
+        @keyframes shimmer {
             0% { left: -100%; }
-            50% { left: 100%; }
             100% { left: 100%; }
         }
 
-        .theme-hightech .forecast-item:hover {
-            box-shadow: 
-                0 0 30px rgba(0, 255, 136, 0.4),
-                inset 0 1px 0 rgba(0, 255, 136, 0.2);
-            border-color: rgba(0, 255, 136, 0.6);
+        .theme-hightech .forecast-card-container {
+            background: rgba(15, 27, 60, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
         }
 
-        /* Texte brillant en mode high-tech */
-        .theme-hightech .forecast-header,
-        .theme-hightech .header-title,
+        .theme-hightech .forecast-face {
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(25px);
+        }
+
+        .theme-hightech .header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 2px 20px rgba(0, 229, 255, 0.1);
+        }
+
+        .theme-hightech .bottom-nav {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 -2px 20px rgba(0, 229, 255, 0.1);
+        }
+
+        .theme-hightech .side-menu {
+            background: rgba(15, 27, 60, 0.95);
+            backdrop-filter: blur(25px);
+            border-right: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .theme-hightech .button {
+            background: linear-gradient(135deg, #00E5FF, #0066CC);
+            border: 1px solid rgba(0, 229, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-hightech .button:hover {
+            box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .theme-hightech .button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .theme-hightech .button:hover::before {
+            animation: buttonShine 0.8s ease-out;
+        }
+
+        @keyframes buttonShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+
+        .theme-hightech .form-input {
+            background: rgba(26, 35, 50, 0.8);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            color: #E0E6ED;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-hightech .form-input:focus {
+            border-color: #00E5FF;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
+
+        .theme-hightech .confidence-bar {
+            background: linear-gradient(90deg, #00E5FF, #4ECDC4);
+            box-shadow: 0 2px 10px rgba(0, 229, 255, 0.4);
+        }
+
         .theme-hightech .nav-item.active {
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            color: #00E5FF;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+        }
+
+        .theme-hightech .admin-badge {
+            background: linear-gradient(135deg, #00E5FF, #0066CC);
+            box-shadow: 0 2px 10px rgba(0, 229, 255, 0.5);
         }
         
         .dark {
@@ -453,6 +617,33 @@
             --plan-active-bg: rgba(93, 92, 222, 0.15);
             --history-date-bg: rgba(93, 92, 222, 0.15);
             --card-bg: #2c2c2c;
+        }
+
+        /* Mode sombre pour le thème High-Tech - encore plus sombre et lisse */
+        .theme-hightech.dark {
+            --bg-color: #000000;
+            --text-color: #F5F7FA;
+            --border-color: #0A0E27;
+            --secondary-color: #030712;
+            --card-bg: #060B1F;
+            --side-menu-bg: #020408;
+            --log-panel-bg: #020408;
+            --admin-notif-bg: #060B1F;
+            --event-bg: #060B1F;
+            --comment-bg: #060B1F;
+            --action-bar-bg: #020408;
+            --group-info-bg: #020408;
+            --user-item-bg: #020408;
+            --input-bg: #060B1F;
+        }
+
+        /* Mode clair pour le thème High-Tech - plus clair et doux */
+        .theme-hightech:not(.dark) {
+            --bg-color: #F8FAFC;
+            --text-color: #1E293B;
+            --secondary-color: #F1F5F9;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
         }
         
         * {
@@ -1726,105 +1917,6 @@
             background-color: #4a49c0;
             transform: translateY(-2px);
         }
-
-        /* Premium Access Required Modal */
-        .premium-required-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 200;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .premium-required-modal.active {
-            display: flex;
-        }
-
-        .premium-required-content {
-            background-color: var(--bg-color);
-            border-radius: 15px;
-            padding: 25px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-            position: relative;
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .premium-required-icon {
-            font-size: 60px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .premium-required-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .premium-required-text {
-            font-size: 16px;
-            color: var(--inactive-text);
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .premium-required-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .premium-required-subscribe {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 15px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .premium-required-subscribe:hover {
-            background-color: #4a49c0;
-            transform: translateY(-1px);
-        }
-
-        .premium-required-close {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: none;
-            border-radius: 12px;
-            padding: 12px 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .premium-required-close:hover {
-            background-color: var(--border-color);
-        }
         
         .profile-edit-dialog {
             position: fixed;
@@ -2037,6 +2129,7 @@
             overflow: hidden;
             min-height: 350px;
             perspective: 1000px;
+            transition: var(--card-transition);
             cursor: pointer;
         }
 
@@ -2051,6 +2144,7 @@
             height: 100%;
             min-height: 350px;
             transform-style: preserve-3d;
+            transition: transform 0.6s;
         }
 
         .forecast-card-container.show-details {
@@ -2169,7 +2263,7 @@
             line-height: 1.2;
         }
         
-        .forecast-vs {
+        .forecast-score {
             font-size: 24px;
             font-weight: bold;
             padding: 0 20px;
@@ -2228,6 +2322,7 @@
             height: 100%;
             background-color: var(--card-accent);
             border-radius: 4px;
+            transition: width 0.3s ease;
         }
 
         .forecast-description {
@@ -2832,10 +2927,10 @@
         }
 
         .interface-section {
-            background: linear-gradient(135deg, var(--secondary-color), rgba(93, 92, 222, 0.05));
+            background: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.05));
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid rgba(93, 92, 222, 0.1);
+            border: 1px solid rgba(var(--primary-color), 0.1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
@@ -2978,8 +3073,9 @@
         }
 
         .theme-option.theme-hightech {
-            background: linear-gradient(135deg, #0a0a0a, #00ff88);
-            border-color: #00ff88;
+            background: linear-gradient(135deg, #0A0E27, #00E5FF);
+            border: 2px solid #00E5FF;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
         }
         
         .theme-label {
@@ -2990,6 +3086,36 @@
             line-height: 1.2;
             color: var(--text-color);
             opacity: 0.8;
+        }
+
+        .transition-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .transition-option {
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid var(--theme-selector-border);
+            cursor: pointer;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: var(--bg-color);
+        }
+
+        .transition-option:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(var(--primary-color), 0.05);
+        }
+
+        .transition-option.active {
+            border-color: var(--primary-color);
+            background-color: rgba(var(--primary-color), 0.1);
+            color: var(--primary-color);
         }
 
         .card-style-selector {
@@ -3020,342 +3146,6 @@
             border-color: var(--primary-color);
             background-color: rgba(var(--primary-color), 0.1);
             color: var(--primary-color);
-        }
-
-        /* Subscription Section Styles */
-        .subscription-section {
-            padding: 0;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        .current-plan {
-            background-color: var(--plan-active-bg);
-            border: 2px solid var(--plan-active-border);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px;
-            text-align: center;
-        }
-
-        .current-plan-title {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .current-plan-info {
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .sats-balance {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--sats-color);
-            margin: 10px 0;
-        }
-
-        .sats-balance .bitcoin-icon {
-            margin-right: 8px;
-            display: inline;
-            position: static;
-            transform: none;
-            width: auto;
-            height: auto;
-            border-radius: 0;
-            background: none;
-            box-shadow: none;
-        }
-
-        .plan-item {
-            background-color: var(--secondary-color);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 10px 15px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .plan-item:hover {
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(93, 92, 222, 0.2);
-        }
-
-        .plan-item.popular {
-            border-color: var(--primary-color);
-            position: relative;
-        }
-
-        .plan-item.popular::before {
-            content: "Populaire";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .plan-title {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .plan-price {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--sats-color);
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .plan-price .bitcoin-icon {
-            display: inline;
-            position: static;
-            transform: none;
-            width: auto;
-            height: auto;
-            border-radius: 0;
-            background: none;
-            box-shadow: none;
-        }
-
-        .plan-duration {
-            font-size: 14px;
-            color: var(--inactive-text);
-        }
-
-        .plan-features {
-            list-style: none;
-            margin: 15px 0;
-            text-align: left;
-        }
-
-        .plan-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .plan-features li::before {
-            content: '✓';
-            color: var(--success-color);
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .plan-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 24px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            transition: all 0.2s ease;
-        }
-
-        .plan-button:hover {
-            background-color: #4a49c0;
-            transform: translateY(-2px);
-        }
-
-        .plan-button:active {
-            transform: translateY(0);
-        }
-
-        .plan-button:disabled {
-            background-color: var(--border-color);
-            color: var(--inactive-text);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Lightning Payment Modal */
-        .lightning-payment-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 200;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .lightning-payment-modal.active {
-            display: flex;
-        }
-
-        .lightning-payment-content {
-            background-color: var(--bg-color);
-            border-radius: 15px;
-            padding: 20px;
-            width: 100%;
-            max-width: 400px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .lightning-payment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .lightning-payment-title {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--primary-color);
-        }
-
-        .lightning-payment-close {
-            color: var(--text-color);
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: background-color 0.2s ease;
-        }
-
-        .lightning-payment-close:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .payment-amount {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .payment-amount-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--sats-color);
-            margin-bottom: 5px;
-        }
-
-        .payment-amount-label {
-            color: var(--inactive-text);
-            font-size: 14px;
-        }
-
-        .invoice-container {
-            margin-bottom: 20px;
-        }
-
-        .invoice-label {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .invoice-text {
-            background-color: var(--secondary-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px;
-            font-family: monospace;
-            font-size: 12px;
-            word-break: break-all;
-            max-height: 100px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-
-        .copy-invoice-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.2s ease;
-        }
-
-        .copy-invoice-btn:hover {
-            background-color: #4a49c0;
-        }
-
-        .payment-status {
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .payment-status.pending {
-            background-color: var(--forecast-pending-bg);
-            color: var(--text-color);
-        }
-
-        .payment-status.success {
-            background-color: var(--forecast-win-bg);
-            color: var(--success-color);
-        }
-
-        .payment-status.error {
-            background-color: var(--forecast-loss-bg);
-            color: var(--danger-color);
-        }
-
-        .payment-warning {
-            background-color: var(--warning-bg);
-            border: 2px solid var(--warning-text);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--warning-text);
-        }
-
-        .payment-warning i {
-            font-size: 20px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .cancel-payment-btn {
-            background-color: var(--danger-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.2s ease;
-        }
-
-        .cancel-payment-btn:hover {
-            background-color: #d32f2f;
         }
 
         /* Tutorials Section Styles */
@@ -3680,64 +3470,6 @@
     <div id="debug-toggle-btn" class="debug-toggle-btn">
         <i class="fas fa-bug"></i>
     </div>
-
-    <!-- Premium Access Required Modal -->
-    <div id="premium-required-modal" class="premium-required-modal">
-        <div class="premium-required-content">
-            <div class="premium-required-icon">
-                <i class="fas fa-crown"></i>
-            </div>
-            <div class="premium-required-title">Accès Premium Requis</div>
-            <div class="premium-required-text">
-                Accédez aux prédictions IA avancées, combinés intelligents et analyses premium avec un abonnement !
-            </div>
-            <div class="premium-required-buttons">
-                <button class="premium-required-subscribe" id="premium-modal-subscribe">
-                    S'abonner maintenant
-                </button>
-                <button class="premium-required-close" id="premium-modal-close">
-                    Fermer
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lightning Payment Modal -->
-    <div id="lightning-payment-modal" class="lightning-payment-modal">
-        <div class="lightning-payment-content">
-            <div class="lightning-payment-header">
-                <div class="lightning-payment-title">Paiement Lightning ⚡</div>
-                <div class="lightning-payment-close" id="lightning-payment-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            
-            <div class="payment-warning">
-                <i class="fas fa-exclamation-triangle"></i>
-                <strong>IMPORTANT :</strong> Ne fermez pas cette fenêtre pendant le paiement !
-                Le processus peut prendre quelques minutes.
-            </div>
-            
-            <div class="payment-amount">
-                <div class="payment-amount-value" id="payment-amount-value">10 sats</div>
-                <div class="payment-amount-label">Plan Quotidien</div>
-            </div>
-            
-            <div class="invoice-container">
-                <div class="invoice-label">Invoice Lightning :</div>
-                <div class="invoice-text" id="lightning-invoice-text"></div>
-                <button class="copy-invoice-btn" id="copy-lightning-invoice">Copier Invoice</button>
-            </div>
-            
-            <div class="payment-status pending" id="lightning-payment-status">
-                ⏳ En attente de paiement...
-            </div>
-            
-            <button class="cancel-payment-btn" id="cancel-lightning-payment">
-                Annuler le paiement
-            </button>
-        </div>
-    </div>
     
     <div class="side-menu" id="side-menu">
         <div class="side-menu-header">
@@ -3750,10 +3482,6 @@
             <div class="side-menu-item" id="menu-history">
                 <i class="fas fa-history"></i>
                 <div class="side-menu-text">Historique</div>
-            </div>
-            <div class="side-menu-item" id="menu-subscription">
-                <i class="fas fa-crown"></i>
-                <div class="side-menu-text">Abonnement</div>
             </div>
             <div class="side-menu-item" id="menu-tutorials">
                 <i class="fas fa-play-circle"></i>
@@ -3894,7 +3622,7 @@
             </div>
         </div>
 
-        <!-- Section Prédictions IA pour abonnés seulement -->
+        <!-- Section Prédictions IA maintenant ouverte à tous -->
         <div id="ai-forecasts-section" class="section">
             <div class="ai-forecasts-tabs">
                 <div class="ai-forecast-tab active" data-tab="combines">Combinés</div>
@@ -3936,66 +3664,6 @@
                 </div>
             </div>
         </div>
-        
-        <div id="subscription-section" class="section">
-            <div style="height: 100%; overflow-y: auto;">
-                <div class="current-plan">
-                    <div class="current-plan-title">Plan Actuel</div>
-                    <div class="current-plan-info" id="current-plan-name">Plan Gratuit</div>
-                    <div class="sats-balance">
-                        <i class="fab fa-bitcoin bitcoin-icon"></i>
-                        <span id="user-sats-balance">0</span> sats
-                    </div>
-                    <div style="font-size: 14px; color: var(--inactive-text);" id="plan-expiry-info">
-                        Rechargez vos sats pour accéder aux plans premium
-                    </div>
-                </div>
-
-                <div class="plan-item popular">
-                    <div class="plan-title">
-                        <i class="fas fa-calendar-day"></i>
-                        Plan Quotidien
-                    </div>
-                    <div class="plan-price">
-                        <i class="fab fa-bitcoin bitcoin-icon"></i>
-                        10 <span class="plan-duration">sats/jour</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li>Accès aux prédictions IA du jour</li>
-                        <li>Combinés intelligents</li>
-                        <li>Singles Premium exclusifs</li>
-                        <li>Analyses safes avancées</li>
-                        <li>Badge Premium</li>
-                        <li>Support prioritaire</li>
-                    </ul>
-                    <button class="plan-button" id="daily-plan-btn">
-                        S'abonner au plan quotidien
-                    </button>
-                </div>
-
-                <div class="plan-item">
-                    <div class="plan-title">
-                        <i class="fas fa-calendar-week"></i>
-                        Plan Hebdomadaire
-                    </div>
-                    <div class="plan-price">
-                        <i class="fab fa-bitcoin bitcoin-icon"></i>
-                        60 <span class="plan-duration">sats/semaine</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li>Tous les avantages du plan quotidien</li>
-                        <li>Économisez 10 sats par semaine</li>
-                        <li>Accès aux analyses avancées</li>
-                        <li>Historique complet des pronostics</li>
-                        <li>Badge Premium permanent</li>
-                        <li>Accès prioritaire aux nouveautés</li>
-                    </ul>
-                    <button class="plan-button" id="weekly-plan-btn">
-                        S'abonner au plan hebdomadaire
-                    </button>
-                </div>
-            </div>
-        </div>
 
         <div id="tutorials-section" class="section">
             <div style="height: 100%; overflow-y: auto;">
@@ -4007,32 +3675,13 @@
                         <div class="tutorial-badge">Gratuit</div>
                     </div>
                     <div class="tutorial-content">
-                        <div class="tutorial-title">Comment obtenir des sats gratuitement</div>
+                        <div class="tutorial-title">Guide complet de Pari Alliance</div>
                         <div class="tutorial-description">
-                            Découvrez toutes les méthodes pour gagner des satoshis gratuitement et recharger votre compte sans dépenser d'argent. Ce tutoriel vous guide à travers différentes plateformes et techniques pour accumuler des sats.
+                            Découvrez toutes les fonctionnalités de Pari Alliance : comment naviguer dans l'interface, comprendre les pronostics IA, utiliser les combinés intelligents et optimiser vos stratégies de paris sportifs.
                         </div>
                         <div class="tutorial-duration">
                             <i class="far fa-clock"></i>
                             5 minutes
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tutorial-item">
-                    <div class="tutorial-thumbnail" data-video="buy-plan">
-                        <div class="tutorial-play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="tutorial-badge">Premium</div>
-                    </div>
-                    <div class="tutorial-content">
-                        <div class="tutorial-title">Comment acheter un plan d'abonnement</div>
-                        <div class="tutorial-description">
-                            Guide complet pour souscrire à un plan premium et profiter de tous les avantages de Pari Alliance. Apprenez à gérer votre abonnement et optimiser votre utilisation de la plateforme.
-                        </div>
-                        <div class="tutorial-duration">
-                            <i class="far fa-clock"></i>
-                            3 minutes
                         </div>
                     </div>
                 </div>
@@ -4055,6 +3704,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="tutorial-item">
+                    <div class="tutorial-thumbnail" data-video="advanced-features">
+                        <div class="tutorial-play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="tutorial-badge">Avancé</div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-title">Fonctionnalités avancées</div>
+                        <div class="tutorial-description">
+                            Explorez les fonctionnalités avancées de Pari Alliance : personnalisation de l'interface, analyse des historiques, utilisation des thèmes et optimisation de votre expérience utilisateur.
+                        </div>
+                        <div class="tutorial-duration">
+                            <i class="far fa-clock"></i>
+                            4 minutes
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -4067,7 +3735,7 @@
                             Thème de couleur
                         </div>
                         <div class="interface-subtitle">
-                            Personnalisez l'apparence de l'application avec une large gamme de couleurs et modes
+                            Personnalisez l'apparence de l'application avec une large gamme de couleurs
                         </div>
                         <div class="theme-selector">
                             <div class="theme-option theme-blue active" data-theme="default">
@@ -4126,11 +3794,41 @@
 
                     <div class="interface-section">
                         <div class="interface-title">
+                            <i class="fas fa-magic"></i>
+                            Animations des cartes
+                        </div>
+                        <div class="interface-subtitle">
+                            Choisissez le style de transition pour les cartes de pronostics
+                        </div>
+                        <div class="transition-selector">
+                            <div class="transition-option active" data-transition="default">
+                                Fluide
+                            </div>
+                            <div class="transition-option" data-transition="bounce">
+                                Rebond
+                            </div>
+                            <div class="transition-option" data-transition="elastic">
+                                Élastique
+                            </div>
+                            <div class="transition-option" data-transition="fast">
+                                Rapide
+                            </div>
+                            <div class="transition-option" data-transition="slow">
+                                Lent
+                            </div>
+                            <div class="transition-option" data-transition="smooth">
+                                Doux
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interface-section">
+                        <div class="interface-title">
                             <i class="fas fa-brush"></i>
                             Style des cartes
                         </div>
                         <div class="interface-subtitle">
-                            Personnalisez l'apparence des cartes de pronostics avec différents effets visuels
+                            Personnalisez l'apparence des cartes de pronostics
                         </div>
                         <div class="card-style-selector">
                             <div class="card-style-option active" data-style="default">
@@ -4157,22 +3855,8 @@
                             Mode d'affichage
                         </div>
                         <div class="interface-subtitle">
-                            Choisissez entre le mode clair, sombre ou high-tech selon vos préférences
+                            Basculer entre le mode clair et sombre selon vos préférences
                         </div>
-                        
-                        <div class="setting-item">
-                            <div class="setting-row">
-                                <div class="setting-icon">
-                                    <i class="fas fa-sun" style="color: var(--primary-color);"></i>
-                                </div>
-                                <div class="setting-label">Mode clair</div>
-                            </div>
-                            <label class="switch">
-                                <input type="radio" name="display-mode" id="light-mode" value="light">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        
                         <div class="setting-item">
                             <div class="setting-row">
                                 <div class="setting-icon">
@@ -4181,20 +3865,7 @@
                                 <div class="setting-label">Mode sombre</div>
                             </div>
                             <label class="switch">
-                                <input type="radio" name="display-mode" id="dark-mode" value="dark">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        
-                        <div class="setting-item">
-                            <div class="setting-row">
-                                <div class="setting-icon">
-                                    <i class="fas fa-microchip" style="color: var(--primary-color);"></i>
-                                </div>
-                                <div class="setting-label">Mode High-Tech</div>
-                            </div>
-                            <label class="switch">
-                                <input type="radio" name="display-mode" id="hightech-mode" value="hightech">
+                                <input type="checkbox" id="dark-toggle" checked>
                                 <span class="slider"></span>
                             </label>
                         </div>
@@ -4216,7 +3887,6 @@
                         <div class="profile-name" id="profile-name">
                             <span id="profile-name-text">Utilisateur</span>
                             <span class="admin-badge" id="admin-badge" style="display: none;">Admin</span>
-                            <span class="premium-badge" id="premium-badge" style="display: none;">Premium</span>
                         </div>
                         <div class="profile-email" id="profile-email">user@example.com</div>
                         <div class="profile-status">En ligne</div>
@@ -4228,18 +3898,18 @@
                 
                 <div class="section-title">Paramètres</div>
 
-                <!-- Note d'abonnement gratuit -->
+                <!-- Note d'accès gratuit -->
                 <div class="free-subscription-note">
                     <h3>
                         <i class="fas fa-gift"></i>
-                        Abonnement Gratuit !
+                        Accès Gratuit Total !
                     </h3>
                     <p>
-                        🎉 Abonnez-vous à nos trois réseaux sociaux (WhatsApp, Telegram et YouTube) et recevez un abonnement premium gratuit !
+                        🎉 Profitez de toutes les fonctionnalités de Pari Alliance gratuitement ! Tous les pronostics, combinés IA et analyses premium sont maintenant accessibles à tous.
                     </p>
                     <button class="button claim" id="claim-free-subscription">
                         <i class="fab fa-whatsapp"></i>
-                        Réclamer mon abonnement gratuit
+                        Rejoindre notre communauté
                     </button>
                 </div>
                 
@@ -4352,60 +4022,50 @@
             <div class="about-logo">
                 <i class="fas fa-futbol"></i>
                 <div class="about-title">Pari Alliance</div>
-                <div class="about-version">Version 2.0.0</div>
+                <div class="about-version">Version 3.0.0</div>
             </div>
             
             <div class="about-section">
                 <div class="about-section-title">Description</div>
                 <div class="about-section-content">
-                    Pari Alliance est une application de prédictions sportives révolutionnaire qui combine l'intelligence artificielle avancée avec des analyses de données en temps réel pour fournir des pronostics précis et fiables dans le domaine sportif.
+                    Pari Alliance est une application de prédictions sportives révolutionnaire qui combine l'intelligence artificielle avancée avec des analyses de données en temps réel pour fournir des pronostics précis et fiables dans le domaine sportif. Maintenant entièrement gratuite !
                 </div>
             </div>
             
             <div class="about-section">
                 <div class="about-section-title">Fonctionnalités</div>
                 <div class="about-section-content">
-                    <strong>Plan Gratuit :</strong><br>
+                    <strong>Accès Gratuit Total :</strong><br>
                     • Pronostics simples quotidiens<br>
-                    • Accès aux événements et notifications<br>
-                    • Personnalisation de l'interface<br>
-                    • Historique des 2 derniers jours<br><br>
-                    
-                    <strong>Plans Premium :</strong><br>
                     • Prédictions IA avancées<br>
                     • Combinés intelligents optimisés<br>
                     • Singles Premium exclusifs<br>
                     • Analyses safes avancées<br>
-                    • Badge Premium distinctif<br>
-                    • Support prioritaire<br>
-                    • Accès prioritaire aux nouveautés
-                </div>
-            </div>
-            
-            <div class="about-section">
-                <div class="about-section-title">Système d'abonnement</div>
-                <div class="about-section-content">
-                    Nos abonnements fonctionnent avec des satoshis (sats), la plus petite unité du Bitcoin, permettant des micro-paiements rapides et sécurisés via le Lightning Network.<br><br>
+                    • Personnalisation complète de l'interface<br>
+                    • Historique complet des pronostics<br>
+                    • Accès aux événements et notifications<br>
+                    • Thème high-tech avec effets visuels<br><br>
                     
-                    <strong>Plans disponibles :</strong><br>
-                    • Plan Quotidien : 10 sats/jour<br>
-                    • Plan Hebdomadaire : 60 sats/semaine (économie de 10 sats)<br><br>
-                    
-                    Les abonnements se renouvellent automatiquement à minuit (00h00) et donnent accès à toutes les fonctionnalités premium pendant la durée active.
+                    <strong>Interface Avancée :</strong><br>
+                    • 17 thèmes de couleurs différents<br>
+                    • Thème high-tech avec effets de lueur<br>
+                    • Animations personnalisables<br>
+                    • Cartes interactives à 4 faces<br>
+                    • Mode sombre/clair adaptatif
                 </div>
             </div>
             
             <div class="about-section">
                 <div class="about-section-title">Technologie</div>
                 <div class="about-section-content">
-                    Notre plateforme utilise des algorithmes d'intelligence artificielle sophistiqués pour analyser des milliers de données sportives, statistiques d'équipes, performances historiques et tendances actuelles afin de générer des prédictions avec un taux de précision optimal.
+                    Notre plateforme utilise des algorithmes d'intelligence artificielle sophistiqués pour analyser des milliers de données sportives, statistiques d'équipes, performances historiques et tendances actuelles afin de générer des prédictions avec un taux de précision optimal. L'interface utilise des technologies web avancées pour offrir une expérience utilisateur exceptionnelle.
                 </div>
             </div>
             
             <div class="about-section">
                 <div class="about-section-title">Confidentialité et sécurité</div>
                 <div class="about-section-content">
-                    Pari Alliance respecte strictement votre vie privée. Vos données personnelles sont protégées par des protocoles de sécurité avancés et ne sont jamais partagées avec des tiers. Tous les paiements sont sécurisés via le Lightning Network Bitcoin.
+                    Pari Alliance respecte strictement votre vie privée. Vos données personnelles sont protégées par des protocoles de sécurité avancés et ne sont jamais partagées avec des tiers. L'application fonctionne maintenant en mode entièrement gratuit pour tous les utilisateurs.
                 </div>
             </div>
             
@@ -4460,7 +4120,7 @@
                     
                     <strong>Interdictions formelles :</strong><br>
                     • Revendre ou commercialiser nos pronostics sous quelque forme que ce soit<br>
-                    • Partager ou redistribuer nos analyses premium en dehors de la plateforme<br>
+                    • Partager ou redistribuer nos analyses en dehors de la plateforme<br>
                     • Copier, reproduire ou utiliser nos contenus à des fins commerciales<br>
                     • Créer des comptes multiples pour contourner les limitations<br>
                     • Utiliser des méthodes automatisées pour extraire nos données<br><br>
@@ -4471,18 +4131,16 @@
             </div>
             
             <div class="about-section">
-                <div class="about-section-title">Abonnements et paiements</div>
+                <div class="about-section-title">Accès gratuit et communauté</div>
                 <div class="about-section-content">
-                    <strong>Système de paiement :</strong><br>
-                    Les abonnements premium fonctionnent avec des satoshis (sats) via le Lightning Network Bitcoin, garantissant des transactions rapides et sécurisées.<br><br>
+                    <strong>Nouvelle politique d'accès :</strong><br>
+                    Pari Alliance est maintenant entièrement gratuit pour tous les utilisateurs. Toutes les fonctionnalités premium sont désormais accessibles sans frais.<br><br>
                     
-                    <strong>Durée et renouvellement :</strong><br>
-                    • Les abonnements expirent automatiquement à minuit (00h00)<br>
-                    • Aucun renouvellement automatique n'est effectué<br>
-                    • Vous devez renouveler manuellement votre abonnement<br><br>
+                    <strong>Engagement communautaire :</strong><br>
+                    Nous encourageons tous les utilisateurs à rejoindre notre communauté sur nos réseaux sociaux (WhatsApp, Telegram, YouTube) pour participer aux discussions et recevoir des conseils exclusifs.<br><br>
                     
-                    <strong>Politique de remboursement :</strong><br>
-                    En raison de la nature numérique instantanée de nos services et des micro-paiements en cryptomonnaie, aucun remboursement n'est possible une fois l'accès premium activé.
+                    <strong>Durabilité du service :</strong><br>
+                    Bien que le service soit gratuit, nous nous réservons le droit de modifier cette politique à l'avenir si nécessaire pour maintenir la qualité du service.
                 </div>
             </div>
             
@@ -4577,16 +4235,6 @@
         // Admin configuration
         const ADMIN_EMAILS = ['billionsjonnhy@gmail.com', 'louiskbn05@gmail.com'];
 
-        // Lightning payment configuration
-        const BLINK_API_KEY = "blink_GfLbFm7LuO6kWCee61eDGbHreslJIAj9WvkJ5INk3NfmuG8LewqYmwCmeu5i1P9D";
-        const BLINK_WALLET_ID = "152f6bb5-fe7a-491c-b5d8-99bfd1853940";
-        const BLINK_API_URL = "https://api.blink.sv/graphql";
-
-        // Lightning payment variables
-        let currentPaymentRequest = "";
-        let autoCheckInterval = null;
-        let currentPlanTypeForPayment = '';
-
         // Debug system
         let debugLogs = [];
         let debugPanelVisible = false;
@@ -4667,326 +4315,6 @@
             addDebugLog(errorMessage, 'error', linkUrl);
             
             return errorMessage;
-        }
-
-        // Lightning payment functions (simplifiées)
-        async function generateLightningInvoice(amount, planType) {
-            addDebugLog(`Génération d'invoice pour ${amount} sats`, 'info');
-
-            const mutation = `
-                mutation CreateInvoice {
-                    lnInvoiceCreate(input: {
-                        walletId: "${BLINK_WALLET_ID}",
-                        amount: ${amount},
-                        memo: "Abonnement ${planType === 'daily' ? 'Quotidien' : 'Hebdomadaire'} - Pari Alliance"
-                    }) {
-                        invoice {
-                            paymentRequest
-                        }
-                        errors {
-                            message
-                        }
-                    }
-                }
-            `;
-
-            try {
-                const response = await fetch(BLINK_API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-API-KEY": BLINK_API_KEY,
-                    },
-                    body: JSON.stringify({ query: mutation }),
-                });
-
-                const result = await response.json();
-
-                if (result.data?.lnInvoiceCreate?.errors?.length) {
-                    throw new Error("Erreur lors de la création de l'invoice");
-                }
-
-                const invoice = result.data.lnInvoiceCreate.invoice;
-                if (!invoice) {
-                    throw new Error("Invoice non reçue");
-                }
-
-                currentPaymentRequest = invoice.paymentRequest;
-                addDebugLog("Invoice générée avec succès", 'success');
-
-                // Start checking payment status every 3 seconds automatically
-                if (autoCheckInterval) clearInterval(autoCheckInterval);
-                autoCheckInterval = setInterval(checkLightningPaymentStatus, 3000);
-
-                return currentPaymentRequest;
-
-            } catch (error) {
-                addDebugLog("Erreur génération invoice: " + error.message, 'error');
-                throw error;
-            }
-        }
-
-        async function checkLightningPaymentStatus() {
-            if (!currentPaymentRequest) return;
-
-            const query = `
-                query CheckPaymentStatus {
-                    lnInvoicePaymentStatus(input: { paymentRequest: "${currentPaymentRequest}" }) {
-                        status
-                    }
-                }
-            `;
-
-            try {
-                const response = await fetch(BLINK_API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-API-KEY": BLINK_API_KEY,
-                    },
-                    body: JSON.stringify({ query }),
-                });
-
-                const result = await response.json();
-
-                if (result.errors) {
-                    return;
-                }
-
-                const status = result.data?.lnInvoicePaymentStatus?.status;
-                if (!status) return;
-
-                const paymentStatusElement = document.getElementById('lightning-payment-status');
-
-                if (status === "PAID") {
-                    clearInterval(autoCheckInterval);
-                    paymentStatusElement.className = 'payment-status success';
-                    paymentStatusElement.innerHTML = '✅ Paiement reçu !';
-                    addDebugLog("Paiement confirmé !", 'success');
-                    
-                    // Process subscription
-                    await processSubscription(currentPlanTypeForPayment);
-                    
-                    setTimeout(() => {
-                        hideLightningPaymentModal();
-                        showNotification('Abonnement activé avec succès !', 'success');
-                    }, 2000);
-                } else {
-                    paymentStatusElement.innerHTML = `⌛ Statut : ${status}`;
-                }
-
-            } catch (error) {
-                addDebugLog("Erreur vérification paiement: " + error.message, 'error');
-            }
-        }
-
-        function showLightningPaymentModal(amount, planType) {
-            currentPlanTypeForPayment = planType;
-            const modal = document.getElementById('lightning-payment-modal');
-            const amountElement = document.getElementById('payment-amount-value');
-            const statusElement = document.getElementById('lightning-payment-status');
-            const invoiceElement = document.getElementById('lightning-invoice-text');
-
-            // Reset modal state
-            amountElement.textContent = `${amount} sats`;
-            statusElement.className = 'payment-status pending';
-            statusElement.innerHTML = '⏳ Génération de l\'invoice...';
-            invoiceElement.textContent = '';
-            currentPaymentRequest = '';
-
-            modal.classList.add('active');
-
-            addDebugLog(`Ouverture du modal de paiement Lightning pour ${amount} sats (plan ${planType})`, 'info');
-
-            // Generate invoice
-            generateLightningInvoice(amount, planType)
-                .then(invoice => {
-                    invoiceElement.textContent = invoice;
-                    statusElement.innerHTML = '⏳ En attente de paiement...';
-                })
-                .catch(error => {
-                    statusElement.className = 'payment-status error';
-                    statusElement.innerHTML = '❌ Erreur génération invoice';
-                });
-        }
-
-        function hideLightningPaymentModal() {
-            const modal = document.getElementById('lightning-payment-modal');
-            modal.classList.remove('active');
-            
-            if (autoCheckInterval) {
-                clearInterval(autoCheckInterval);
-                autoCheckInterval = null;
-            }
-            
-            currentPaymentRequest = '';
-            currentPlanTypeForPayment = '';
-            addDebugLog('Fermeture du modal de paiement Lightning', 'info');
-        }
-
-        function copyLightningInvoice() {
-            const invoiceText = document.getElementById('lightning-invoice-text').textContent;
-            if (invoiceText) {
-                navigator.clipboard.writeText(invoiceText).then(() => {
-                    showNotification('Invoice copiée !', 'success');
-                }).catch(err => {
-                    addDebugLog("Erreur copie: " + err.message, 'error');
-                });
-            }
-        }
-
-        // Premium required modal functions
-        function showPremiumRequiredModal() {
-            const modal = document.getElementById('premium-required-modal');
-            modal.classList.add('active');
-            addDebugLog('Affichage de la popup premium requis', 'info');
-        }
-
-        function hidePremiumRequiredModal() {
-            const modal = document.getElementById('premium-required-modal');
-            modal.classList.remove('active');
-            addDebugLog('Fermeture de la popup premium requis', 'info');
-        }
-
-        async function processSubscription(planType) {
-            if (!currentUser) return;
-            
-            try {
-                addDebugLog(`Début du traitement de l'abonnement ${planType}`, 'info');
-                
-                // Calculer la date d'expiration à minuit
-                const now = new Date();
-                let expiryDate;
-                
-                if (planType === 'daily') {
-                    // Expiration le lendemain à minuit
-                    expiryDate = new Date(now);
-                    expiryDate.setDate(expiryDate.getDate() + 1);
-                } else {
-                    // Expiration dans 7 jours à minuit
-                    expiryDate = new Date(now);
-                    expiryDate.setDate(expiryDate.getDate() + 7);
-                }
-                
-                // Forcer l'heure à minuit
-                expiryDate.setHours(0, 0, 0, 0);
-                
-                // Update user data
-                const userRef = doc(db, "Users", currentUser.uid);
-                await updateDoc(userRef, {
-                    currentPlan: planType,
-                    planExpiryDate: expiryDate,
-                    lastPaymentDate: now
-                });
-                
-                addDebugLog(`Données utilisateur mises à jour: plan=${planType}, expiration=${expiryDate.toISOString()}`, 'success');
-                
-                // Add to Premium collection
-                const premiumCollectionName = planType === 'daily' ? 'PremiumQuotidien' : 'PremiumHebdomadaire';
-                const premiumRef = doc(db, premiumCollectionName, currentUser.uid);
-                
-                const premiumData = {
-                    userId: currentUser.uid,
-                    userEmail: currentUser.email,
-                    planType: planType,
-                    activatedAt: now,
-                    expiresAt: expiryDate,
-                    status: 'active'
-                };
-                
-                await setDoc(premiumRef, premiumData);
-                addDebugLog(`Utilisateur ajouté à la collection ${premiumCollectionName}`, 'success');
-                
-                currentPlanType = planType;
-                
-                // Update UI
-                await loadUserSubscriptionData();
-                updateBadges();
-                
-            } catch (error) {
-                const errorMsg = handleFirestoreError(error, 'traitement de l\'abonnement');
-                showNotification('Erreur lors de l\'activation de l\'abonnement', 'error');
-            }
-        }
-
-        // Check if user's subscription has expired and remove from Premium collection
-        async function checkSubscriptionExpiry() {
-            if (!currentUser || !currentUserData) return;
-            
-            try {
-                if (currentUserData.currentPlan && currentUserData.currentPlan !== 'free') {
-                    // Améliorer la gestion des dates d'expiration
-                    let expiryDate;
-                    if (currentUserData.planExpiryDate) {
-                        if (currentUserData.planExpiryDate.toDate) {
-                            // Firestore Timestamp
-                            expiryDate = currentUserData.planExpiryDate.toDate();
-                        } else if (currentUserData.planExpiryDate instanceof Date) {
-                            // JavaScript Date
-                            expiryDate = currentUserData.planExpiryDate;
-                        } else if (typeof currentUserData.planExpiryDate === 'string') {
-                            // String ISO
-                            expiryDate = new Date(currentUserData.planExpiryDate);
-                        } else {
-                            // Fallback: considérer comme expiré
-                            expiryDate = new Date(0);
-                        }
-                    } else {
-                        // Pas de date d'expiration définie, considérer comme expiré
-                        expiryDate = new Date(0);
-                    }
-                    
-                    const now = new Date();
-                    
-                    addDebugLog(`Vérification expiration: maintenant=${now.toISOString()}, expiration=${expiryDate.toISOString()}`, 'info');
-                    
-                    if (now >= expiryDate) {
-                        addDebugLog(`Abonnement expiré depuis ${expiryDate.toLocaleString('fr-FR')}`, 'warning');
-                        
-                        // Remove from Premium collection
-                        const premiumCollectionName = currentUserData.currentPlan === 'daily' ? 'PremiumQuotidien' : 'PremiumHebdomadaire';
-                        const premiumRef = doc(db, premiumCollectionName, currentUser.uid);
-                        
-                        try {
-                            await deleteDoc(premiumRef);
-                            addDebugLog(`Utilisateur retiré de ${premiumCollectionName}`, 'success');
-                        } catch (deleteError) {
-                            addDebugLog(`Erreur suppression de ${premiumCollectionName}: ${deleteError.message}`, 'warning');
-                        }
-                        
-                        // Update user to free plan
-                        const userRef = doc(db, "Users", currentUser.uid);
-                        await updateDoc(userRef, {
-                            currentPlan: 'free',
-                            planExpiryDate: null
-                        });
-                        
-                        currentUserData.currentPlan = 'free';
-                        currentUserData.planExpiryDate = null;
-                        currentPlanType = 'free';
-                        
-                        addDebugLog('Utilisateur remis au plan gratuit', 'success');
-                        showNotification('Votre abonnement a expiré. Vous êtes maintenant sur le plan gratuit.', 'info');
-                        
-                        await loadUserSubscriptionData();
-                        updateBadges();
-                        
-                        return true; // Abonnement expiré
-                    } else {
-                        addDebugLog(`Abonnement encore valide jusqu'au ${expiryDate.toLocaleString('fr-FR')}`, 'success');
-                        return false; // Abonnement encore valide
-                    }
-                }
-            } catch (error) {
-                handleFirestoreError(error, 'vérification de l\'expiration de l\'abonnement');
-            }
-            
-            return false;
-        }
-
-        // Function to check if user has premium access
-        function hasPremiumAccess() {
-            return isAdmin || (currentPlanType && currentPlanType !== 'free');
         }
 
         // Initialize or check Admin collection
@@ -5090,12 +4418,10 @@
         let isSearchActive = false;
         let currentSearchContext = '';
         let selectedTheme = localStorage.getItem('parisAllianceTheme') || 'default';
+        let selectedTransition = localStorage.getItem('parisAllianceTransition') || 'default';
         let selectedCardStyle = localStorage.getItem('parisAllianceCardStyle') || 'default';
-        let selectedDisplayMode = localStorage.getItem('parisAllianceDisplayMode') || 'auto';
         let forecastsCache = {};
         let usersCache = {};
-        let userSatsBalance = 0;
-        let currentPlanType = '';
 
         // Function to get current date in YYYY-MM-DD format
         function getCurrentDateString() {
@@ -5356,6 +4682,25 @@
             }
         }
 
+        function setupTransitions() {
+            const transitionClasses = ['card-transition-smooth', 'card-transition-bounce', 'card-transition-elastic', 'card-transition-fast', 'card-transition-slow'];
+            
+            document.documentElement.classList.remove(...transitionClasses);
+            
+            if (selectedTransition !== 'default') {
+                document.documentElement.classList.add(`card-transition-${selectedTransition}`);
+            }
+            
+            document.querySelectorAll('.transition-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            const activeTransitionOption = document.querySelector(`.transition-option[data-transition="${selectedTransition}"]`);
+            if (activeTransitionOption) {
+                activeTransitionOption.classList.add('active');
+            }
+        }
+
         function setupCardStyles() {
             const cardStyleClasses = ['card-style-gradient', 'card-style-glass', 'card-style-shadow', 'card-style-neon'];
             
@@ -5375,40 +4720,31 @@
             }
         }
         
-        function setupDisplayMode() {
-            // Appliquer le mode d'affichage sauvegardé
-            if (selectedDisplayMode === 'light') {
-                document.documentElement.classList.remove('dark', 'theme-hightech');
-                document.getElementById('light-mode').checked = true;
-            } else if (selectedDisplayMode === 'dark') {
+        function setupDarkMode() {
+            const savedPreference = localStorage.getItem('parisAllianceDarkMode');
+            
+            if (savedPreference === 'true') {
                 document.documentElement.classList.add('dark');
-                document.documentElement.classList.remove('theme-hightech');
-                document.getElementById('dark-mode').checked = true;
-            } else if (selectedDisplayMode === 'hightech') {
-                document.documentElement.classList.add('theme-hightech');
+                document.getElementById('dark-toggle').checked = true;
+            } else if (savedPreference === 'false') {
                 document.documentElement.classList.remove('dark');
-                document.getElementById('hightech-mode').checked = true;
+                document.getElementById('dark-toggle').checked = false;
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('dark-toggle').checked = true;
             } else {
-                // Mode auto basé sur les préférences système
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.classList.add('dark');
-                    document.getElementById('dark-mode').checked = true;
-                    selectedDisplayMode = 'dark';
-                } else {
-                    document.getElementById('light-mode').checked = true;
-                    selectedDisplayMode = 'light';
-                }
+                document.documentElement.classList.remove('dark');
+                document.getElementById('dark-toggle').checked = false;
             }
             
-            // Écouter les changements de préférences système seulement si en mode auto
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-                if (selectedDisplayMode === 'auto') {
+                if (localStorage.getItem('parisAllianceDarkMode') === null) {
                     if (event.matches) {
                         document.documentElement.classList.add('dark');
-                        document.getElementById('dark-mode').checked = true;
+                        document.getElementById('dark-toggle').checked = true;
                     } else {
                         document.documentElement.classList.remove('dark');
-                        document.getElementById('light-mode').checked = true;
+                        document.getElementById('dark-toggle').checked = false;
                     }
                 }
             });
@@ -5470,93 +4806,8 @@
             }, 100);
         }
 
-        async function loadUserSubscriptionData() {
-            if (!currentUser) return;
-            
-            try {
-                const userRef = doc(db, "Users", currentUser.uid);
-                const userDoc = await getDoc(userRef);
-                
-                if (userDoc.exists()) {
-                    const userData = userDoc.data();
-                    userSatsBalance = userData.satsBalance || 0;
-                    currentPlanType = userData.currentPlan || 'free';
-                    
-                    // Update currentUserData with fresh data
-                    currentUserData = { ...currentUserData, ...userData };
-                    
-                    // Check if subscription has expired
-                    await checkSubscriptionExpiry();
-                    
-                    updateSubscriptionDisplay();
-                    updateBadges();
-                }
-            } catch (error) {
-                console.error('Erreur lors du chargement des données d\'abonnement:', error);
-                addDebugLog(`Erreur chargement abonnement: ${error.message}`, 'error');
-            }
-        }
-
-        function updateSubscriptionDisplay() {
-            const satsBalanceElement = document.getElementById('user-sats-balance');
-            if (satsBalanceElement) {
-                satsBalanceElement.textContent = userSatsBalance;
-            }
-            
-            // Update current plan display
-            const currentPlanNameElement = document.getElementById('current-plan-name');
-            const planExpiryInfoElement = document.getElementById('plan-expiry-info');
-            
-            if (currentPlanNameElement && planExpiryInfoElement) {
-                if (currentPlanType === 'free') {
-                    currentPlanNameElement.textContent = 'Plan Gratuit';
-                    planExpiryInfoElement.textContent = 'Rechargez vos sats pour accéder aux plans premium';
-                } else {
-                    const planNames = {
-                        'daily': 'Plan Quotidien',
-                        'weekly': 'Plan Hebdomadaire'
-                    };
-                    currentPlanNameElement.textContent = planNames[currentPlanType] || 'Plan Premium';
-                    
-                    if (currentUserData?.planExpiryDate) {
-                        let expiryDate;
-                        if (currentUserData.planExpiryDate.toDate) {
-                            expiryDate = currentUserData.planExpiryDate.toDate();
-                        } else {
-                            expiryDate = new Date(currentUserData.planExpiryDate);
-                        }
-                        planExpiryInfoElement.textContent = `Expire le ${expiryDate.toLocaleDateString('fr-FR')} à minuit`;
-                    } else {
-                        planExpiryInfoElement.textContent = 'Plan actif';
-                    }
-                }
-            }
-            
-            // Update plan buttons
-            const planButtons = document.querySelectorAll('.plan-button');
-            planButtons.forEach(button => {
-                button.disabled = false;
-                if (button.id === 'daily-plan-btn') {
-                    button.textContent = currentPlanType === 'daily' ? 'Plan actuel' : 'S\'abonner au plan quotidien';
-                    button.disabled = currentPlanType === 'daily';
-                } else {
-                    button.textContent = currentPlanType === 'weekly' ? 'Plan actuel' : 'S\'abonner au plan hebdomadaire';
-                    button.disabled = currentPlanType === 'weekly';
-                }
-            });
-        }
-
         function updateBadges() {
-            const premiumBadge = document.getElementById('premium-badge');
             const adminBadge = document.getElementById('admin-badge');
-            
-            if (premiumBadge) {
-                if (hasPremiumAccess() && !isAdmin) {
-                    premiumBadge.style.display = 'inline-block';
-                } else {
-                    premiumBadge.style.display = 'none';
-                }
-            }
             
             if (adminBadge) {
                 if (isAdmin) {
@@ -5574,8 +4825,8 @@
             // URLs YouTube démo pour les tutoriels
             const videoUrls = {
                 'free-sats': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                'buy-plan': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                'understand-predictions': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+                'understand-predictions': 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'advanced-features': 'https://www.youtube.com/embed/dQw4w9WgXcQ'
             };
             
             if (videoUrls[videoType]) {
@@ -5585,9 +4836,9 @@
             } else {
                 // Fallback: show notification for demo
                 const videoTitles = {
-                    'free-sats': 'Comment obtenir des sats gratuitement',
-                    'buy-plan': 'Comment acheter un plan d\'abonnement',
-                    'understand-predictions': 'Comment comprendre nos prédictions'
+                    'free-sats': 'Guide complet de Pari Alliance',
+                    'understand-predictions': 'Comment comprendre nos prédictions',
+                    'advanced-features': 'Fonctionnalités avancées'
                 };
                 
                 showNotification(`Vidéo "${videoTitles[videoType]}" bientôt disponible`, 'info');
@@ -5604,10 +4855,10 @@
 
         function claimFreeSubscription() {
             const phoneNumber = '0565343227';
-            const message = `Bonjour ! Je suis abonné aux trois réseaux sociaux de Pari Alliance (WhatsApp, Telegram et YouTube) et je souhaite réclamer mon abonnement premium gratuit. Merci !`;
+            const message = `Bonjour ! Je suis un utilisateur de Pari Alliance et je souhaite rejoindre la communauté pour recevoir des conseils exclusifs et participer aux discussions. Merci !`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             
-            addDebugLog('Ouverture de WhatsApp pour réclamer l\'abonnement gratuit', 'info');
+            addDebugLog('Ouverture de WhatsApp pour rejoindre la communauté', 'info');
             window.open(whatsappUrl, '_blank');
         }
         
@@ -5628,19 +4879,6 @@
                 debugPanelVisible = false;
                 document.getElementById('debug-log-panel').classList.remove('active');
             });
-
-            // Premium required modal events
-            document.getElementById('premium-modal-subscribe').addEventListener('click', function() {
-                hidePremiumRequiredModal();
-                showSubscriptionSection();
-            });
-
-            document.getElementById('premium-modal-close').addEventListener('click', hidePremiumRequiredModal);
-
-            // Lightning payment modal events
-            document.getElementById('lightning-payment-close').addEventListener('click', hideLightningPaymentModal);
-            document.getElementById('copy-lightning-invoice').addEventListener('click', copyLightningInvoice);
-            document.getElementById('cancel-lightning-payment').addEventListener('click', hideLightningPaymentModal);
 
             // Claim free subscription button
             document.getElementById('claim-free-subscription').addEventListener('click', claimFreeSubscription);
@@ -5664,12 +4902,6 @@
                 document.getElementById('side-menu').classList.remove('active');
                 document.getElementById('side-menu-overlay').classList.remove('active');
                 showHistorySection();
-            });
-
-            document.getElementById('menu-subscription').addEventListener('click', function() {
-                document.getElementById('side-menu').classList.remove('active');
-                document.getElementById('side-menu-overlay').classList.remove('active');
-                showSubscriptionSection();
             });
 
             document.getElementById('menu-tutorials').addEventListener('click', function() {
@@ -5732,12 +4964,8 @@
                         if (section === 'forecasts') {
                             showForecastsSection();
                         } else if (section === 'ai-forecasts') {
-                            // Vérifier l'accès premium
-                            if (hasPremiumAccess()) {
-                                showAIForecastsSection();
-                            } else {
-                                showPremiumRequiredModal();
-                            }
+                            // Maintenant accessible à tous
+                            showAIForecastsSection();
                         } else if (section === 'profile') {
                             showProfileSection();
                         }
@@ -5756,19 +4984,6 @@
             });
 
             document.getElementById('video-close').addEventListener('click', closeVideoModal);
-
-            // Subscription plan events with Lightning payment
-            document.getElementById('daily-plan-btn').addEventListener('click', function() {
-                if (currentPlanType !== 'daily') {
-                    showLightningPaymentModal(10, 'daily');
-                }
-            });
-
-            document.getElementById('weekly-plan-btn').addEventListener('click', function() {
-                if (currentPlanType !== 'weekly') {
-                    showLightningPaymentModal(60, 'weekly');
-                }
-            });
             
             document.querySelectorAll('.ai-forecast-tab').forEach(tab => {
                 tab.addEventListener('click', function() {
@@ -5777,33 +4992,14 @@
                 });
             });
             
-            // Display mode radio buttons
-            document.querySelectorAll('input[name="display-mode"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.checked) {
-                        const mode = this.value;
-                        selectedDisplayMode = mode;
-                        
-                        // Remove all mode classes
-                        document.documentElement.classList.remove('dark', 'theme-hightech');
-                        
-                        if (mode === 'dark') {
-                            document.documentElement.classList.add('dark');
-                        } else if (mode === 'hightech') {
-                            document.documentElement.classList.add('theme-hightech');
-                        }
-                        
-                        localStorage.setItem('parisAllianceDisplayMode', mode);
-                        
-                        const modeNames = {
-                            'light': 'Mode clair',
-                            'dark': 'Mode sombre',
-                            'hightech': 'Mode High-Tech'
-                        };
-                        
-                        showNotification(`${modeNames[mode]} activé`, 'success');
-                    }
-                });
+            document.getElementById('dark-toggle').addEventListener('change', function() {
+                if (this.checked) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                
+                localStorage.setItem('parisAllianceDarkMode', this.checked ? 'true' : 'false');
             });
             
             document.querySelectorAll('.theme-option').forEach(option => {
@@ -5846,6 +5042,39 @@
                     };
                     
                     showNotification(`Thème ${themeNames[theme]} appliqué`, 'success');
+                });
+            });
+
+            // Transition selector events
+            document.querySelectorAll('.transition-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const transition = this.getAttribute('data-transition');
+                    selectedTransition = transition;
+                    
+                    const transitionClasses = ['card-transition-smooth', 'card-transition-bounce', 'card-transition-elastic', 'card-transition-fast', 'card-transition-slow'];
+                    document.documentElement.classList.remove(...transitionClasses);
+                    
+                    if (transition !== 'default') {
+                        document.documentElement.classList.add(`card-transition-${transition}`);
+                    }
+                    
+                    document.querySelectorAll('.transition-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    localStorage.setItem('parisAllianceTransition', transition);
+                    
+                    const transitionNames = {
+                        'default': 'Fluide',
+                        'smooth': 'Doux',
+                        'bounce': 'Rebond',
+                        'elastic': 'Élastique',
+                        'fast': 'Rapide',
+                        'slow': 'Lent'
+                    };
+                    
+                    showNotification(`Animation ${transitionNames[transition]} appliquée`, 'success');
                 });
             });
 
@@ -5933,18 +5162,6 @@
         
         function handleBackButton(event) {
             event.preventDefault();
-            
-            if (document.getElementById('premium-required-modal').classList.contains('active')) {
-                hidePremiumRequiredModal();
-                history.pushState({ page: 'main' }, '');
-                return;
-            }
-            
-            if (document.getElementById('lightning-payment-modal').classList.contains('active')) {
-                hideLightningPaymentModal();
-                history.pushState({ page: 'main' }, '');
-                return;
-            }
             
             if (document.querySelector('.confirmation-dialog.active')) {
                 document.querySelectorAll('.confirmation-dialog.active').forEach(dialog => {
@@ -6112,36 +5329,6 @@
         
         function hideAboutDialog() {
             document.getElementById('about-dialog').classList.remove('active');
-        }
-
-        function showSubscriptionSection() {
-            hideSearchBar();
-            
-            currentSection = 'subscription';
-            
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            document.getElementById('subscription-section').classList.add('active');
-            
-            document.getElementById('header-title').textContent = 'Abonnement';
-            
-            document.getElementById('header-menu-button').style.display = 'none';
-            document.getElementById('header-back-button').style.display = 'block';
-            
-            document.getElementById('header-action').innerHTML = '';
-            
-            document.getElementById('header-back-button').addEventListener('click', function() {
-                showForecastsSection();
-            });
-
-            document.getElementById('bottom-nav').style.display = 'none';
-            document.querySelector('.content').classList.add('no-bottom-nav');
-            
-            loadUserSubscriptionData();
-            
-            history.pushState({ page: 'subscription' }, '');
         }
 
         function showTutorialsSection() {
@@ -6386,12 +5573,6 @@
         }
         
         function showAIForecastsSection() {
-            // Vérifier l'accès premium
-            if (!hasPremiumAccess()) {
-                showPremiumRequiredModal();
-                return;
-            }
-
             hideSearchBar();
             
             document.querySelectorAll('.nav-item').forEach(item => {
@@ -6468,8 +5649,8 @@
             document.querySelector('.content').classList.add('no-bottom-nav');
             
             setupTheme();
+            setupTransitions();
             setupCardStyles();
-            setupDisplayMode();
             
             history.pushState({ page: 'interface' }, '');
         }
@@ -6557,315 +5738,331 @@
                         <i class="fas fa-futbol"></i>
                         <div class="empty-state-title">Aucune prédiction fiable pour cette section</div>
                         <div class="empty-state-text">Aucun pronostic disponible pour cette catégorie</div>
-                   </div>
+                    </div>
                 `;
                 return;
             }
             
-            forecasts.forEach((forecast, index) => {
-                const forecastElement = createForecastElement(forecast, tabType, index);
-                listElement.appendChild(forecastElement);
+            const fragment = document.createDocumentFragment();
+            
+            forecasts.forEach((forecastData) => {
+                const forecastElement = createForecastElement(forecastData, tabType);
+                fragment.appendChild(forecastElement);
             });
+            
+            listElement.appendChild(fragment);
         }
         
-        function createForecastElement(forecastData, type, index) {
-            const element = document.createElement('div');
-            element.className = 'forecast-item';
+        function createForecastElement(forecastData, type) {
+            const forecastElement = document.createElement('div');
+            forecastElement.className = 'forecast-item';
             
-            let content = '';
+            let statusClass = 'pending';
+            let statusText = 'À venir';
             
-            if (type === 'combines') {
-                content = createCombinedForecastContent(forecastData);
-            } else {
-                content = createSingleForecastContent(forecastData);
+            if (forecastData.status === 'win') {
+                statusClass = 'win';
+                statusText = 'Gagné';
+            } else if (forecastData.status === 'loss') {
+                statusClass = 'loss';
+                statusText = 'Perdu';
             }
             
-            element.innerHTML = content;
-            return element;
-        }
-        
-        function createCombinedForecastContent(forecast) {
-            const matchesDisplay = forecast.matches ? forecast.matches.slice(0, 3).map(match => {
-                return `
-                    <div class="match-detail">
-                        <div class="match-name">${match.HomeTeam} vs ${match.AwayTeam}</div>
-                        <div class="match-prediction">${match.prediction}</div>
-                        <div class="match-confidence">Confiance: ${match.confidence}%</div>
+            let formattedDate = 'Aujourd\'hui';
+            try {
+                if (forecastData.date) {
+                    const matchDate = new Date(forecastData.date);
+                    const today = new Date();
+                    const diffTime = Math.abs(matchDate - today);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    
+                    if (diffDays === 0) {
+                        formattedDate = 'Aujourd\'hui';
+                    } else if (diffDays === 1) {
+                        formattedDate = 'Demain';
+                    } else {
+                        formattedDate = matchDate.toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'short'
+                        });
+                    }
+                }
+            } catch (e) {
+                formattedDate = 'Date inconnue';
+            }
+            
+            if (type === 'combines') {
+                // Combiné layout
+                forecastElement.innerHTML = `
+                    <div class="forecast-card-container">
+                        <!-- Face 1: Front -->
+                        <div class="forecast-face forecast-front">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold; font-size: 16px;">${forecastData.name || 'Combiné IA'}</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <div style="text-align: center; margin: 20px 0;">
+                                    <div style="font-size: 24px; font-weight: bold; color: var(--card-accent); margin-bottom: 10px;">
+                                        ${forecastData.matches ? forecastData.matches.length : 0} Matchs
+                                    </div>
+                                    <div style="font-size: 14px; opacity: 0.8;">
+                                        ${forecastData.description || 'Combiné intelligent basé sur l\'IA'}
+                                    </div>
+                                </div>
+                                
+                                ${forecastData.estimated_odds ? `
+                                    <div class="estimated-odds">
+                                        Cote estimée: ${forecastData.estimated_odds}
+                                    </div>
+                                ` : ''}
+                            </div>
+                            
+                            <div class="forecast-confidence">
+                                <span>Confiance</span>
+                                <div class="confidence-bar-container">
+                                    <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
+                                </div>
+                                <span>${forecastData.confidence || 0}%</span>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 2: Details -->
+                        <div class="forecast-face forecast-details">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Détails du combiné</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div class="combined-matches">
+                                <div class="combined-matches-title">Matchs inclus (${forecastData.matches ? forecastData.matches.length : 0})</div>
+                                ${forecastData.matches ? forecastData.matches.map(match => `
+                                    <div class="match-detail">
+                                        <div class="match-name">${match.HomeTeam || 'Équipe 1'} vs ${match.AwayTeam || 'Équipe 2'}</div>
+                                        <div class="match-prediction">${match.prediction || 'N/A'}</div>
+                                        <div class="match-confidence">Confiance: ${match.confidence || 'N/A'}%</div>
+                                    </div>
+                                `).join('') : '<div>Aucun détail disponible</div>'}
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 3: Empty for combined forecasts -->
+                        <div class="forecast-face forecast-probabilities">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Informations supplémentaires</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                <i class="fas fa-brain" style="font-size: 48px; color: var(--card-accent); margin-bottom: 20px;"></i>
+                                <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Combiné IA Avancé</div>
+                                <div style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
+                                    Ce combiné a été généré par notre intelligence artificielle en analysant des milliers de données pour optimiser les chances de réussite.
+                                </div>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 4: Empty for combined forecasts -->
+                        <div class="forecast-face forecast-scores">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Analyse technique</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                <div style="background-color: rgba(0,0,0,0.05); border-radius: 10px; padding: 20px; margin: 10px 0;">
+                                    <div style="font-weight: bold; margin-bottom: 15px; color: var(--card-accent);">Métadonnées du combiné</div>
+                                    <div style="font-size: 14px; margin-bottom: 8px;">Taille: ${forecastData.size || 'N/A'} matchs</div>
+                                    <div style="font-size: 14px; margin-bottom: 8px;">Type: Combiné intelligent</div>
+                                    <div style="font-size: 14px;">Algorithme: IA Premium</div>
+                                </div>
+                            </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Navigation indicators -->
+                        <div class="face-indicator">
+                            <div class="face-dot active"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                        </div>
+                        
+                        <div class="swipe-instruction">Glissez ou tapez</div>
                     </div>
                 `;
-            }).join('') : '';
-            
-            const remainingMatches = forecast.matches && forecast.matches.length > 3 ? 
-                `<div style="text-align: center; font-size: 12px; opacity: 0.7; margin-top: 8px;">
-                    +${forecast.matches.length - 3} autres matchs
-                </div>` : '';
-            
-            return `
-                <div class="forecast-card-container">
-                    <div class="forecast-face forecast-front">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">${forecast.name || 'Combiné IA'}</div>
-                            <div class="forecast-status pending">À venir</div>
-                        </div>
-                        
-                        <div style="text-align: center; margin: 20px 0;">
-                            <div style="font-size: 48px; color: var(--card-accent); margin-bottom: 10px;">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div style="font-size: 14px; opacity: 0.8;">Combiné intelligent</div>
-                        </div>
-                        
-                        <div class="forecast-confidence">
-                            <span>Confiance</span>
-                            <div class="confidence-bar-container">
-                                <div class="confidence-bar" style="width: ${forecast.confidence || 0}%"></div>
-                            </div>
-                            <span>${forecast.confidence || 0}%</span>
-                        </div>
-                        
-                        ${forecast.estimated_odds ? `
-                        <div class="estimated-odds">
-                            Cote estimée: ${forecast.estimated_odds}
-                        </div>
-                        ` : ''}
-                    </div>
-                    
-                    <div class="forecast-face forecast-details">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Détails du combiné</div>
-                        </div>
-                        
-                        <div class="forecast-description">
-                            ${forecast.description || 'Combiné généré par intelligence artificielle basé sur des analyses avancées.'}
-                        </div>
-                        
-                        <div class="combined-matches">
-                            <div class="combined-matches-title">Matchs inclus (${forecast.matches ? forecast.matches.length : 0})</div>
-                            ${matchesDisplay}
-                            ${remainingMatches}
-                        </div>
-                        
-                        ${forecast.size ? `
-                        <div style="text-align: center; margin-top: 15px; font-weight: bold; color: var(--card-accent);">
-                            Taille du combiné: ${forecast.size}
-                        </div>
-                        ` : ''}
-                    </div>
-                    
-                    <div class="forecast-face forecast-probabilities">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Analyse des probabilités</div>
-                        </div>
-                        
-                        <div style="text-align: center; padding: 20px;">
-                            <i class="fas fa-chart-line" style="font-size: 40px; color: var(--card-accent); margin-bottom: 15px;"></i>
-                            <div style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
-                                Analyse probabiliste avancée basée sur:
-                                <br>• Historique des performances
-                                <br>• Forme actuelle des équipes
-                                <br>• Statistiques head-to-head
-                                <br>• Facteurs environnementaux
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(0,0,0,0.05); padding: 15px; border-radius: 10px;">
-                            <div style="font-weight: bold; margin-bottom: 8px;">Recommandation IA</div>
-                            <div style="font-size: 14px;">
-                                Ce combiné présente un excellent rapport risque/rendement selon nos algorithmes.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="forecast-face forecast-scores">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Métriques avancées</div>
-                        </div>
-                        
-                        <div style="display: flex; flex-direction: column; gap: 15px; margin: 20px 0;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px;">
-                                <span>Fiabilité</span>
-                                <span style="font-weight: bold; color: var(--card-accent);">${forecast.confidence || 0}%</span>
+            } else {
+                // Single match layout
+                forecastElement.innerHTML = `
+                    <div class="forecast-card-container">
+                        <!-- Face 1: Front -->
+                        <div class="forecast-face forecast-front">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">${forecastData.league || 'Compétition'}</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
                             </div>
                             
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px;">
-                                <span>Nombre de matchs</span>
-                                <span style="font-weight: bold; color: var(--card-accent);">${forecast.matches ? forecast.matches.length : 0}</span>
-                            </div>
-                            
-                            ${forecast.estimated_odds ? `
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px;">
-                                <span>Cote estimée</span>
-                                <span style="font-weight: bold; color: var(--card-accent);">${forecast.estimated_odds}</span>
-                            </div>
-                            ` : ''}
-                            
-                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(0,0,0,0.05); border-radius: 8px;">
-                                <span>Type</span>
-                                <span style="font-weight: bold; color: var(--card-accent);">Combiné IA</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="face-indicator">
-                        <div class="face-dot active"></div>
-                        <div class="face-dot"></div>
-                        <div class="face-dot"></div>
-                        <div class="face-dot"></div>
-                    </div>
-                    
-                    <div class="swipe-instruction">Glissez pour voir plus</div>
-                </div>
-            `;
-        }
-        
-        function createSingleForecastContent(forecast) {
-            const poissonDisplay = forecast.poisson_probabilities ? `
-                <div class="poisson-probabilities">
-                    <div class="poisson-title">Probabilités Poisson</div>
-                    ${Object.entries(forecast.poisson_probabilities).map(([key, value]) => `
-                        <div class="poisson-row">
-                            <span>${key}</span>
-                            <span style="font-weight: bold;">${value}%</span>
-                        </div>
-                    `).join('')}
-                </div>
-            ` : '';
-            
-            const topScoresDisplay = forecast.poisson_top_scores ? `
-                <div class="exact-scores-section">
-                    <div class="exact-scores-title">Scores les plus probables</div>
-                    ${forecast.poisson_top_scores.map(score => `
-                        <div class="exact-score-item">
-                            <div class="exact-score-match">${score.score}</div>
-                            <div class="exact-score-probability">${score.probability}%</div>
-                        </div>
-                    `).join('')}
-                </div>
-            ` : '';
-            
-            return `
-                <div class="forecast-card-container">
-                    <div class="forecast-face forecast-front">
-                        <div class="forecast-header">
-                            <div style="font-size: 14px; color: var(--card-accent);">${forecast.league || 'Compétition'}</div>
-                            <div class="forecast-status pending">À venir</div>
-                        </div>
-                        
-                        <div class="forecast-match">
-                            <div class="forecast-team">
-                                <div class="forecast-team-logo">
-                                    <i class="fas fa-shield-alt" style="color: var(--card-accent);"></i>
+                            <div class="forecast-match">
+                                <div class="forecast-team">
+                                    <div class="forecast-team-logo">
+                                        <i class="fas fa-shield-alt" style="color: var(--card-accent);"></i>
+                                    </div>
+                                    <div class="forecast-team-name">${forecastData.HomeTeam || 'Équipe 1'}</div>
                                 </div>
-                                <div class="forecast-team-name">${forecast.HomeTeam || 'Équipe 1'}</div>
+                                
+                                <div class="forecast-score">
+                                    ${forecastData.score_prediction || 'vs'}
+                                </div>
+                                
+                                <div class="forecast-team">
+                                    <div class="forecast-team-logo">
+                                        <i class="fas fa-shield-alt" style="color: var(--card-accent);"></i>
+                                    </div>
+                                    <div class="forecast-team-name">${forecastData.AwayTeam || 'Équipe 2'}</div>
+                                </div>
                             </div>
                             
-                            <div class="forecast-vs">VS</div>
+                            <div style="text-align: center; margin: 15px 0; padding: 10px; background-color: rgba(0,0,0,0.05); border-radius: 8px;">
+                                <div style="font-weight: bold; color: var(--card-accent); margin-bottom: 5px;">Prédiction</div>
+                                <div style="font-size: 16px; font-weight: bold;">${forecastData.prediction || 'N/A'}</div>
+                            </div>
                             
-                            <div class="forecast-team">
-                                <div class="forecast-team-logo">
-                                    <i class="fas fa-shield-alt" style="color: var(--card-accent);"></i>
+                            <div class="forecast-confidence">
+                                <span>Confiance</span>
+                                <div class="confidence-bar-container">
+                                    <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
                                 </div>
-                                <div class="forecast-team-name">${forecast.AwayTeam || 'Équipe 2'}</div>
+                                <span>${forecastData.confidence || 0}%</span>
                             </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
                         </div>
                         
-                        <div style="text-align: center; margin: 15px 0;">
-                            <div style="font-weight: bold; font-size: 16px; color: var(--card-accent); margin-bottom: 5px;">
-                                ${forecast.prediction || 'Prédiction'}
+                        <!-- Face 2: Details -->
+                        <div class="forecast-face forecast-details">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Détails du match</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
                             </div>
-                            ${forecast.score_prediction ? `
-                            <div style="font-size: 14px; opacity: 0.8;">
-                                Score prédit: ${forecast.score_prediction}
+                            
+                            <div class="forecast-description">
+                                <strong>Compétition:</strong> ${forecastData.league || 'Non spécifiée'}<br>
+                                <strong>Pays:</strong> ${forecastData.country || 'Non spécifié'}<br>
+                                <strong>Type:</strong> ${forecastData.type === 'single' ? 'Pronostic simple' : 'Autre'}<br>
+                                <strong>Score prédit:</strong> ${forecastData.score_prediction || 'Non disponible'}
                             </div>
-                            ` : ''}
-                        </div>
-                        
-                        <div class="forecast-confidence">
-                            <span>Confiance</span>
-                            <div class="confidence-bar-container">
-                                <div class="confidence-bar" style="width: ${forecast.confidence || 0}%"></div>
-                            </div>
-                            <span>${forecast.confidence || 0}%</span>
-                        </div>
-                        
-                        <div class="forecast-date">
-                            ${forecast.date || getCurrentDateString()} • ${forecast.country || 'International'}
-                        </div>
-                    </div>
-                    
-                    <div class="forecast-face forecast-details">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Détails du match</div>
-                        </div>
-                        
-                        <div class="forecast-description">
-                            <strong>Compétition:</strong> ${forecast.league || 'N/A'}<br>
-                            <strong>Pays:</strong> ${forecast.country || 'N/A'}<br>
-                            <strong>Date:</strong> ${forecast.date || getCurrentDateString()}<br>
-                            <strong>Prédiction:</strong> ${forecast.prediction || 'N/A'}
-                            ${forecast.score_prediction ? `<br><strong>Score prédit:</strong> ${forecast.score_prediction}` : ''}
-                        </div>
-                        
-                        <div style="background: rgba(0,0,0,0.05); padding: 15px; border-radius: 10px; margin-top: 15px;">
-                            <div style="font-weight: bold; margin-bottom: 8px; color: var(--card-accent);">
-                                <i class="fas fa-lightbulb" style="margin-right: 5px;"></i>
-                                Analyse IA
-                            </div>
-                            <div style="font-size: 14px; line-height: 1.4;">
-                                Cette prédiction est basée sur l'analyse de multiples facteurs: forme récente, historique des confrontations, statistiques d'équipe et conditions de jeu.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="forecast-face forecast-probabilities">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Analyse probabiliste</div>
-                        </div>
-                        
-                        ${poissonDisplay || `
-                        <div style="text-align: center; padding: 20px;">
-                            <i class="fas fa-chart-pie" style="font-size: 40px; color: var(--card-accent); margin-bottom: 15px;"></i>
-                            <div style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
-                                Analyse des probabilités basée sur:
-                                <br>• Performances récentes
-                                <br>• Statistiques historiques
-                                <br>• Forme des joueurs clés
-                                <br>• Conditions de jeu
-                            </div>
-                        </div>
-                        `}
-                    </div>
-                    
-                    <div class="forecast-face forecast-scores">
-                        <div class="forecast-header">
-                            <div style="font-size: 16px; color: var(--card-accent);">Scores prédits</div>
-                        </div>
-                        
-                        ${topScoresDisplay || `
-                        <div style="text-align: center; padding: 20px;">
-                            <i class="fas fa-calculator" style="font-size: 40px; color: var(--card-accent); margin-bottom: 15px;"></i>
-                            <div style="font-size: 14px; opacity: 0.8; line-height: 1.5;">
-                                ${forecast.score_prediction ? `
-                                <div style="font-size: 24px; font-weight: bold; color: var(--card-accent); margin: 15px 0;">
-                                    ${forecast.score_prediction}
+                            
+                            <div style="background-color: rgba(0,0,0,0.05); border-radius: 8px; padding: 15px; margin: 15px 0;">
+                                <div style="font-weight: bold; margin-bottom: 10px; color: var(--card-accent);">Analyse</div>
+                                <div style="font-size: 14px; line-height: 1.5;">
+                                    Cette prédiction est basée sur l'analyse de multiples facteurs : forme récente des équipes, 
+                                    statistiques historiques, blessures, et conditions de jeu.
                                 </div>
-                                <div>Score le plus probable selon notre IA</div>
-                                ` : 'Analyse des scores en cours...'}
                             </div>
+                            
+                            <div class="forecast-date">${formattedDate}</div>
                         </div>
-                        `}
+                        
+                        <!-- Face 3: Probabilities -->
+                        <div class="forecast-face forecast-probabilities">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Probabilités Poisson</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            ${forecastData.poisson_probabilities ? `
+                                <div class="poisson-probabilities">
+                                    <div class="poisson-title">Analyse statistique</div>
+                                    <div class="poisson-row">
+                                        <span>Victoire ${forecastData.HomeTeam || 'Domicile'}</span>
+                                        <span>${forecastData.poisson_probabilities.win1 || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Match nul</span>
+                                        <span>${forecastData.poisson_probabilities.draw || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Victoire ${forecastData.AwayTeam || 'Extérieur'}</span>
+                                        <span>${forecastData.poisson_probabilities.win2 || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Plus de 1.5 buts</span>
+                                        <span>${forecastData.poisson_probabilities.over15 || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Plus de 2.5 buts</span>
+                                        <span>${forecastData.poisson_probabilities.over25 || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Moins de 3.5 buts</span>
+                                        <span>${forecastData.poisson_probabilities.under35 || 0}%</span>
+                                    </div>
+                                    <div class="poisson-row">
+                                        <span>Les deux équipes marquent</span>
+                                        <span>${forecastData.poisson_probabilities.btts || 0}%</span>
+                                    </div>
+                                </div>
+                            ` : `
+                                <div style="text-align: center; margin: 40px 0;">
+                                    <i class="fas fa-chart-bar" style="font-size: 48px; color: var(--card-accent); margin-bottom: 15px;"></i>
+                                    <div style="font-weight: bold; margin-bottom: 10px;">Probabilités non disponibles</div>
+                                    <div style="font-size: 14px; opacity: 0.8;">Les données statistiques détaillées ne sont pas disponibles pour ce match.</div>
+                                </div>
+                            `}
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Face 4: Exact Scores -->
+                        <div class="forecast-face forecast-scores">
+                            <div class="forecast-header">
+                                <div style="font-weight: bold;">Scores exacts</div>
+                                <div class="forecast-status ${statusClass}">${statusText}</div>
+                            </div>
+                            
+                            ${forecastData.poisson_top_scores && forecastData.poisson_top_scores.length > 0 ? `
+                                <div class="exact-scores-section">
+                                    <div class="exact-scores-title">Scores les plus probables</div>
+                                    ${forecastData.poisson_top_scores.map(scoreData => `
+                                        <div class="exact-score-item">
+                                            <div class="exact-score-match">${scoreData.score || 'N/A'}</div>
+                                            <div class="exact-score-probability">${parseFloat(scoreData.probability || 0).toFixed(1)}%</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : `
+                                <div style="text-align: center; margin: 40px 0;">
+                                    <i class="fas fa-bullseye" style="font-size: 48px; color: var(--card-accent); margin-bottom: 15px;"></i>
+                                    <div style="font-weight: bold; margin-bottom: 10px;">Scores exacts non disponibles</div>
+                                    <div style="font-size: 14px; opacity: 0.8;">Les prédictions de scores exacts ne sont pas disponibles pour ce match.</div>
+                                </div>
+                            `}
+                            
+                            <div class="forecast-date">${formattedDate}</div>
+                        </div>
+                        
+                        <!-- Navigation indicators -->
+                        <div class="face-indicator">
+                            <div class="face-dot active"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                            <div class="face-dot"></div>
+                        </div>
+                        
+                        <div class="swipe-instruction">Glissez ou tapez</div>
                     </div>
-                    
-                    <div class="face-indicator">
-                        <div class="face-dot active"></div>
-                        <div class="face-dot"></div>
-                        <div class="face-dot"></div>
-                        <div class="face-dot"></div>
-                    </div>
-                    
-                    <div class="swipe-instruction">Glissez pour voir plus</div>
-                </div>
-            `;
+                `;
+            }
+            
+            return forecastElement;
         }
         
         function showForecastsSection() {
@@ -6963,8 +6160,16 @@
             document.getElementById('bottom-nav').style.display = 'flex';
             document.querySelector('.content').classList.remove('no-bottom-nav');
             
-            updateAdminStatus();
-            updateBadges();
+            if (isAdmin) {
+                const adminAction = document.createElement('div');
+                adminAction.className = 'search-button';
+                adminAction.id = 'admin-notif-button';
+                adminAction.innerHTML = '<i class="fas fa-plus"></i>';
+                adminAction.style.marginRight = '15px';
+                adminAction.addEventListener('click', showAdminNotificationDialog);
+                
+                document.getElementById('header-action').insertBefore(adminAction, document.getElementById('events-button'));
+            }
         }
         
         function showEventsSection() {
@@ -6992,32 +6197,32 @@
             document.getElementById('search-button').addEventListener('click', toggleSearchBar);
             
             document.getElementById('header-back-button').addEventListener('click', function() {
-                showForecastsSection();
+                if (document.querySelectorAll('.nav-item.active')[0]?.getAttribute('data-section') === 'forecasts') {
+                    showForecastsSection();
+                } else if (document.querySelectorAll('.nav-item.active')[0]?.getAttribute('data-section') === 'ai-forecasts') {
+                    showAIForecastsSection();
+                } else {
+                    showProfileSection();
+                }
             });
 
             document.getElementById('bottom-nav').style.display = 'none';
             document.querySelector('.content').classList.add('no-bottom-nav');
             
+            if (isAdmin) {
+                const adminAction = document.createElement('div');
+                adminAction.className = 'search-button';
+                adminAction.id = 'admin-notif-button';
+                adminAction.innerHTML = '<i class="fas fa-plus"></i>';
+                adminAction.style.marginRight = '15px';
+                adminAction.addEventListener('click', showAdminNotificationDialog);
+                
+                document.getElementById('header-action').insertBefore(adminAction, document.getElementById('search-button'));
+            }
+            
             loadEvents();
             
             history.pushState({ page: 'events' }, '');
-        }
-        
-        function updateAdminStatus() {
-            const profileName = document.getElementById('profile-name-text');
-            const profileEmail = document.getElementById('profile-email');
-            const adminBadge = document.getElementById('admin-badge');
-            
-            if (currentUser && currentUserData) {
-                profileName.textContent = currentUserData.displayName || currentUser.email.split('@')[0];
-                profileEmail.textContent = currentUser.email;
-                
-                if (isAdmin) {
-                    adminBadge.style.display = 'inline-block';
-                } else {
-                    adminBadge.style.display = 'none';
-                }
-            }
         }
         
         async function loadEvents() {
@@ -7025,38 +6230,43 @@
             isLoadingEvents = true;
             
             const eventsList = document.getElementById('events-list');
-            eventsList.innerHTML = `
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
-                    <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--primary-color);"></i>
-                    <div style="margin-top: 10px; font-weight: bold;">Chargement des événements...</div>
-                </div>
-            `;
             
             try {
-                const eventsRef = collection(db, "Events");
-                const eventsQuery = query(eventsRef, orderBy("createdAt", "desc"), limit(50));
+                const eventsQuery = query(
+                    collection(db, "Events"),
+                    orderBy("timestamp", "desc"),
+                    limit(50)
+                );
                 
-                if (eventsUnsubscribe) {
-                    eventsUnsubscribe();
+                const eventsSnapshot = await getDocs(eventsQuery);
+                
+                eventsList.innerHTML = '';
+                
+                if (eventsSnapshot.empty) {
+                    eventsList.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-bell"></i>
+                            <div class="empty-state-title">Aucun événement</div>
+                            <div class="empty-state-text">Les événements apparaîtront ici</div>
+                        </div>
+                    `;
+                    isLoadingEvents = false;
+                    return;
                 }
                 
-                eventsUnsubscribe = onSnapshot(eventsQuery, 
-                    (snapshot) => {
-                        displayEvents(snapshot.docs);
-                        isLoadingEvents = false;
-                    },
-                    (error) => {
-                        handleFirestoreError(error, 'chargement des événements');
-                        eventsList.innerHTML = `
-                            <div class="empty-state">
-                                <i class="fas fa-exclamation-circle"></i>
-                                <div class="empty-state-title">Erreur de chargement</div>
-                                <div class="empty-state-text">Impossible de charger les événements</div>
-                            </div>
-                        `;
-                        isLoadingEvents = false;
-                    }
-                );
+                const eventElements = [];
+                
+                eventsSnapshot.docs.forEach(doc => {
+                    const eventData = doc.data();
+                    const eventElement = createEventElement(doc.id, eventData);
+                    eventElements.push(eventElement);
+                });
+                
+                eventElements.forEach(element => {
+                    eventsList.appendChild(element);
+                });
+                
+                addDebugLog(`${eventsSnapshot.size} événements chargés`, 'success');
                 
             } catch (error) {
                 handleFirestoreError(error, 'chargement des événements');
@@ -7067,323 +6277,92 @@
                         <div class="empty-state-text">Impossible de charger les événements</div>
                     </div>
                 `;
-                isLoadingEvents = false;
-            }
-        }
-        
-        function displayEvents(eventDocs) {
-            const eventsList = document.getElementById('events-list');
-            
-            if (eventDocs.length === 0) {
-                eventsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-bell"></i>
-                        <div class="empty-state-title">Aucun événement</div>
-                        <div class="empty-state-text">Les événements apparaîtront ici</div>
-                    </div>
-                `;
-                return;
             }
             
-            eventsList.innerHTML = '';
-            
-            eventDocs.forEach(doc => {
-                const eventData = doc.data();
-                const eventElement = createEventElement(doc.id, eventData);
-                eventsList.appendChild(eventElement);
-            });
+            isLoadingEvents = false;
         }
         
         function createEventElement(eventId, eventData) {
-            const element = document.createElement('div');
-            element.className = 'admin-notification';
-            element.innerHTML = `
+            const eventElement = document.createElement('div');
+            eventElement.className = 'admin-notification';
+            
+            let iconClass = 'fas fa-info-circle';
+            if (eventData.type === 'alert') {
+                iconClass = 'fas fa-exclamation-triangle';
+            } else if (eventData.type === 'update') {
+                iconClass = 'fas fa-sync-alt';
+            }
+            
+            let timestamp = '';
+            if (eventData.timestamp) {
+                const eventDate = eventData.timestamp.toDate ? eventData.timestamp.toDate() : new Date(eventData.timestamp);
+                timestamp = eventDate.toLocaleDateString('fr-FR', {
+                    day: 'numeric',
+                    month: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+            
+            eventElement.innerHTML = `
                 <div class="admin-notification-header">
                     <div class="admin-notification-title">
-                        <i class="fas fa-bell"></i>
-                        ${eventData.title || 'Événement'}
+                        <i class="${iconClass}"></i>
+                        ${eventData.title || 'Notification'}
                     </div>
                 </div>
-                <div class="admin-notification-content">
-                    ${eventData.content || ''}
-                </div>
+                <div class="admin-notification-content">${eventData.content || ''}</div>
                 <div class="admin-notification-footer">
-                    ${eventData.createdAt ? formatEventTime(eventData.createdAt.toDate()) : 'Date inconnue'}
+                    ${timestamp}
+                    ${eventData.senderName ? ' • ' + eventData.senderName : ''}
                 </div>
                 ${isAdmin ? `
-                <div class="event-actions">
-                    <button class="event-action-btn delete" onclick="deleteEvent('${eventId}')">
-                        <i class="fas fa-trash"></i>
-                        Supprimer
-                    </button>
-                </div>
+                    <div class="event-close-btn" onclick="deleteEvent('${eventId}')">
+                        <i class="fas fa-times"></i>
+                    </div>
                 ` : ''}
             `;
-            return element;
-        }
-        
-        function formatEventTime(date) {
-            const now = new Date();
-            const diffMs = now - date;
-            const diffMins = Math.floor(diffMs / 60000);
-            const diffHours = Math.floor(diffMins / 60);
-            const diffDays = Math.floor(diffHours / 24);
             
-            if (diffMins < 1) return 'À l\'instant';
-            if (diffMins < 60) return `Il y a ${diffMins} min`;
-            if (diffHours < 24) return `Il y a ${diffHours}h`;
-            if (diffDays < 7) return `Il y a ${diffDays} jour${diffDays > 1 ? 's' : ''}`;
+            return eventElement;
+        }
+        
+        window.deleteEvent = async function(eventId) {
+            if (!isAdmin) return;
             
-            return date.toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'short',
-                year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
-            });
-        }
-        
-        function updateLastViewedEventTimestamp() {
-            lastViewedEventTimestamp = new Date();
-            localStorage.setItem('parisAllianceLastViewedEvent', lastViewedEventTimestamp.getTime().toString());
-        }
-        
-        function hideEventNotificationDot() {
-            hasNewEvents = false;
-            const dot = document.getElementById('events-notification-dot');
-            if (dot) {
-                dot.classList.remove('active');
-            }
-        }
-        
-        async function deleteEvent(eventId) {
             try {
                 await deleteDoc(doc(db, "Events", eventId));
-                showNotification('Événement supprimé', 'success');
+                addDebugLog(`Événement ${eventId} supprimé`, 'success');
+                loadEvents();
+                showNotification("Événement supprimé", "success");
             } catch (error) {
                 handleFirestoreError(error, 'suppression de l\'événement');
-                showNotification('Erreur lors de la suppression', 'error');
+                showNotification("Erreur lors de la suppression", "error");
             }
-        }
-        
-        function showLogoutConfirmation() {
-            document.getElementById('logout-confirmation').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-        }
-        
-        function hideLogoutConfirmation() {
-            document.getElementById('logout-confirmation').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-        
-        function showDeleteAccountConfirmation() {
-            document.getElementById('delete-account-confirmation').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-        }
-        
-        function hideDeleteAccountConfirmation() {
-            document.getElementById('delete-account-confirmation').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-        
-        async function logoutUser() {
-            try {
-                await signOut(auth);
-                hideLogoutConfirmation();
-                showNotification('Déconnecté avec succès', 'success');
-            } catch (error) {
-                console.error('Erreur de déconnexion:', error);
-                showNotification('Erreur lors de la déconnexion', 'error');
-            }
-        }
-        
-        async function deleteAccount() {
-            if (!currentUser) return;
-            
-            try {
-                hideDeleteAccountConfirmation();
-                
-                showNotification('Suppression du compte en cours...', 'info');
-                
-                const userRef = doc(db, "Users", currentUser.uid);
-                await deleteDoc(userRef);
-                
-                await deleteUser(currentUser);
-                
-                showNotification('Compte supprimé avec succès', 'success');
-                
-            } catch (error) {
-                console.error('Erreur suppression compte:', error);
-                
-                if (error.code === 'auth/requires-recent-login') {
-                    showNotification('Veuillez vous reconnecter puis réessayer', 'error');
-                } else {
-                    showNotification('Erreur lors de la suppression du compte', 'error');
-                }
-            }
-        }
-        
-        function showProfileEditDialog() {
-            document.getElementById('profile-edit-dialog').classList.add('active');
-            
-            if (currentUserData && currentUserData.displayName) {
-                document.getElementById('edit-display-name').value = currentUserData.displayName;
-            }
-            
-            document.getElementById('save-display-name-btn').disabled = true;
-            profileNameChanged = false;
-            
-            history.pushState({ page: 'profile-edit' }, '');
-        }
-        
-        function hideProfileEditDialog() {
-            document.getElementById('profile-edit-dialog').classList.remove('active');
-            profileImageFile = null;
-            
-            const preview = document.getElementById('profile-image-preview');
-            preview.innerHTML = '<i class="fas fa-user"></i>';
-        }
-        
-        function handleProfileImageSelect(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            if (file.size > 5 * 1024 * 1024) {
-                showNotification('L\'image ne doit pas dépasser 5 MB', 'error');
-                return;
-            }
-            
-            if (!file.type.startsWith('image/')) {
-                showNotification('Veuillez sélectionner une image valide', 'error');
-                return;
-            }
-            
-            profileImageFile = file;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const preview = document.getElementById('profile-image-preview');
-                preview.innerHTML = `<img src="${e.target.result}" alt="Aperçu">`;
-            };
-            reader.readAsDataURL(file);
-            
-            document.getElementById('save-profile-image-btn').disabled = false;
-        }
-        
-        async function updateDisplayName() {
-            if (profileUpdating) return;
-            
-            const newDisplayName = document.getElementById('edit-display-name').value.trim();
-            
-            if (!newDisplayName) {
-                document.getElementById('edit-display-name-error').style.display = 'block';
-                return;
-            }
-            
-            profileUpdating = true;
-            const button = document.getElementById('save-display-name-btn');
-            const loader = button.querySelector('.btn-loader');
-            const text = button.querySelector('.btn-text');
-            
-            button.disabled = true;
-            loader.style.display = 'inline-block';
-            text.textContent = 'Enregistrement...';
-            
-            try {
-                const userRef = doc(db, "Users", currentUser.uid);
-                await updateDoc(userRef, {
-                    displayName: newDisplayName
-                });
-                
-                currentUserData.displayName = newDisplayName;
-                updateAdminStatus();
-                
-                showNotification('Nom d\'utilisateur mis à jour', 'success');
-                profileNameChanged = false;
-                button.disabled = true;
-                
-            } catch (error) {
-                handleFirestoreError(error, 'mise à jour du nom d\'utilisateur');
-                showNotification('Erreur lors de la mise à jour', 'error');
-                button.disabled = false;
-            } finally {
-                profileUpdating = false;
-                loader.style.display = 'none';
-                text.textContent = 'Enregistrer';
-            }
-        }
-        
-        async function updateProfileImage() {
-            if (!profileImageFile || profileUpdating) return;
-            
-            profileUpdating = true;
-            const button = document.getElementById('save-profile-image-btn');
-            const loader = button.querySelector('.btn-loader');
-            const text = button.querySelector('.btn-text');
-            
-            button.disabled = true;
-            loader.style.display = 'inline-block';
-            text.textContent = 'Téléchargement...';
-            
-            try {
-                const base64 = await fileToBase64(profileImageFile);
-                
-                const userRef = doc(db, "Users", currentUser.uid);
-                await updateDoc(userRef, {
-                    profileImage: base64
-                });
-                
-                currentUserData.profileImage = base64;
-                
-                const mainProfilePic = document.querySelector('.profile-header .profile-pic');
-                if (mainProfilePic) {
-                    mainProfilePic.innerHTML = `<img src="${base64}" alt="Photo de profil">`;
-                }
-                
-                showNotification('Photo de profil mise à jour', 'success');
-                profileImageFile = null;
-                
-            } catch (error) {
-                handleFirestoreError(error, 'mise à jour de la photo de profil');
-                showNotification('Erreur lors de la mise à jour', 'error');
-            } finally {
-                profileUpdating = false;
-                button.disabled = true;
-                loader.style.display = 'none';
-                text.textContent = 'Enregistrer la photo';
-            }
-        }
-        
-        function fileToBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = error => reject(error);
-            });
-        }
+        };
         
         function showAdminNotificationDialog() {
+            if (!isAdmin) return;
+            
             document.getElementById('admin-notif-dialog').classList.add('active');
+            document.getElementById('notif-title').value = '';
+            document.getElementById('notif-content').value = '';
+            document.getElementById('notif-type').value = 'info';
+            
             history.pushState({ page: 'admin-notification' }, '');
         }
         
         function hideAdminNotificationDialog() {
             document.getElementById('admin-notif-dialog').classList.remove('active');
-            
-            document.getElementById('notif-title').value = '';
-            document.getElementById('notif-content').value = '';
-            document.getElementById('notif-type').value = 'info';
-            
-            document.getElementById('notif-title-error').style.display = 'none';
-            document.getElementById('notif-content-error').style.display = 'none';
         }
         
         async function sendAdminNotification() {
+            if (!isAdmin) return;
+            
             const title = document.getElementById('notif-title').value.trim();
             const content = document.getElementById('notif-content').value.trim();
             const type = document.getElementById('notif-type').value;
             
-            document.getElementById('notif-title-error').style.display = 'none';
-            document.getElementById('notif-content-error').style.display = 'none';
+            document.querySelectorAll('.field-error').forEach(error => error.style.display = 'none');
             
             let hasError = false;
             
@@ -7400,104 +6379,370 @@
             if (hasError) return;
             
             const button = document.getElementById('send-notification-btn');
-            const loader = button.querySelector('.btn-loader');
-            const text = button.querySelector('.btn-text');
-            
-            button.disabled = true;
-            loader.style.display = 'inline-block';
-            text.textContent = 'Envoi...';
+            button.classList.add('loading');
             
             try {
                 const eventData = {
                     title: title,
                     content: content,
                     type: type,
-                    createdAt: serverTimestamp(),
-                    createdBy: currentUser.uid,
-                    createdByEmail: currentUser.email
+                    timestamp: serverTimestamp(),
+                    senderId: currentUser.uid,
+                    senderEmail: currentUser.email,
+                    senderName: currentUserData?.displayName || 'Admin'
                 };
                 
                 await addDoc(collection(db, "Events"), eventData);
                 
+                addDebugLog('Notification admin envoyée avec succès', 'success');
+                showNotification("Notification envoyée", "success");
                 hideAdminNotificationDialog();
-                showNotification('Notification envoyée avec succès', 'success');
+                
+                if (currentSection === 'events') {
+                    loadEvents();
+                }
+                
+                showEventNotificationDot();
                 
             } catch (error) {
                 handleFirestoreError(error, 'envoi de la notification');
-                showNotification('Erreur lors de l\'envoi', 'error');
-            } finally {
-                button.disabled = false;
-                loader.style.display = 'none';
-                text.textContent = 'Envoyer la notification';
+                showNotification("Erreur lors de l'envoi", "error");
+            }
+            
+            button.classList.remove('loading');
+        }
+        
+        function showLogoutConfirmation() {
+            document.getElementById('logout-confirmation').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            history.pushState({ page: 'logout-confirmation' }, '');
+        }
+        
+        function hideLogoutConfirmation() {
+            document.getElementById('logout-confirmation').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        async function logoutUser() {
+            try {
+                await signOut(auth);
+                addDebugLog('Utilisateur déconnecté avec succès', 'success');
+                hideLogoutConfirmation();
+                showNotification("Déconnecté avec succès", "success");
+                
+                isLoggedIn = false;
+                currentUser = null;
+                currentUserData = null;
+                isAdmin = false;
+                
+                showAuthScreen();
+                
+            } catch (error) {
+                addDebugLog(`Erreur déconnexion: ${error.message}`, 'error');
+                showNotification("Erreur lors de la déconnexion", "error");
             }
         }
         
-        function setupAuthEvents() {
-            document.getElementById('login-tab').addEventListener('click', function() {
-                switchAuthTab('login');
-            });
+        function showDeleteAccountConfirmation() {
+            document.getElementById('delete-account-confirmation').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            history.pushState({ page: 'delete-account-confirmation' }, '');
+        }
+        
+        function hideDeleteAccountConfirmation() {
+            document.getElementById('delete-account-confirmation').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        async function deleteAccount() {
+            if (!currentUser) return;
             
-            document.getElementById('register-tab').addEventListener('click', function() {
-                switchAuthTab('register');
-            });
+            try {
+                const userDocRef = doc(db, "Users", currentUser.uid);
+                await deleteDoc(userDocRef);
+                
+                await deleteUser(currentUser);
+                
+                addDebugLog('Compte supprimé avec succès', 'success');
+                hideDeleteAccountConfirmation();
+                showNotification("Compte supprimé", "success");
+                
+                isLoggedIn = false;
+                currentUser = null;
+                currentUserData = null;
+                isAdmin = false;
+                
+                showAuthScreen();
+                
+            } catch (error) {
+                addDebugLog(`Erreur suppression compte: ${error.message}`, 'error');
+                showNotification("Erreur lors de la suppression", "error");
+            }
+        }
+        
+        function showProfileEditDialog() {
+            document.getElementById('profile-edit-dialog').classList.add('active');
             
-            document.getElementById('goto-register').addEventListener('click', function(e) {
+            if (currentUserData?.displayName) {
+                document.getElementById('edit-display-name').value = currentUserData.displayName;
+            }
+            
+            if (currentUserData?.photoURL) {
+                document.getElementById('profile-image-preview').innerHTML = `<img src="${currentUserData.photoURL}" alt="Profile">`;
+            } else {
+                document.getElementById('profile-image-preview').innerHTML = '<i class="fas fa-user"></i>';
+            }
+            
+            profileNameChanged = false;
+            profileImageFile = null;
+            
+            document.getElementById('save-display-name-btn').disabled = true;
+            document.getElementById('save-profile-image-btn').disabled = true;
+            
+            history.pushState({ page: 'profile-edit' }, '');
+        }
+        
+        function hideProfileEditDialog() {
+            document.getElementById('profile-edit-dialog').classList.remove('active');
+        }
+        
+        function handleProfileImageSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            if (file.size > 5 * 1024 * 1024) {
+                showNotification("L'image ne doit pas dépasser 5 MB", "error");
+                return;
+            }
+            
+            if (!file.type.startsWith('image/')) {
+                showNotification("Veuillez sélectionner une image valide", "error");
+                return;
+            }
+            
+            profileImageFile = file;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profile-image-preview').innerHTML = `<img src="${e.target.result}" alt="Profile">`;
+                document.getElementById('save-profile-image-btn').disabled = false;
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        async function updateDisplayName() {
+            const newDisplayName = document.getElementById('edit-display-name').value.trim();
+            
+            if (!newDisplayName) {
+                document.getElementById('edit-display-name-error').style.display = 'block';
+                return;
+            }
+            
+            if (!profileNameChanged) return;
+            
+            const button = document.getElementById('save-display-name-btn');
+            button.classList.add('loading');
+            
+            try {
+                const userDocRef = doc(db, "Users", currentUser.uid);
+                await updateDoc(userDocRef, {
+                    displayName: newDisplayName,
+                    updatedAt: serverTimestamp()
+                });
+                
+                currentUserData.displayName = newDisplayName;
+                document.getElementById('profile-name-text').textContent = newDisplayName;
+                
+                profileNameChanged = false;
+                button.disabled = true;
+                
+                addDebugLog('Nom d\'utilisateur mis à jour', 'success');
+                showNotification("Nom mis à jour", "success");
+                
+            } catch (error) {
+                handleFirestoreError(error, 'mise à jour du nom');
+                showNotification("Erreur lors de la mise à jour", "error");
+            }
+            
+            button.classList.remove('loading');
+        }
+        
+        async function updateProfileImage() {
+            if (!profileImageFile) return;
+            
+            const button = document.getElementById('save-profile-image-btn');
+            button.classList.add('loading');
+            
+            try {
+                const userDocRef = doc(db, "Users", currentUser.uid);
+                await updateDoc(userDocRef, {
+                    updatedAt: serverTimestamp()
+                });
+                
+                profileImageFile = null;
+                button.disabled = true;
+                
+                addDebugLog('Photo de profil mise à jour', 'success');
+                showNotification("Photo mise à jour", "success");
+                
+            } catch (error) {
+                handleFirestoreError(error, 'mise à jour de la photo');
+                showNotification("Erreur lors de la mise à jour", "error");
+            }
+            
+            button.classList.remove('loading');
+        }
+        
+        function updateAdminStatus() {
+            updateBadges();
+        }
+        
+        function showEventNotificationDot() {
+            hasNewEvents = true;
+            const dots = document.querySelectorAll('#events-notification-dot');
+            dots.forEach(dot => {
+                if (dot) dot.classList.add('active');
+            });
+        }
+        
+        function hideEventNotificationDot() {
+            hasNewEvents = false;
+            const dots = document.querySelectorAll('#events-notification-dot');
+            dots.forEach(dot => {
+                if (dot) dot.classList.remove('active');
+            });
+        }
+        
+        function updateLastViewedEventTimestamp() {
+            lastViewedEventTimestamp = new Date();
+            localStorage.setItem('parisAllianceLastViewedEvent', lastViewedEventTimestamp.toISOString());
+        }
+        
+        function checkForNewEvents() {
+            const lastViewed = localStorage.getItem('parisAllianceLastViewedEvent');
+            if (!lastViewed) {
+                showEventNotificationDot();
+                return;
+            }
+            
+            lastViewedEventTimestamp = new Date(lastViewed);
+            
+            if (eventsUnsubscribe) eventsUnsubscribe();
+            
+            try {
+                const eventsQuery = query(
+                    collection(db, "Events"),
+                    where("timestamp", ">", Timestamp.fromDate(lastViewedEventTimestamp)),
+                    orderBy("timestamp", "desc")
+                );
+                
+                eventsUnsubscribe = onSnapshot(eventsQuery, (snapshot) => {
+                    if (!snapshot.empty) {
+                        showEventNotificationDot();
+                        addDebugLog(`${snapshot.size} nouveaux événements détectés`, 'info');
+                    }
+                }, (error) => {
+                    handleFirestoreError(error, 'écoute des nouveaux événements');
+                });
+                
+            } catch (error) {
+                handleFirestoreError(error, 'configuration de l\'écoute des événements');
+            }
+        }
+        
+        function setupAuth() {
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const gotoRegister = document.getElementById('goto-register');
+            const gotoLogin = document.getElementById('goto-login');
+            
+            loginBtn.addEventListener('click', loginUser);
+            registerBtn.addEventListener('click', registerUser);
+            
+            loginTab.addEventListener('click', () => switchAuthTab('login'));
+            registerTab.addEventListener('click', () => switchAuthTab('login'));
+            gotoRegister.addEventListener('click', (e) => {
                 e.preventDefault();
                 switchAuthTab('register');
             });
-            
-            document.getElementById('goto-login').addEventListener('click', function(e) {
+            gotoLogin.addEventListener('click', (e) => {
                 e.preventDefault();
                 switchAuthTab('login');
             });
             
-            document.getElementById('loginBtn').addEventListener('click', handleLogin);
-            document.getElementById('registerBtn').addEventListener('click', handleRegister);
-            
-            document.getElementById('login-email').addEventListener('input', function() {
-                document.getElementById('login-email-error').style.display = 'none';
-            });
-            
-            document.getElementById('login-password').addEventListener('input', function() {
-                document.getElementById('login-password-error').style.display = 'none';
-            });
-            
-            document.getElementById('register-email').addEventListener('input', function() {
-                document.getElementById('register-email-error').style.display = 'none';
-            });
-            
-            document.getElementById('register-password').addEventListener('input', function() {
-                document.getElementById('register-password-error').style.display = 'none';
-            });
-            
-            document.getElementById('register-confirm-password').addEventListener('input', function() {
-                document.getElementById('register-confirm-password-error').style.display = 'none';
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    currentUser = user;
+                    isLoggedIn = true;
+                    
+                    try {
+                        await initializeAdminCollection();
+                        await checkAdminStatus();
+                        await loadUserData();
+                        showMainApp();
+                        checkForNewEvents();
+                        
+                        addDebugLog(`Utilisateur connecté: ${user.email}`, 'success');
+                        
+                    } catch (error) {
+                        addDebugLog(`Erreur initialisation: ${error.message}`, 'error');
+                        showNotification("Erreur lors de l'initialisation", "error");
+                    }
+                } else {
+                    isLoggedIn = false;
+                    currentUser = null;
+                    currentUserData = null;
+                    isAdmin = false;
+                    showAuthScreen();
+                }
+                
+                hideLoading();
             });
         }
         
         function switchAuthTab(tab) {
-            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
             
-            if (tab === 'login') {
-                document.getElementById('login-tab').classList.add('active');
-                document.getElementById('login-form').classList.add('active');
+            if (tab === 'register') {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                loginTab.classList.remove('active');
+                registerTab.classList.add('active');
             } else {
-                document.getElementById('register-tab').classList.add('active');
-                document.getElementById('register-form').classList.add('active');
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+                registerTab.classList.remove('active');
+                loginTab.classList.add('active');
             }
+            
+            clearAuthErrors();
         }
         
-        async function handleLogin() {
+        function clearAuthErrors() {
+            document.querySelectorAll('.form-error').forEach(error => {
+                error.style.display = 'none';
+            });
+            document.querySelectorAll('.log-message').forEach(log => {
+                log.style.display = 'none';
+            });
+        }
+        
+        async function loginUser() {
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
+            const button = document.getElementById('loginBtn');
+            const logElement = document.getElementById('login-log');
             
-            document.getElementById('login-email-error').style.display = 'none';
-            document.getElementById('login-password-error').style.display = 'none';
+            clearAuthErrors();
             
             let hasError = false;
             
-            if (!email || !isValidEmail(email)) {
+            if (!email || !email.includes('@')) {
                 document.getElementById('login-email-error').style.display = 'block';
                 hasError = true;
             }
@@ -7509,19 +6754,18 @@
             
             if (hasError) return;
             
-            const button = document.getElementById('loginBtn');
-            const loader = button.querySelector('.btn-loader');
-            const text = button.querySelector('.btn-text');
-            
-            button.disabled = true;
-            loader.style.display = 'inline-block';
-            text.textContent = 'Connexion...';
+            button.classList.add('loading');
             
             try {
                 await signInWithEmailAndPassword(auth, email, password);
                 
+                addDebugLog(`Connexion réussie pour ${email}`, 'success');
+                logElement.textContent = 'Connexion réussie !';
+                logElement.className = 'log-message success';
+                logElement.style.display = 'block';
+                
             } catch (error) {
-                console.error('Erreur de connexion:', error);
+                addDebugLog(`Erreur connexion: ${error.message}`, 'error');
                 
                 let errorMessage = 'Erreur de connexion';
                 if (error.code === 'auth/user-not-found') {
@@ -7529,36 +6773,36 @@
                 } else if (error.code === 'auth/wrong-password') {
                     errorMessage = 'Mot de passe incorrect';
                 } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = 'Email invalide';
+                    errorMessage = 'Adresse email invalide';
                 } else if (error.code === 'auth/too-many-requests') {
                     errorMessage = 'Trop de tentatives. Réessayez plus tard';
                 }
                 
-                showLogMessage('login-log', errorMessage, 'error');
-                
-                button.disabled = false;
-                loader.style.display = 'none';
-                text.textContent = 'Se connecter';
+                logElement.textContent = errorMessage;
+                logElement.className = 'log-message error';
+                logElement.style.display = 'block';
             }
+            
+            button.classList.remove('loading');
         }
         
-        async function handleRegister() {
+        async function registerUser() {
             const email = document.getElementById('register-email').value.trim();
             const password = document.getElementById('register-password').value;
             const confirmPassword = document.getElementById('register-confirm-password').value;
+            const button = document.getElementById('registerBtn');
+            const logElement = document.getElementById('register-log');
             
-            document.getElementById('register-email-error').style.display = 'none';
-            document.getElementById('register-password-error').style.display = 'none';
-            document.getElementById('register-confirm-password-error').style.display = 'none';
+            clearAuthErrors();
             
             let hasError = false;
             
-            if (!email || !isValidEmail(email)) {
+            if (!email || !email.includes('@')) {
                 document.getElementById('register-email-error').style.display = 'block';
                 hasError = true;
             }
             
-            if (!password || password.length < 6) {
+            if (password.length < 6) {
                 document.getElementById('register-password-error').style.display = 'block';
                 hasError = true;
             }
@@ -7570,13 +6814,7 @@
             
             if (hasError) return;
             
-            const button = document.getElementById('registerBtn');
-            const loader = button.querySelector('.btn-loader');
-            const text = button.querySelector('.btn-text');
-            
-            button.disabled = true;
-            loader.style.display = 'inline-block';
-            text.textContent = 'Inscription...';
+            button.classList.add('loading');
             
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -7584,150 +6822,145 @@
                 
                 const userData = {
                     email: user.email,
-                    displayName: user.email.split('@')[0],
+                    displayName: user.displayName || 'Utilisateur',
                     createdAt: serverTimestamp(),
-                    satsBalance: 0,
-                    currentPlan: 'free',
-                    planExpiryDate: null
+                    updatedAt: serverTimestamp(),
+                    uid: user.uid
                 };
                 
                 await setDoc(doc(db, "Users", user.uid), userData);
                 
-                showLogMessage('register-log', 'Compte créé avec succès ! Connexion...', 'success');
+                addDebugLog(`Inscription réussie pour ${email}`, 'success');
+                logElement.textContent = 'Compte créé avec succès !';
+                logElement.className = 'log-message success';
+                logElement.style.display = 'block';
                 
             } catch (error) {
-                console.error('Erreur d\'inscription:', error);
+                addDebugLog(`Erreur inscription: ${error.message}`, 'error');
                 
-                let errorMessage = 'Erreur lors de l\'inscription';
+                let errorMessage = 'Erreur lors de la création du compte';
                 if (error.code === 'auth/email-already-in-use') {
                     errorMessage = 'Un compte existe déjà avec cet email';
                 } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = 'Email invalide';
+                    errorMessage = 'Adresse email invalide';
                 } else if (error.code === 'auth/weak-password') {
                     errorMessage = 'Le mot de passe est trop faible';
                 }
                 
-                showLogMessage('register-log', errorMessage, 'error');
-                
-                button.disabled = false;
-                loader.style.display = 'none';
-                text.textContent = 'S\'inscrire';
+                logElement.textContent = errorMessage;
+                logElement.className = 'log-message error';
+                logElement.style.display = 'block';
             }
-        }
-        
-        function showLogMessage(elementId, message, type) {
-            const logElement = document.getElementById(elementId);
-            logElement.textContent = message;
-            logElement.className = `log-message ${type}`;
-            logElement.style.display = 'block';
             
-            setTimeout(() => {
-                logElement.style.display = 'none';
-                logElement.textContent = '';
-                logElement.className = 'log-message';
-            }, 5000);
+            button.classList.remove('loading');
         }
         
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-        
-        function hideVerifyAnimation() {
-            const verifyAnimation = document.getElementById('verify-animation');
-            if (verifyAnimation) {
-                verifyAnimation.style.display = 'none';
+        async function loadUserData() {
+            if (!currentUser) return;
+            
+            try {
+                const userDoc = await getDoc(doc(db, "Users", currentUser.uid));
+                
+                if (userDoc.exists()) {
+                    currentUserData = userDoc.data();
+                } else {
+                    const userData = {
+                        email: currentUser.email,
+                        displayName: currentUser.displayName || 'Utilisateur',
+                        createdAt: serverTimestamp(),
+                        updatedAt: serverTimestamp(),
+                        uid: currentUser.uid
+                    };
+                    
+                    await setDoc(doc(db, "Users", currentUser.uid), userData);
+                    currentUserData = userData;
+                }
+                
+                updateProfileDisplay();
+                addDebugLog('Données utilisateur chargées', 'success');
+                
+            } catch (error) {
+                handleFirestoreError(error, 'chargement des données utilisateur');
             }
+        }
+        
+        function updateProfileDisplay() {
+            if (!currentUserData) return;
+            
+            const profileNameText = document.getElementById('profile-name-text');
+            const profileEmail = document.getElementById('profile-email');
+            
+            if (profileNameText) {
+                profileNameText.textContent = currentUserData.displayName || 'Utilisateur';
+            }
+            
+            if (profileEmail) {
+                profileEmail.textContent = currentUser.email;
+            }
+            
+            updateBadges();
         }
         
         function showAuthScreen() {
-            hideVerifyAnimation();
             document.getElementById('auth-screen').style.display = 'flex';
-        }
-        
-        function hideAuthScreen() {
-            document.getElementById('auth-screen').style.display = 'none';
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('verify-animation').style.display = 'none';
+            hideMainApp();
         }
         
         function showMainApp() {
-            hideVerifyAnimation();
-            hideAuthScreen();
+            document.getElementById('auth-screen').style.display = 'none';
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('verify-animation').style.display = 'none';
+            
+            document.querySelector('.header').style.display = 'flex';
+            document.querySelector('.content').style.display = 'block';
+            document.querySelector('.bottom-nav').style.display = 'flex';
+            
             showForecastsSection();
         }
         
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                isLoggedIn = true;
-                
-                addDebugLog(`Utilisateur connecté: ${user.email}`, 'success');
-                
-                try {
-                    const userRef = doc(db, "Users", user.uid);
-                    const userDoc = await getDoc(userRef);
-                    
-                    if (userDoc.exists()) {
-                        currentUserData = userDoc.data();
-                        addDebugLog('Données utilisateur chargées', 'success');
-                    } else {
-                        const userData = {
-                            email: user.email,
-                            displayName: user.email.split('@')[0],
-                            createdAt: serverTimestamp(),
-                            satsBalance: 0,
-                            currentPlan: 'free',
-                            planExpiryDate: null
-                        };
-                        
-                        await setDoc(userRef, userData);
-                        currentUserData = userData;
-                        addDebugLog('Nouveau profil utilisateur créé', 'success');
-                    }
-                    
-                    await initializeAdminCollection();
-                    await checkAdminStatus();
-                    await loadUserSubscriptionData();
-                    await checkSubscriptionExpiry();
-                    
-                    updateAdminStatus();
-                    updateBadges();
-                    
-                    showMainApp();
-                    
-                } catch (error) {
-                    handleFirestoreError(error, 'chargement des données utilisateur');
-                    showMainApp();
-                }
-                
-            } else {
-                currentUser = null;
-                currentUserData = null;
-                isLoggedIn = false;
-                isAdmin = false;
-                
-                addDebugLog('Utilisateur non connecté', 'info');
-                
-                setTimeout(() => {
-                    showAuthScreen();
-                }, 1500);
-            }
-        });
+        function hideMainApp() {
+            document.querySelector('.header').style.display = 'none';
+            document.querySelector('.content').style.display = 'none';
+            document.querySelector('.bottom-nav').style.display = 'none';
+        }
         
-        // Make functions globally available for HTML event handlers
-        window.deleteEvent = deleteEvent;
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
+        }
         
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        function showVerifyAnimation() {
+            document.getElementById('verify-animation').style.display = 'flex';
+        }
+        
+        function hideVerifyAnimation() {
+            document.getElementById('verify-animation').style.display = 'none';
+        }
+        
+        // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
+            showLoading();
+            setupDarkMode();
+            setupTheme();
+            setupTransitions();
+            setupCardStyles();
             setupConnectionMonitoring();
             setupUIEvents();
-            setupAuthEvents();
-            setupTheme();
-            setupCardStyles();
-            setupDisplayMode();
+            setupAuth();
             
-            lastViewedEventTimestamp = localStorage.getItem('parisAllianceLastViewedEvent') ? 
-                new Date(parseInt(localStorage.getItem('parisAllianceLastViewedEvent'))) : new Date(0);
+            addDebugLog('Application Pari Alliance initialisée', 'success');
+            
+            setTimeout(() => {
+                if (!isLoggedIn) {
+                    hideLoading();
+                }
+            }, 3000);
         });
     </script>
 </body>
 </html>
-                      
