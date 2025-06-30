@@ -105,6 +105,8 @@
             --history-date-bg: rgba(93, 92, 222, 0.1);
             --history-date-text: var(--primary-color);
             --card-accent: var(--primary-color);
+            --prediction-highlight-bg: rgba(93, 92, 222, 0.1);
+            --prediction-highlight-text: var(--primary-color);
         }
         
         /* Thème vert */
@@ -124,6 +126,8 @@
             --history-date-bg: rgba(76, 175, 80, 0.1);
             --history-date-text: #4CAF50;
             --card-accent: #4CAF50;
+            --prediction-highlight-bg: rgba(76, 175, 80, 0.1);
+            --prediction-highlight-text: #4CAF50;
         }
         
         /* Thème rouge */
@@ -143,6 +147,8 @@
             --history-date-bg: rgba(244, 67, 54, 0.1);
             --history-date-text: #F44336;
             --card-accent: #F44336;
+            --prediction-highlight-bg: rgba(244, 67, 54, 0.1);
+            --prediction-highlight-text: #F44336;
         }
         
         /* Thème orange */
@@ -162,46 +168,64 @@
             --history-date-bg: rgba(255, 152, 0, 0.1);
             --history-date-text: #FF9800;
             --card-accent: #FF9800;
+            --prediction-highlight-bg: rgba(255, 152, 0, 0.1);
+            --prediction-highlight-text: #FF9800;
         }
 
         .theme-purple {
             --primary-color: #9C27B0;
             --card-accent: #9C27B0;
+            --prediction-highlight-bg: rgba(156, 39, 176, 0.1);
+            --prediction-highlight-text: #9C27B0;
         }
 
         .theme-teal {
             --primary-color: #009688;
             --card-accent: #009688;
+            --prediction-highlight-bg: rgba(0, 150, 136, 0.1);
+            --prediction-highlight-text: #009688;
         }
 
         .theme-indigo {
             --primary-color: #3F51B5;
             --card-accent: #3F51B5;
+            --prediction-highlight-bg: rgba(63, 81, 181, 0.1);
+            --prediction-highlight-text: #3F51B5;
         }
 
         .theme-pink {
             --primary-color: #E91E63;
             --card-accent: #E91E63;
+            --prediction-highlight-bg: rgba(233, 30, 99, 0.1);
+            --prediction-highlight-text: #E91E63;
         }
 
         .theme-cyan {
             --primary-color: #00BCD4;
             --card-accent: #00BCD4;
+            --prediction-highlight-bg: rgba(0, 188, 212, 0.1);
+            --prediction-highlight-text: #00BCD4;
         }
 
         .theme-lime {
             --primary-color: #CDDC39;
             --card-accent: #CDDC39;
+            --prediction-highlight-bg: rgba(205, 220, 57, 0.1);
+            --prediction-highlight-text: #CDDC39;
         }
 
         .theme-amber {
             --primary-color: #FFC107;
             --card-accent: #FFC107;
+            --prediction-highlight-bg: rgba(255, 193, 7, 0.1);
+            --prediction-highlight-text: #FFC107;
         }
 
         .theme-deep-orange {
             --primary-color: #FF5722;
             --card-accent: #FF5722;
+            --prediction-highlight-bg: rgba(255, 87, 34, 0.1);
+            --prediction-highlight-text: #FF5722;
         }
         
         .dark {
@@ -273,6 +297,7 @@
             --user-item-bg: #222222;
             --plan-active-bg: rgba(93, 92, 222, 0.15);
             --history-date-bg: rgba(93, 92, 222, 0.15);
+            --prediction-highlight-bg: rgba(93, 92, 222, 0.2);
         }
 
         * {
@@ -698,6 +723,14 @@
         .analysis-content {
             font-size: 14px;
             line-height: 1.5;
+        }
+
+        .prediction-highlight {
+            background-color: var(--prediction-highlight-bg);
+            color: var(--prediction-highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
         }
 
         .probability-item {
@@ -2322,12 +2355,16 @@
                     <div class="probability-value">37%</div>
                 </div>
                 <div class="probability-item">
+                    <div class="probability-label">Plus de 1.5 buts</div>
+                    <div class="probability-value">65%</div>
+                </div>
+                <div class="probability-item">
                     <div class="probability-label">Plus de 2.5 buts</div>
                     <div class="probability-value">65%</div>
                 </div>
                 <div class="probability-item">
-                    <div class="probability-label">Moins de 2.5 buts</div>
-                    <div class="probability-value">35%</div>
+                    <div class="probability-label">Moins de 3.5 buts</div>
+                    <div class="probability-value">65%</div>
                 </div>
                 <div class="probability-item">
                     <div class="probability-label">Les deux équipes marquent</div>
@@ -2586,7 +2623,7 @@
                 return processed;
             }
 
-            // Traiter les combinés depuis predictions_combinees.details
+            // Traiter les combinés depuis predictions_combinees_ia.details
             if (data.predictions_combinees_ia && data.predictions_combinees_ia.details) {
                 data.predictions_combinees_ia.details.forEach(forecast => {
                     processed.combines.push({
@@ -2616,7 +2653,8 @@
                         prediction: forecast.prediction,
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
-                        poisson_top_scores: forecast.poisson_top_scores
+                        poisson_top_scores: forecast.poisson_top_scores,
+                        score_prediction: forecast.score_prediction
                     });
                 });
             }
@@ -2635,7 +2673,8 @@
                         prediction: forecast.prediction,
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
-                        poisson_top_scores: forecast.poisson_top_scores
+                        poisson_top_scores: forecast.poisson_top_scores,
+                        score_prediction: forecast.score_prediction
                     });
                 });
             }
@@ -2654,7 +2693,8 @@
                         prediction: forecast.prediction,
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
-                        poisson_top_scores: forecast.poisson_top_scores
+                        poisson_top_scores: forecast.poisson_top_scores,
+                        score_prediction: forecast.score_prediction
                     });
                 });
             }
@@ -2824,19 +2864,20 @@
             
             document.getElementById('detail-time').textContent = formattedDateTime;
 
-            // Update analysis content
+            // Update analysis content avec prédiction colorée
             if (forecastData.type === 'combined') {
                 document.getElementById('prediction-analysis').innerHTML = `
-                    <strong>Combiné recommandé:</strong> ${forecastData.name || 'Combiné'}<br><br>
+                    <strong>Combiné recommandé:</strong> <span class="prediction-highlight">${forecastData.name || 'Combiné'}</span><br><br>
                     ${forecastData.description || 'Ce combiné a été généré par notre IA en analysant les meilleures opportunités du jour.'}<br><br>
                     <strong>Nombre de matchs:</strong> ${forecastData.matches ? forecastData.matches.length : 0}<br>
                     ${forecastData.estimated_odds ? `<strong>Cote estimée:</strong> ${forecastData.estimated_odds}` : ''}
                 `;
             } else {
                 document.getElementById('prediction-analysis').innerHTML = `
-                    <strong>Prédiction recommandée:</strong> ${forecastData.prediction || 'N/A'}<br><br>
+                    <strong>Prédiction recommandée:</strong> <span class="prediction-highlight">${forecastData.prediction || 'N/A'}</span><br><br>
                     Cette prédiction est basée sur l'analyse des performances récentes, des statistiques historiques 
                     et des facteurs contextuels des équipes ${forecastData.HomeTeam || 'Équipe 1'} et ${forecastData.AwayTeam || 'Équipe 2'}.
+                    ${forecastData.score_prediction ? `<br><br><strong>Score prédit:</strong> ${forecastData.score_prediction}` : ''}
                 `;
             }
 
@@ -2845,44 +2886,54 @@
             document.getElementById('detail-confidence-bar').style.width = confidence + '%';
             document.getElementById('detail-confidence-text').textContent = confidence + '%';
 
-            // Update probabilities if available
+            // Update probabilities if available avec under35 ajouté
             if (forecastData.poisson_probabilities) {
                 document.getElementById('prob-content').innerHTML = `
                     <div class="probability-item">
                         <div class="probability-label">Victoire ${forecastData.HomeTeam || 'Domicile'}</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.win1 || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.win1 || 0).toFixed(1)}%</div>
                     </div>
                     <div class="probability-item">
                         <div class="probability-label">Match Nul</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.draw || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.draw || 0).toFixed(1)}%</div>
                     </div>
                     <div class="probability-item">
                         <div class="probability-label">Victoire ${forecastData.AwayTeam || 'Extérieur'}</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.win2 || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.win2 || 0).toFixed(1)}%</div>
                     </div>
                     <div class="probability-item">
                         <div class="probability-label">Plus de 1.5 buts</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.over15 || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.over15 || 0).toFixed(1)}%</div>
                     </div>
                     <div class="probability-item">
                         <div class="probability-label">Plus de 2.5 buts</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.over25 || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.over25 || 0).toFixed(1)}%</div>
+                    </div>
+                    <div class="probability-item">
+                        <div class="probability-label">Moins de 3.5 buts</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.under35 || 0).toFixed(1)}%</div>
                     </div>
                     <div class="probability-item">
                         <div class="probability-label">Les deux équipes marquent</div>
-                        <div class="probability-value">${forecastData.poisson_probabilities.btts || 0}%</div>
+                        <div class="probability-value">${parseFloat(forecastData.poisson_probabilities.btts || 0).toFixed(1)}%</div>
                     </div>
                 `;
             }
 
             // Update scores if available
             if (forecastData.poisson_top_scores && forecastData.poisson_top_scores.length > 0) {
-                const scoresHtml = forecastData.poisson_top_scores.map(scoreData => `
-                    <div class="score-item">
-                        <div class="score-value">${scoreData.score || 'N/A'}</div>
-                        <div class="score-probability">${parseFloat(scoreData.probability || 0).toFixed(1)}%</div>
-                    </div>
-                `).join('');
+                const scoresHtml = forecastData.poisson_top_scores.map(scoreData => {
+                    // Extraire seulement le score (ex: "1-3" de "Albirex Niigata 1-3 Machida Zelvia")
+                    const scoreMatch = scoreData.score.match(/(\d+)-(\d+)/);
+                    const simpleScore = scoreMatch ? `${scoreMatch[1]}-${scoreMatch[2]}` : scoreData.score;
+                    
+                    return `
+                        <div class="score-item">
+                            <div class="score-value">${simpleScore}</div>
+                            <div class="score-probability">${parseFloat(scoreData.probability || 0).toFixed(1)}%</div>
+                        </div>
+                    `;
+                }).join('');
 
                 document.getElementById('scores-content').innerHTML = `
                     <h4 style="margin-bottom: 15px;">Scores les plus probables</h4>
