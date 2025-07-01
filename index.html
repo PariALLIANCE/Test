@@ -503,6 +503,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
+            min-height: 80px; /* Hauteur minimale pour l'alignement */
         }
 
         .team {
@@ -510,6 +511,7 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
+            justify-content: center; /* Centrage vertical pour l'alignement */
         }
 
         .team-logo {
@@ -522,6 +524,7 @@
             justify-content: center;
             margin-bottom: 8px;
             border: 2px solid var(--border-color);
+            flex-shrink: 0; /* Évite la déformation */
         }
 
         .team-logo i {
@@ -541,6 +544,7 @@
             flex-direction: column;
             align-items: center;
             margin: 0 20px;
+            justify-content: center; /* Centrage vertical pour l'alignement */
         }
 
         .vs-text {
@@ -611,6 +615,7 @@
             align-items: center;
             justify-content: center;
             margin: 20px 0;
+            min-height: 120px; /* Hauteur minimale pour l'alignement des logos */
         }
 
         .detail-team {
@@ -618,6 +623,7 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
+            justify-content: center; /* Centrage vertical pour l'alignement */
         }
 
         .detail-team-logo {
@@ -630,6 +636,7 @@
             justify-content: center;
             margin-bottom: 10px;
             border: 3px solid var(--border-color);
+            flex-shrink: 0; /* Évite la déformation */
         }
 
         .detail-team-logo i {
@@ -648,6 +655,7 @@
             flex-direction: column;
             align-items: center;
             margin: 0 30px;
+            justify-content: center; /* Centrage vertical pour l'alignement */
         }
 
         .detail-prediction-value {
@@ -3329,13 +3337,44 @@
             
             let timestamp = '';
             if (eventData.timestamp) {
-                const eventDate = eventData.timestamp.toDate ? eventData.timestamp.toDate() : new Date(eventData.timestamp);
-                timestamp = eventDate.toLocaleDateString('fr-FR', {
-                    day: 'numeric',
-                    month: 'short',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
+                try {
+                    // Gérer différents types de timestamps
+                    let eventDate;
+                    
+                    if (eventData.timestamp && typeof eventData.timestamp.toDate === 'function') {
+                        // Firestore Timestamp
+                        eventDate = eventData.timestamp.toDate();
+                    } else if (eventData.timestamp && eventData.timestamp.seconds) {
+                        // Firestore Timestamp object with seconds
+                        eventDate = new Date(eventData.timestamp.seconds * 1000);
+                    } else if (typeof eventData.timestamp === 'string') {
+                        // String timestamp
+                        eventDate = new Date(eventData.timestamp);
+                    } else if (typeof eventData.timestamp === 'number') {
+                        // Unix timestamp
+                        eventDate = new Date(eventData.timestamp);
+                    } else {
+                        // Fallback
+                        eventDate = new Date();
+                    }
+                    
+                    // Vérifier si la date est valide
+                    if (isNaN(eventDate.getTime())) {
+                        timestamp = 'Date inconnue';
+                    } else {
+                        timestamp = eventDate.toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'short',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                    }
+                } catch (error) {
+                    console.error('Erreur de formatage de date:', error);
+                    timestamp = 'Date invalide';
+                }
+            } else {
+                timestamp = 'Date non spécifiée';
             }
             
             eventElement.innerHTML = `
