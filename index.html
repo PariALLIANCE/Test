@@ -3025,20 +3025,43 @@
                 // Hide prediction value for all forecasts as requested
                 document.getElementById('detail-prediction').style.display = 'none';
                 
-                // Mettre à jour les logos dans la vue détaillée
+                // Mettre à jour les logos dans la vue détaillée - FIX POUR LE PROBLÈME
                 const detailHomeLogo = document.getElementById('detail-home-logo');
                 const detailAwayLogo = document.getElementById('detail-away-logo');
                 
-                // Logo équipe domicile
+                // Vider le contenu d'abord
+                detailHomeLogo.innerHTML = '';
+                detailAwayLogo.innerHTML = '';
+                
+                // Créer les éléments de logo de manière propre
                 if (forecastData.logo_home) {
-                    detailHomeLogo.innerHTML = `<img src="${forecastData.logo_home}" alt="${forecastData.HomeTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.HomeTeam)}\\"></i>'">`;
+                    const homeImg = document.createElement('img');
+                    homeImg.src = forecastData.logo_home;
+                    homeImg.alt = forecastData.HomeTeam || 'Équipe domicile';
+                    homeImg.style.width = '100%';
+                    homeImg.style.height = '100%';
+                    homeImg.style.objectFit = 'cover';
+                    homeImg.style.borderRadius = '50%';
+                    homeImg.onerror = function() {
+                        detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
+                    };
+                    detailHomeLogo.appendChild(homeImg);
                 } else {
                     detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
                 }
                 
-                // Logo équipe extérieur
                 if (forecastData.logo_away) {
-                    detailAwayLogo.innerHTML = `<img src="${forecastData.logo_away}" alt="${forecastData.AwayTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.AwayTeam)}\\"></i>'">`;
+                    const awayImg = document.createElement('img');
+                    awayImg.src = forecastData.logo_away;
+                    awayImg.alt = forecastData.AwayTeam || 'Équipe extérieur';
+                    awayImg.style.width = '100%';
+                    awayImg.style.height = '100%';
+                    awayImg.style.objectFit = 'cover';
+                    awayImg.style.borderRadius = '50%';
+                    awayImg.onerror = function() {
+                        detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
+                    };
+                    detailAwayLogo.appendChild(awayImg);
                 } else {
                     detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
                 }
