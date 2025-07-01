@@ -503,7 +503,6 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
-            min-height: 80px; /* Hauteur minimale pour l'alignement */
         }
 
         .team {
@@ -511,7 +510,7 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
-            justify-content: center; /* Centrage vertical pour l'alignement */
+            min-width: 0;
         }
 
         .team-logo {
@@ -524,7 +523,7 @@
             justify-content: center;
             margin-bottom: 8px;
             border: 2px solid var(--border-color);
-            flex-shrink: 0; /* Évite la déformation */
+            flex-shrink: 0;
         }
 
         .team-logo i {
@@ -537,6 +536,9 @@
             text-align: center;
             font-size: 14px;
             line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .forecast-vs {
@@ -544,7 +546,7 @@
             flex-direction: column;
             align-items: center;
             margin: 0 20px;
-            justify-content: center; /* Centrage vertical pour l'alignement */
+            flex-shrink: 0;
         }
 
         .vs-text {
@@ -582,7 +584,7 @@
             transition: width 0.3s ease;
         }
 
-        /* Forecast Detail Page */
+        /* Forecast Detail Page - Restructured */
         .forecast-detail {
             position: fixed;
             top: 0;
@@ -599,15 +601,16 @@
             display: flex;
         }
 
-        .detail-content {
-            flex: 1;
-            overflow-y: auto;
-            margin-top: 60px;
-        }
-
+        /* Fixed header section with teams */
         .forecast-info-section {
-            padding: 20px;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            z-index: 10;
         }
 
         .detail-teams {
@@ -615,7 +618,6 @@
             align-items: center;
             justify-content: center;
             margin: 20px 0;
-            min-height: 120px; /* Hauteur minimale pour l'alignement des logos */
         }
 
         .detail-team {
@@ -623,7 +625,7 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
-            justify-content: center; /* Centrage vertical pour l'alignement */
+            min-width: 0;
         }
 
         .detail-team-logo {
@@ -636,7 +638,7 @@
             justify-content: center;
             margin-bottom: 10px;
             border: 3px solid var(--border-color);
-            flex-shrink: 0; /* Évite la déformation */
+            flex-shrink: 0;
         }
 
         .detail-team-logo i {
@@ -648,6 +650,9 @@
             font-weight: bold;
             font-size: 18px;
             text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .detail-prediction {
@@ -655,7 +660,7 @@
             flex-direction: column;
             align-items: center;
             margin: 0 30px;
-            justify-content: center; /* Centrage vertical pour l'alignement */
+            flex-shrink: 0;
         }
 
         .detail-prediction-value {
@@ -680,6 +685,15 @@
             color: var(--inactive-text);
         }
 
+        /* Scrollable content area */
+        .detail-scrollable-content {
+            margin-top: 220px; /* Adjust based on fixed header height */
+            height: calc(100vh - 280px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* Tabs */
         .detail-tabs {
             display: flex;
@@ -687,6 +701,10 @@
             margin: 0 20px;
             border-radius: 10px;
             padding: 4px;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            flex-shrink: 0;
         }
 
         .detail-tab {
@@ -710,6 +728,7 @@
         .tab-content {
             padding: 20px;
             display: none;
+            flex: 1;
         }
 
         .tab-content.active {
@@ -1936,6 +1955,11 @@
             .score-probability {
                 font-size: 9px;
             }
+
+            .detail-scrollable-content {
+                margin-top: 200px;
+                height: calc(100vh - 260px);
+            }
         }
 
         /* Dark mode support */
@@ -2265,7 +2289,7 @@
         </div>
     </div>
 
-    <!-- Forecast Detail Page -->
+    <!-- Forecast Detail Page - Restructured -->
     <div class="forecast-detail" id="forecast-detail">
         <div class="header">
             <div class="header-left">
@@ -2284,43 +2308,45 @@
             </div>
         </div>
 
-        <div class="detail-content">
-            <!-- Forecast Info Section -->
-            <div class="forecast-info-section">
-                <div class="league-info" id="detail-league">Ligue 1 • Journée 16</div>
+        <!-- Fixed header section with teams -->
+        <div class="forecast-info-section">
+            <div class="league-info" id="detail-league">Ligue 1 • Journée 16</div>
+            
+            <div class="detail-teams">
+                <div class="detail-team">
+                    <div class="detail-team-logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="detail-team-name" id="detail-home-team">Équipe Domicile</div>
+                </div>
                 
-                <div class="detail-teams">
-                    <div class="detail-team">
-                        <div class="detail-team-logo">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="detail-team-name" id="detail-home-team">Équipe Domicile</div>
+                <div class="detail-prediction">
+                    <div class="detail-prediction-value" id="detail-prediction" style="display: none;">1X</div>
+                    <div class="detail-forecast-status status-pending" id="detail-status">À venir</div>
+                    <div class="detail-forecast-time" id="detail-time">29.06.2025 10:30</div>
+                </div>
+                
+                <div class="detail-team">
+                    <div class="detail-team-logo">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    
-                    <div class="detail-prediction">
-                        <div class="detail-prediction-value" id="detail-prediction" style="display: none;">1X</div>
-                        <div class="detail-forecast-status status-pending" id="detail-status">À venir</div>
-                        <div class="detail-forecast-time" id="detail-time">29.06.2025 10:30</div>
-                    </div>
-                    
-                    <div class="detail-team">
-                        <div class="detail-team-logo">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="detail-team-name" id="detail-away-team">Équipe Extérieur</div>
-                    </div>
+                    <div class="detail-team-name" id="detail-away-team">Équipe Extérieur</div>
                 </div>
             </div>
+        </div>
 
+        <!-- Scrollable content area -->
+        <div class="detail-scrollable-content">
             <!-- Tabs -->
             <div class="detail-tabs">
-                <div class="detail-tab active" data-tab="analysis">Analyse IA</div>
+                <div class="detail-tab active" data-tab="prediction">Prédiction</div>
+                <div class="detail-tab" data-tab="analysis">Analyse IA</div>
                 <div class="detail-tab" data-tab="prob">Probabilités</div>
                 <div class="detail-tab" data-tab="scores">Scores</div>
             </div>
 
             <!-- Tab Contents -->
-            <div class="tab-content active" id="analysis-content">
+            <div class="tab-content active" id="prediction-content">
                 <div class="analysis-section">
                     <div class="analysis-title">Prédiction recommandée</div>
                     <div class="analysis-content" id="prediction-analysis">
@@ -2347,6 +2373,14 @@
                         • Statistiques offensives et défensives<br>
                         • Conditions de jeu
                     </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="analysis-content">
+                <div style="text-align: center; padding: 40px 20px; color: var(--inactive-text);">
+                    <i class="fas fa-robot" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <h3 style="margin-bottom: 10px;">Analyse IA</h3>
+                    <p>Pas encore disponible</p>
                 </div>
             </div>
 
@@ -2711,6 +2745,46 @@
             return processed;
         }
 
+        // Function to parse French date format
+        function parseFrenchDate(dateStr) {
+            if (!dateStr) return null;
+            
+            try {
+                // Handle format like "29 juin 2025 à 09:00:00 UTC"
+                const frenchMonths = {
+                    'janvier': '01', 'février': '02', 'mars': '03', 'avril': '04',
+                    'mai': '05', 'juin': '06', 'juillet': '07', 'août': '08',
+                    'septembre': '09', 'octobre': '10', 'novembre': '11', 'décembre': '12'
+                };
+                
+                // Extract date and time parts
+                const parts = dateStr.split(' à ');
+                const datePart = parts[0]; // "29 juin 2025"
+                const timePart = parts[1] || '00:00:00'; // "09:00:00 UTC"
+                
+                // Parse date part
+                const dateComponents = datePart.split(' ');
+                if (dateComponents.length >= 3) {
+                    const day = dateComponents[0].padStart(2, '0');
+                    const monthName = dateComponents[1].toLowerCase();
+                    const year = dateComponents[2];
+                    const month = frenchMonths[monthName] || '01';
+                    
+                    // Parse time part (remove UTC if present)
+                    const time = timePart.replace(' UTC', '');
+                    
+                    // Create ISO string
+                    const isoString = `${year}-${month}-${day}T${time}Z`;
+                    return new Date(isoString);
+                }
+            } catch (error) {
+                console.error('Error parsing French date:', dateStr, error);
+            }
+            
+            // Fallback: try to parse as regular date
+            return new Date(dateStr);
+        }
+
         // Function to create forecast card
         function createForecastCard(forecastData, type) {
             const card = document.createElement('div');
@@ -2731,20 +2805,24 @@
             let formattedDate = 'Aujourd\'hui';
             try {
                 if (forecastData.date) {
-                    const matchDate = new Date(forecastData.date);
-                    const today = new Date();
-                    const diffTime = Math.abs(matchDate - today);
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                    
-                    if (diffDays === 0) {
-                        formattedDate = 'Aujourd\'hui';
-                    } else if (diffDays === 1) {
-                        formattedDate = 'Demain';
-                    } else {
-                        formattedDate = matchDate.toLocaleDateString('fr-FR', {
-                            day: 'numeric',
-                            month: 'short'
-                        });
+                    const matchDate = parseFrenchDate(forecastData.date);
+                    if (matchDate && !isNaN(matchDate.getTime())) {
+                        const today = new Date();
+                        const diffTime = matchDate.getTime() - today.getTime();
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        
+                        if (diffDays === 0) {
+                            formattedDate = 'Aujourd\'hui';
+                        } else if (diffDays === 1) {
+                            formattedDate = 'Demain';
+                        } else if (diffDays === -1) {
+                            formattedDate = 'Hier';
+                        } else {
+                            formattedDate = matchDate.toLocaleDateString('fr-FR', {
+                                day: 'numeric',
+                                month: 'short'
+                            });
+                        }
                     }
                 }
             } catch (e) {
@@ -2862,12 +2940,16 @@
             let formattedDateTime = 'Aujourd\'hui';
             try {
                 if (forecastData.date) {
-                    const matchDate = new Date(forecastData.date);
-                    formattedDateTime = matchDate.toLocaleDateString('fr-FR', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }) + ' ' + (forecastData.time || '');
+                    const matchDate = parseFrenchDate(forecastData.date);
+                    if (matchDate && !isNaN(matchDate.getTime())) {
+                        formattedDateTime = matchDate.toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                    }
                 }
             } catch (e) {
                 formattedDateTime = 'Date inconnue';
@@ -3337,44 +3419,13 @@
             
             let timestamp = '';
             if (eventData.timestamp) {
-                try {
-                    // Gérer différents types de timestamps
-                    let eventDate;
-                    
-                    if (eventData.timestamp && typeof eventData.timestamp.toDate === 'function') {
-                        // Firestore Timestamp
-                        eventDate = eventData.timestamp.toDate();
-                    } else if (eventData.timestamp && eventData.timestamp.seconds) {
-                        // Firestore Timestamp object with seconds
-                        eventDate = new Date(eventData.timestamp.seconds * 1000);
-                    } else if (typeof eventData.timestamp === 'string') {
-                        // String timestamp
-                        eventDate = new Date(eventData.timestamp);
-                    } else if (typeof eventData.timestamp === 'number') {
-                        // Unix timestamp
-                        eventDate = new Date(eventData.timestamp);
-                    } else {
-                        // Fallback
-                        eventDate = new Date();
-                    }
-                    
-                    // Vérifier si la date est valide
-                    if (isNaN(eventDate.getTime())) {
-                        timestamp = 'Date inconnue';
-                    } else {
-                        timestamp = eventDate.toLocaleDateString('fr-FR', {
-                            day: 'numeric',
-                            month: 'short',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        });
-                    }
-                } catch (error) {
-                    console.error('Erreur de formatage de date:', error);
-                    timestamp = 'Date invalide';
-                }
-            } else {
-                timestamp = 'Date non spécifiée';
+                const eventDate = eventData.timestamp.toDate ? eventData.timestamp.toDate() : new Date(eventData.timestamp);
+                timestamp = eventDate.toLocaleDateString('fr-FR', {
+                    day: 'numeric',
+                    month: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
             }
             
             eventElement.innerHTML = `
