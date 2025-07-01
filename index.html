@@ -517,7 +517,7 @@
         .team-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), #4a49c0);
+            background: var(--secondary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -529,20 +529,16 @@
             overflow: hidden;
         }
 
-        .team-logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 60%);
+        .team-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 50%;
         }
 
         .team-logo i {
             font-size: 28px;
-            color: white;
+            color: var(--primary-color);
             z-index: 1;
         }
 
@@ -655,7 +651,7 @@
         .detail-team-logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), #4a49c0);
+            background: var(--secondary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -667,20 +663,16 @@
             overflow: hidden;
         }
 
-        .detail-team-logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 60%);
+        .detail-team-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 50%;
         }
 
         .detail-team-logo i {
             font-size: 40px;
-            color: white;
+            color: var(--primary-color);
             z-index: 1;
         }
 
@@ -2016,17 +2008,9 @@
                 height: 70px;
             }
 
-            .detail-team-logo i {
-                font-size: 35px;
-            }
-
             .team-logo {
                 width: 50px;
                 height: 50px;
-            }
-
-            .team-logo i {
-                font-size: 24px;
             }
         }
 
@@ -2382,7 +2366,7 @@
             
             <div class="detail-teams">
                 <div class="detail-team">
-                    <div class="detail-team-logo">
+                    <div class="detail-team-logo" id="detail-home-logo">
                         <i class="fas fa-futbol"></i>
                     </div>
                     <div class="detail-team-name" id="detail-home-team">Équipe Domicile</div>
@@ -2395,7 +2379,7 @@
                 </div>
                 
                 <div class="detail-team">
-                    <div class="detail-team-logo">
+                    <div class="detail-team-logo" id="detail-away-logo">
                         <i class="fas fa-futbol"></i>
                     </div>
                     <div class="detail-team-name" id="detail-away-team">Équipe Extérieur</div>
@@ -2765,7 +2749,9 @@
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
                         poisson_top_scores: forecast.poisson_top_scores,
-                        score_prediction: forecast.score_prediction
+                        score_prediction: forecast.score_prediction,
+                        logo_home: forecast.logo_home,
+                        logo_away: forecast.logo_away
                     });
                 });
             }
@@ -2785,7 +2771,9 @@
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
                         poisson_top_scores: forecast.poisson_top_scores,
-                        score_prediction: forecast.score_prediction
+                        score_prediction: forecast.score_prediction,
+                        logo_home: forecast.logo_home,
+                        logo_away: forecast.logo_away
                     });
                 });
             }
@@ -2805,7 +2793,9 @@
                         type: 'single',
                         poisson_probabilities: forecast.poisson_probabilities,
                         poisson_top_scores: forecast.poisson_top_scores,
-                        score_prediction: forecast.score_prediction
+                        score_prediction: forecast.score_prediction,
+                        logo_home: forecast.logo_home,
+                        logo_away: forecast.logo_away
                     });
                 });
             }
@@ -2853,13 +2843,33 @@
             return new Date(dateStr);
         }
 
-        // Function to get team icons
+        // Function to get team icons (fallback)
         function getTeamIcon(teamName) {
-            // Pour l'instant, on utilise des icônes génériques
-            // Plus tard, on pourra mapper les noms d'équipes à des icônes spécifiques
             const icons = ['fas fa-futbol', 'fas fa-shield-alt', 'fas fa-star', 'fas fa-trophy', 'fas fa-fire'];
             const hash = teamName ? teamName.split('').reduce((a, b) => (a + b.charCodeAt(0)) % icons.length, 0) : 0;
             return icons[hash];
+        }
+
+        // Function to create team logo element
+        function createTeamLogoElement(logoUrl, teamName, isDetail = false) {
+            const logoContainer = document.createElement('div');
+            logoContainer.className = isDetail ? 'detail-team-logo' : 'team-logo';
+
+            if (logoUrl) {
+                const img = document.createElement('img');
+                img.src = logoUrl;
+                img.alt = teamName || 'Team Logo';
+                img.onerror = function() {
+                    // Si l'image ne charge pas, utiliser l'icône par défaut
+                    logoContainer.innerHTML = `<i class="${getTeamIcon(teamName)}"></i>`;
+                };
+                logoContainer.appendChild(img);
+            } else {
+                // Pas de logo fourni, utiliser l'icône par défaut
+                logoContainer.innerHTML = `<i class="${getTeamIcon(teamName)}"></i>`;
+            }
+
+            return logoContainer;
         }
 
         // Function to create forecast card
@@ -2939,10 +2949,7 @@
                     <div class="forecast-time">${formattedDate}</div>
                 `;
             } else {
-                // Single match layout
-                const homeIcon = getTeamIcon(forecastData.HomeTeam);
-                const awayIcon = getTeamIcon(forecastData.AwayTeam);
-                
+                // Single match layout avec vrais logos
                 card.innerHTML = `
                     <div class="forecast-header">
                         <div class="league-info">${forecastData.league || 'Compétition'}</div>
@@ -2951,9 +2958,7 @@
                     
                     <div class="teams-container">
                         <div class="team">
-                            <div class="team-logo">
-                                <i class="${homeIcon}"></i>
-                            </div>
+                            <div class="team-logo-container"></div>
                             <div class="team-name">${forecastData.HomeTeam || 'Équipe 1'}</div>
                         </div>
                         
@@ -2963,9 +2968,7 @@
                         </div>
                         
                         <div class="team">
-                            <div class="team-logo">
-                                <i class="${awayIcon}"></i>
-                            </div>
+                            <div class="team-logo-container-away"></div>
                             <div class="team-name">${forecastData.AwayTeam || 'Équipe 2'}</div>
                         </div>
                     </div>
@@ -2979,6 +2982,22 @@
                     
                     <div class="forecast-time">${formattedDate}</div>
                 `;
+
+                // Ajouter les logos après la création du HTML
+                setTimeout(() => {
+                    const homeLogoContainer = card.querySelector('.team-logo-container');
+                    const awayLogoContainer = card.querySelector('.team-logo-container-away');
+                    
+                    if (homeLogoContainer) {
+                        const homeLogo = createTeamLogoElement(forecastData.logo_home, forecastData.HomeTeam);
+                        homeLogoContainer.replaceWith(homeLogo);
+                    }
+                    
+                    if (awayLogoContainer) {
+                        const awayLogo = createTeamLogoElement(forecastData.logo_away, forecastData.AwayTeam);
+                        awayLogoContainer.replaceWith(awayLogo);
+                    }
+                }, 0);
             }
 
             return card;
@@ -2996,11 +3015,33 @@
                 document.getElementById('detail-away-team').textContent = 'IA';
                 // Hide prediction value for combined forecasts
                 document.getElementById('detail-prediction').style.display = 'none';
+                
+                // Utiliser des icônes par défaut pour les combinés
+                document.getElementById('detail-home-logo').innerHTML = '<i class="fas fa-futbol"></i>';
+                document.getElementById('detail-away-logo').innerHTML = '<i class="fas fa-brain"></i>';
             } else {
                 document.getElementById('detail-home-team').textContent = forecastData.HomeTeam || 'Équipe 1';
                 document.getElementById('detail-away-team').textContent = forecastData.AwayTeam || 'Équipe 2';
                 // Hide prediction value for all forecasts as requested
                 document.getElementById('detail-prediction').style.display = 'none';
+                
+                // Mettre à jour les logos dans la vue détaillée
+                const detailHomeLogo = document.getElementById('detail-home-logo');
+                const detailAwayLogo = document.getElementById('detail-away-logo');
+                
+                // Logo équipe domicile
+                if (forecastData.logo_home) {
+                    detailHomeLogo.innerHTML = `<img src="${forecastData.logo_home}" alt="${forecastData.HomeTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.HomeTeam)}\\"></i>'">`;
+                } else {
+                    detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
+                }
+                
+                // Logo équipe extérieur
+                if (forecastData.logo_away) {
+                    detailAwayLogo.innerHTML = `<img src="${forecastData.logo_away}" alt="${forecastData.AwayTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.AwayTeam)}\\"></i>'">`;
+                } else {
+                    detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
+                }
             }
             
             let statusClass = 'pending';
