@@ -613,7 +613,6 @@
             background-color: var(--primary-color);
             border-radius: 3px;
             transition: width 0.3s ease;
-            min-width: 2px;
         }
 
         /* Forecast Detail Page - Restructured */
@@ -2937,32 +2936,6 @@
             return logoContainer;
         }
 
-        // Function to normalize confidence value
-        function normalizeConfidence(confidence) {
-            if (confidence === undefined || confidence === null || confidence === '') {
-                return 0;
-            }
-            
-            // Si c'est déjà un nombre
-            if (typeof confidence === 'number') {
-                return Math.max(0, Math.min(100, confidence));
-            }
-            
-            // Si c'est une chaîne, essayer de la convertir
-            if (typeof confidence === 'string') {
-                // Enlever le % s'il y en a un
-                const cleanValue = confidence.replace('%', '').trim();
-                const numValue = parseFloat(cleanValue);
-                
-                if (!isNaN(numValue)) {
-                    return Math.max(0, Math.min(100, numValue));
-                }
-            }
-            
-            // Valeur par défaut si impossible à convertir
-            return 0;
-        }
-
         // Function to create forecast card
         function createForecastCard(forecastData, type) {
             const card = document.createElement('div');
@@ -3007,9 +2980,6 @@
                 formattedDate = 'Date inconnue';
             }
 
-            // Normaliser la confiance
-            const confidence = normalizeConfidence(forecastData.confidence);
-
             if (type === 'combines') {
                 // Combiné layout
                 card.innerHTML = `
@@ -3035,9 +3005,9 @@
                     <div style="display: flex; align-items: center; margin-top: 15px;">
                         <span style="font-size: 12px;">Confiance</span>
                         <div class="confidence-bar-container" style="flex: 1; margin: 0 10px;">
-                            <div class="confidence-bar" style="width: ${confidence}%"></div>
+                            <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
                         </div>
-                        <span style="font-size: 12px; font-weight: bold;">${confidence}%</span>
+                        <span style="font-size: 12px; font-weight: bold;">${forecastData.confidence || 0}%</span>
                     </div>
                     
                     <div class="forecast-time">${formattedDate}</div>
@@ -3068,10 +3038,10 @@
                     </div>
                     
                     <div class="confidence-bar-container">
-                        <div class="confidence-bar" style="width: ${confidence}%"></div>
+                        <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
                     </div>
                     <div style="text-align: center; font-size: 12px; margin-top: 5px;">
-                        Confiance: ${confidence}%
+                        Confiance: ${forecastData.confidence || 0}%
                     </div>
                     
                     <div class="forecast-time">${formattedDate}</div>
@@ -3211,12 +3181,20 @@
                 `;
             }
 
-            // Update confidence avec la valeur normalisée
-            const confidence = normalizeConfidence(forecastData.confidence);
+            // Update confidence - FIX: S'assurer que la valeur est un nombre valide
+            let confidence = forecastData.confidence || 0;
+            
+            // Convertir en nombre si c'est une chaîne
+            if (typeof confidence === 'string') {
+                confidence = parseFloat(confidence) || 0;
+            }
+            
+            // S'assurer que c'est entre 0 et 100
+            confidence = Math.max(0, Math.min(100, confidence));
+            
+            // Mettre à jour la barre et le texte
             document.getElementById('detail-confidence-bar').style.width = confidence + '%';
             document.getElementById('detail-confidence-text').textContent = confidence + '%';
-
-            console.log('Confiance originale:', forecastData.confidence, 'Confiance normalisée:', confidence);
 
             // Update AI analysis
             const aiAnalysisContent = document.getElementById('ai-analysis-content');
@@ -3831,9 +3809,6 @@
 
             let content = '';
             
-            // Normaliser la confiance pour l'historique aussi
-            const confidence = normalizeConfidence(forecastData.confidence);
-            
             if (type === 'combines') {
                 content = `
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
@@ -3841,7 +3816,7 @@
                         <div class="forecast-status pending">À venir</div>
                     </div>
                     <div style="font-size: 12px; opacity: 0.8;">
-                        ${forecastData.matches ? forecastData.matches.length : 0} matchs • Confiance: ${confidence}%
+                        ${forecastData.matches ? forecastData.matches.length : 0} matchs • Confiance: ${forecastData.confidence || 'N/A'}%
                     </div>
                     ${forecastData.estimated_odds ? `<div style="font-size: 12px; margin-top: 4px;">Cote estimée: ${forecastData.estimated_odds}</div>` : ''}
                 `;
@@ -3852,7 +3827,7 @@
                         <div class="forecast-status pending">À venir</div>
                     </div>
                     <div style="font-size: 12px; opacity: 0.8;">
-                        ${forecastData.prediction || 'N/A'} • Confiance: ${confidence}%
+                        ${forecastData.prediction || 'N/A'} • Confiance: ${forecastData.confidence || 'N/A'}%
                     </div>
                     <div style="font-size: 11px; margin-top: 4px; opacity: 0.6;">
                         ${forecastData.league || 'Compétition'} • ${forecastData.country || 'Pays'}
