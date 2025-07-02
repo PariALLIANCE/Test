@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pari Alliance</title>
+    <title>KING PRONOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <style>
@@ -305,6 +305,10 @@
             margin: 0;
             padding: 0;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         body {
@@ -320,6 +324,15 @@
             position: fixed;
             font-weight: 500;
             letter-spacing: -0.2px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
         }
 
         /* Header */
@@ -789,6 +802,7 @@
         .analysis-content {
             font-size: 14px;
             line-height: 1.5;
+            white-space: pre-line;
         }
 
         .prediction-highlight {
@@ -1069,7 +1083,7 @@
         }
 
         .nav-icon {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 4px;
         }
 
@@ -1441,8 +1455,8 @@
         }
         
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background-color: var(--secondary-color);
             border-radius: 50%;
             display: flex;
@@ -1462,7 +1476,7 @@
         }
         
         .profile-pic i {
-            font-size: 40px;
+            font-size: 32px;
             color: var(--primary-color);
         }
         
@@ -1493,7 +1507,7 @@
         .settings-container {
             padding: 15px;
             overflow-y: auto;
-            height: calc(100% - 160px);
+            height: calc(100% - 140px);
         }
 
         .social-buttons {
@@ -2012,6 +2026,10 @@
                 width: 50px;
                 height: 50px;
             }
+
+            .nav-icon {
+                font-size: 18px;
+            }
         }
 
         /* Dark mode support */
@@ -2032,7 +2050,7 @@
     <!-- Loading Screen -->
     <div id="loading" class="loading" style="display: none;">
         <i class="fas fa-futbol loading-spinner-main"></i>
-        <div style="font-weight: bold; font-size: 24px; color: var(--primary-color);">Pari Alliance</div>
+        <div style="font-weight: bold; font-size: 24px; color: var(--primary-color);">KING PRONOS</div>
         <div style="margin-top: 10px; color: #6b7280;">Chargement...</div>
     </div>
 
@@ -2042,7 +2060,7 @@
             <div class="auth-logo">
                 <i class="fas fa-futbol"></i>
             </div>
-            <h1 class="auth-title">Pari Alliance</h1>
+            <h1 class="auth-title">KING PRONOS</h1>
             <p class="auth-subtitle">Pronostics sportifs avancés</p>
         </div>
         
@@ -2116,7 +2134,7 @@
             <div class="side-menu-close" id="side-menu-close">
                 <i class="fas fa-times"></i>
             </div>
-            <div class="side-menu-title">Pari Alliance</div>
+            <div class="side-menu-title">KING PRONOS</div>
         </div>
         <div class="side-menu-content">
             <div class="side-menu-item" id="menu-history">
@@ -2429,10 +2447,11 @@
             </div>
 
             <div class="tab-content" id="analysis-content">
-                <div style="text-align: center; padding: 40px 20px; color: var(--inactive-text);">
-                    <i class="fas fa-robot" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
-                    <h3 style="margin-bottom: 10px;">Analyse IA</h3>
-                    <p>Pas encore disponible</p>
+                <div class="analysis-section">
+                    <div class="analysis-title">Analyse de l'IA</div>
+                    <div class="analysis-content" id="ai-analysis-content">
+                        Analyse en cours de chargement...
+                    </div>
                 </div>
             </div>
 
@@ -2518,7 +2537,7 @@
     <!-- Confirmation Dialogs -->
     <div id="logout-confirmation" class="confirmation-dialog">
         <div class="confirmation-title">Se déconnecter ?</div>
-        <div class="confirmation-text">Voulez-vous vraiment vous déconnecter de Pari Alliance ?</div>
+        <div class="confirmation-text">Voulez-vous vraiment vous déconnecter de KING PRONOS ?</div>
         <div class="confirmation-buttons">
             <div class="confirmation-button confirmation-cancel" id="logout-cancel">Annuler</div>
             <div class="confirmation-button confirmation-confirm" id="logout-confirm">Déconnecter</div>
@@ -2573,7 +2592,49 @@
         let hasNewEvents = false;
         let lastViewedEventTimestamp = null;
         let eventsUnsubscribe = null;
-        let selectedTheme = localStorage.getItem('parisAllianceTheme') || 'default';
+        let selectedTheme = localStorage.getItem('kingPronosTheme') || 'default';
+
+        // Protection contre la copie
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+        });
+
+        // Protection contre F12, Ctrl+Shift+I, etc.
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'U') ||
+                (e.ctrlKey && e.key === 'S') ||
+                (e.ctrlKey && e.key === 'A') ||
+                (e.ctrlKey && e.key === 'C') ||
+                (e.ctrlKey && e.key === 'X') ||
+                (e.ctrlKey && e.key === 'V')) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
         // Initialize dark mode detection
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -2632,7 +2693,7 @@
         }
 
         function setupDarkMode() {
-            const savedPreference = localStorage.getItem('parisAllianceDarkMode');
+            const savedPreference = localStorage.getItem('kingPronosDarkMode');
             
             if (savedPreference === 'true') {
                 document.documentElement.classList.add('dark');
@@ -2649,7 +2710,7 @@
             }
             
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-                if (localStorage.getItem('parisAllianceDarkMode') === null) {
+                if (localStorage.getItem('kingPronosDarkMode') === null) {
                     if (event.matches) {
                         document.documentElement.classList.add('dark');
                         document.getElementById('dark-toggle').checked = true;
@@ -2751,7 +2812,8 @@
                         poisson_top_scores: forecast.poisson_top_scores,
                         score_prediction: forecast.score_prediction,
                         logo_home: forecast.logo_home,
-                        logo_away: forecast.logo_away
+                        logo_away: forecast.logo_away,
+                        analyse_ia: forecast.analyse_ia
                     });
                 });
             }
@@ -2773,7 +2835,8 @@
                         poisson_top_scores: forecast.poisson_top_scores,
                         score_prediction: forecast.score_prediction,
                         logo_home: forecast.logo_home,
-                        logo_away: forecast.logo_away
+                        logo_away: forecast.logo_away,
+                        analyse_ia: forecast.analyse_ia
                     });
                 });
             }
@@ -2795,7 +2858,8 @@
                         poisson_top_scores: forecast.poisson_top_scores,
                         score_prediction: forecast.score_prediction,
                         logo_home: forecast.logo_home,
-                        logo_away: forecast.logo_away
+                        logo_away: forecast.logo_away,
+                        analyse_ia: forecast.analyse_ia
                     });
                 });
             }
@@ -3025,43 +3089,20 @@
                 // Hide prediction value for all forecasts as requested
                 document.getElementById('detail-prediction').style.display = 'none';
                 
-                // Mettre à jour les logos dans la vue détaillée - FIX POUR LE PROBLÈME
+                // Mettre à jour les logos dans la vue détaillée
                 const detailHomeLogo = document.getElementById('detail-home-logo');
                 const detailAwayLogo = document.getElementById('detail-away-logo');
                 
-                // Vider le contenu d'abord
-                detailHomeLogo.innerHTML = '';
-                detailAwayLogo.innerHTML = '';
-                
-                // Créer les éléments de logo de manière propre
+                // Logo équipe domicile
                 if (forecastData.logo_home) {
-                    const homeImg = document.createElement('img');
-                    homeImg.src = forecastData.logo_home;
-                    homeImg.alt = forecastData.HomeTeam || 'Équipe domicile';
-                    homeImg.style.width = '100%';
-                    homeImg.style.height = '100%';
-                    homeImg.style.objectFit = 'cover';
-                    homeImg.style.borderRadius = '50%';
-                    homeImg.onerror = function() {
-                        detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
-                    };
-                    detailHomeLogo.appendChild(homeImg);
+                    detailHomeLogo.innerHTML = `<img src="${forecastData.logo_home}" alt="${forecastData.HomeTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.HomeTeam)}\\"></i>'">`;
                 } else {
                     detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
                 }
                 
+                // Logo équipe extérieur
                 if (forecastData.logo_away) {
-                    const awayImg = document.createElement('img');
-                    awayImg.src = forecastData.logo_away;
-                    awayImg.alt = forecastData.AwayTeam || 'Équipe extérieur';
-                    awayImg.style.width = '100%';
-                    awayImg.style.height = '100%';
-                    awayImg.style.objectFit = 'cover';
-                    awayImg.style.borderRadius = '50%';
-                    awayImg.onerror = function() {
-                        detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
-                    };
-                    detailAwayLogo.appendChild(awayImg);
+                    detailAwayLogo.innerHTML = `<img src="${forecastData.logo_away}" alt="${forecastData.AwayTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.AwayTeam)}\\"></i>'">`;
                 } else {
                     detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
                 }
@@ -3122,6 +3163,28 @@
             const confidence = forecastData.confidence || 0;
             document.getElementById('detail-confidence-bar').style.width = confidence + '%';
             document.getElementById('detail-confidence-text').textContent = confidence + '%';
+
+            // Update AI analysis
+            const aiAnalysisContent = document.getElementById('ai-analysis-content');
+            if (forecastData.analyse_ia && forecastData.type !== 'combined') {
+                aiAnalysisContent.textContent = forecastData.analyse_ia;
+            } else if (forecastData.type === 'combined') {
+                aiAnalysisContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px; color: var(--inactive-text);">
+                        <i class="fas fa-brain" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <h3 style="margin-bottom: 10px;">Analyse non disponible</h3>
+                        <p>L'analyse IA détaillée n'est pas disponible pour les combinés</p>
+                    </div>
+                `;
+            } else {
+                aiAnalysisContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px; color: var(--inactive-text);">
+                        <i class="fas fa-robot" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <h3 style="margin-bottom: 10px;">Analyse IA</h3>
+                        <p>Analyse non disponible pour ce pronostic</p>
+                    </div>
+                `;
+            }
 
             // Update probabilities if available for combined forecasts
             if (forecastData.type === 'combined') {
@@ -3496,7 +3559,7 @@
         
         function updateLastViewedEventTimestamp() {
             lastViewedEventTimestamp = new Date();
-            localStorage.setItem('parisAllianceLastViewedEvent', lastViewedEventTimestamp.toISOString());
+            localStorage.setItem('kingPronosLastViewedEvent', lastViewedEventTimestamp.toISOString());
         }
 
         async function loadEvents() {
@@ -4139,7 +4202,7 @@
                     });
                     this.classList.add('active');
                     
-                    localStorage.setItem('parisAllianceTheme', theme);
+                    localStorage.setItem('kingPronosTheme', theme);
                     
                     const themeNames = {
                         'default': 'Bleu',
@@ -4168,7 +4231,7 @@
                     document.documentElement.classList.remove('dark');
                 }
                 
-                localStorage.setItem('parisAllianceDarkMode', this.checked ? 'true' : 'false');
+                localStorage.setItem('kingPronosDarkMode', this.checked ? 'true' : 'false');
             });
 
             // Logout
@@ -4189,7 +4252,7 @@
             setupTheme();
             setupDarkMode();
             
-            console.log('Application Pari Alliance initialisée');
+            console.log('Application KING PRONOS initialisée');
             
             setTimeout(() => {
                 if (!isLoggedIn) {
