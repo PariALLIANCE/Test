@@ -3094,15 +3094,37 @@
                 const detailAwayLogo = document.getElementById('detail-away-logo');
                 
                 // Logo équipe domicile
+                detailHomeLogo.innerHTML = '';
                 if (forecastData.logo_home) {
-                    detailHomeLogo.innerHTML = `<img src="${forecastData.logo_home}" alt="${forecastData.HomeTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.HomeTeam)}\\"></i>'">`;
+                    const homeImg = document.createElement('img');
+                    homeImg.src = forecastData.logo_home;
+                    homeImg.alt = forecastData.HomeTeam || 'Home Team';
+                    homeImg.style.width = '100%';
+                    homeImg.style.height = '100%';
+                    homeImg.style.objectFit = 'cover';
+                    homeImg.style.borderRadius = '50%';
+                    homeImg.onerror = function() {
+                        detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
+                    };
+                    detailHomeLogo.appendChild(homeImg);
                 } else {
                     detailHomeLogo.innerHTML = `<i class="${getTeamIcon(forecastData.HomeTeam)}"></i>`;
                 }
                 
                 // Logo équipe extérieur
+                detailAwayLogo.innerHTML = '';
                 if (forecastData.logo_away) {
-                    detailAwayLogo.innerHTML = `<img src="${forecastData.logo_away}" alt="${forecastData.AwayTeam}" onerror="this.parentElement.innerHTML='<i class=\\"${getTeamIcon(forecastData.AwayTeam)}\\"></i>'">`;
+                    const awayImg = document.createElement('img');
+                    awayImg.src = forecastData.logo_away;
+                    awayImg.alt = forecastData.AwayTeam || 'Away Team';
+                    awayImg.style.width = '100%';
+                    awayImg.style.height = '100%';
+                    awayImg.style.objectFit = 'cover';
+                    awayImg.style.borderRadius = '50%';
+                    awayImg.onerror = function() {
+                        detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
+                    };
+                    detailAwayLogo.appendChild(awayImg);
                 } else {
                     detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
                 }
