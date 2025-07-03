@@ -813,6 +813,17 @@
             font-weight: bold;
         }
 
+        .confidence-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
         .probability-item {
             display: flex;
             justify-content: space-between;
@@ -2369,9 +2380,6 @@
                 <div class="header-title" id="detail-header-title">Détails du pronostic</div>
             </div>
             <div class="header-actions">
-                <button class="action-btn" id="share-btn">
-                    <i class="fas fa-share"></i>
-                </button>
                 <button class="action-btn" id="favorite-btn">
                     <i class="fas fa-star"></i>
                 </button>
@@ -2425,14 +2433,8 @@
                     </div>
                 </div>
 
-                <div class="analysis-section">
-                    <div class="analysis-title">Confiance</div>
-                    <div class="analysis-content">
-                        <div class="confidence-bar-container">
-                            <div class="confidence-bar" id="detail-confidence-bar" style="width: 75%"></div>
-                        </div>
-                        <div style="text-align: center; margin-top: 5px; font-weight: bold;" id="detail-confidence-text">75%</div>
-                    </div>
+                <div class="confidence-info" id="detail-confidence-text">
+                    Confiance: 75%
                 </div>
 
                 <div class="analysis-section">
@@ -3182,10 +3184,9 @@
                 `;
             }
 
-            // Update confidence - Fixed like in a7
+            // Update confidence - remplacé par le style confidence-info
             const confidence = forecastData.confidence || 0;
-            document.getElementById('detail-confidence-bar').style.width = confidence + '%';
-            document.getElementById('detail-confidence-text').textContent = confidence + '%';
+            document.getElementById('detail-confidence-text').textContent = `Confiance: ${confidence}%`;
 
             // Update AI analysis
             const aiAnalysisContent = document.getElementById('ai-analysis-content');
