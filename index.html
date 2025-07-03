@@ -580,17 +580,9 @@
         }
 
         .vs-text {
-            font-size: 12px;
-            color: var(--inactive-text);
-        }
-
-        .prediction-text {
-            font-size: 14px;
+            font-size: 32px;
+            color: var(--text-color);
             font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            text-align: center;
-            line-height: 1.2;
         }
 
         .forecast-time {
@@ -2498,7 +2490,7 @@
                 <!-- Loading state -->
                 <div class="loading-state" id="loading-state">
                     <i class="fas fa-futbol loading-spinner"></i>
-                    <h3>Chargement des pronostics...</h3>
+                    <h3>Chargement...</h3>
                     <p>Veuillez patienter</p>
                 </div>
             </div>
@@ -3443,18 +3435,10 @@
                         ` : ''}
                     </div>
                     
-                    <div style="display: flex; align-items: center; margin-top: 15px;">
-                        <span style="font-size: 12px;">Confiance</span>
-                        <div class="confidence-bar-container" style="flex: 1; margin: 0 10px;">
-                            <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
-                        </div>
-                        <span style="font-size: 12px; font-weight: bold;">${forecastData.confidence || 0}%</span>
-                    </div>
-                    
                     <div class="forecast-time">${formattedDate}</div>
                 `;
             } else {
-                // Single match layout avec vrais logos
+                // Single match layout avec juste les équipes et un "-" au centre
                 card.innerHTML = `
                     <div class="forecast-header">
                         <div class="league-info">${forecastData.league || 'Compétition'}</div>
@@ -3468,21 +3452,13 @@
                         </div>
                         
                         <div class="forecast-vs">
-                            <div class="prediction-text">${forecastData.prediction || 'N/A'}</div>
-                            <div class="vs-text">prédiction</div>
+                            <div class="vs-text">-</div>
                         </div>
                         
                         <div class="team">
                             <div class="team-logo-container-away"></div>
                             <div class="team-name">${forecastData.AwayTeam || 'Équipe 2'}</div>
                         </div>
-                    </div>
-                    
-                    <div class="confidence-bar-container">
-                        <div class="confidence-bar" style="width: ${forecastData.confidence || 0}%"></div>
-                    </div>
-                    <div style="text-align: center; font-size: 12px; margin-top: 5px;">
-                        Confiance: ${forecastData.confidence || 0}%
                     </div>
                     
                     <div class="forecast-time">${formattedDate}</div>
@@ -3768,7 +3744,7 @@
             listElement.innerHTML = `
                 <div class="loading-state">
                     <i class="fas fa-futbol loading-spinner"></i>
-                    <h3>Chargement des pronostics...</h3>
+                    <h3>Chargement...</h3>
                     <p>Veuillez patienter</p>
                 </div>
             `;
@@ -4122,7 +4098,7 @@
             historyContent.innerHTML = `
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
                     <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--primary-color);"></i>
-                    <div style="margin-top: 10px; font-weight: bold;">Chargement de l'historique...</div>
+                    <div style="margin-top: 10px; font-weight: bold;">Chargement...</div>
                 </div>
             `;
 
@@ -4248,7 +4224,7 @@
                         <div class="forecast-status pending">À venir</div>
                     </div>
                     <div style="font-size: 12px; opacity: 0.8;">
-                        ${forecastData.matches ? forecastData.matches.length : 0} matchs • Confiance: ${forecastData.confidence || 'N/A'}%
+                        ${forecastData.matches ? forecastData.matches.length : 0} matchs
                     </div>
                     ${forecastData.estimated_odds ? `<div style="font-size: 12px; margin-top: 4px;">Cote estimée: ${forecastData.estimated_odds}</div>` : ''}
                 `;
@@ -4257,9 +4233,6 @@
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                         <div style="font-weight: bold;">${forecastData.HomeTeam || 'Équipe 1'} vs ${forecastData.AwayTeam || 'Équipe 2'}</div>
                         <div class="forecast-status pending">À venir</div>
-                    </div>
-                    <div style="font-size: 12px; opacity: 0.8;">
-                        ${forecastData.prediction || 'N/A'} • Confiance: ${forecastData.confidence || 'N/A'}%
                     </div>
                     <div style="font-size: 11px; margin-top: 4px; opacity: 0.6;">
                         ${forecastData.league || 'Compétition'} • ${forecastData.country || 'Pays'}
