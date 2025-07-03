@@ -1590,102 +1590,85 @@
             margin: 15px 0;
         }
 
-        /* Avatar Selector Styles */
-        .avatar-selector {
-            background: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.05));
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 15px;
-            border: 1px solid rgba(var(--primary-color), 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .avatar-selector-title {
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 18px;
-            color: var(--primary-color);
-            display: flex;
+        /* Avatar Viewer Modal */
+        .avatar-viewer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--image-viewer-bg);
+            z-index: 300;
+            display: none;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        .avatar-selector-subtitle {
-            font-size: 13px;
-            color: var(--inactive-text);
-            margin-bottom: 15px;
-            line-height: 1.4;
+        .avatar-viewer-modal.active {
+            display: flex;
         }
 
-        .avatar-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 15px 0;
+        .avatar-viewer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+            max-height: 90%;
         }
 
-        .avatar-option {
-            width: 70px;
-            height: 70px;
+        .avatar-viewer-image {
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar-viewer-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .avatar-viewer-btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
             cursor: pointer;
-            position: relative;
-            border: 3px solid var(--border-color);
-            overflow: hidden;
+            border: none;
+            font-size: 16px;
             transition: all 0.3s ease;
+            min-width: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--secondary-color);
+            gap: 8px;
         }
 
-        .avatar-option img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .avatar-viewer-btn:hover {
+            transform: translateY(-2px);
         }
 
-        .avatar-option:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .avatar-option.active {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
-            transform: scale(1.15);
-        }
-
-        .avatar-option.active:before {
-            content: '\f00c';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            bottom: -5px;
-            right: -5px;
+        .avatar-viewer-btn.edit {
             background-color: var(--primary-color);
             color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            z-index: 3;
-            border: 2px solid var(--bg-color);
         }
 
-        .avatar-loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--inactive-text);
+        .avatar-viewer-btn.edit:hover {
+            background-color: #4a49c0;
         }
 
-        .avatar-loading i {
-            font-size: 24px;
-            animation: spin 1s linear infinite;
+        .avatar-viewer-btn.close {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-viewer-btn.close:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         /* Avatar Selector Modal */
@@ -1695,8 +1678,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 300;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 350;
             display: none;
             align-items: center;
             justify-content: center;
@@ -1834,6 +1817,18 @@
             background-color: var(--border-color);
             color: var(--inactive-text);
             cursor: not-allowed;
+        }
+
+        .avatar-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--inactive-text);
+        }
+
+        .avatar-loading i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
         }
 
         /* Other required styles from a1 but adapt to new layout */
@@ -2295,12 +2290,19 @@
                 font-size: 18px;
             }
 
-            .avatar-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
             .avatar-modal-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .avatar-viewer-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .avatar-viewer-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 200px;
             }
         }
 
@@ -2432,6 +2434,23 @@
     
     <div class="side-menu-overlay" id="side-menu-overlay"></div>
 
+    <!-- Avatar Viewer Modal -->
+    <div class="avatar-viewer-modal" id="avatar-viewer-modal">
+        <div class="avatar-viewer-content">
+            <img class="avatar-viewer-image" id="avatar-viewer-image" src="" alt="Avatar">
+            <div class="avatar-viewer-buttons">
+                <button class="avatar-viewer-btn edit" id="avatar-edit-btn">
+                    <i class="fas fa-edit"></i>
+                    Modifier
+                </button>
+                <button class="avatar-viewer-btn close" id="avatar-viewer-close">
+                    <i class="fas fa-times"></i>
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Avatar Selector Modal -->
     <div class="avatar-selector-modal" id="avatar-selector-modal">
         <div class="avatar-modal-content">
@@ -2523,20 +2542,6 @@
                         </div>
                         <div class="profile-email" id="profile-email">user@example.com</div>
                         <div class="profile-status">En ligne</div>
-                    </div>
-                </div>
-
-                <!-- Avatar Selector Section -->
-                <div class="avatar-selector">
-                    <div class="avatar-selector-title">
-                        <i class="fas fa-user-circle"></i>
-                        Avatar de profil
-                    </div>
-                    <div class="avatar-selector-subtitle">
-                        Personnalisez votre profil avec un avatar King Pronos
-                    </div>
-                    <div class="avatar-grid" id="avatar-grid">
-                        <!-- Avatars will be loaded here -->
                     </div>
                 </div>
                 
@@ -2981,30 +2986,26 @@
         }
 
         // Avatar functions
-        async function loadAvatarGrid() {
-            const avatarGrid = document.getElementById('avatar-grid');
-            avatarGrid.innerHTML = '';
-
-            AVATAR_OPTIONS.forEach((avatar, index) => {
-                const avatarElement = document.createElement('div');
-                avatarElement.className = 'avatar-option';
-                avatarElement.dataset.avatarId = avatar.id;
-                
-                if (selectedAvatar === avatar.id) {
-                    avatarElement.classList.add('active');
+        function openAvatarViewer() {
+            const modal = document.getElementById('avatar-viewer-modal');
+            const viewerImage = document.getElementById('avatar-viewer-image');
+            
+            if (selectedAvatar) {
+                const avatarData = AVATAR_OPTIONS.find(avatar => avatar.id === selectedAvatar);
+                if (avatarData) {
+                    viewerImage.src = avatarData.url;
+                } else {
+                    viewerImage.src = '';
                 }
+            } else {
+                viewerImage.src = '';
+            }
+            
+            modal.classList.add('active');
+        }
 
-                const img = document.createElement('img');
-                img.src = avatar.url;
-                img.alt = avatar.name;
-                img.onerror = function() {
-                    avatarElement.innerHTML = '<div class="avatar-loading"><i class="fas fa-user"></i></div>';
-                };
-
-                avatarElement.appendChild(img);
-                avatarElement.addEventListener('click', () => openAvatarSelector());
-                avatarGrid.appendChild(avatarElement);
-            });
+        function closeAvatarViewer() {
+            document.getElementById('avatar-viewer-modal').classList.remove('active');
         }
 
         function openAvatarSelector() {
@@ -3075,8 +3076,8 @@
 
                 // Update UI
                 updateProfileAvatar();
-                loadAvatarGrid();
                 closeAvatarSelector();
+                closeAvatarViewer();
 
                 showNotification("Avatar mis à jour avec succès!", "success");
 
@@ -3886,7 +3887,7 @@
                 setupTheme();
                 setupDarkMode();
             } else if (sectionId === 'profile') {
-                loadAvatarGrid();
+                // No need to load avatar grid in profile
             }
         }
 
@@ -4653,6 +4654,16 @@
                     const tabId = this.dataset.tab;
                     switchDetailTab(tabId);
                 });
+            });
+
+            // Profile picture click
+            document.getElementById('profile-pic').addEventListener('click', openAvatarViewer);
+
+            // Avatar viewer buttons
+            document.getElementById('avatar-viewer-close').addEventListener('click', closeAvatarViewer);
+            document.getElementById('avatar-edit-btn').addEventListener('click', function() {
+                closeAvatarViewer();
+                openAvatarSelector();
             });
 
             // Avatar selector modal
