@@ -2960,7 +2960,8 @@
                     if (matchDate && !isNaN(matchDate.getTime())) {
                         const today = new Date();
                         const diffTime = matchDate.getTime() - today.getTime();
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        // Fix: Using Math.round instead of Math.ceil for better date calculation
+                        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
                         
                         if (diffDays === 0) {
                             formattedDate = 'Aujourd\'hui';
@@ -3181,18 +3182,8 @@
                 `;
             }
 
-            // Update confidence - FIX: S'assurer que la valeur est un nombre valide
-            let confidence = forecastData.confidence || 0;
-            
-            // Convertir en nombre si c'est une chaîne
-            if (typeof confidence === 'string') {
-                confidence = parseFloat(confidence) || 0;
-            }
-            
-            // S'assurer que c'est entre 0 et 100
-            confidence = Math.max(0, Math.min(100, confidence));
-            
-            // Mettre à jour la barre et le texte
+            // Update confidence - Fixed like in a7
+            const confidence = forecastData.confidence || 0;
             document.getElementById('detail-confidence-bar').style.width = confidence + '%';
             document.getElementById('detail-confidence-text').textContent = confidence + '%';
 
