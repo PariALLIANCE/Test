@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KING PRONOS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS PWA Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="KING PRONOS">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-180x180.png">
+    
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+    
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-16x16.png">
+    
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#5D5CDE">
+    <meta name="msapplication-TileColor" content="#5D5CDE">
+    <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/PariALLIANCE/Test/main/icon-144x144.png">
+    
+    <!-- Prevent iOS Safari address bar -->
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
     <style>
         :root {
             /* Thème par défaut (bleu) */
@@ -335,19 +380,39 @@
             -o-user-drag: none;
         }
 
+        /* iOS specific fixes */
+        body {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Prevent bounce on iOS */
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* iOS safe areas */
+        .header {
+            padding-top: env(safe-area-inset-top);
+        }
+
+        .bottom-nav {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
         /* Header */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: calc(60px + env(safe-area-inset-top));
             background-color: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: env(safe-area-inset-top) 20px 0 20px;
             z-index: 100;
             box-shadow: 0 2px 10px var(--shadow);
         }
@@ -427,10 +492,10 @@
         /* Main Content - Fixed for scrolling */
         .main-content {
             position: fixed;
-            top: 60px;
+            top: calc(60px + env(safe-area-inset-top));
             left: 0;
             right: 0;
-            bottom: 60px;
+            bottom: calc(60px + env(safe-area-inset-bottom));
             overflow: hidden;
             background-color: var(--bg-color);
         }
@@ -627,7 +692,7 @@
         /* Fixed header section with teams */
         .forecast-info-section {
             position: fixed;
-            top: 60px;
+            top: calc(60px + env(safe-area-inset-top));
             left: 0;
             right: 0;
             background-color: var(--bg-color);
@@ -729,7 +794,7 @@
 
         /* Scrollable content area */
         .detail-scrollable-content {
-            margin-top: 260px;
+            margin-top: calc(260px + env(safe-area-inset-top));
             flex: 1;
             overflow-y: auto;
             display: flex;
@@ -978,6 +1043,7 @@
             box-shadow: 2px 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
+            padding-top: env(safe-area-inset-top);
         }
         
         .side-menu.active {
@@ -1060,10 +1126,11 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: calc(60px + env(safe-area-inset-bottom));
             display: flex;
             z-index: 100;
             box-shadow: 0 -2px 10px var(--shadow);
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
         .nav-item {
@@ -1075,7 +1142,7 @@
             color: var(--inactive-text);
             font-size: 10px;
             cursor: pointer;
-            height: 100%;
+            height: 60px;
             padding: 8px 0;
             position: relative;
             transition: all 0.3s ease;
@@ -1102,6 +1169,8 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
         }
         
         .auth-header {
@@ -1375,6 +1444,8 @@
             align-items: center;
             justify-content: center;
             z-index: 999;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
         }
         
         .loading-spinner-main {
@@ -1398,7 +1469,7 @@
 
         .notification {
             position: fixed;
-            bottom: 80px;
+            bottom: calc(80px + env(safe-area-inset-bottom));
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             opacity: 0;
@@ -1595,6 +1666,8 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
         .avatar-viewer-modal.active {
@@ -1676,6 +1749,8 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            padding-top: calc(20px + env(safe-area-inset-top));
+            padding-bottom: calc(20px + env(safe-area-inset-bottom));
         }
 
         .avatar-selector-modal.active {
@@ -2232,7 +2307,7 @@
         /* Responsive */
         @media (max-width: 480px) {
             .header {
-                padding: 0 15px;
+                padding: env(safe-area-inset-top) 15px 0 15px;
             }
 
             .teams-container {
@@ -2261,7 +2336,7 @@
             }
 
             .detail-scrollable-content {
-                margin-top: 240px;
+                margin-top: calc(240px + env(safe-area-inset-top));
             }
 
             .forecast-info-section {
@@ -2310,6 +2385,74 @@
                 --shadow: rgba(0, 0, 0, 0.3);
             }
         }
+
+        /* iOS specific PWA styles */
+        @media all and (display-mode: standalone) {
+            body {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+
+        /* Add install banner styles */
+        .install-banner {
+            position: fixed;
+            bottom: calc(60px + env(safe-area-inset-bottom));
+            left: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1001;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .install-banner.show {
+            display: flex;
+        }
+
+        .install-banner-content {
+            flex: 1;
+        }
+
+        .install-banner-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .install-banner-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .install-banner-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .install-banner-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .install-banner-btn.install {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .install-banner-btn.close {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -2318,6 +2461,18 @@
         <i class="fas fa-futbol loading-spinner-main"></i>
         <div style="font-weight: bold; font-size: 24px; color: var(--primary-color);">KING PRONOS</div>
         <div style="margin-top: 10px; color: #6b7280;">Chargement...</div>
+    </div>
+
+    <!-- Install Banner -->
+    <div id="install-banner" class="install-banner">
+        <div class="install-banner-content">
+            <div class="install-banner-title">Installer KING PRONOS</div>
+            <div class="install-banner-text">Ajoutez l'app à votre écran d'accueil pour un accès rapide</div>
+        </div>
+        <div class="install-banner-buttons">
+            <button class="install-banner-btn install" id="install-btn">Installer</button>
+            <button class="install-banner-btn close" id="install-close">×</button>
+        </div>
     </div>
 
     <!-- Auth Screen -->
@@ -2883,6 +3038,10 @@
             { id: 'king7', name: 'King 7', url: GITHUB_REPO_URL + 'king7.png' }
         ];
 
+        // PWA Installation variables
+        let deferredPrompt;
+        let isInstallable = false;
+
         // Global variables (keeping all from a1)
         let isLoggedIn = false;
         let currentUser = null;
@@ -2953,6 +3112,80 @@
                 document.documentElement.classList.remove('dark');
             }
         });
+
+        // PWA Installation setup
+        function setupPWAInstallation() {
+            // Listen for the beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (e) => {
+                console.log('beforeinstallprompt fired');
+                e.preventDefault();
+                deferredPrompt = e;
+                isInstallable = true;
+                showInstallBanner();
+            });
+
+            // Listen for successful installation
+            window.addEventListener('appinstalled', () => {
+                console.log('PWA was installed');
+                hideInstallBanner();
+                deferredPrompt = null;
+                isInstallable = false;
+            });
+
+            // Set up install banner buttons
+            const installBtn = document.getElementById('install-btn');
+            const installClose = document.getElementById('install-close');
+
+            if (installBtn) {
+                installBtn.addEventListener('click', async () => {
+                    if (!deferredPrompt) return;
+
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    
+                    console.log(`User response to install prompt: ${outcome}`);
+                    
+                    if (outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    
+                    deferredPrompt = null;
+                    isInstallable = false;
+                    hideInstallBanner();
+                });
+            }
+
+            if (installClose) {
+                installClose.addEventListener('click', () => {
+                    hideInstallBanner();
+                    // Remember user dismissed the banner
+                    localStorage.setItem('installBannerDismissed', 'true');
+                });
+            }
+        }
+
+        function showInstallBanner() {
+            // Don't show if user previously dismissed or if running in standalone mode
+            if (localStorage.getItem('installBannerDismissed') === 'true' || 
+                window.matchMedia('(display-mode: standalone)').matches ||
+                window.navigator.standalone === true) {
+                return;
+            }
+
+            const banner = document.getElementById('install-banner');
+            if (banner) {
+                banner.classList.add('show');
+            }
+        }
+
+        function hideInstallBanner() {
+            const banner = document.getElementById('install-banner');
+            if (banner) {
+                banner.classList.remove('show');
+            }
+        }
 
         // Utility functions
         function showNotification(message, type = 'info') {
@@ -4710,6 +4943,7 @@
             setupAuth();
             setupTheme();
             setupDarkMode();
+            setupPWAInstallation();
             
             console.log('Application KING PRONOS initialisée');
             
@@ -4721,17 +4955,17 @@
         });
     </script>
     <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(registration => {
-          console.log('Service Worker enregistré avec succès :', registration.scope);
-        })
-        .catch(error => {
-          console.log('Échec de l’enregistrement du Service Worker :', error);
-        });
-    });
-  }
-</script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker enregistré avec succès :', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Échec de l'enregistrement du Service Worker :', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
