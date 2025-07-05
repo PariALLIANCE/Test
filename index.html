@@ -579,6 +579,14 @@
             margin-right: 12px;
         }
 
+        .user-email {
+            padding: 12px 16px;
+            font-size: 12px;
+            color: #94A3B8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 4px;
+        }
+
         /* Review styles */
         .review-form {
             background: rgba(255, 255, 255, 0.05);
@@ -657,6 +665,71 @@
             margin-left: auto;
         }
 
+        /* PIN Modal */
+        .pin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .pin-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .pin-modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 90%;
+            width: 350px;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .pin-modal.show .pin-modal-content {
+            transform: scale(1);
+        }
+
+        .pin-input-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pin-input {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #F8FAFC;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .pin-input:focus {
+            border-color: #6366F1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+        }
+
         /* Main app hidden by default */
         .main-app {
             display: none;
@@ -694,6 +767,32 @@
         </div>
         <div style="font-weight: bold; font-size: 24px; color: #6366F1; margin-top: 20px;">P.Soft Store</div>
         <div style="margin-top: 10px; color: #94A3B8;">Chargement...</div>
+    </div>
+
+    <!-- PIN Modal -->
+    <div id="pin-modal" class="pin-modal">
+        <div class="pin-modal-content">
+            <h3 class="text-xl font-bold mb-2 text-white" id="pin-modal-title">Configurer votre code PIN</h3>
+            <p class="text-text-secondary mb-6" id="pin-modal-description">Créez un code PIN de 4 chiffres pour sécuriser votre compte</p>
+            
+            <div class="pin-input-container">
+                <input type="text" class="pin-input" maxlength="1" id="pin-0">
+                <input type="text" class="pin-input" maxlength="1" id="pin-1">
+                <input type="text" class="pin-input" maxlength="1" id="pin-2">
+                <input type="text" class="pin-input" maxlength="1" id="pin-3">
+            </div>
+            
+            <div class="flex gap-3">
+                <button id="pin-cancel" class="flex-1 py-3 px-6 bg-gray-600 text-white rounded-xl font-medium hover:bg-gray-700 transition-colors">
+                    Annuler
+                </button>
+                <button id="pin-confirm" class="flex-1 py-3 px-6 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-medium hover:opacity-90 transition-opacity">
+                    Confirmer
+                </button>
+            </div>
+            
+            <div id="pin-error" class="mt-4 text-red-400 text-sm" style="display: none;"></div>
+        </div>
     </div>
 
     <!-- Auth Screen -->
@@ -778,13 +877,13 @@
         <header id="main-header" class="glass-strong sticky top-0 z-50 backdrop-blur-xl">
             <div class="px-4 py-3">
                 <div class="flex items-center justify-between">
-                    <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
-                        <img src="https://raw.githubusercontent.com/PariALLIANCE/P.Store/main/Pstore.png" alt="P.Store" class="w-6 h-6 object-contain" />
+                    <div class="flex items-center">
+                        <img src="https://raw.githubusercontent.com/PariALLIANCE/P.Store/main/Pstore.png" alt="P.Store" class="w-8 h-8 object-contain" />
                     </div>
                     <div class="flex items-center space-x-3">
-                        <button class="p-2 rounded-xl glass hover:glass-strong transition-all">
+                        <button id="lock-btn" class="p-2 rounded-xl glass hover:glass-strong transition-all">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM10.621 8.137l-.621-.637-.707.708-1.414-1.414L11 4.686l3.536 3.535-1.414 1.414-.707-.708-.621.637c-1.353 1.376-1.353 3.583 0 4.959l1.328 1.329-1.414 1.414-1.328-1.329c-2.134-2.157-2.134-5.6 0-7.757z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </button>
                         <button id="user-avatar" class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-sm font-semibold cursor-pointer hover:shadow-lg transition-all relative">
@@ -848,11 +947,8 @@
 
         <!-- User Menu Popup -->
         <div id="user-menu" class="user-menu">
-            <div class="user-menu-item" id="profile-option">
-                <svg class="user-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-                Profil
+            <div class="user-email" id="user-email-display">
+                <!-- Email will be displayed here -->
             </div>
             <div class="user-menu-item" id="logout-option">
                 <svg class="user-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1207,6 +1303,11 @@
         let currentUserData = null;
         let currentAppId = null;
         let selectedRating = 0;
+        let userPin = null;
+        let pinEnabled = false;
+        let isSettingPin = false;
+        let isConfirmingPin = false;
+        let temporaryPin = null;
 
         // Dark mode support
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -1251,6 +1352,132 @@ Fonctionnalités principales :
 
         // Navigation state
         let previousTab = 'featured';
+
+        // PIN Modal functionality
+        function showPinModal(mode = 'setup') {
+            const modal = document.getElementById('pin-modal');
+            const title = document.getElementById('pin-modal-title');
+            const description = document.getElementById('pin-modal-description');
+            const error = document.getElementById('pin-error');
+            
+            // Clear inputs
+            for(let i = 0; i < 4; i++) {
+                document.getElementById(`pin-${i}`).value = '';
+            }
+            error.style.display = 'none';
+            
+            if (mode === 'setup') {
+                title.textContent = 'Configurer votre code PIN';
+                description.textContent = 'Créez un code PIN de 4 chiffres pour sécuriser votre compte';
+                isSettingPin = true;
+                isConfirmingPin = false;
+            } else if (mode === 'confirm') {
+                title.textContent = 'Confirmer votre code PIN';
+                description.textContent = 'Saisissez à nouveau votre code PIN pour le confirmer';
+                isSettingPin = false;
+                isConfirmingPin = true;
+            } else if (mode === 'verify') {
+                title.textContent = 'Entrez votre code PIN';
+                description.textContent = 'Saisissez votre code PIN pour accéder à l\'application';
+                isSettingPin = false;
+                isConfirmingPin = false;
+            }
+            
+            modal.classList.add('show');
+            document.getElementById('pin-0').focus();
+        }
+
+        function hidePinModal() {
+            const modal = document.getElementById('pin-modal');
+            modal.classList.remove('show');
+        }
+
+        function setupPinInputs() {
+            const inputs = document.querySelectorAll('.pin-input');
+            
+            inputs.forEach((input, index) => {
+                input.addEventListener('input', function(e) {
+                    // Only allow numbers
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    
+                    if (this.value.length === 1 && index < 3) {
+                        inputs[index + 1].focus();
+                    }
+                });
+                
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value === '' && index > 0) {
+                        inputs[index - 1].focus();
+                    } else if (e.key === 'Enter') {
+                        handlePinConfirm();
+                    }
+                });
+            });
+        }
+
+        function getCurrentPin() {
+            let pin = '';
+            for(let i = 0; i < 4; i++) {
+                pin += document.getElementById(`pin-${i}`).value;
+            }
+            return pin;
+        }
+
+        async function handlePinConfirm() {
+            const pin = getCurrentPin();
+            const error = document.getElementById('pin-error');
+            
+            if (pin.length !== 4) {
+                error.textContent = 'Veuillez saisir un code PIN de 4 chiffres';
+                error.style.display = 'block';
+                return;
+            }
+            
+            if (isSettingPin) {
+                // First time setting PIN
+                temporaryPin = pin;
+                showPinModal('confirm');
+            } else if (isConfirmingPin) {
+                // Confirming PIN
+                if (pin === temporaryPin) {
+                    // Save PIN to user data
+                    try {
+                        await setDoc(doc(db, "Users", currentUser.uid), {
+                            ...currentUserData,
+                            pin: pin,
+                            pinEnabled: true,
+                            updatedAt: serverTimestamp()
+                        });
+                        
+                        userPin = pin;
+                        pinEnabled = true;
+                        hidePinModal();
+                        showNotification('Code PIN configuré avec succès !', 'success');
+                        
+                    } catch (error) {
+                        console.error('Erreur sauvegarde PIN:', error);
+                        showNotification('Erreur lors de la configuration du PIN', 'error');
+                    }
+                } else {
+                    error.textContent = 'Les codes PIN ne correspondent pas';
+                    error.style.display = 'block';
+                }
+            } else {
+                // Verifying existing PIN
+                if (pin === userPin) {
+                    hidePinModal();
+                    showMainApp();
+                } else {
+                    error.textContent = 'Code PIN incorrect';
+                    error.style.display = 'block';
+                    // Clear inputs
+                    for(let i = 0; i < 4; i++) {
+                        document.getElementById(`pin-${i}`).value = '';
+                    }
+                    document.getElementById('pin-0').focus();
+                }
+            }
+        }
 
         // Utility functions
         function showNotification(message, type = 'info') {
@@ -1598,7 +1825,14 @@ Fonctionnalités principales :
                     
                     try {
                         await loadUserData();
-                        showMainApp();
+                        
+                        // Check if PIN is enabled and required
+                        if (pinEnabled && userPin) {
+                            showPinModal('verify');
+                        } else {
+                            showMainApp();
+                        }
+                        
                         console.log(`Utilisateur connecté: ${user.email}`);
                     } catch (error) {
                         console.error(`Erreur initialisation: ${error.message}`);
@@ -1608,6 +1842,8 @@ Fonctionnalités principales :
                     isLoggedIn = false;
                     currentUser = null;
                     currentUserData = null;
+                    userPin = null;
+                    pinEnabled = false;
                     showAuthScreen();
                 }
             });
@@ -1616,6 +1852,19 @@ Fonctionnalités principales :
             document.getElementById('user-avatar').addEventListener('click', toggleUserMenu);
             document.getElementById('logout-option').addEventListener('click', logoutUser);
             document.getElementById('delete-account-option').addEventListener('click', deleteAccount);
+            
+            // Setup lock button
+            document.getElementById('lock-btn').addEventListener('click', function() {
+                if (!pinEnabled) {
+                    showPinModal('setup');
+                }
+            });
+            
+            // Setup PIN modal events
+            document.getElementById('pin-cancel').addEventListener('click', hidePinModal);
+            document.getElementById('pin-confirm').addEventListener('click', handlePinConfirm);
+            
+            setupPinInputs();
         }
 
         function switchAuthTab(tab) {
@@ -1741,7 +1990,8 @@ Fonctionnalités principales :
                     displayName: user.displayName || 'Utilisateur',
                     createdAt: serverTimestamp(),
                     updatedAt: serverTimestamp(),
-                    uid: user.uid
+                    uid: user.uid,
+                    pinEnabled: false
                 };
                 
                 await setDoc(doc(db, "Users", user.uid), userData);
@@ -1779,13 +2029,20 @@ Fonctionnalités principales :
                 
                 if (userDoc.exists()) {
                     currentUserData = userDoc.data();
+                    
+                    // Check if PIN is configured
+                    if (currentUserData.pin) {
+                        userPin = currentUserData.pin;
+                        pinEnabled = currentUserData.pinEnabled || false;
+                    }
                 } else {
                     const userData = {
                         email: currentUser.email,
                         displayName: currentUser.displayName || 'Utilisateur',
                         createdAt: serverTimestamp(),
                         updatedAt: serverTimestamp(),
-                        uid: currentUser.uid
+                        uid: currentUser.uid,
+                        pinEnabled: false
                     };
                     
                     await setDoc(doc(db, "Users", currentUser.uid), userData);
@@ -1793,6 +2050,7 @@ Fonctionnalités principales :
                 }
                 
                 updateUserAvatar();
+                updateUserEmailDisplay();
                 console.log('Données utilisateur chargées');
                 
             } catch (error) {
@@ -1808,6 +2066,13 @@ Fonctionnalités principales :
             }
         }
 
+        function updateUserEmailDisplay() {
+            const emailDisplay = document.getElementById('user-email-display');
+            if (currentUser && emailDisplay) {
+                emailDisplay.textContent = currentUser.email;
+            }
+        }
+
         async function logoutUser() {
             hideUserMenu();
             try {
@@ -1818,6 +2083,8 @@ Fonctionnalités principales :
                 isLoggedIn = false;
                 currentUser = null;
                 currentUserData = null;
+                userPin = null;
+                pinEnabled = false;
                 
                 showAuthScreen();
                 
@@ -1849,6 +2116,8 @@ Fonctionnalités principales :
                 isLoggedIn = false;
                 currentUser = null;
                 currentUserData = null;
+                userPin = null;
+                pinEnabled = false;
                 
                 showAuthScreen();
                 
@@ -2090,7 +2359,7 @@ Fonctionnalités principales :
             setupAuth();
             setupReviewSystem();
             
-            console.log('P.Soft Store initialisé avec authentification Firebase et système d\'avis');
+            console.log('P.Soft Store initialisé avec authentification Firebase, système d\'avis et protection PIN');
         });
     </script>
 </body>
