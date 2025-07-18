@@ -5,14 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KING PRONOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="manifest" href="manifest.json">
-    <!-- Icône pour iOS -->
-<link rel="apple-touch-icon" href="/iconios-192.png">
+    
+    <!-- PWA Manifest -->
+    <script>
+        // Create and inject manifest
+        const manifestData = {
+            "name": "KING PRONOS",
+            "short_name": "King Pronos", 
+            "description": "Pronostics sportifs avancés avec IA",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#181818",
+            "theme_color": "#5D5CDE",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOTYiIGN5PSI5NiIgcj0iOTYiIGZpbGw9IiM1RDVDREUiLz48dGV4dCB4PSI5NiIgeT0iMTIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNzIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7imqU8L3RleHQ+PC9zdmc+",
+                    "sizes": "192x192",
+                    "type": "image/svg+xml"
+                },
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIyNTYiIGZpbGw9IiM1RDVDREUiLz48dGV4dCB4PSIyNTYiIHk9IjMxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE5MiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKapTwvdGV4dD48L3N2Zz4=",
+                    "sizes": "512x512", 
+                    "type": "image/svg+xml"
+                }
+            ],
+            "categories": ["sports", "entertainment"],
+            "screenshots": []
+        };
+        
+        const manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestURL;
+        document.head.appendChild(link);
+    </script>
+    
+    <!-- Icônes pour iOS -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOTYiIGN5PSI5NiIgcj0iOTYiIGZpbGw9IiM1RDVDREUiLz48dGV4dCB4PSI5NiIgeT0iMTIwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNzIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7imqU8L3RleHQ+PC9zdmc+">
 
-<!-- Web App installable (Standalone) -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="King Pronos">
+    <!-- Web App installable (Standalone) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="King Pronos">
+    
     <style>
         :root {
             /* Thème par défaut (bleu) */
@@ -475,6 +512,73 @@
         .install-banner-close:hover {
             opacity: 1;
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Manual Install Button in Settings */
+        .manual-install-section {
+            background: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.05));
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(var(--primary-color), 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .manual-install-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .manual-install-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .manual-install-title i {
+            font-size: 20px;
+        }
+
+        .manual-install-subtitle {
+            font-size: 13px;
+            color: var(--inactive-text);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .manual-install-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .manual-install-btn:hover {
+            background-color: #4a49c0;
+            transform: translateY(-1px);
+        }
+
+        .manual-install-btn:active {
+            transform: scale(0.98);
+        }
+
+        .manual-install-btn i {
+            font-size: 18px;
         }
 
         /* Header */
@@ -2850,6 +2954,21 @@
         <!-- Interface Section -->
         <div id="interface-section" class="section">
             <div class="interface-sections">
+                <!-- Manual Install Section -->
+                <div class="manual-install-section">
+                    <div class="manual-install-title">
+                        <i class="fas fa-download"></i>
+                        Installer l'application
+                    </div>
+                    <div class="manual-install-subtitle">
+                        Installez KING PRONOS sur votre appareil pour un accès rapide et une meilleure expérience
+                    </div>
+                    <button class="manual-install-btn" id="manual-install-btn">
+                        <i class="fas fa-mobile-alt"></i>
+                        Installer l'application
+                    </button>
+                </div>
+
                 <div class="interface-section">
                     <div class="interface-title">
                         <i class="fas fa-palette"></i>
@@ -3127,7 +3246,6 @@
         const CACHE_NAME = `kingpronos-v${SW_VERSION}`;
         const urlsToCache = [
             '/',
-            '/manifest.json',
             'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css',
             'https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js',
             'https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js',
@@ -3406,6 +3524,45 @@
             const tomorrow = new Date();
             tomorrow.setHours(tomorrow.getHours() + 24);
             localStorage.setItem('kingPronosInstallRemindLater', tomorrow.toISOString());
+        }
+
+        // Manual install from settings
+        function triggerManualInstall() {
+            if (deferredInstallPrompt) {
+                installApp();
+            } else if (isAppInstalled) {
+                showNotification('L\'application est déjà installée !', 'info');
+            } else {
+                // Show instructions based on browser/OS
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                const isAndroid = /Android/.test(navigator.userAgent);
+                
+                let instructions = '';
+                if (isIOS) {
+                    instructions = `
+                        <h3>Installation sur iOS</h3>
+                        <p>1. Appuyez sur le bouton "Partager" <i class="fas fa-share" style="color: #007AFF;"></i> en bas de l'écran</p>
+                        <p>2. Faites défiler et appuyez sur "Sur l'écran d'accueil"</p>
+                        <p>3. Appuyez sur "Ajouter" pour confirmer</p>
+                    `;
+                } else if (isAndroid) {
+                    instructions = `
+                        <h3>Installation sur Android</h3>
+                        <p>1. Ouvrez le menu du navigateur (⋮)</p>
+                        <p>2. Appuyez sur "Ajouter à l'écran d'accueil" ou "Installer l'application"</p>
+                        <p>3. Confirmez l'installation</p>
+                    `;
+                } else {
+                    instructions = `
+                        <h3>Installation sur ordinateur</h3>
+                        <p>1. Cherchez l'icône d'installation dans la barre d'adresse</p>
+                        <p>2. Ou utilisez le menu du navigateur</p>
+                        <p>3. Sélectionnez "Installer KING PRONOS"</p>
+                    `;
+                }
+                
+                showInfoModal('Installer l\'application', instructions);
+            }
         }
 
         // Initialize dark mode detection based on stored preference or system preference
@@ -4956,6 +5113,9 @@
             document.getElementById('install-app-btn').addEventListener('click', installApp);
             document.getElementById('install-later-btn').addEventListener('click', remindLaterInstall);
             document.getElementById('install-close-btn').addEventListener('click', dismissInstallBanner);
+
+            // Manual install button
+            document.getElementById('manual-install-btn').addEventListener('click', triggerManualInstall);
 
             // Menu
             document.getElementById('menu-btn').addEventListener('click', function() {
