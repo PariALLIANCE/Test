@@ -114,6 +114,9 @@
             --card-accent: var(--primary-color);
             --prediction-highlight-bg: rgba(93, 92, 222, 0.1);
             --prediction-highlight-text: var(--primary-color);
+            --install-banner-bg: linear-gradient(135deg, var(--primary-color), #4a49c0);
+            --install-banner-text: white;
+            --install-banner-shadow: rgba(93, 92, 222, 0.3);
         }
         
         /* Thème vert */
@@ -135,6 +138,8 @@
             --card-accent: #4CAF50;
             --prediction-highlight-bg: rgba(76, 175, 80, 0.1);
             --prediction-highlight-text: #4CAF50;
+            --install-banner-bg: linear-gradient(135deg, #4CAF50, #388E3C);
+            --install-banner-shadow: rgba(76, 175, 80, 0.3);
         }
         
         /* Thème rouge */
@@ -156,6 +161,8 @@
             --card-accent: #F44336;
             --prediction-highlight-bg: rgba(244, 67, 54, 0.1);
             --prediction-highlight-text: #F44336;
+            --install-banner-bg: linear-gradient(135deg, #F44336, #d32f2f);
+            --install-banner-shadow: rgba(244, 67, 54, 0.3);
         }
         
         /* Thème orange */
@@ -177,6 +184,8 @@
             --card-accent: #FF9800;
             --prediction-highlight-bg: rgba(255, 152, 0, 0.1);
             --prediction-highlight-text: #FF9800;
+            --install-banner-bg: linear-gradient(135deg, #FF9800, #f57c00);
+            --install-banner-shadow: rgba(255, 152, 0, 0.3);
         }
 
         .theme-purple {
@@ -184,6 +193,8 @@
             --card-accent: #9C27B0;
             --prediction-highlight-bg: rgba(156, 39, 176, 0.1);
             --prediction-highlight-text: #9C27B0;
+            --install-banner-bg: linear-gradient(135deg, #9C27B0, #7B1FA2);
+            --install-banner-shadow: rgba(156, 39, 176, 0.3);
         }
 
         .theme-teal {
@@ -191,6 +202,8 @@
             --card-accent: #009688;
             --prediction-highlight-bg: rgba(0, 150, 136, 0.1);
             --prediction-highlight-text: #009688;
+            --install-banner-bg: linear-gradient(135deg, #009688, #00695C);
+            --install-banner-shadow: rgba(0, 150, 136, 0.3);
         }
 
         .theme-indigo {
@@ -198,6 +211,8 @@
             --card-accent: #3F51B5;
             --prediction-highlight-bg: rgba(63, 81, 181, 0.1);
             --prediction-highlight-text: #3F51B5;
+            --install-banner-bg: linear-gradient(135deg, #3F51B5, #303F9F);
+            --install-banner-shadow: rgba(63, 81, 181, 0.3);
         }
 
         .theme-pink {
@@ -205,6 +220,8 @@
             --card-accent: #E91E63;
             --prediction-highlight-bg: rgba(233, 30, 99, 0.1);
             --prediction-highlight-text: #E91E63;
+            --install-banner-bg: linear-gradient(135deg, #E91E63, #C2185B);
+            --install-banner-shadow: rgba(233, 30, 99, 0.3);
         }
 
         .theme-cyan {
@@ -212,6 +229,8 @@
             --card-accent: #00BCD4;
             --prediction-highlight-bg: rgba(0, 188, 212, 0.1);
             --prediction-highlight-text: #00BCD4;
+            --install-banner-bg: linear-gradient(135deg, #00BCD4, #0097A7);
+            --install-banner-shadow: rgba(0, 188, 212, 0.3);
         }
 
         .theme-lime {
@@ -219,6 +238,8 @@
             --card-accent: #CDDC39;
             --prediction-highlight-bg: rgba(205, 220, 57, 0.1);
             --prediction-highlight-text: #CDDC39;
+            --install-banner-bg: linear-gradient(135deg, #CDDC39, #AFB42B);
+            --install-banner-shadow: rgba(205, 220, 57, 0.3);
         }
 
         .theme-amber {
@@ -226,6 +247,8 @@
             --card-accent: #FFC107;
             --prediction-highlight-bg: rgba(255, 193, 7, 0.1);
             --prediction-highlight-text: #FFC107;
+            --install-banner-bg: linear-gradient(135deg, #FFC107, #FF8F00);
+            --install-banner-shadow: rgba(255, 193, 7, 0.3);
         }
 
         .theme-deep-orange {
@@ -233,6 +256,8 @@
             --card-accent: #FF5722;
             --prediction-highlight-bg: rgba(255, 87, 34, 0.1);
             --prediction-highlight-text: #FF5722;
+            --install-banner-bg: linear-gradient(135deg, #FF5722, #D84315);
+            --install-banner-shadow: rgba(255, 87, 34, 0.3);
         }
         
         .dark {
@@ -342,6 +367,116 @@
             -o-user-drag: none;
         }
 
+        /* Install Banner */
+        .install-banner {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            right: 20px;
+            background: var(--install-banner-bg);
+            color: var(--install-banner-text);
+            border-radius: 15px;
+            padding: 15px 20px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px var(--install-banner-shadow);
+            z-index: 200;
+            animation: slideDown 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .install-banner.show {
+            display: flex;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .install-banner-content {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .install-banner-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            opacity: 0.9;
+        }
+
+        .install-banner-text {
+            flex: 1;
+        }
+
+        .install-banner-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .install-banner-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .install-banner-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .install-banner-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--install-banner-text);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .install-banner-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .install-banner-btn.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+        }
+
+        .install-banner-btn.primary:hover {
+            background: white;
+        }
+
+        .install-banner-close {
+            background: none;
+            border: none;
+            color: var(--install-banner-text);
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .install-banner-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         /* Header */
         .header {
             position: fixed;
@@ -440,6 +575,10 @@
             bottom: 60px;
             overflow: hidden;
             background-color: var(--bg-color);
+        }
+
+        .main-content.with-banner {
+            top: 150px;
         }
 
         /* Sections - Fixed for scrolling */
@@ -2322,6 +2461,35 @@
                 padding: 0 15px;
             }
 
+            .install-banner {
+                top: 65px;
+                left: 15px;
+                right: 15px;
+                padding: 12px 15px;
+            }
+
+            .install-banner-icon {
+                font-size: 20px;
+                margin-right: 12px;
+            }
+
+            .install-banner-title {
+                font-size: 14px;
+            }
+
+            .install-banner-subtitle {
+                font-size: 12px;
+            }
+
+            .install-banner-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .main-content.with-banner {
+                top: 135px;
+            }
+
             .teams-container {
                 margin-bottom: 10px;
                 gap: 8px;
@@ -2396,6 +2564,24 @@
         <i class="fas fa-futbol loading-spinner-main"></i>
         <div style="font-weight: bold; font-size: 24px; color: var(--primary-color);">KING PRONOS</div>
         <div style="margin-top: 10px; color: #6b7280;">Chargement...</div>
+    </div>
+
+    <!-- Install Banner -->
+    <div id="install-banner" class="install-banner">
+        <div class="install-banner-content">
+            <i class="fas fa-download install-banner-icon"></i>
+            <div class="install-banner-text">
+                <div class="install-banner-title">Installer KING PRONOS</div>
+                <div class="install-banner-subtitle">Accédez rapidement à vos pronostics</div>
+            </div>
+        </div>
+        <div class="install-banner-actions">
+            <button class="install-banner-btn primary" id="install-app-btn">Installer</button>
+            <button class="install-banner-btn" id="install-later-btn">Plus tard</button>
+            <button class="install-banner-close" id="install-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Auth Screen -->
@@ -2934,6 +3120,78 @@
     <div id="overlay" class="overlay"></div>
     <div class="notification" id="notification"></div>
 
+    <!-- Service Worker Script -->
+    <script>
+        // Service Worker
+        const SW_VERSION = '3.7.0';
+        const CACHE_NAME = `kingpronos-v${SW_VERSION}`;
+        const urlsToCache = [
+            '/',
+            '/manifest.json',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css',
+            'https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js',
+            'https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js',
+            'https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js'
+        ];
+
+        // Enregistrer le service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+                    const CACHE_NAME = '${CACHE_NAME}';
+                    const urlsToCache = ${JSON.stringify(urlsToCache)};
+
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then((cache) => {
+                                    return cache.addAll(urlsToCache);
+                                })
+                        );
+                    });
+
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then((response) => {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                }
+                            )
+                        );
+                    });
+
+                    self.addEventListener('activate', (event) => {
+                        event.waitUntil(
+                            caches.keys().then((cacheNames) => {
+                                return Promise.all(
+                                    cacheNames.map((cacheName) => {
+                                        if (cacheName !== CACHE_NAME) {
+                                            return caches.delete(cacheName);
+                                        }
+                                    })
+                                );
+                            })
+                        );
+                    });
+                `;
+
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+
+                navigator.serviceWorker.register(swUrl)
+                    .then((registration) => {
+                        console.log('Service Worker enregistré avec succès :', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Échec de l\'enregistrement du Service Worker :', error);
+                    });
+            });
+        }
+    </script>
+
     <script type="module">
         // Import Firebase modules (keeping all a1 logic)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
@@ -2986,6 +3244,10 @@
         let selectedAvatar = null;
         let tempSelectedAvatar = null;
 
+        // PWA Installation variables
+        let deferredInstallPrompt = null;
+        let isAppInstalled = false;
+
         // Protection contre la copie
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
@@ -3027,6 +3289,124 @@
                 return false;
             }
         });
+
+        // PWA Installation functions
+        function initializePWA() {
+            // Check if app is already installed
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                isAppInstalled = true;
+                return;
+            }
+
+            // Check if it's running in an installed PWA on iOS
+            if (window.navigator.standalone === true) {
+                isAppInstalled = true;
+                return;
+            }
+
+            // Listen for beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (event) => {
+                event.preventDefault();
+                deferredInstallPrompt = event;
+                
+                // Check if user has previously dismissed the banner
+                const bannerDismissed = localStorage.getItem('kingPronosInstallBannerDismissed');
+                if (!bannerDismissed && !isAppInstalled) {
+                    showInstallBanner();
+                }
+            });
+
+            // Listen for app installed
+            window.addEventListener('appinstalled', () => {
+                console.log('PWA was installed');
+                isAppInstalled = true;
+                hideInstallBanner();
+                deferredInstallPrompt = null;
+                showNotification('Application installée avec succès !', 'success');
+            });
+
+            // Check if install is possible on iOS
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator.standalone);
+            
+            if (isIOS && !isInStandaloneMode) {
+                const bannerDismissed = localStorage.getItem('kingPronosInstallBannerDismissed');
+                if (!bannerDismissed) {
+                    showIOSInstallBanner();
+                }
+            }
+        }
+
+        function showInstallBanner() {
+            const banner = document.getElementById('install-banner');
+            const mainContent = document.getElementById('main-content');
+            
+            banner.classList.add('show');
+            mainContent.classList.add('with-banner');
+        }
+
+        function hideInstallBanner() {
+            const banner = document.getElementById('install-banner');
+            const mainContent = document.getElementById('main-content');
+            
+            banner.classList.remove('show');
+            mainContent.classList.remove('with-banner');
+        }
+
+        function showIOSInstallBanner() {
+            const banner = document.getElementById('install-banner');
+            const mainContent = document.getElementById('main-content');
+            const title = banner.querySelector('.install-banner-title');
+            const subtitle = banner.querySelector('.install-banner-subtitle');
+            const installBtn = document.getElementById('install-app-btn');
+            
+            title.textContent = 'Installer KING PRONOS';
+            subtitle.textContent = 'Appuyez sur "Partager" puis "Sur l\'écran d\'accueil"';
+            installBtn.textContent = 'Compris';
+            
+            banner.classList.add('show');
+            mainContent.classList.add('with-banner');
+        }
+
+        async function installApp() {
+            if (!deferredInstallPrompt) {
+                // For iOS or when prompt is not available
+                showNotification('Suivez les instructions de votre navigateur pour installer l\'app', 'info');
+                hideInstallBanner();
+                return;
+            }
+
+            try {
+                const result = await deferredInstallPrompt.prompt();
+                console.log('User response to install prompt:', result);
+                
+                if (result.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                
+                deferredInstallPrompt = null;
+                hideInstallBanner();
+                
+            } catch (error) {
+                console.error('Error during installation:', error);
+                showNotification('Erreur lors de l\'installation', 'error');
+            }
+        }
+
+        function dismissInstallBanner() {
+            hideInstallBanner();
+            localStorage.setItem('kingPronosInstallBannerDismissed', 'true');
+        }
+
+        function remindLaterInstall() {
+            hideInstallBanner();
+            // Set a temporary dismissal for 24 hours
+            const tomorrow = new Date();
+            tomorrow.setHours(tomorrow.getHours() + 24);
+            localStorage.setItem('kingPronosInstallRemindLater', tomorrow.toISOString());
+        }
 
         // Initialize dark mode detection based on stored preference or system preference
         function initializeDarkMode() {
@@ -4572,6 +4952,11 @@
 
         // Event listeners setup
         function setupEventListeners() {
+            // PWA Install Banner
+            document.getElementById('install-app-btn').addEventListener('click', installApp);
+            document.getElementById('install-later-btn').addEventListener('click', remindLaterInstall);
+            document.getElementById('install-close-btn').addEventListener('click', dismissInstallBanner);
+
             // Menu
             document.getElementById('menu-btn').addEventListener('click', function() {
                 document.getElementById('side-menu').classList.add('active');
@@ -4778,6 +5163,7 @@
             setupAuth();
             setupTheme();
             setupDarkMode();
+            initializePWA();
             
             console.log('Application KING PRONOS initialisée');
             
@@ -4788,18 +5174,5 @@
             }, 3000);
         });
     </script>
-    <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(registration => {
-          console.log('Service Worker enregistré avec succès :', registration.scope);
-        })
-        .catch(error => {
-          console.log('Échec de l'enregistrement du Service Worker :', error);
-        });
-    });
-  }
-</script>
 </body>
 </html>
