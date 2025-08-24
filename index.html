@@ -136,6 +136,7 @@
             --match-result-win: #4CAF50;
             --match-result-draw: #FFC107;
             --match-result-loss: #F44336;
+            --pending-result: #cccccc;
         }
         
         /* Thème vert */
@@ -343,6 +344,7 @@
             --stat-card-bg: #2a2a2a;
             --stat-card-border: #404040;
             --table-row-even: rgba(255, 255, 255, 0.02);
+            --pending-result: #555555;
         }
 
         * {
@@ -685,7 +687,32 @@
             overflow-y: auto;
             height: 100%;
             -webkit-overflow-scrolling: touch;
-            padding-top: 40px;
+        }
+
+        .icegame-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: var(--icegame-bg);
+            border-radius: 20px;
+            color: var(--icegame-text);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .icegame-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .icegame-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.4;
         }
 
         .coming-soon-container {
@@ -1026,19 +1053,21 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Tabs */
+        /* Tabs - occupent toute la largeur */
         .detail-tabs {
             display: flex;
             background-color: var(--secondary-color);
-            margin: 0 20px;
-            border-radius: 10px;
-            padding: 4px;
+            margin: 0;
+            border-radius: 0;
+            padding: 4px 0;
             position: sticky;
             top: 0;
             z-index: 5;
             flex-shrink: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .detail-tab {
@@ -1047,17 +1076,19 @@
             text-align: center;
             font-weight: bold;
             font-size: 11px;
-            border-radius: 8px;
+            border-radius: 0;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--inactive-text);
             white-space: nowrap;
             min-width: 80px;
+            margin: 0 2px;
         }
 
         .detail-tab.active {
             background-color: var(--primary-color);
             color: white;
+            border-radius: 8px;
         }
 
         /* Tab Content */
@@ -1184,6 +1215,11 @@
             background-color: var(--match-result-loss);
         }
 
+        .form-badge.pending {
+            background-color: var(--pending-result);
+            color: var(--text-color);
+        }
+
         /* Matches Styles */
         .matches-container {
             display: flex;
@@ -1252,32 +1288,46 @@
             opacity: 0.5;
         }
 
-        /* Classement Styles */
+        /* Classement Styles - Responsive */
         .ranking-container {
-            overflow-x: auto;
+            overflow-x: visible;
             -webkit-overflow-scrolling: touch;
         }
 
         .ranking-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
-            min-width: 400px;
+            font-size: 11px;
+            table-layout: fixed;
         }
 
         .ranking-table th {
             background: var(--table-header-bg);
             color: var(--table-header-text);
-            padding: 10px 8px;
+            padding: 8px 4px;
             text-align: center;
             font-weight: bold;
             border: 1px solid var(--border-color);
         }
 
+        .ranking-table th:first-child {
+            width: 15%;
+        }
+
+        .ranking-table th:nth-child(2) {
+            width: 60%;
+        }
+
+        .ranking-table th:last-child {
+            width: 25%;
+        }
+
         .ranking-table td {
-            padding: 8px;
+            padding: 6px 4px;
             text-align: center;
             border: 1px solid var(--border-color);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .ranking-table tr:nth-child(even) {
@@ -1296,7 +1346,7 @@
 
         .team-name-cell {
             text-align: left;
-            max-width: 120px;
+            padding-left: 6px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -2811,6 +2861,8 @@
             .detail-tabs {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
+                margin: 0;
+                padding: 4px 0;
             }
 
             .detail-tab {
@@ -2825,7 +2877,7 @@
 
             .ranking-table th,
             .ranking-table td {
-                padding: 6px 4px;
+                padding: 4px 2px;
             }
 
             .stats-container {
@@ -3047,18 +3099,8 @@
 
         <!-- Icegame Section -->
         <div id="icegame-section" class="section">
-            <div class="icegame-container">
-                <div class="coming-soon-container">
-                    <div class="coming-soon-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="coming-soon-title">
-                        ICEGAME
-                    </div>
-                    <div class="coming-soon-subtitle">
-                        Bientôt disponible
-                    </div>
-                </div>
+            <div class="icegame-container" id="icegame-container">
+                <!-- ICEGAME content will be loaded here -->
             </div>
         </div>
 
@@ -3657,7 +3699,6 @@
         <div class="nav-item" data-section="icegame">
             <i class="nav-icon fas fa-gamepad"></i>
             <span>Icegame</span>
-            <div class="nav-badge">Bientôt</div>
         </div>
         <div class="nav-item" data-section="profile">
             <i class="nav-icon fas fa-user"></i>
@@ -4541,11 +4582,17 @@
             const statsHome = forecastData.stats_home;
             const statsAway = forecastData.stats_away;
 
-            // Create form display helper
+            // Create form display helper - form le plus récent en premier avec le point d'interrogation pour le match actuel
             const createFormDisplay = (form, isHome) => {
                 if (!form || !Array.isArray(form)) return '';
                 
-                return form.map(result => `<span class="form-badge ${result}">${result}</span>`).join('');
+                // Ajouter un point d'interrogation gris pour le match actuel en premier
+                const currentMatchBadge = '<span class="form-badge pending">?</span>';
+                
+                // Inverser l'ordre pour avoir le plus récent en premier, puis ajouter le point d'interrogation
+                const formBadges = form.slice().reverse().map(result => `<span class="form-badge ${result}">${result}</span>`).join('');
+                
+                return currentMatchBadge + formBadges;
             };
 
             statsContainer.innerHTML = `
@@ -4597,7 +4644,7 @@
                 </div>
 
                 <div class="stats-category">
-                    <div class="stats-category-title">Forme Récente (6 matchs)</div>
+                    <div class="stats-category-title">Forme Récente (6 matchs + match actuel)</div>
                     <div class="stats-row">
                         <div class="stats-home">
                             <div class="form-display">${createFormDisplay(statsHome.form_6, true)}</div>
@@ -4901,7 +4948,7 @@
             matchesContainer.innerHTML = content;
         }
 
-        // Function to update H2H tab
+        // Function to update H2H tab - NEW FORMAT
         function updateH2HTab(forecastData) {
             const h2hContainer = document.querySelector('#h2h-content .h2h-container');
             
@@ -4924,12 +4971,12 @@
             `;
             
             h2hMatches.forEach(match => {
-                if (Array.isArray(match) && match.length >= 6) {
+                if (match && typeof match === 'object') {
                     content += `
                         <div class="match-item">
-                            <div class="match-date">${match[0]}</div>
-                            <div class="match-teams">${match[1]} vs ${match[2]}</div>
-                            <div class="match-score">${match[4]} (${match[5]})</div>
+                            <div class="match-date">${match.date || 'Date inconnue'}</div>
+                            <div class="match-teams">${match.team1 || 'Équipe 1'} vs ${match.team2 || 'Équipe 2'}</div>
+                            <div class="match-score">${match.score || 'Score non disponible'}</div>
                         </div>
                     `;
                 }
@@ -4940,7 +4987,7 @@
             h2hContainer.innerHTML = content;
         }
 
-        // Function to update ranking tab
+        // Function to update ranking tab - RESPONSIVE
         function updateRankingTab(forecastData) {
             const rankingContainer = document.querySelector('#ranking-content .ranking-container');
             
@@ -5095,6 +5142,101 @@
             listElement.appendChild(fragment);
         }
 
+        // Function to load ICEGAME - Show most probable match of the day
+        async function loadIcegameData() {
+            const icegameContainer = document.getElementById('icegame-container');
+            
+            try {
+                const githubData = await fetchForecastsFromGitHub(getCurrentDateString());
+                
+                if (!githubData) {
+                    icegameContainer.innerHTML = `
+                        <div class="coming-soon-container">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="coming-soon-title">
+                                ICEGAME
+                            </div>
+                            <div class="coming-soon-subtitle">
+                                Aucun match disponible aujourd'hui
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const processedData = processForecastData(githubData);
+                
+                if (processedData.pronostics && processedData.pronostics.length > 0) {
+                    // Prendre le premier match comme le plus probable
+                    const mostProbableMatch = processedData.pronostics[0];
+                    
+                    icegameContainer.innerHTML = `
+                        <div class="icegame-header">
+                            <div class="icegame-title">
+                                <i class="fas fa-gamepad"></i>
+                                ICEGAME
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="icegame-subtitle">
+                                Le match avec l'analyse la plus probable du jour
+                            </div>
+                        </div>
+                        
+                        <div id="icegame-forecast-card" style="cursor: pointer;">
+                            <!-- Le forecast card sera inséré ici -->
+                        </div>
+                        
+                        <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
+                            <div style="font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: bold;">
+                                🎯 Match Sélectionné par l'IA
+                            </div>
+                            <div style="font-size: 14px; color: var(--text-color); line-height: 1.4;">
+                                Ce match a été sélectionné par notre système d'intelligence artificielle comme ayant la plus forte probabilité de prédiction réussie aujourd'hui.
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Créer et insérer la carte du match
+                    const forecastCard = createForecastCard(mostProbableMatch);
+                    const icegameCardContainer = document.getElementById('icegame-forecast-card');
+                    icegameCardContainer.appendChild(forecastCard);
+                    
+                } else {
+                    icegameContainer.innerHTML = `
+                        <div class="coming-soon-container">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="coming-soon-title">
+                                ICEGAME
+                            </div>
+                            <div class="coming-soon-subtitle">
+                                Aucun match analysé disponible aujourd'hui
+                            </div>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error(`Erreur chargement ICEGAME: ${error.message}`);
+                icegameContainer.innerHTML = `
+                    <div class="coming-soon-container">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="coming-soon-title">
+                            ICEGAME
+                        </div>
+                        <div class="coming-soon-subtitle">
+                            Erreur de chargement
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
         // Navigation functions
         function showSection(sectionId) {
             currentSection = sectionId;
@@ -5117,6 +5259,8 @@
             
             if (sectionId === 'forecasts') {
                 loadForecastsData();
+            } else if (sectionId === 'icegame') {
+                loadIcegameData();
             } else if (sectionId === 'events') {
                 loadEvents();
             } else if (sectionId === 'history') {
