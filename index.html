@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KING PRONOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="manifest" href="manifest.json">
     <!-- Icône pour iOS -->
 <link rel="apple-touch-icon" href="/iconios-192.png">
@@ -669,6 +670,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin: 10px;
         }
 
         .cta-button:hover {
@@ -871,20 +873,27 @@
             text-align: center;
         }
 
-        .confidence-bar-container {
-            width: 100%;
-            height: 6px;
-            background-color: var(--border-color);
-            border-radius: 3px;
-            margin: 10px 0;
-            overflow: hidden;
+        /* Chart styles */
+        .chart-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
-        .confidence-bar {
-            height: 100%;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-            transition: width 0.3s ease;
+        .chart-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
         }
 
         /* Forecast Detail Page - Restructured */
@@ -1498,6 +1507,76 @@
             border-radius: 10px;
             font-weight: bold;
             z-index: 2;
+        }
+
+        /* Page Content Sections */
+        .page-content {
+            padding: 20px;
+            overflow-y: auto;
+            height: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .content-section h3 {
+            color: var(--text-color);
+            font-size: 16px;
+            margin: 20px 0 10px;
+            font-weight: bold;
+        }
+
+        .content-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .content-section ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: var(--text-color);
         }
 
         /* Auth screen styles */
@@ -2652,86 +2731,6 @@
             color: var(--text-color);
         }
 
-        /* Info Modal */
-        .info-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 300;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .info-modal.active {
-            display: flex;
-        }
-
-        .info-modal-content {
-            background-color: var(--bg-color);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .info-modal-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .info-modal-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .info-modal-text {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin-bottom: 20px;
-        }
-
-        .info-modal-text h3 {
-            color: var(--primary-color);
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .info-modal-text h3:first-child {
-            margin-top: 0;
-        }
-
-        .info-modal-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .info-modal-button {
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .info-modal-button:hover {
-            background-color: #4a49c0;
-        }
-
         /* Responsive */
         @media (max-width: 480px) {
             .header {
@@ -2782,10 +2781,6 @@
                 flex-direction: column;
                 width: 100%;
                 max-width: 200px;
-            }
-
-            .info-modal-content {
-                padding: 20px;
             }
 
             .benefits-grid {
@@ -2848,6 +2843,10 @@
             .match-item {
                 padding: 10px;
                 font-size: 11px;
+            }
+
+            .chart-wrapper {
+                height: 250px;
             }
         }
     </style>
@@ -3013,21 +3012,6 @@
         </div>
     </div>
 
-    <!-- Info Modal -->
-    <div class="info-modal" id="info-modal">
-        <div class="info-modal-content">
-            <div class="info-modal-header">
-                <div class="info-modal-title" id="info-modal-title">Conditions d'utilisation</div>
-            </div>
-            <div class="info-modal-text" id="info-modal-text">
-                <!-- Content will be filled dynamically -->
-            </div>
-            <div class="info-modal-buttons">
-                <button class="info-modal-button" id="info-modal-close">Fermer</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Header -->
     <div class="header">
         <div class="header-left">
@@ -3088,13 +3072,13 @@
                         <i class="fas fa-gem"></i>
                     </div>
                     <div class="secret-subtitle">
-                        Découvrez les avantages secrets de 1XBET avec notre code promo exclusif !
+                        Découvrez les avantages secrets de 1XBET et AFROPARI avec notre code promo exclusif !
                     </div>
                 </div>
 
                 <div class="promo-code-section">
                     <div class="promo-code-title">🎯 Code Promo Exclusif</div>
-                    <div class="promo-code-value" id="promo-code-display">1x_3154789</div>
+                    <div class="promo-code-value" id="promo-code-display">ICEGAME</div>
                     <div class="promo-code-copy">👆 Cliquez pour copier le code</div>
                 </div>
 
@@ -3163,17 +3147,20 @@
                 <div class="cta-section">
                     <div class="cta-title">🎰 Prêt à Doubler Vos Gains ?</div>
                     <div class="cta-description">
-                        Rejoignez plus de 400 000 parieurs qui utilisent déjà 1XBET pour maximiser leurs profits. 
+                        Rejoignez plus de 400 000 parieurs qui utilisent déjà ces plateformes pour maximiser leurs profits. 
                         Inscription en 2 minutes, premier bonus immédiat !
                     </div>
                     <a href="https://reffpa.com/L?tag=d_4544971m_1599c_&site=4544971&ad=1599" target="_blank" class="cta-button">
-                        🚀 S'INSCRIRE MAINTENANT
+                        🚀 1XBET - S'INSCRIRE
+                    </a>
+                    <a href="https://afropari.com/?reg=af45789" target="_blank" class="cta-button">
+                        🌟 AFROPARI - S'INSCRIRE
                     </a>
                 </div>
 
                 <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
                     <div style="font-size: 14px; color: var(--inactive-text); margin-bottom: 10px;">
-                        💡 <strong>Conseil Pro :</strong> Utilisez ce code lors de votre inscription pour débloquer tous les avantages secrets
+                        💡 <strong>Conseil Pro :</strong> Utilisez le code <strong>ICEGAME</strong> lors de votre inscription pour débloquer tous les avantages secrets
                     </div>
                     <div style="font-size: 12px; color: var(--inactive-text);">
                         ⚠️ Offre limitée dans le temps • Réservée aux nouveaux membres
@@ -3316,6 +3303,245 @@
             <div style="height: 100%; overflow-y: auto; padding: 10px 0;">
                 <div id="history-content">
                     <!-- History content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms Section -->
+        <div id="terms-section" class="section">
+            <div class="page-content">
+                <div class="page-header">
+                    <div class="page-title">Conditions d'utilisation</div>
+                    <div class="page-subtitle">Veuillez lire attentivement ces conditions avant d'utiliser KING PRONOS</div>
+                </div>
+
+                <div class="content-section">
+                    <h2>1. Acceptation des conditions</h2>
+                    <p>En utilisant KING PRONOS, vous acceptez pleinement et sans réserve les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre application.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>2. Description du service</h2>
+                    <p>KING PRONOS est une application de pronostics sportifs qui fournit des analyses et des prédictions basées sur des données statistiques et des algorithmes d'intelligence artificielle.</p>
+                    <h3>Services proposés :</h3>
+                    <ul>
+                        <li>Pronostics sportifs quotidiens</li>
+                        <li>Analyses statistiques détaillées</li>
+                        <li>Historique des matchs et confrontations</li>
+                        <li>Classements et données de performance</li>
+                        <li>Analyses IA avancées</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>3. Utilisation responsable</h2>
+                    <h3>Avertissement important :</h3>
+                    <ul>
+                        <li>Les pronostics fournis sont à des fins de divertissement et d'information uniquement</li>
+                        <li>Nous ne garantissons aucun résultat financier ou gain</li>
+                        <li>Les paris sportifs peuvent être addictifs et entraîner des pertes financières</li>
+                        <li>Pariez uniquement ce que vous pouvez vous permettre de perdre</li>
+                        <li>Il est interdit aux mineurs (moins de 18 ans) d'utiliser nos services</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>4. Responsabilités et limitations</h2>
+                    <h3>Limitation de responsabilité :</h3>
+                    <ul>
+                        <li>KING PRONOS décline toute responsabilité en cas de pertes financières</li>
+                        <li>L'utilisateur est seul responsable de ses décisions de paris</li>
+                        <li>Nous ne sommes pas responsables des erreurs ou omissions dans les données</li>
+                        <li>L'exactitude des pronostics n'est pas garantie</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>5. Utilisation du compte</h2>
+                    <h3>Règles d'utilisation :</h3>
+                    <ul>
+                        <li>Un seul compte par utilisateur est autorisé</li>
+                        <li>Il est interdit de partager votre compte avec des tiers</li>
+                        <li>Vous êtes responsable de la sécurité de votre mot de passe</li>
+                        <li>Toute activité suspecte peut entraîner la suspension du compte</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>6. Propriété intellectuelle</h2>
+                    <p>Tous les contenus de l'application (textes, images, logos, analyses, algorithmes) sont protégés par les droits d'auteur et appartiennent à KING PRONOS.</p>
+                    <h3>Interdictions :</h3>
+                    <ul>
+                        <li>Reproduction non autorisée du contenu</li>
+                        <li>Distribution commerciale des pronostics</li>
+                        <li>Ingénierie inverse des algorithmes</li>
+                        <li>Utilisation des données à des fins commerciales</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>7. Protection des données</h2>
+                    <p>Nous nous engageons à protéger vos données personnelles conformément aux réglementations en vigueur.</p>
+                    <h3>Données collectées :</h3>
+                    <ul>
+                        <li>Adresse email pour l'authentification</li>
+                        <li>Préférences d'utilisation</li>
+                        <li>Statistiques d'usage anonymisées</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>8. Modifications des conditions</h2>
+                    <p>Nous nous réservons le droit de modifier ces conditions d'utilisation à tout moment. Les utilisateurs seront informés des changements majeurs par notification dans l'application.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>9. Résiliation</h2>
+                    <p>Nous nous réservons le droit de suspendre ou de résilier l'accès à nos services en cas de violation de ces conditions d'utilisation.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>10. Contact</h2>
+                    <p>Pour toute question concernant ces conditions d'utilisation, vous pouvez nous contacter via nos canaux officiels (WhatsApp, Telegram, YouTube).</p>
+                    <p><strong>Dernière mise à jour :</strong> Janvier 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about-section" class="section">
+            <div class="page-content">
+                <div class="page-header">
+                    <div class="page-title">À propos de KING PRONOS</div>
+                    <div class="page-subtitle">Découvrez notre mission, nos fonctionnalités et notre technologie</div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Notre Mission</h2>
+                    <p>KING PRONOS a pour mission de démocratiser l'accès aux analyses sportives avancées en fournissant aux passionnés de sport des prédictions fiables basées sur l'intelligence artificielle et des données statistiques approfondies.</p>
+                    <p>Nous croyons que chaque amateur de sport mérite d'avoir accès à des outils d'analyse professionnels pour mieux comprendre et apprécier les performances sportives.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Fonctionnalités Principales</h2>
+                    <h3>🎯 Pronostics Avancés</h3>
+                    <ul>
+                        <li>Prédictions quotidiennes basées sur l'IA</li>
+                        <li>Analyses multi-critères (forme, statistiques, contexte)</li>
+                        <li>Recommandations personnalisées</li>
+                    </ul>
+
+                    <h3>📊 Analyses Statistiques</h3>
+                    <ul>
+                        <li>Statistiques détaillées des équipes</li>
+                        <li>Graphiques interactifs de performance</li>
+                        <li>Comparaisons historiques</li>
+                        <li>Analyse de la forme récente</li>
+                    </ul>
+
+                    <h3>🏆 Données Complètes</h3>
+                    <ul>
+                        <li>Historique complet des matchs</li>
+                        <li>Confrontations directes (H2H)</li>
+                        <li>Classements en temps réel</li>
+                        <li>Contexte des compétitions</li>
+                    </ul>
+
+                    <h3>🤖 Intelligence Artificielle</h3>
+                    <ul>
+                        <li>Algorithmes d'apprentissage automatique</li>
+                        <li>Analyses prédictives avancées</li>
+                        <li>Mise à jour continue des modèles</li>
+                        <li>Intégration de multiples sources de données</li>
+                    </ul>
+
+                    <h3>📱 Interface Moderne</h3>
+                    <ul>
+                        <li>Design responsive et intuitif</li>
+                        <li>Thèmes personnalisables</li>
+                        <li>Mode sombre/clair adaptatif</li>
+                        <li>Navigation fluide et rapide</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Technologie et Innovation</h2>
+                    <h3>Architecture Technique</h3>
+                    <p>KING PRONOS utilise une architecture moderne basée sur :</p>
+                    <ul>
+                        <li><strong>Frontend :</strong> HTML5, CSS3, JavaScript ES6+</li>
+                        <li><strong>UI Framework :</strong> Design responsive adaptatif</li>
+                        <li><strong>Backend :</strong> Firebase (authentification, base de données)</li>
+                        <li><strong>IA :</strong> Algorithmes propriétaires d'analyse prédictive</li>
+                        <li><strong>Données :</strong> APIs sportives multiples et bases de données spécialisées</li>
+                    </ul>
+
+                    <h3>Sources de Données</h3>
+                    <ul>
+                        <li>Statistiques officielles des ligues</li>
+                        <li>Données de performance en temps réel</li>
+                        <li>Historiques de matchs étendus</li>
+                        <li>Informations contextuelles (météo, blessures, etc.)</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Fonctionnalités à Venir</h2>
+                    <h3>🎮 ICEGAME</h3>
+                    <p>Une plateforme de jeux interactifs liés aux sports, permettant aux utilisateurs de tester leurs connaissances et leurs capacités de prédiction de manière ludique.</p>
+
+                    <h3>❄️ ICEBET</h3>
+                    <p>Un système de recommandations avancé intégrant des partenariats avec des plateformes de paris légales et régulées.</p>
+
+                    <h3>📈 Analyses Avancées</h3>
+                    <ul>
+                        <li>Prédictions à long terme</li>
+                        <li>Analyses de marchés spécialisés</li>
+                        <li>Alertes personnalisées</li>
+                        <li>Rapports détaillés exportables</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Équipe et Valeurs</h2>
+                    <h3>Notre Équipe</h3>
+                    <p>KING PRONOS est développé par une équipe passionnée de développeurs, data scientists et experts sportifs dédiés à l'innovation dans l'analyse sportive.</p>
+
+                    <h3>Nos Valeurs</h3>
+                    <ul>
+                        <li><strong>Transparence :</strong> Clarté dans nos méthodes et résultats</li>
+                        <li><strong>Innovation :</strong> Utilisation des dernières technologies</li>
+                        <li><strong>Responsabilité :</strong> Promotion du jeu responsable</li>
+                        <li><strong>Qualité :</strong> Excellence dans l'expérience utilisateur</li>
+                        <li><strong>Communauté :</strong> Construction d'une communauté engagée</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Communauté et Support</h2>
+                    <h3>Rejoignez notre communauté</h3>
+                    <p>Connectez-vous avec d'autres passionnés de sport et accédez à des contenus exclusifs :</p>
+                    <ul>
+                        <li><strong>WhatsApp :</strong> Analyses quotidiennes et discussions</li>
+                        <li><strong>Telegram :</strong> Notifications instantanées</li>
+                        <li><strong>YouTube :</strong> Analyses vidéo détaillées</li>
+                    </ul>
+
+                    <h3>Support Technique</h3>
+                    <p>Notre équipe de support est disponible pour vous aider via nos canaux communautaires. Nous nous efforçons de répondre rapidement à toutes les questions et suggestions.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>Informations Techniques</h2>
+                    <ul>
+                        <li><strong>Version Actuelle :</strong> 3.8.0</li>
+                        <li><strong>Dernière Mise à Jour :</strong> Janvier 2025</li>
+                        <li><strong>Compatibilité :</strong> Tous navigateurs modernes</li>
+                        <li><strong>Installation :</strong> Progressive Web App (PWA)</li>
+                        <li><strong>Stockage :</strong> Cloud sécurisé Firebase</li>
+                    </ul>
+                    
+                    <p><strong>© 2025 KING PRONOS</strong> - Tous droits réservés. Application développée avec passion pour la communauté sportive francophone.</p>
                 </div>
             </div>
         </div>
@@ -3470,6 +3696,7 @@
             '/',
             '/manifest.json',
             'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css',
+            'https://cdn.jsdelivr.net/npm/chart.js',
             'https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js',
             'https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js',
             'https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js'
@@ -3777,17 +4004,6 @@
             }, 100);
         }
 
-        // Info modal functions
-        function showInfoModal(title, content) {
-            document.getElementById('info-modal-title').textContent = title;
-            document.getElementById('info-modal-text').innerHTML = content;
-            document.getElementById('info-modal').classList.add('active');
-        }
-
-        function closeInfoModal() {
-            document.getElementById('info-modal').classList.remove('active');
-        }
-
         // Avatar functions
         function openAvatarViewer() {
             const modal = document.getElementById('avatar-viewer-modal');
@@ -4002,12 +4218,12 @@
                 'pronostics': []
             };
 
-            if (!data || !Array.isArray(data)) {
+            if (!data || !data.statistiques_brutes_avec_ia || !Array.isArray(data.statistiques_brutes_avec_ia.details)) {
                 return processed;
             }
 
             // Traiter tous les pronostics depuis la nouvelle structure
-            data.forEach(forecast => {
+            data.statistiques_brutes_avec_ia.details.forEach(forecast => {
                 processed.pronostics.push({
                     id: forecast.id,
                     HomeTeam: forecast.HomeTeam,
@@ -4291,7 +4507,7 @@
                 `;
             }
 
-            // Update statistics
+            // Update statistics with charts
             updateStatisticsTab(forecastData);
 
             // Update matches
@@ -4307,7 +4523,7 @@
             document.getElementById('forecast-detail').classList.add('active');
         }
 
-        // Function to update statistics tab
+        // Function to update statistics tab with charts
         function updateStatisticsTab(forecastData) {
             const statsContainer = document.querySelector('#statistics-content .stats-container');
             
@@ -4333,6 +4549,29 @@
             };
 
             statsContainer.innerHTML = `
+                <!-- Charts Section -->
+                <div class="chart-container">
+                    <div class="chart-title">Comparaison Offensive et Défensive</div>
+                    <div class="chart-wrapper">
+                        <canvas id="goalsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Forme Récente (6 derniers matchs)</div>
+                    <div class="chart-wrapper">
+                        <canvas id="formChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Performances Domicile vs Extérieur</div>
+                    <div class="chart-wrapper">
+                        <canvas id="homeAwayChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Text Statistics -->
                 <div class="stats-category">
                     <div class="stats-category-title">Statistiques Générales</div>
                     <div class="stats-row">
@@ -4398,6 +4637,203 @@
                     </div>
                 </div>
             `;
+
+            // Create charts after DOM is updated
+            setTimeout(() => {
+                createGoalsChart(statsHome, statsAway, forecastData.HomeTeam, forecastData.AwayTeam);
+                createFormChart(statsHome, statsAway, forecastData.HomeTeam, forecastData.AwayTeam);
+                createHomeAwayChart(statsHome, statsAway, forecastData.HomeTeam, forecastData.AwayTeam);
+            }, 100);
+        }
+
+        // Chart creation functions
+        function createGoalsChart(statsHome, statsAway, homeTeam, awayTeam) {
+            const ctx = document.getElementById('goalsChart');
+            if (!ctx) return;
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#ffffff' : '#000000';
+            const gridColor = isDark ? '#404040' : '#e0e0e0';
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Buts marqués/match', 'Buts encaissés/match', 'Total marqués', 'Total encaissés'],
+                    datasets: [{
+                        label: homeTeam || 'Domicile',
+                        data: [
+                            statsHome.moyenne_marques || 0,
+                            statsHome.moyenne_encaisses || 0,
+                            statsHome.total_marques || 0,
+                            statsHome.total_encaisses || 0
+                        ],
+                        backgroundColor: 'rgba(255, 0, 0, 0.6)',
+                        borderColor: '#FF0000',
+                        borderWidth: 1
+                    }, {
+                        label: awayTeam || 'Extérieur',
+                        data: [
+                            statsAway.moyenne_marques || 0,
+                            statsAway.moyenne_encaisses || 0,
+                            statsAway.total_marques || 0,
+                            statsAway.total_encaisses || 0
+                        ],
+                        backgroundColor: 'rgba(0, 102, 255, 0.6)',
+                        borderColor: '#0066FF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: textColor
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: textColor
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createFormChart(statsHome, statsAway, homeTeam, awayTeam) {
+            const ctx = document.getElementById('formChart');
+            if (!ctx) return;
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#ffffff' : '#000000';
+
+            // Count form results
+            const countResults = (form) => {
+                if (!form || !Array.isArray(form)) return { W: 0, D: 0, L: 0 };
+                return form.reduce((acc, result) => {
+                    acc[result] = (acc[result] || 0) + 1;
+                    return acc;
+                }, { W: 0, D: 0, L: 0 });
+            };
+
+            const homeForm = countResults(statsHome.form_6);
+            const awayForm = countResults(statsAway.form_6);
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Victoires', 'Nuls', 'Défaites'],
+                    datasets: [{
+                        label: homeTeam || 'Domicile',
+                        data: [homeForm.W, homeForm.D, homeForm.L],
+                        backgroundColor: [
+                            'rgba(76, 175, 80, 0.8)',
+                            'rgba(255, 193, 7, 0.8)',
+                            'rgba(244, 67, 54, 0.8)'
+                        ],
+                        borderWidth: 2
+                    }, {
+                        label: awayTeam || 'Extérieur',
+                        data: [awayForm.W, awayForm.D, awayForm.L],
+                        backgroundColor: [
+                            'rgba(76, 175, 80, 0.5)',
+                            'rgba(255, 193, 7, 0.5)',
+                            'rgba(244, 67, 54, 0.5)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: textColor
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createHomeAwayChart(statsHome, statsAway, homeTeam, awayTeam) {
+            const ctx = document.getElementById('homeAwayChart');
+            if (!ctx) return;
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#ffffff' : '#000000';
+            const gridColor = isDark ? '#404040' : '#e0e0e0';
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Buts marqués', 'Buts encaissés', 'Série (points)'],
+                    datasets: [{
+                        label: `${homeTeam} (Domicile)`,
+                        data: [
+                            statsHome.buts_dom_marques || 0,
+                            statsHome.buts_dom_encaisses || 0,
+                            statsHome.total_points_6 || 0
+                        ],
+                        borderColor: '#FF0000',
+                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                        pointBackgroundColor: '#FF0000'
+                    }, {
+                        label: `${awayTeam} (Extérieur)`,
+                        data: [
+                            statsAway.buts_ext_marques || 0,
+                            statsAway.buts_ext_encaisses || 0,
+                            statsAway.total_points_6 || 0
+                        ],
+                        borderColor: '#0066FF',
+                        backgroundColor: 'rgba(0, 102, 255, 0.2)',
+                        pointBackgroundColor: '#0066FF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: textColor
+                            },
+                            grid: {
+                                color: gridColor
+                            },
+                            pointLabels: {
+                                color: textColor
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         // Function to update matches tab
@@ -4741,6 +5177,16 @@
                 menuBtn.style.display = 'none';
             } else if (sectionId === 'secrets') {
                 headerTitle.textContent = 'Secrets';
+                headerActions.innerHTML = '';
+                backBtn.style.display = 'block';
+                menuBtn.style.display = 'none';
+            } else if (sectionId === 'terms') {
+                headerTitle.textContent = 'Conditions';
+                headerActions.innerHTML = '';
+                backBtn.style.display = 'block';
+                menuBtn.style.display = 'none';
+            } else if (sectionId === 'about') {
+                headerTitle.textContent = 'À propos';
                 headerActions.innerHTML = '';
                 backBtn.style.display = 'block';
                 menuBtn.style.display = 'none';
@@ -5370,75 +5816,19 @@
             document.getElementById('menu-terms').addEventListener('click', function() {
                 document.getElementById('side-menu').classList.remove('active');
                 document.getElementById('side-menu-overlay').classList.remove('active');
-                
-                const termsContent = `
-                    <h3>Conditions d'utilisation</h3>
-                    <p>En utilisant KING PRONOS, vous acceptez les conditions suivantes :</p>
-                    
-                    <h3>Utilisation des services</h3>
-                    <p>• Les pronostics fournis sont à des fins de divertissement uniquement<br>
-                    • Nous ne garantissons aucun résultat financier<br>
-                    • L'utilisateur est seul responsable de ses décisions de paris<br>
-                    • Il est interdit de partager votre compte avec des tiers</p>
-                    
-                    <h3>Responsabilités</h3>
-                    <p>• KING PRONOS décline toute responsabilité en cas de pertes financières<br>
-                    • Les utilisateurs doivent parier de manière responsable<br>
-                    • Les mineurs ne sont pas autorisés à utiliser nos services</p>
-                    
-                    <h3>Propriété intellectuelle</h3>
-                    <p>• Tous les contenus sont protégés par des droits d'auteur<br>
-                    • La reproduction non autorisée est interdite</p>
-                    
-                    <h3>Modification des conditions</h3>
-                    <p>Nous nous réservons le droit de modifier ces conditions à tout moment. Les utilisateurs seront informés des changements majeurs.</p>
-                `;
-                
-                showInfoModal('Conditions d\'utilisation', termsContent);
+                showSection('terms');
             });
 
             document.getElementById('menu-about').addEventListener('click', function() {
                 document.getElementById('side-menu').classList.remove('active');
                 document.getElementById('side-menu-overlay').classList.remove('active');
-                
-                const aboutContent = `
-                    <h3>À propos de KING PRONOS</h3>
-                    <p>KING PRONOS est une application avancée de pronostics sportifs utilisant l'intelligence artificielle pour fournir des prédictions de haute qualité.</p>
-                    
-                    <h3>Notre mission</h3>
-                    <p>Fournir aux passionnés de sport des analyses approfondies et des pronostics fiables basés sur des données statistiques avancées et des algorithmes d'IA.</p>
-                    
-                    <h3>Fonctionnalités</h3>
-                    <p>• Pronostics unifiés quotidiens<br>
-                    • Analyses IA détaillées<br>
-                    • Statistiques avancées<br>
-                    • Historique des matchs<br>
-                    • Confrontations directes<br>
-                    • Classements complets<br>
-                    • Interface moderne et intuitive<br>
-                    • Icegame (bientôt disponible)<br>
-                    • ICEBET (bientôt disponible)</p>
-                    
-                    <h3>Technologie</h3>
-                    <p>Notre plateforme utilise des analyses statistiques avancées et des algorithmes d'apprentissage automatique pour générer nos prédictions.</p>
-                    
-                    <h3>Contact</h3>
-                    <p>Rejoignez notre communauté sur WhatsApp, Telegram ou YouTube pour plus d'informations et de support.</p>
-                    
-                    <h3>Version</h3>
-                    <p>Application v3.8 - Dernière mise à jour : Janvier 2025</p>
-                `;
-                
-                showInfoModal('À propos', aboutContent);
+                showSection('about');
             });
 
             // Secrets section - promo code copy
             document.getElementById('promo-code-display').addEventListener('click', function() {
-                copyPromoCode('1x_3154789');
+                copyPromoCode('ICEGAME');
             });
-
-            // Info modal
-            document.getElementById('info-modal-close').addEventListener('click', closeInfoModal);
 
             // Back button
             document.getElementById('back-btn').addEventListener('click', function() {
