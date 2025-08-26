@@ -16,58 +16,59 @@
 <meta name="apple-mobile-web-app-title" content="King Pronos">
     <style>
         :root {
-            /* Thème par défaut (bleu) */
-            --primary-color: #5D5CDE;
+            /* Thème unique monochrome */
+            --primary-color: #333333;
+            --secondary-color: #666666;
+            --accent-color: #999999;
             --text-color: #000000;
             --bg-color: #ffffff;
-            --border-color: #dddfe2;
-            --secondary-color: #f0f2f5;
+            --border-color: #e0e0e0;
             --card-bg: #ffffff;
-            --card-border: #e0e0e0;
+            --card-border: #e8e8e8;
             --inactive-text: #8e8e93;
             --success-color: #4caf50;
             --danger-color: #ff4842;
             --warning-color: #ff9800;
             --shadow: rgba(0, 0, 0, 0.1);
-            --chat-sent-bg: #5D5CDE;
+            --chat-sent-bg: #333333;
             --chat-sent-text: #ffffff;
-            --chat-received-bg: #f0f2f5;
-            --selection-color: rgba(93, 92, 222, 0.3);
+            --chat-received-bg: #f5f5f5;
+            --selection-color: rgba(51, 51, 51, 0.3);
             --action-menu-bg: rgba(0, 0, 0, 0.9);
             --action-menu-text: #ffffff;
-            --highlight-color: #FFEB3B;
+            --highlight-color: #f0f0f0;
             --blocked-color: #ff6b6b;
             --reaction-bg: rgba(255, 255, 255, 0.9);
             --reaction-shadow: rgba(0, 0, 0, 0.1);
-            --group-icon-bg: #4CAF50;
-            --input-bg: #f0f2f5;
+            --group-icon-bg: #333333;
+            --input-bg: #f8f8f8;
             --input-placeholder: #8e8e93;
-            --button-text: #000000;
-            --link-color: #007aff;
-            --admin-badge-bg: #5D5CDE;
+            --button-text: #ffffff;
+            --link-color: #333333;
+            --admin-badge-bg: #333333;
             --admin-badge-text: white;
             --log-bg: rgba(0, 0, 0, 0.8);
             --log-text: #ffffff;
-            --log-info: #2196F3;
-            --log-warning: #FFC107;
+            --log-info: #333333;
+            --log-warning: #666666;
             --log-error: #FF5252;
             --log-success: #4CAF50;
             --overlay-bg: rgba(0, 0, 0, 0.7);
-            --event-bg: #f1f1f1;
+            --event-bg: #f8f8f8;
             --event-border: #e0e0e0;
-            --restricted-badge-bg: #FFC107;
-            --restricted-badge-text: #000000;
+            --restricted-badge-bg: #666666;
+            --restricted-badge-text: #ffffff;
             --side-menu-bg: #ffffff;
-            --side-menu-active: #f0f2f5;
-            --side-menu-hover: #f5f5f5;
+            --side-menu-active: #f5f5f5;
+            --side-menu-hover: #f0f0f0;
             --log-panel-bg: #f8f9fa;
             --log-panel-border: #e0e0e0;
-            --link-hover: #0056b3;
+            --link-hover: #666666;
             --admin-notif-bg: #f8f9fa;
             --admin-notif-border: #e0e0e0;
-            --forecast-win-bg: rgba(76, 175, 80, 0.2);
-            --forecast-loss-bg: rgba(244, 67, 54, 0.2);
-            --forecast-pending-bg: rgba(255, 193, 7, 0.2);
+            --forecast-win-bg: rgba(76, 175, 80, 0.1);
+            --forecast-loss-bg: rgba(244, 67, 54, 0.1);
+            --forecast-pending-bg: rgba(102, 102, 102, 0.1);
             --comment-bg: #f5f5f5;
             --comment-border: #ebebeb;
             --social-whatsapp: #25D366;
@@ -80,12 +81,12 @@
             --notification-dot: #FF4842;
             --warning-bg: rgba(255, 152, 0, 0.1);
             --warning-text: #FF9800;
-            --image-message-bg: rgba(93, 92, 222, 0.1);
+            --image-message-bg: rgba(51, 51, 51, 0.1);
             --image-viewer-bg: rgba(0, 0, 0, 0.9);
-            --selected-message-border: rgba(93, 92, 222, 0.7);
+            --selected-message-border: rgba(51, 51, 51, 0.7);
             --date-separator-bg: rgba(0, 0, 0, 0.05);
             --date-separator-text: var(--inactive-text);
-            --reply-preview-bg: rgba(93, 92, 222, 0.1);
+            --reply-preview-bg: rgba(51, 51, 51, 0.1);
             --reply-preview-border: var(--primary-color);
             --reply-preview-text: var(--text-color);
             --deleted-message-bg: rgba(0, 0, 0, 0.05);
@@ -93,7 +94,7 @@
             --action-bar-bg: var(--bg-color);
             --action-bar-text: var(--text-color);
             --action-bar-border: var(--border-color);
-            --reply-quote-bg: rgba(93, 92, 222, 0.15);
+            --reply-quote-bg: rgba(51, 51, 51, 0.15);
             --reply-quote-border: var(--primary-color);
             --group-info-bg: var(--bg-color);
             --group-info-border: var(--border-color);
@@ -106,241 +107,110 @@
             --unread-badge-bg: #FF4842;
             --unread-badge-text: white;
             --sats-color: #F7931A;
-            --plan-active-bg: rgba(93, 92, 222, 0.1);
+            --plan-active-bg: rgba(51, 51, 51, 0.1);
             --plan-active-border: var(--primary-color);
             --premium-badge-bg: #FFD700;
             --premium-badge-text: #000000;
-            --history-date-bg: rgba(93, 92, 222, 0.1);
+            --history-date-bg: rgba(51, 51, 51, 0.1);
             --history-date-text: var(--primary-color);
             --card-accent: var(--primary-color);
-            --prediction-highlight-bg: rgba(93, 92, 222, 0.1);
+            --prediction-highlight-bg: rgba(51, 51, 51, 0.1);
             --prediction-highlight-text: var(--primary-color);
-            --promo-bg: linear-gradient(135deg, #FFD700, #FFA000);
-            --promo-text: #000000;
-            --promo-shadow: rgba(255, 215, 0, 0.3);
-            --secret-bg: linear-gradient(135deg, #4CAF50, #2E7D32);
+            --promo-bg: linear-gradient(135deg, #666666, #999999);
+            --promo-text: #ffffff;
+            --promo-shadow: rgba(51, 51, 51, 0.3);
+            --secret-bg: linear-gradient(135deg, #333333, #666666);
             --secret-text: white;
             --secrets-popup-bg: rgba(0, 0, 0, 0.9);
             --secrets-popup-content-bg: var(--bg-color);
-            --icegame-bg: linear-gradient(135deg, #2196F3, #1976D2);
+            --icegame-bg: linear-gradient(135deg, #555555, #777777);
             --icegame-text: white;
-            --coming-soon-bg: linear-gradient(135deg, #9E9E9E, #757575);
+            --coming-soon-bg: linear-gradient(135deg, #888888, #aaaaaa);
             --coming-soon-text: white;
-            --home-team-color: #FF0000;
-            --away-team-color: #0066FF;
-            --stat-card-bg: var(--secondary-color);
+            --home-team-color: #333333;
+            --away-team-color: #666666;
+            --stat-card-bg: var(--input-bg);
             --stat-card-border: var(--border-color);
             --table-header-bg: var(--primary-color);
             --table-header-text: white;
             --table-row-even: rgba(0, 0, 0, 0.02);
             --match-result-win: #4CAF50;
-            --match-result-draw: #FFC107;
+            --match-result-draw: #999999;
             --match-result-loss: #F44336;
             --pending-result: #cccccc;
-        }
-        
-        /* Thème vert */
-        .theme-green {
-            --primary-color: #4CAF50;
-            --chat-sent-bg: #4CAF50;
-            --selection-color: rgba(76, 175, 80, 0.3);
-            --admin-badge-bg: #4CAF50;
-            --reply-preview-bg: rgba(76, 175, 80, 0.1);
-            --reply-preview-border: #4CAF50;
-            --reply-quote-bg: rgba(76, 175, 80, 0.15);
-            --reply-quote-border: #4CAF50;
-            --download-btn-bg: #4CAF50;
-            --new-badge-bg: #4CAF50;
-            --image-message-bg: rgba(76, 175, 80, 0.1);
-            --selected-message-border: rgba(76, 175, 80, 0.7);
-            --history-date-bg: rgba(76, 175, 80, 0.1);
-            --history-date-text: #4CAF50;
-            --card-accent: #4CAF50;
-            --prediction-highlight-bg: rgba(76, 175, 80, 0.1);
-            --prediction-highlight-text: #4CAF50;
-            --table-header-bg: #4CAF50;
-        }
-        
-        /* Thème rouge */
-        .theme-red {
-            --primary-color: #F44336;
-            --chat-sent-bg: #F44336;
-            --selection-color: rgba(244, 67, 54, 0.3);
-            --admin-badge-bg: #F44336;
-            --reply-preview-bg: rgba(244, 67, 54, 0.1);
-            --reply-preview-border: #F44336;
-            --reply-quote-bg: rgba(244, 67, 54, 0.15);
-            --reply-quote-border: #F44336;
-            --download-btn-bg: #F44336;
-            --new-badge-bg: #F44336;
-            --image-message-bg: rgba(244, 67, 54, 0.1);
-            --selected-message-border: rgba(244, 67, 54, 0.7);
-            --history-date-bg: rgba(244, 67, 54, 0.1);
-            --history-date-text: #F44336;
-            --card-accent: #F44336;
-            --prediction-highlight-bg: rgba(244, 67, 54, 0.1);
-            --prediction-highlight-text: #F44336;
-            --table-header-bg: #F44336;
-        }
-        
-        /* Thème orange */
-        .theme-orange {
-            --primary-color: #FF9800;
-            --chat-sent-bg: #FF9800;
-            --selection-color: rgba(255, 152, 0, 0.3);
-            --admin-badge-bg: #FF9800;
-            --reply-preview-bg: rgba(255, 152, 0, 0.1);
-            --reply-preview-border: #FF9800;
-            --reply-quote-bg: rgba(255, 152, 0, 0.15);
-            --reply-quote-border: #FF9800;
-            --download-btn-bg: #FF9800;
-            --new-badge-bg: #FF9800;
-            --image-message-bg: rgba(255, 152, 0, 0.1);
-            --selected-message-border: rgba(255, 152, 0, 0.7);
-            --history-date-bg: rgba(255, 152, 0, 0.1);
-            --history-date-text: #FF9800;
-            --card-accent: #FF9800;
-            --prediction-highlight-bg: rgba(255, 152, 0, 0.1);
-            --prediction-highlight-text: #FF9800;
-            --table-header-bg: #FF9800;
-        }
-
-        .theme-purple {
-            --primary-color: #9C27B0;
-            --card-accent: #9C27B0;
-            --prediction-highlight-bg: rgba(156, 39, 176, 0.1);
-            --prediction-highlight-text: #9C27B0;
-            --table-header-bg: #9C27B0;
-        }
-
-        .theme-teal {
-            --primary-color: #009688;
-            --card-accent: #009688;
-            --prediction-highlight-bg: rgba(0, 150, 136, 0.1);
-            --prediction-highlight-text: #009688;
-            --table-header-bg: #009688;
-        }
-
-        .theme-indigo {
-            --primary-color: #3F51B5;
-            --card-accent: #3F51B5;
-            --prediction-highlight-bg: rgba(63, 81, 181, 0.1);
-            --prediction-highlight-text: #3F51B5;
-            --table-header-bg: #3F51B5;
-        }
-
-        .theme-pink {
-            --primary-color: #E91E63;
-            --card-accent: #E91E63;
-            --prediction-highlight-bg: rgba(233, 30, 99, 0.1);
-            --prediction-highlight-text: #E91E63;
-            --table-header-bg: #E91E63;
-        }
-
-        .theme-cyan {
-            --primary-color: #00BCD4;
-            --card-accent: #00BCD4;
-            --prediction-highlight-bg: rgba(0, 188, 212, 0.1);
-            --prediction-highlight-text: #00BCD4;
-            --table-header-bg: #00BCD4;
-        }
-
-        .theme-lime {
-            --primary-color: #CDDC39;
-            --card-accent: #CDDC39;
-            --prediction-highlight-bg: rgba(205, 220, 57, 0.1);
-            --prediction-highlight-text: #CDDC39;
-            --table-header-bg: #CDDC39;
-        }
-
-        .theme-amber {
-            --primary-color: #FFC107;
-            --card-accent: #FFC107;
-            --prediction-highlight-bg: rgba(255, 193, 7, 0.1);
-            --prediction-highlight-text: #FFC107;
-            --table-header-bg: #FFC107;
-        }
-
-        .theme-deep-orange {
-            --primary-color: #FF5722;
-            --card-accent: #FF5722;
-            --prediction-highlight-bg: rgba(255, 87, 34, 0.1);
-            --prediction-highlight-text: #FF5722;
-            --table-header-bg: #FF5722;
         }
         
         .dark {
             --bg-color: #181818;
             --text-color: #ffffff;
             --border-color: #3e4042;
-            --secondary-color: #2c2c2c;
+            --input-bg: #2c2c2c;
             --card-bg: #2c2c2c;
             --card-border: #404040;
             --shadow: rgba(0, 0, 0, 0.3);
             --chat-received-bg: #2c2c2c;
             --chat-sent-text: #ffffff;
-            --selection-color: rgba(93, 92, 222, 0.4);
+            --selection-color: rgba(255, 255, 255, 0.3);
             --action-menu-bg: rgba(60, 60, 60, 0.95);
-            --highlight-color: #FFEB3B;
+            --highlight-color: #444444;
             --blocked-color: #ff6b6b;
             --reaction-bg: rgba(40, 40, 40, 0.9);
             --reaction-shadow: rgba(0, 0, 0, 0.3);
-            --group-icon-bg: #388E3C;
+            --group-icon-bg: #888888;
             --danger-color: #ff6b6b;
             --success-color: #66bb6a;
-            --input-bg: #2c2c2c;
             --input-placeholder: #6c6c6c;
-            --link-color: #2196F3;
+            --link-color: #cccccc;
             --admin-badge-text: white;
             --log-bg: rgba(20, 20, 20, 0.9);
-            --log-info: #64B5F6;
+            --log-info: #cccccc;
             --log-warning: #FFD54F;
             --log-error: #FF8A80;
             --log-success: #81C784;
             --overlay-bg: rgba(0, 0, 0, 0.8);
             --event-bg: #2a2a2a;
             --event-border: #3e3e3e;
-            --restricted-badge-bg: #FFC107;
-            --restricted-badge-text: #000000;
+            --restricted-badge-bg: #888888;
+            --restricted-badge-text: #ffffff;
             --side-menu-bg: #222222;
             --side-menu-active: #333333;
             --side-menu-hover: #2a2a2a;
             --log-panel-bg: #222222;
             --log-panel-border: #3e3e3e;
-            --link-hover: #64B5F6;
+            --link-hover: #aaaaaa;
             --admin-notif-bg: #2a2a2a;
             --admin-notif-border: #333333;
             --forecast-win-bg: rgba(76, 175, 80, 0.15);
             --forecast-loss-bg: rgba(244, 67, 54, 0.15);
-            --forecast-pending-bg: rgba(255, 193, 7, 0.15);
+            --forecast-pending-bg: rgba(255, 255, 255, 0.1);
             --comment-bg: #2a2a2a;
             --comment-border: #333333;
             --notification-dot: #FF4842;
             --warning-bg: rgba(255, 152, 0, 0.15);
             --warning-text: #FFA726;
-            --image-message-bg: rgba(93, 92, 222, 0.15);
+            --image-message-bg: rgba(255, 255, 255, 0.1);
             --image-viewer-bg: rgba(0, 0, 0, 0.95);
-            --selected-message-border: rgba(93, 92, 222, 0.8);
+            --selected-message-border: rgba(255, 255, 255, 0.3);
             --date-separator-bg: rgba(255, 255, 255, 0.1);
             --date-separator-text: #aaaaaa;
-            --reply-preview-bg: rgba(93, 92, 222, 0.15);
+            --reply-preview-bg: rgba(255, 255, 255, 0.1);
             --reply-preview-text: var(--text-color);
             --deleted-message-bg: rgba(255, 255, 255, 0.05);
             --deleted-message-text: #888888;
             --action-bar-bg: #222222;
             --action-bar-text: #ffffff;
             --action-bar-border: #3e3e3e;
-            --reply-quote-bg: rgba(93, 92, 222, 0.2);
+            --reply-quote-bg: rgba(255, 255, 255, 0.1);
             --group-info-bg: #222222;
             --group-info-border: #3e3e3e;
             --download-btn-text: white;
             --theme-selector-border: #444;
             --user-item-bg: #222222;
-            --plan-active-bg: rgba(93, 92, 222, 0.15);
-            --history-date-bg: rgba(93, 92, 222, 0.15);
-            --prediction-highlight-bg: rgba(93, 92, 222, 0.2);
+            --plan-active-bg: rgba(255, 255, 255, 0.1);
+            --history-date-bg: rgba(255, 255, 255, 0.1);
+            --prediction-highlight-bg: rgba(255, 255, 255, 0.1);
             --secrets-popup-content-bg: #222222;
-            --coming-soon-bg: linear-gradient(135deg, #616161, #424242);
+            --coming-soon-bg: linear-gradient(135deg, #555555, #333333);
             --stat-card-bg: #2a2a2a;
             --stat-card-border: #404040;
             --table-row-even: rgba(255, 255, 255, 0.02);
@@ -409,7 +279,7 @@
             width: 40px;
             height: 40px;
             border-radius: 20px;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -440,7 +310,7 @@
             width: 40px;
             height: 40px;
             border-radius: 20px;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -536,7 +406,7 @@
             text-align: center;
             margin-bottom: 30px;
             box-shadow: 0 8px 25px var(--promo-shadow);
-            border: 3px solid #FFB300;
+            border: 3px solid var(--secondary-color);
         }
 
         .promo-code-title {
@@ -554,7 +424,7 @@
             border-radius: 15px;
             margin: 15px 0;
             letter-spacing: 3px;
-            border: 2px dashed #FFB300;
+            border: 2px dashed var(--secondary-color);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -571,13 +441,13 @@
         }
 
         .deposit-requirement {
-            background: rgba(255, 193, 7, 0.2);
-            color: var(--warning-color);
+            background: rgba(102, 102, 102, 0.2);
+            color: var(--secondary-color);
             padding: 20px;
             border-radius: 15px;
             text-align: center;
             margin-bottom: 30px;
-            border: 2px solid var(--warning-color);
+            border: 2px solid var(--secondary-color);
         }
 
         .deposit-requirement-title {
@@ -605,16 +475,28 @@
         .benefit-card {
             background: var(--card-bg);
             border: 2px solid var(--primary-color);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .benefit-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
         }
 
         .benefit-icon {
@@ -638,7 +520,7 @@
         }
 
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-color), #4a49c0);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 30px;
             border-radius: 20px;
@@ -760,7 +642,7 @@
         .forecasts-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             padding: 20px;
             overflow-y: auto;
             height: 100%;
@@ -770,62 +652,76 @@
         .forecast-card {
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px var(--shadow);
+            box-shadow: 0 4px 20px var(--shadow);
             flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .forecast-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .forecast-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--shadow);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px var(--shadow);
         }
 
         .forecast-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .league-info {
-            font-size: 12px;
-            color: var(--inactive-text);
-            background-color: var(--secondary-color);
-            padding: 4px 8px;
-            border-radius: 10px;
+            font-size: 13px;
+            color: var(--text-color);
+            background-color: var(--input-bg);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-weight: 500;
         }
 
         .forecast-status {
             font-size: 12px;
             font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: none;
         }
 
         .status-pending {
-            background-color: rgba(255, 152, 0, 0.2);
-            color: var(--warning-color);
+            background-color: var(--forecast-pending-bg);
+            color: var(--secondary-color);
         }
 
         .status-win {
-            background-color: rgba(76, 175, 80, 0.2);
+            background-color: var(--forecast-win-bg);
             color: var(--success-color);
         }
 
         .status-loss {
-            background-color: rgba(244, 67, 54, 0.2);
+            background-color: var(--forecast-loss-bg);
             color: var(--danger-color);
         }
 
         .teams-container {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
-            gap: 10px;
+            margin-bottom: 20px;
+            gap: 15px;
         }
 
         .team {
@@ -837,18 +733,19 @@
         }
 
         .team-logo {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary-color);
+            width: 70px;
+            height: 70px;
+            background: var(--input-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             border: 3px solid var(--border-color);
             flex-shrink: 0;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .team-logo img {
@@ -859,17 +756,26 @@
         }
 
         .team-logo i {
-            font-size: 28px;
+            font-size: 30px;
             color: var(--primary-color);
             z-index: 1;
+        }
+
+        /* Effet de flou coloré autour des logos */
+        .team-logo.home-team {
+            box-shadow: 0 0 25px rgba(255, 100, 100, 0.4), 0 0 50px rgba(255, 100, 100, 0.2);
+        }
+
+        .team-logo.away-team {
+            box-shadow: 0 0 25px rgba(100, 150, 255, 0.4), 0 0 50px rgba(100, 150, 255, 0.2);
         }
 
         .team-name {
             font-weight: bold;
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.3;
-            max-width: 80px;
+            max-width: 90px;
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
@@ -883,30 +789,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 15px;
+            margin: 0 20px;
             flex-shrink: 0;
             min-width: 80px;
         }
 
         .vs-text {
-            font-size: 32px;
+            font-size: 36px;
             color: var(--text-color);
             font-weight: bold;
+            opacity: 0.6;
         }
 
         .forecast-time {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--inactive-text);
             text-align: center;
+            margin-top: 8px;
+            font-weight: 500;
         }
 
         /* Chart styles */
         .chart-container {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .chart-title {
@@ -948,17 +858,17 @@
             right: 0;
             background-color: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 25px;
             z-index: 10;
-            height: 200px;
+            height: 220px;
         }
 
         .detail-teams {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
-            margin: 20px 0;
-            gap: 15px;
+            margin: 25px 0;
+            gap: 20px;
         }
 
         .detail-team {
@@ -970,18 +880,19 @@
         }
 
         .detail-team-logo {
-            width: 80px;
-            height: 80px;
-            background: var(--secondary-color);
+            width: 90px;
+            height: 90px;
+            background: var(--input-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
-            border: 3px solid var(--border-color);
+            margin-bottom: 15px;
+            border: 4px solid var(--border-color);
             flex-shrink: 0;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .detail-team-logo img {
@@ -992,16 +903,25 @@
         }
 
         .detail-team-logo i {
-            font-size: 40px;
+            font-size: 45px;
             color: var(--primary-color);
             z-index: 1;
+        }
+
+        /* Effet de flou coloré pour les logos des détails */
+        .detail-team-logo.home-team {
+            box-shadow: 0 0 30px rgba(255, 100, 100, 0.5), 0 0 60px rgba(255, 100, 100, 0.3);
+        }
+
+        .detail-team-logo.away-team {
+            box-shadow: 0 0 30px rgba(100, 150, 255, 0.5), 0 0 60px rgba(100, 150, 255, 0.3);
         }
 
         .detail-team-name {
             font-weight: bold;
             font-size: 16px;
             text-align: center;
-            max-width: 100px;
+            max-width: 120px;
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
@@ -1016,7 +936,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 20px;
+            margin: 0 25px;
             flex-shrink: 0;
             min-width: 100px;
         }
@@ -1033,19 +953,21 @@
         .detail-forecast-status {
             font-size: 14px;
             font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-bottom: 5px;
+            padding: 8px 16px;
+            border-radius: 25px;
+            margin-bottom: 8px;
+            display: none;
         }
 
         .detail-forecast-time {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--inactive-text);
+            font-weight: 500;
         }
 
         /* Scrollable content area */
         .detail-scrollable-content {
-            margin-top: 260px;
+            margin-top: 280px;
             flex: 1;
             overflow-y: auto;
             display: flex;
@@ -1056,10 +978,10 @@
         /* Tabs - occupent toute la largeur */
         .detail-tabs {
             display: flex;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             margin: 0;
             border-radius: 0;
-            padding: 4px 0;
+            padding: 6px 0;
             position: sticky;
             top: 0;
             z-index: 5;
@@ -1067,33 +989,34 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .detail-tab {
             flex: 1;
-            padding: 12px 8px;
+            padding: 15px 10px;
             text-align: center;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 12px;
             border-radius: 0;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--inactive-text);
             white-space: nowrap;
-            min-width: 80px;
-            margin: 0 2px;
+            min-width: 85px;
+            margin: 0 3px;
+            border-radius: 10px;
         }
 
         .detail-tab.active {
             background-color: var(--primary-color);
             color: white;
-            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         /* Tab Content */
         .tab-content {
-            padding: 20px;
+            padding: 25px;
             display: none;
             flex: 1;
         }
@@ -1103,29 +1026,32 @@
         }
 
         .analysis-section {
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
+            background-color: var(--input-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-color);
         }
 
         .analysis-title {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: var(--primary-color);
+            font-size: 16px;
         }
 
         .analysis-content {
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
             white-space: pre-line;
         }
 
         .prediction-highlight {
             background-color: var(--prediction-highlight-bg);
             color: var(--prediction-highlight-text);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 6px;
             font-weight: bold;
         }
 
@@ -1133,20 +1059,22 @@
         .stats-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .stats-category {
             background: var(--stat-card-bg);
             border: 1px solid var(--stat-card-border);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-color);
         }
 
         .stats-category-title {
             font-size: 16px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--primary-color);
             text-align: center;
         }
@@ -1155,7 +1083,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -1166,7 +1094,7 @@
         .stats-home {
             color: var(--home-team-color);
             font-weight: bold;
-            width: 60px;
+            width: 70px;
             text-align: center;
         }
 
@@ -1175,26 +1103,27 @@
             text-align: center;
             font-size: 13px;
             color: var(--text-color);
+            font-weight: 500;
         }
 
         .stats-away {
             color: var(--away-team-color);
             font-weight: bold;
-            width: 60px;
+            width: 70px;
             text-align: center;
         }
 
         .form-display {
             display: flex;
             justify-content: center;
-            gap: 3px;
+            gap: 4px;
             margin: 5px 0;
         }
 
         .form-badge {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
             color: white;
             font-size: 10px;
             font-weight: bold;
@@ -1224,30 +1153,32 @@
         .matches-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .matches-section {
             background: var(--stat-card-bg);
             border: 1px solid var(--stat-card-border);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
         }
 
         .matches-section-title {
             font-size: 16px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--primary-color);
             text-align: center;
         }
 
         .match-item {
-            background: var(--secondary-color);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
+            background: var(--input-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
             font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .match-item:last-child {
@@ -1256,12 +1187,13 @@
 
         .match-date {
             color: var(--inactive-text);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-weight: 500;
         }
 
         .match-teams {
             font-weight: bold;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .match-score {
@@ -1273,12 +1205,12 @@
         .h2h-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
         .h2h-empty {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             color: var(--inactive-text);
         }
 
@@ -1299,12 +1231,16 @@
             border-collapse: collapse;
             font-size: 11px;
             table-layout: fixed;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .ranking-table th {
             background: var(--table-header-bg);
             color: var(--table-header-text);
-            padding: 8px 4px;
+            padding: 12px 6px;
             text-align: center;
             font-weight: bold;
             border: 1px solid var(--border-color);
@@ -1323,7 +1259,7 @@
         }
 
         .ranking-table td {
-            padding: 6px 4px;
+            padding: 10px 6px;
             text-align: center;
             border: 1px solid var(--border-color);
             word-wrap: break-word;
@@ -1335,18 +1271,18 @@
         }
 
         .ranking-table tr.home-team {
-            background-color: rgba(255, 0, 0, 0.1);
+            background-color: rgba(255, 100, 100, 0.1);
             font-weight: bold;
         }
 
         .ranking-table tr.away-team {
-            background-color: rgba(0, 102, 255, 0.1);
+            background-color: rgba(100, 150, 255, 0.1);
             font-weight: bold;
         }
 
         .team-name-cell {
             text-align: left;
-            padding-left: 6px;
+            padding-left: 8px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -1476,7 +1412,7 @@
         }
 
         .menu-badge {
-            background: var(--warning-color);
+            background: var(--secondary-color);
             color: white;
             font-size: 8px;
             padding: 2px 6px;
@@ -1596,6 +1532,7 @@
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-color);
         }
 
         .content-section h2 {
@@ -1763,7 +1700,7 @@
         
         .form-input:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(93, 92, 222, 0.25);
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.15);
         }
         
         .form-input::placeholder {
@@ -1829,7 +1766,7 @@
         }
         
         .button:hover {
-            background-color: #4a49c0;
+            background-color: var(--secondary-color);
         }
 
         .button:disabled {
@@ -2004,7 +1941,7 @@
         .profile-pic {
             width: 80px;
             height: 80px;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -2016,6 +1953,7 @@
             cursor: pointer;
             border: 3px solid var(--primary-color);
             transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(51, 51, 51, 0.2);
         }
 
         .profile-pic:hover {
@@ -2049,13 +1987,13 @@
         }
         
         .profile-email {
-            color: #6b7280;
+            color: var(--secondary-color);
             font-size: 16px;
             margin-bottom: 5px;
         }
         
         .profile-status {
-            color: #6b7280;
+            color: var(--secondary-color);
         }
 
         .settings-container {
@@ -2082,7 +2020,7 @@
             border-radius: 15px;
             text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             cursor: pointer;
             color: white;
             font-weight: bold;
@@ -2096,7 +2034,7 @@
         
         .social-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
         
         .social-button.whatsapp {
@@ -2194,7 +2132,7 @@
         }
 
         .avatar-viewer-btn.edit:hover {
-            background-color: #4a49c0;
+            background-color: var(--secondary-color);
         }
 
         .avatar-viewer-btn.close {
@@ -2273,7 +2211,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             justify-self: center;
         }
 
@@ -2290,7 +2228,7 @@
 
         .avatar-modal-option.active {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.3);
             transform: scale(1.15);
         }
 
@@ -2332,7 +2270,7 @@
         }
 
         .avatar-modal-cancel {
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             color: var(--text-color);
         }
 
@@ -2346,7 +2284,7 @@
         }
 
         .avatar-modal-save:hover {
-            background-color: #4a49c0;
+            background-color: var(--secondary-color);
         }
 
         .avatar-modal-save:disabled {
@@ -2431,7 +2369,7 @@
         }
         
         .confirmation-cancel {
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             color: var(--text-color);
         }
         
@@ -2453,6 +2391,7 @@
             padding: 15px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: relative;
+            border-left: 4px solid var(--primary-color);
         }
         
         .admin-notification-header {
@@ -2501,12 +2440,13 @@
         }
 
         .interface-section {
-            background: linear-gradient(135deg, var(--secondary-color), rgba(var(--primary-color), 0.05));
+            background: var(--input-bg);
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid rgba(var(--primary-color), 0.1);
+            border: 1px solid var(--border-color);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
         }
 
         .interface-section:hover {
@@ -2534,111 +2474,6 @@
             margin-bottom: 15px;
             line-height: 1.4;
         }
-        
-        .theme-selector {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 15px 0;
-        }
-        
-        .theme-option {
-            width: 100%;
-            height: 70px;
-            border-radius: 12px;
-            cursor: pointer;
-            position: relative;
-            border: 2px solid var(--theme-selector-border);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .theme-option:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .theme-option.active {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
-            transform: scale(1.1);
-        }
-        
-        .theme-option.active:before {
-            content: '\f00c';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 18px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.7);
-            z-index: 3;
-        }
-        
-        .theme-option.theme-blue {
-            background: linear-gradient(135deg, #5D5CDE, #4a49c0);
-        }
-        
-        .theme-option.theme-green {
-            background: linear-gradient(135deg, #4CAF50, #388E3C);
-        }
-        
-        .theme-option.theme-red {
-            background: linear-gradient(135deg, #F44336, #d32f2f);
-        }
-        
-        .theme-option.theme-orange {
-            background: linear-gradient(135deg, #FF9800, #f57c00);
-        }
-
-        .theme-option.theme-purple {
-            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-        }
-
-        .theme-option.theme-teal {
-            background: linear-gradient(135deg, #009688, #00695C);
-        }
-
-        .theme-option.theme-indigo {
-            background: linear-gradient(135deg, #3F51B5, #303F9F);
-        }
-
-        .theme-option.theme-pink {
-            background: linear-gradient(135deg, #E91E63, #C2185B);
-        }
-
-        .theme-option.theme-cyan {
-            background: linear-gradient(135deg, #00BCD4, #0097A7);
-        }
-
-        .theme-option.theme-lime {
-            background: linear-gradient(135deg, #CDDC39, #AFB42B);
-        }
-
-        .theme-option.theme-amber {
-            background: linear-gradient(135deg, #FFC107, #FF8F00);
-        }
-
-        .theme-option.theme-deep-orange {
-            background: linear-gradient(135deg, #FF5722, #D84315);
-        }
-        
-        .theme-label {
-            margin-top: 8px;
-            font-size: 10px;
-            text-align: center;
-            font-weight: 600;
-            line-height: 1.2;
-            color: var(--text-color);
-            opacity: 0.8;
-        }
 
         .setting-item {
             display: flex;
@@ -2652,7 +2487,7 @@
         .setting-icon {
             width: 36px;
             height: 36px;
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -2732,7 +2567,7 @@
         }
 
         .history-category-title {
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             padding: 10px 20px;
             margin: 0 15px 10px;
             border-radius: 8px;
@@ -2750,7 +2585,7 @@
         }
 
         .history-forecast-item {
-            background-color: var(--secondary-color);
+            background-color: var(--input-bg);
             border-radius: 10px;
             padding: 15px;
             border-left: 4px solid var(--primary-color);
@@ -2788,8 +2623,8 @@
             }
 
             .teams-container {
-                margin-bottom: 10px;
-                gap: 8px;
+                margin-bottom: 15px;
+                gap: 10px;
             }
 
             .team-name, .detail-team-name {
@@ -2797,21 +2632,21 @@
             }
 
             .detail-scrollable-content {
-                margin-top: 240px;
+                margin-top: 260px;
             }
 
             .forecast-info-section {
-                height: 180px;
+                height: 200px;
             }
 
             .detail-team-logo {
-                width: 70px;
-                height: 70px;
+                width: 75px;
+                height: 75px;
             }
 
             .team-logo {
-                width: 50px;
-                height: 50px;
+                width: 60px;
+                height: 60px;
             }
 
             .nav-icon {
@@ -2866,9 +2701,9 @@
             }
 
             .detail-tab {
-                min-width: 60px;
+                min-width: 70px;
                 font-size: 10px;
-                padding: 10px 6px;
+                padding: 12px 8px;
             }
 
             .ranking-table {
@@ -3200,7 +3035,7 @@
                     </a>
                 </div>
 
-                <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
+                <div style="background: var(--input-bg); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
                     <div style="font-size: 14px; color: var(--inactive-text); margin-bottom: 10px;">
                         💡 <strong>Conseil Pro :</strong> Utilisez le code <strong>ICEGAME</strong> lors de votre inscription pour débloquer tous les avantages secrets
                     </div>
@@ -3268,54 +3103,6 @@
         <!-- Interface Section -->
         <div id="interface-section" class="section">
             <div class="interface-sections">
-                <div class="interface-section">
-                    <div class="interface-title">
-                        <i class="fas fa-palette"></i>
-                        Thème de couleur
-                    </div>
-                    <div class="interface-subtitle">
-                        Personnalisez l'apparence de l'application avec une large gamme de couleurs
-                    </div>
-                    <div class="theme-selector">
-                        <div class="theme-option theme-blue active" data-theme="default">
-                            <div class="theme-label">Bleu</div>
-                        </div>
-                        <div class="theme-option theme-green" data-theme="green">
-                            <div class="theme-label">Vert</div>
-                        </div>
-                        <div class="theme-option theme-red" data-theme="red">
-                            <div class="theme-label">Rouge</div>
-                        </div>
-                        <div class="theme-option theme-orange" data-theme="orange">
-                            <div class="theme-label">Orange</div>
-                        </div>
-                        <div class="theme-option theme-purple" data-theme="purple">
-                            <div class="theme-label">Violet</div>
-                        </div>
-                        <div class="theme-option theme-teal" data-theme="teal">
-                            <div class="theme-label">Turquoise</div>
-                        </div>
-                        <div class="theme-option theme-indigo" data-theme="indigo">
-                            <div class="theme-label">Indigo</div>
-                        </div>
-                        <div class="theme-option theme-pink" data-theme="pink">
-                            <div class="theme-label">Rose</div>
-                        </div>
-                        <div class="theme-option theme-cyan" data-theme="cyan">
-                            <div class="theme-label">Cyan</div>
-                        </div>
-                        <div class="theme-option theme-lime" data-theme="lime">
-                            <div class="theme-label">Lime</div>
-                        </div>
-                        <div class="theme-option theme-amber" data-theme="amber">
-                            <div class="theme-label">Ambre</div>
-                        </div>
-                        <div class="theme-option theme-deep-orange" data-theme="deep-orange">
-                            <div class="theme-label">Orange Foncé</div>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="interface-section">
                     <div class="interface-title">
                         <i class="fas fa-moon"></i>
@@ -3500,7 +3287,7 @@
                     <h3>📱 Interface Moderne</h3>
                     <ul>
                         <li>Design responsive et intuitif</li>
-                        <li>Thèmes personnalisables</li>
+                        <li>Thème monochrome élégant</li>
                         <li>Mode sombre/clair adaptatif</li>
                         <li>Navigation fluide et rapide</li>
                     </ul>
@@ -3596,7 +3383,7 @@
                 <button class="back-btn" id="detail-back-btn">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <div class="header-title" id="detail-header-title">Détails du pronostic</div>
+                <div class="header-title" id="detail-header-title">Analyse</div>
             </div>
             <div class="header-actions">
                 <button class="action-btn" id="favorite-btn">
@@ -3611,7 +3398,7 @@
             
             <div class="detail-teams">
                 <div class="detail-team">
-                    <div class="detail-team-logo" id="detail-home-logo">
+                    <div class="detail-team-logo home-team" id="detail-home-logo">
                         <i class="fas fa-futbol"></i>
                     </div>
                     <div class="detail-team-name" id="detail-home-team">Équipe Domicile</div>
@@ -3619,12 +3406,12 @@
                 
                 <div class="detail-prediction">
                     <div class="detail-prediction-value" id="detail-prediction" style="display: none;">1X</div>
-                    <div class="detail-forecast-status status-pending" id="detail-status">À venir</div>
+                    <div class="detail-forecast-status status-pending" id="detail-status" style="display: none;">À venir</div>
                     <div class="detail-forecast-time" id="detail-time">29.06.2025 10:30</div>
                 </div>
                 
                 <div class="detail-team">
-                    <div class="detail-team-logo" id="detail-away-logo">
+                    <div class="detail-team-logo away-team" id="detail-away-logo">
                         <i class="fas fa-futbol"></i>
                     </div>
                     <div class="detail-team-name" id="detail-away-team">Équipe Extérieur</div>
@@ -3848,7 +3635,6 @@
         let hasNewEvents = false;
         let lastViewedEventTimestamp = null;
         let eventsUnsubscribe = null;
-        let selectedTheme = localStorage.getItem('kingPronosTheme') || 'default';
         let selectedAvatar = null;
         let tempSelectedAvatar = null;
 
@@ -4169,26 +3955,6 @@
             }
         }
 
-        // Setup theme functions
-        function setupTheme() {
-            const themeClasses = ['theme-green', 'theme-red', 'theme-orange', 'theme-purple', 'theme-teal', 'theme-indigo', 'theme-pink', 'theme-cyan', 'theme-lime', 'theme-amber', 'theme-deep-orange'];
-            
-            document.documentElement.classList.remove(...themeClasses);
-            
-            if (selectedTheme !== 'default') {
-                document.documentElement.classList.add(`theme-${selectedTheme}`);
-            }
-            
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.classList.remove('active');
-            });
-            
-            const activeThemeOption = document.querySelector(`.theme-option[data-theme="${selectedTheme}"]`);
-            if (activeThemeOption) {
-                activeThemeOption.classList.add('active');
-            }
-        }
-
         function setupDarkMode() {
             const savedPreference = localStorage.getItem('kingPronosDarkMode');
             
@@ -4331,9 +4097,16 @@
         }
 
         // Function to create team logo element
-        function createTeamLogoElement(logoUrl, teamName, isDetail = false) {
+        function createTeamLogoElement(logoUrl, teamName, isDetail = false, isHome = true) {
             const logoContainer = document.createElement('div');
             logoContainer.className = isDetail ? 'detail-team-logo' : 'team-logo';
+            
+            // Ajouter la classe pour l'effet de flou coloré
+            if (isHome) {
+                logoContainer.classList.add('home-team');
+            } else {
+                logoContainer.classList.add('away-team');
+            }
 
             if (logoUrl) {
                 const img = document.createElement('img');
@@ -4355,17 +4128,6 @@
             const card = document.createElement('div');
             card.className = 'forecast-card';
             card.addEventListener('click', () => openForecastDetail(forecastData));
-
-            let statusClass = 'pending';
-            let statusText = 'À venir';
-            
-            if (forecastData.status === 'win') {
-                statusClass = 'win';
-                statusText = 'Gagné';
-            } else if (forecastData.status === 'loss') {
-                statusClass = 'loss';
-                statusText = 'Perdu';
-            }
 
             let formattedDate = 'Aujourd\'hui';
             try {
@@ -4397,7 +4159,6 @@
             card.innerHTML = `
                 <div class="forecast-header">
                     <div class="league-info">${forecastData.league || 'Compétition'}</div>
-                    <div class="forecast-status status-${statusClass}">${statusText}</div>
                 </div>
                 
                 <div class="teams-container">
@@ -4424,12 +4185,12 @@
                 const awayLogoContainer = card.querySelector('.team-logo-container-away');
                 
                 if (homeLogoContainer) {
-                    const homeLogo = createTeamLogoElement(forecastData.logo_home, forecastData.HomeTeam);
+                    const homeLogo = createTeamLogoElement(forecastData.logo_home, forecastData.HomeTeam, false, true);
                     homeLogoContainer.replaceWith(homeLogo);
                 }
                 
                 if (awayLogoContainer) {
-                    const awayLogo = createTeamLogoElement(forecastData.logo_away, forecastData.AwayTeam);
+                    const awayLogo = createTeamLogoElement(forecastData.logo_away, forecastData.AwayTeam, false, false);
                     awayLogoContainer.replaceWith(awayLogo);
                 }
             }, 0);
@@ -4445,13 +4206,13 @@
             
             document.getElementById('detail-home-team').textContent = forecastData.HomeTeam || 'Équipe 1';
             document.getElementById('detail-away-team').textContent = forecastData.AwayTeam || 'Équipe 2';
-            document.getElementById('detail-prediction').style.display = 'none';
             
             // Update logos
             const detailHomeLogo = document.getElementById('detail-home-logo');
             const detailAwayLogo = document.getElementById('detail-away-logo');
             
             detailHomeLogo.innerHTML = '';
+            detailHomeLogo.classList.add('home-team');
             if (forecastData.logo_home) {
                 const homeImg = document.createElement('img');
                 homeImg.src = forecastData.logo_home;
@@ -4469,6 +4230,7 @@
             }
             
             detailAwayLogo.innerHTML = '';
+            detailAwayLogo.classList.add('away-team');
             if (forecastData.logo_away) {
                 const awayImg = document.createElement('img');
                 awayImg.src = forecastData.logo_away;
@@ -4484,20 +4246,6 @@
             } else {
                 detailAwayLogo.innerHTML = `<i class="${getTeamIcon(forecastData.AwayTeam)}"></i>`;
             }
-            
-            let statusClass = 'pending';
-            let statusText = 'À venir';
-            
-            if (forecastData.status === 'win') {
-                statusClass = 'win';
-                statusText = 'Gagné';
-            } else if (forecastData.status === 'loss') {
-                statusClass = 'loss';
-                statusText = 'Perdu';
-            }
-            
-            document.getElementById('detail-status').textContent = statusText;
-            document.getElementById('detail-status').className = `detail-forecast-status status-${statusClass}`;
             
             let formattedDateTime = 'Aujourd\'hui';
             try {
@@ -4714,8 +4462,8 @@
                             statsHome.total_marques || 0,
                             statsHome.total_encaisses || 0
                         ],
-                        backgroundColor: 'rgba(255, 0, 0, 0.6)',
-                        borderColor: '#FF0000',
+                        backgroundColor: 'rgba(255, 100, 100, 0.6)',
+                        borderColor: '#FF6464',
                         borderWidth: 1
                     }, {
                         label: awayTeam || 'Extérieur',
@@ -4725,8 +4473,8 @@
                             statsAway.total_marques || 0,
                             statsAway.total_encaisses || 0
                         ],
-                        backgroundColor: 'rgba(0, 102, 255, 0.6)',
-                        borderColor: '#0066FF',
+                        backgroundColor: 'rgba(100, 150, 255, 0.6)',
+                        borderColor: '#6496FF',
                         borderWidth: 1
                     }]
                 },
@@ -4791,7 +4539,7 @@
                         data: [homeForm.W, homeForm.D, homeForm.L],
                         backgroundColor: [
                             'rgba(76, 175, 80, 0.8)',
-                            'rgba(255, 193, 7, 0.8)',
+                            'rgba(153, 153, 153, 0.8)',
                             'rgba(244, 67, 54, 0.8)'
                         ],
                         borderWidth: 2
@@ -4800,7 +4548,7 @@
                         data: [awayForm.W, awayForm.D, awayForm.L],
                         backgroundColor: [
                             'rgba(76, 175, 80, 0.5)',
-                            'rgba(255, 193, 7, 0.5)',
+                            'rgba(153, 153, 153, 0.5)',
                             'rgba(244, 67, 54, 0.5)'
                         ],
                         borderWidth: 2
@@ -4840,9 +4588,9 @@
                             statsHome.buts_dom_encaisses || 0,
                             statsHome.total_points_6 || 0
                         ],
-                        borderColor: '#FF0000',
-                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                        pointBackgroundColor: '#FF0000'
+                        borderColor: '#FF6464',
+                        backgroundColor: 'rgba(255, 100, 100, 0.2)',
+                        pointBackgroundColor: '#FF6464'
                     }, {
                         label: `${awayTeam} (Extérieur)`,
                         data: [
@@ -4850,9 +4598,9 @@
                             statsAway.buts_ext_encaisses || 0,
                             statsAway.total_points_6 || 0
                         ],
-                        borderColor: '#0066FF',
-                        backgroundColor: 'rgba(0, 102, 255, 0.2)',
-                        pointBackgroundColor: '#0066FF'
+                        borderColor: '#6496FF',
+                        backgroundColor: 'rgba(100, 150, 255, 0.2)',
+                        pointBackgroundColor: '#6496FF'
                     }]
                 },
                 options: {
@@ -5188,7 +4936,7 @@
                             <!-- Le forecast card sera inséré ici -->
                         </div>
                         
-                        <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
+                        <div style="background: var(--input-bg); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
                             <div style="font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: bold;">
                                 🎯 Match Sélectionné par l'IA
                             </div>
@@ -5266,7 +5014,6 @@
             } else if (sectionId === 'history') {
                 loadHistoryData();
             } else if (sectionId === 'interface') {
-                setupTheme();
                 setupDarkMode();
             }
         }
@@ -5577,7 +5324,6 @@
             const content = `
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                     <div style="font-weight: bold;">${forecastData.HomeTeam || 'Équipe 1'} vs ${forecastData.AwayTeam || 'Équipe 2'}</div>
-                    <div class="forecast-status pending">À venir</div>
                 </div>
                 <div style="font-size: 11px; margin-top: 4px; opacity: 0.6;">
                     ${forecastData.league || 'Compétition'} • ${forecastData.country_fr || 'Pays'}
@@ -6012,45 +5758,6 @@
             document.getElementById('avatar-modal-cancel').addEventListener('click', closeAvatarSelector);
             document.getElementById('avatar-modal-save').addEventListener('click', saveSelectedAvatar);
 
-            // Theme selector
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const theme = this.getAttribute('data-theme');
-                    selectedTheme = theme;
-                    
-                    const themeClasses = ['theme-green', 'theme-red', 'theme-orange', 'theme-purple', 'theme-teal', 'theme-indigo', 'theme-pink', 'theme-cyan', 'theme-lime', 'theme-amber', 'theme-deep-orange'];
-                    document.documentElement.classList.remove(...themeClasses);
-                    
-                    if (theme !== 'default') {
-                        document.documentElement.classList.add(`theme-${theme}`);
-                    }
-                    
-                    document.querySelectorAll('.theme-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    localStorage.setItem('kingPronosTheme', theme);
-                    
-                    const themeNames = {
-                        'default': 'Bleu',
-                        'green': 'Vert',
-                        'red': 'Rouge',
-                        'orange': 'Orange',
-                        'purple': 'Violet',
-                        'teal': 'Turquoise',
-                        'indigo': 'Indigo',
-                        'pink': 'Rose',
-                        'cyan': 'Cyan',
-                        'lime': 'Lime',
-                        'amber': 'Ambre',
-                        'deep-orange': 'Orange Foncé'
-                    };
-                    
-                    showNotification(`Thème ${themeNames[theme]} appliqué`, 'success');
-                });
-            });
-
             // Dark mode toggle
             document.getElementById('dark-toggle').addEventListener('change', function() {
                 if (this.checked) {
@@ -6077,7 +5784,6 @@
             showLoading();
             setupEventListeners();
             setupAuth();
-            setupTheme();
             setupDarkMode();
             initializePWA();
             
