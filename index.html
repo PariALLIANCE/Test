@@ -124,6 +124,8 @@
             --secrets-popup-content-bg: var(--bg-color);
             --icegame-bg: linear-gradient(135deg, #2196F3, #1976D2);
             --icegame-text: white;
+            --icebet-bg: linear-gradient(135deg, #9C27B0, #7B1FA2);
+            --icebet-text: white;
             --coming-soon-bg: linear-gradient(135deg, #9E9E9E, #757575);
             --coming-soon-text: white;
             --home-team-color: #FF0000;
@@ -137,9 +139,6 @@
             --match-result-draw: #FFC107;
             --match-result-loss: #F44336;
             --pending-result: #cccccc;
-            --investment-bg: linear-gradient(135deg, #FF6B35, #F7931E);
-            --investment-text: white;
-            --investment-shadow: rgba(255, 107, 53, 0.3);
         }
         
         /* Thème vert */
@@ -485,6 +484,11 @@
             background-color: var(--bg-color);
         }
 
+        /* Main content for menu sections (full height) */
+        .main-content.full-height {
+            bottom: 0;
+        }
+
         /* Sections - Fixed for scrolling */
         .section {
             display: none;
@@ -684,7 +688,7 @@
             transform: translateY(-2px);
         }
 
-        /* Icegame Investment Section */
+        /* Icegame Section */
         .icegame-container {
             padding: 20px;
             overflow-y: auto;
@@ -696,10 +700,10 @@
             text-align: center;
             margin-bottom: 30px;
             padding: 30px 20px;
-            background: var(--investment-bg);
+            background: var(--icegame-bg);
             border-radius: 20px;
-            color: var(--investment-text);
-            box-shadow: 0 8px 30px var(--investment-shadow);
+            color: var(--icegame-text);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
         .icegame-title {
@@ -718,108 +722,135 @@
             line-height: 1.4;
         }
 
-        .investment-section {
-            background: var(--card-bg);
-            border: 2px solid var(--primary-color);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .investment-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .investment-content {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin-bottom: 20px;
-        }
-
-        .investment-steps {
-            background: var(--secondary-color);
-            border-radius: 15px;
+        /* ICEBET Section */
+        .icebet-container {
             padding: 20px;
-            margin-bottom: 25px;
+            overflow-y: auto;
+            height: 100%;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .investment-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .investment-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-number {
-            background: var(--primary-color);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
-        .step-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: var(--primary-color);
-        }
-
-        .step-description {
-            font-size: 14px;
-            line-height: 1.4;
-            color: var(--text-color);
-            opacity: 0.8;
-        }
-
-        .investment-warning {
-            background: rgba(255, 152, 0, 0.1);
-            border: 2px solid var(--warning-color);
-            border-radius: 15px;
-            padding: 20px;
+        .icebet-header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: var(--icebet-bg);
+            border-radius: 20px;
+            color: var(--icebet-text);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .warning-title {
-            font-size: 18px;
+        .icebet-title {
+            font-size: 28px;
             font-weight: bold;
-            color: var(--warning-color);
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 15px;
+        }
+
+        .icebet-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .icebet-content {
+            background: var(--card-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .icebet-method-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
-        .warning-text {
+        .icebet-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin-bottom: 25px;
+        }
+
+        .icebet-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .icebet-step {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            text-align: left;
+        }
+
+        .icebet-step-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .icebet-step-text {
             font-size: 14px;
             line-height: 1.4;
             color: var(--text-color);
+        }
+
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 40px);
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--coming-soon-bg);
+            color: var(--coming-soon-text);
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .coming-soon-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: clockRotate 2s ease-in-out infinite;
+        }
+
+        @keyframes clockRotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .coming-soon-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .coming-soon-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            line-height: 1.4;
+            max-width: 600px;
         }
 
         /* Forecast Cards Container - Fixed for scrolling */
@@ -1572,7 +1603,7 @@
             display: block;
         }
 
-        /* Bottom Navigation - Fixed z-index and conditional display */
+        /* Bottom Navigation - Fixed z-index */
         .bottom-nav {
             background-color: var(--bg-color);
             border-top: 1px solid var(--border-color);
@@ -2851,11 +2882,6 @@
             color: var(--text-color);
         }
 
-        /* Responsive - main content padding adjustment for menu sections */
-        .main-content.menu-section {
-            bottom: 0;
-        }
-
         /* Responsive */
         @media (max-width: 480px) {
             .header {
@@ -2921,8 +2947,16 @@
                 letter-spacing: 2px;
             }
 
-            .icegame-title {
+            .coming-soon-icon {
+                font-size: 60px;
+            }
+
+            .coming-soon-title {
                 font-size: 24px;
+            }
+
+            .coming-soon-subtitle {
+                font-size: 16px;
             }
 
             .detail-tabs {
@@ -3070,9 +3104,8 @@
                 <div class="side-menu-text">Secrets</div>
             </div>
             <div class="side-menu-item" id="menu-icebet">
-                <i class="fas fa-snowflake"></i>
+                <i class="fas fa-chart-line"></i>
                 <div class="side-menu-text">ICEBET</div>
-                <div class="menu-badge">Bientôt</div>
             </div>
             <div class="side-menu-item" id="menu-history">
                 <i class="fas fa-history"></i>
@@ -3167,128 +3200,63 @@
         <!-- Icegame Section -->
         <div id="icegame-section" class="section">
             <div class="icegame-container" id="icegame-container">
-                <div class="icegame-header">
-                    <div class="icegame-title">
+                <!-- ICEGAME content will be loaded here -->
+            </div>
+        </div>
+
+        <!-- ICEBET Section -->
+        <div id="icebet-section" class="section">
+            <div class="icebet-container">
+                <div class="icebet-header">
+                    <div class="icebet-title">
                         <i class="fas fa-chart-line"></i>
-                        ICEGAME
-                        <i class="fas fa-coins"></i>
+                        ICEBET
+                        <i class="fas fa-fire"></i>
                     </div>
-                    <div class="icegame-subtitle">
-                        Stratégie d'investissement sportif quotidien
-                    </div>
-                </div>
-
-                <div class="investment-section">
-                    <div class="investment-title">
-                        <i class="fas fa-lightbulb"></i>
-                        Qu'est-ce que ICEGAME ?
-                    </div>
-                    <div class="investment-content">
-                        ICEGAME est une stratégie d'investissement sportif innovante qui consiste à parier quotidiennement sur le match avec la plus forte probabilité de réussite, sélectionné par notre intelligence artificielle avancée.
-                        <br><br>
-                        Contrairement aux paris classiques, ICEGAME suit une approche disciplinée et méthodique pour maximiser vos gains sur le long terme.
+                    <div class="icebet-subtitle">
+                        Méthode d'investissement sportif basée sur l'intelligence artificielle
                     </div>
                 </div>
 
-                <div class="investment-section">
-                    <div class="investment-title">
-                        <i class="fas fa-cogs"></i>
-                        Comment ça fonctionne ?
+                <div class="icebet-content">
+                    <div class="icebet-method-title">
+                        <i class="fas fa-bullseye"></i>
+                        Stratégie ICEBET
                     </div>
-                    <div class="investment-steps">
-                        <div class="investment-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <div class="step-title">Sélection IA</div>
-                                <div class="step-description">Chaque jour, notre IA analyse des milliers de données pour identifier le match avec le meilleur potentiel de gain</div>
-                            </div>
-                        </div>
-                        <div class="investment-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <div class="step-title">Mise fixe</div>
-                                <div class="step-description">Vous investissez toujours le même montant (ex: 1000 FCFA) sur le match sélectionné</div>
-                            </div>
-                        </div>
-                        <div class="investment-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <div class="step-title">Croissance progressive</div>
-                                <div class="step-description">Vos gains s'accumulent jour après jour grâce à la constance et la qualité des prédictions</div>
-                            </div>
-                        </div>
-                        <div class="investment-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <div class="step-title">Réinvestissement</div>
-                                <div class="step-description">Réinvestissez une partie de vos gains pour accélérer la croissance de votre capital</div>
-                            </div>
-                        </div>
+                    <div class="icebet-description">
+                        ICEBET est une méthode d'investissement sportif révolutionnaire qui consiste à parier chaque jour sur le meilleur match sélectionné par notre intelligence artificielle avancée. Cette approche méthodique maximise vos chances de succès en se concentrant sur la qualité plutôt que la quantité.
                     </div>
-                </div>
 
-                <div class="investment-section">
-                    <div class="investment-title">
-                        <i class="fas fa-chart-line"></i>
-                        Avantages d'ICEGAME
-                    </div>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="benefit-title">IA Performante</div>
-                            <div class="benefit-description">
-                                Notre intelligence artificielle analyse + de 500 critères par match pour garantir la meilleure sélection
-                            </div>
+                    <div class="icebet-steps">
+                        <div class="icebet-step">
+                            <div class="icebet-step-number">Étape 1</div>
+                            <div class="icebet-step-text">Notre IA analyse des milliers de matchs et sélectionne le pronostic avec la plus haute probabilité de succès (visible dans ICEGAME).</div>
                         </div>
 
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-target"></i>
-                            </div>
-                            <div class="benefit-title">Un Match/Jour</div>
-                            <div class="benefit-description">
-                                Stratégie simple et disciplinée : un seul match par jour pour éviter les pertes impulsives
-                            </div>
+                        <div class="icebet-step">
+                            <div class="icebet-step-number">Étape 2</div>
+                            <div class="icebet-step-text">Vous pariez un montant fixe sur ce match unique, en suivant une stratégie de gestion de bankroll rigoureuse.</div>
                         </div>
 
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="benefit-title">Risque Contrôlé</div>
-                            <div class="benefit-description">
-                                Mise fixe quotidienne qui protège votre capital et assure une croissance progressive
-                            </div>
+                        <div class="icebet-step">
+                            <div class="icebet-step-number">Étape 3</div>
+                            <div class="icebet-step-text">Répétez le processus chaque jour avec discipline, en ajustant votre mise selon les résultats précédents.</div>
                         </div>
 
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-calendar-day"></i>
-                            </div>
-                            <div class="benefit-title">Constance</div>
-                            <div class="benefit-description">
-                                Stratégie à long terme qui fonctionne grâce à la régularité et la patience
-                            </div>
+                        <div class="icebet-step">
+                            <div class="icebet-step-number">Avantages</div>
+                            <div class="icebet-step-text">• Minimise les risques • Maximise la précision • Facilite le suivi • Développe la discipline financière</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="investment-warning">
-                    <div class="warning-title">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        Investissement Responsable
+                    <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 25px;">
+                        <div style="font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: bold;">
+                            💡 <strong>Conseil :</strong> Un pari par jour selon ICEGAME
+                        </div>
+                        <div style="font-size: 14px; color: var(--text-color); line-height: 1.4;">
+                            Suivez le match sélectionné quotidiennement dans la section ICEGAME pour appliquer cette méthode d'investissement progressif et maîtrisé.
+                        </div>
                     </div>
-                    <div class="warning-text">
-                        ICEGAME est une stratégie d'investissement qui nécessite de la discipline et de la patience. 
-                        Ne jamais parier plus que ce que vous pouvez vous permettre de perdre. 
-                        Les performances passées ne garantissent pas les résultats futurs.
-                    </div>
-                </div>
-
-                <div id="icegame-daily-pick" style="margin-top: 30px;">
-                    <!-- Le match du jour sera inséré ici -->
                 </div>
             </div>
         </div>
@@ -3561,7 +3529,6 @@
                         <li>Historique des matchs et confrontations</li>
                         <li>Classements et données de performance</li>
                         <li>Analyses IA avancées</li>
-                        <li>Stratégie d'investissement ICEGAME</li>
                     </ul>
                 </div>
 
@@ -3574,7 +3541,6 @@
                         <li>Les paris sportifs peuvent être addictifs et entraîner des pertes financières</li>
                         <li>Pariez uniquement ce que vous pouvez vous permettre de perdre</li>
                         <li>Il est interdit aux mineurs (moins de 18 ans) d'utiliser nos services</li>
-                        <li>ICEGAME est une stratégie d'investissement qui nécessite discipline et patience</li>
                     </ul>
                 </div>
 
@@ -3586,7 +3552,6 @@
                         <li>L'utilisateur est seul responsable de ses décisions de paris</li>
                         <li>Nous ne sommes pas responsables des erreurs ou omissions dans les données</li>
                         <li>L'exactitude des pronostics n'est pas garantie</li>
-                        <li>Les stratégies d'investissement proposées ne garantissent pas de gains</li>
                     </ul>
                 </div>
 
@@ -3689,14 +3654,6 @@
                         <li>Intégration de multiples sources de données</li>
                     </ul>
 
-                    <h3>💰 ICEGAME - Stratégie d'Investissement</h3>
-                    <ul>
-                        <li>Sélection IA quotidienne du meilleur match</li>
-                        <li>Stratégie de mise fixe disciplinée</li>
-                        <li>Approche d'investissement à long terme</li>
-                        <li>Gestion des risques optimisée</li>
-                    </ul>
-
                     <h3>📱 Interface Moderne</h3>
                     <ul>
                         <li>Design responsive et intuitif</li>
@@ -3729,8 +3686,11 @@
 
                 <div class="content-section">
                     <h2>Fonctionnalités à Venir</h2>
-                    <h3>❄️ ICEBET</h3>
-                    <p>Un système de recommandations avancé intégrant des partenariats avec des plateformes de paris légales et régulées.</p>
+                    <h3>🎮 ICEGAME</h3>
+                    <p>Une plateforme de jeux interactifs liés aux sports, permettant aux utilisateurs de tester leurs connaissances et leurs capacités de prédiction de manière ludique.</p>
+
+                    <h3>📈 ICEBET</h3>
+                    <p>Une méthode d'investissement sportif basée sur l'intelligence artificielle, permettant un pari quotidien optimisé sur le meilleur match sélectionné par notre IA.</p>
 
                     <h3>📈 Analyses Avancées</h3>
                     <ul>
@@ -3738,14 +3698,6 @@
                         <li>Analyses de marchés spécialisés</li>
                         <li>Alertes personnalisées</li>
                         <li>Rapports détaillés exportables</li>
-                    </ul>
-
-                    <h3>💼 Outils d'Investissement</h3>
-                    <ul>
-                        <li>Calculateur de bankroll</li>
-                        <li>Suivi de performance personnalisé</li>
-                        <li>Stratégies de mise avancées</li>
-                        <li>Analyses de rentabilité</li>
                     </ul>
                 </div>
 
@@ -3781,7 +3733,7 @@
                 <div class="content-section">
                     <h2>Informations Techniques</h2>
                     <ul>
-                        <li><strong>Version Actuelle :</strong> 3.8.1</li>
+                        <li><strong>Version Actuelle :</strong> 3.8.0</li>
                         <li><strong>Dernière Mise à Jour :</strong> Janvier 2025</li>
                         <li><strong>Compatibilité :</strong> Tous navigateurs modernes</li>
                         <li><strong>Installation :</strong> Progressive Web App (PWA)</li>
@@ -3902,7 +3854,7 @@
             <span>Pronostics</span>
         </div>
         <div class="nav-item" data-section="icegame">
-            <i class="nav-icon fas fa-chart-line"></i>
+            <i class="nav-icon fas fa-gamepad"></i>
             <span>Icegame</span>
         </div>
         <div class="nav-item" data-section="profile">
@@ -3936,7 +3888,7 @@
     <!-- Service Worker Script -->
     <script>
         // Service Worker
-        const SW_VERSION = '3.8.1';
+        const SW_VERSION = '3.8.0';
         const CACHE_NAME = `kingpronos-v${SW_VERSION}`;
         const urlsToCache = [
             '/',
@@ -5347,25 +5299,24 @@
             listElement.appendChild(fragment);
         }
 
-        // Function to load ICEGAME - Show daily investment pick
+        // Function to load ICEGAME - Show most probable match of the day
         async function loadIcegameData() {
             const icegameContainer = document.getElementById('icegame-container');
-            const dailyPickElement = document.getElementById('icegame-daily-pick');
             
             try {
                 const githubData = await fetchForecastsFromGitHub(getCurrentDateString());
                 
                 if (!githubData) {
-                    dailyPickElement.innerHTML = `
-                        <div style="background: var(--secondary-color); padding: 25px; border-radius: 20px; text-align: center; border: 2px solid var(--primary-color);">
-                            <div style="font-size: 20px; font-weight: bold; color: var(--primary-color); margin-bottom: 15px;">
-                                🎯 Sélection IA du Jour
+                    icegameContainer.innerHTML = `
+                        <div class="coming-soon-container">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-clock"></i>
                             </div>
-                            <div style="font-size: 16px; color: var(--text-color); margin-bottom: 15px;">
-                                Aucun match analysé aujourd'hui
+                            <div class="coming-soon-title">
+                                ICEGAME
                             </div>
-                            <div style="font-size: 14px; color: var(--inactive-text);">
-                                Revenez demain pour découvrir la prochaine opportunité d'investissement sélectionnée par notre IA
+                            <div class="coming-soon-subtitle">
+                                Aucun match disponible aujourd'hui
                             </div>
                         </div>
                     `;
@@ -5375,75 +5326,51 @@
                 const processedData = processForecastData(githubData);
                 
                 if (processedData.pronostics && processedData.pronostics.length > 0) {
-                    // Prendre le premier match comme le plus probable pour ICEGAME
-                    const investmentPick = processedData.pronostics[0];
+                    // Prendre le premier match comme le plus probable
+                    const mostProbableMatch = processedData.pronostics[0];
                     
-                    dailyPickElement.innerHTML = `
-                        <div style="background: var(--investment-bg); color: var(--investment-text); padding: 25px; border-radius: 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 8px 25px var(--investment-shadow);">
-                            <div style="font-size: 20px; font-weight: bold; margin-bottom: 15px;">
-                                🎯 SÉLECTION IA DU JOUR
+                    icegameContainer.innerHTML = `
+                        <div class="icegame-header">
+                            <div class="icegame-title">
+                                <i class="fas fa-gamepad"></i>
+                                ICEGAME
+                                <i class="fas fa-trophy"></i>
                             </div>
-                            <div style="font-size: 16px; margin-bottom: 15px; opacity: 0.9;">
-                                Le match avec la plus forte probabilité de réussite pour votre investissement quotidien
-                            </div>
-                            <div style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
-                                <div style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">
-                                    ${investmentPick.HomeTeam} vs ${investmentPick.AwayTeam}
-                                </div>
-                                <div style="font-size: 14px; opacity: 0.9;">
-                                    ${investmentPick.league} • ${investmentPick.country_fr}
-                                </div>
-                            </div>
-                            <div id="icegame-forecast-card" style="cursor: pointer; margin: 20px 0;">
-                                <!-- Le forecast card sera inséré ici -->
+                            <div class="icegame-subtitle">
+                                Le match avec l'analyse la plus probable du jour
                             </div>
                         </div>
-
-                        <div class="investment-section">
-                            <div class="investment-title">
-                                <i class="fas fa-info-circle"></i>
-                                Pourquoi ce match ?
-                            </div>
-                            <div class="investment-content">
-                                Ce match a été sélectionné par notre système d'IA après analyse de :
-                                <br><br>
-                                ✅ <strong>Forme récente des équipes</strong><br>
-                                ✅ <strong>Statistiques historiques</strong><br>
-                                ✅ <strong>Confrontations directes</strong><br>
-                                ✅ <strong>Contexte de la compétition</strong><br>
-                                ✅ <strong>Plus de 500 autres critères</strong>
-                            </div>
+                        
+                        <div id="icegame-forecast-card" style="cursor: pointer;">
+                            <!-- Le forecast card sera inséré ici -->
                         </div>
-
-                        <div style="background: var(--warning-bg); border: 2px solid var(--warning-color); border-radius: 15px; padding: 20px; text-align: center;">
-                            <div style="font-size: 16px; font-weight: bold; color: var(--warning-color); margin-bottom: 10px;">
-                                💡 Conseil ICEGAME
+                        
+                        <div style="background: var(--secondary-color); padding: 20px; border-radius: 15px; text-align: center; margin-top: 20px;">
+                            <div style="font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: bold;">
+                                🎯 Match Sélectionné par l'IA
                             </div>
-                            <div style="font-size: 14px; color: var(--text-color); line-height: 1.5;">
-                                Utilisez toujours une mise fixe (exemple: 1000 FCFA) et ne jamais dépasser 2-5% de votre bankroll totale. 
-                                La discipline est la clé du succès à long terme.
+                            <div style="font-size: 14px; color: var(--text-color); line-height: 1.4;">
+                                Ce match a été sélectionné par notre système d'intelligence artificielle comme ayant la plus forte probabilité de prédiction réussie aujourd'hui.
                             </div>
                         </div>
                     `;
                     
                     // Créer et insérer la carte du match
-                    const forecastCard = createForecastCard(investmentPick);
+                    const forecastCard = createForecastCard(mostProbableMatch);
                     const icegameCardContainer = document.getElementById('icegame-forecast-card');
-                    if (icegameCardContainer) {
-                        icegameCardContainer.appendChild(forecastCard);
-                    }
+                    icegameCardContainer.appendChild(forecastCard);
                     
                 } else {
-                    dailyPickElement.innerHTML = `
-                        <div style="background: var(--secondary-color); padding: 25px; border-radius: 20px; text-align: center; border: 2px solid var(--primary-color);">
-                            <div style="font-size: 20px; font-weight: bold; color: var(--primary-color); margin-bottom: 15px;">
-                                🎯 Sélection IA du Jour
+                    icegameContainer.innerHTML = `
+                        <div class="coming-soon-container">
+                            <div class="coming-soon-icon">
+                                <i class="fas fa-clock"></i>
                             </div>
-                            <div style="font-size: 16px; color: var(--text-color); margin-bottom: 15px;">
-                                Aucun match analysé aujourd'hui
+                            <div class="coming-soon-title">
+                                ICEGAME
                             </div>
-                            <div style="font-size: 14px; color: var(--inactive-text);">
-                                Notre IA n'a trouvé aucun match répondant aux critères stricts d'ICEGAME aujourd'hui
+                            <div class="coming-soon-subtitle">
+                                Aucun match analysé disponible aujourd'hui
                             </div>
                         </div>
                     `;
@@ -5451,13 +5378,16 @@
                 
             } catch (error) {
                 console.error(`Erreur chargement ICEGAME: ${error.message}`);
-                dailyPickElement.innerHTML = `
-                    <div style="background: var(--secondary-color); padding: 25px; border-radius: 20px; text-align: center; border: 2px solid var(--danger-color);">
-                        <div style="font-size: 20px; font-weight: bold; color: var(--danger-color); margin-bottom: 15px;">
-                            ⚠️ Erreur de Chargement
+                icegameContainer.innerHTML = `
+                    <div class="coming-soon-container">
+                        <div class="coming-soon-icon">
+                            <i class="fas fa-exclamation-circle"></i>
                         </div>
-                        <div style="font-size: 16px; color: var(--text-color);">
-                            Impossible de charger la sélection du jour
+                        <div class="coming-soon-title">
+                            ICEGAME
+                        </div>
+                        <div class="coming-soon-subtitle">
+                            Erreur de chargement
                         </div>
                     </div>
                 `;
@@ -5467,6 +5397,20 @@
         // Navigation functions
         function showSection(sectionId) {
             currentSection = sectionId;
+            
+            // Hide/show bottom navigation based on section
+            const bottomNav = document.getElementById('bottom-nav');
+            const mainContent = document.getElementById('main-content');
+            
+            const menuSections = ['secrets', 'terms', 'about', 'history', 'interface', 'events', 'icebet'];
+            
+            if (menuSections.includes(sectionId)) {
+                bottomNav.classList.add('hidden');
+                mainContent.classList.add('full-height');
+            } else {
+                bottomNav.classList.remove('hidden');
+                mainContent.classList.remove('full-height');
+            }
             
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
@@ -5483,7 +5427,6 @@
             });
             
             updateHeaderForSection(sectionId);
-            updateBottomNavVisibility(sectionId);
             
             if (sectionId === 'forecasts') {
                 loadForecastsData();
@@ -5552,6 +5495,11 @@
                 headerActions.innerHTML = '';
                 backBtn.style.display = 'block';
                 menuBtn.style.display = 'none';
+            } else if (sectionId === 'icebet') {
+                headerTitle.textContent = 'ICEBET';
+                headerActions.innerHTML = '';
+                backBtn.style.display = 'block';
+                menuBtn.style.display = 'none';
             } else if (sectionId === 'terms') {
                 headerTitle.textContent = 'Conditions';
                 headerActions.innerHTML = '';
@@ -5577,23 +5525,6 @@
             if (hasNewEvents) {
                 const dot = document.getElementById('events-notification-dot');
                 if (dot) dot.classList.add('active');
-            }
-        }
-
-        // Function to update bottom nav visibility
-        function updateBottomNavVisibility(sectionId) {
-            const bottomNav = document.getElementById('bottom-nav');
-            const mainContent = document.getElementById('main-content');
-            
-            // Hide bottom nav for menu sections
-            const menuSections = ['secrets', 'history', 'interface', 'terms', 'about', 'events'];
-            
-            if (menuSections.includes(sectionId)) {
-                bottomNav.classList.add('hidden');
-                mainContent.classList.add('menu-section');
-            } else {
-                bottomNav.classList.remove('hidden');
-                mainContent.classList.remove('menu-section');
             }
         }
 
@@ -6187,7 +6118,7 @@
             document.getElementById('menu-icebet').addEventListener('click', function() {
                 document.getElementById('side-menu').classList.remove('active');
                 document.getElementById('side-menu-overlay').classList.remove('active');
-                showNotification('ICEBET sera bientôt disponible !', 'info');
+                showSection('icebet');
             });
 
             document.getElementById('menu-history').addEventListener('click', function() {
