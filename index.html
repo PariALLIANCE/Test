@@ -482,6 +482,7 @@
             bottom: 60px;
             overflow: hidden;
             background-color: var(--bg-color);
+            transition: bottom 0.3s ease;
         }
 
         /* Main content for menu sections (full height) */
@@ -1603,7 +1604,7 @@
             display: block;
         }
 
-        /* Bottom Navigation - Fixed z-index */
+        /* Bottom Navigation - Masquage efficace pour les sections du menu */
         .bottom-nav {
             background-color: var(--bg-color);
             border-top: 1px solid var(--border-color);
@@ -1615,10 +1616,17 @@
             display: flex;
             z-index: 95;
             box-shadow: 0 -2px 10px var(--shadow);
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         }
 
+        /* Masquage de la barre de navigation pour les sections du menu */
         .bottom-nav.hidden {
-            display: none;
+            opacity: 0;
+            transform: translateY(100%);
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .nav-item {
@@ -3000,6 +3008,17 @@
 
             .chart-wrapper {
                 height: 250px;
+            }
+
+            /* Notification ajustée pour mobile */
+            .notification {
+                bottom: 20px;
+                max-width: 95%;
+            }
+
+            /* Amélioration du masquage sur mobile */
+            .bottom-nav.hidden {
+                transform: translateY(120%);
             }
         }
     </style>
@@ -5394,30 +5413,44 @@
             }
         }
 
-        // Navigation functions
+        // Navigation functions with enhanced bottom nav management
         function showSection(sectionId) {
             currentSection = sectionId;
             
-            // Hide/show bottom navigation based on section
+            // List of sections that should hide the bottom navigation
+            const menuSections = ['secrets', 'terms', 'about', 'history', 'interface', 'events', 'icebet'];
+            
+            // Get references to DOM elements
             const bottomNav = document.getElementById('bottom-nav');
             const mainContent = document.getElementById('main-content');
             
-            const menuSections = ['secrets', 'terms', 'about', 'history', 'interface', 'events', 'icebet'];
-            
+            // Enhanced bottom navigation management
             if (menuSections.includes(sectionId)) {
+                // For menu sections: hide bottom nav and expand content to full height
                 bottomNav.classList.add('hidden');
                 mainContent.classList.add('full-height');
+                
+                // Force hide with additional CSS to ensure compatibility
+                bottomNav.style.display = 'none';
+                mainContent.style.bottom = '0';
             } else {
+                // For main sections: show bottom nav and adjust content height
                 bottomNav.classList.remove('hidden');
                 mainContent.classList.remove('full-height');
+                
+                // Force show with additional CSS
+                bottomNav.style.display = 'flex';
+                mainContent.style.bottom = '60px';
             }
             
+            // Update active section
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
             
             document.getElementById(sectionId + '-section').classList.add('active');
             
+            // Update navigation items
             document.querySelectorAll('.nav-item').forEach(item => {
                 if (item.dataset.section === sectionId) {
                     item.classList.add('active');
@@ -5428,6 +5461,7 @@
             
             updateHeaderForSection(sectionId);
             
+            // Load section-specific data
             if (sectionId === 'forecasts') {
                 loadForecastsData();
             } else if (sectionId === 'icegame') {
